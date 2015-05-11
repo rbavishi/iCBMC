@@ -9,6 +9,7 @@ function generate_trace () {
 	
 	##### GOTO Programs #####
 	touch converted.c
+	rm -rf trace-debug.txt
 	/home/rbavishi/CBMC\ -\ Bug\ Clustering\ Project/cbmc-5.0/src/goto-cc/goto-cc "$1" -o intermediate_program.gb
 	/home/rbavishi/CBMC\ -\ Bug\ Clustering\ Project/cbmc-5.0/src/goto-instrument/goto-instrument intermediate_program.gb --dump-c > generate_trace_converted.c
 	##### Remove unnecessary stuff #####
@@ -16,10 +17,10 @@ function generate_trace () {
 
 	##### Generate Counterexample #####
 	icbmc "$@"
-	if [ "$?" != "0" ]; then
+	if [ -a "trace-debug.txt" ]; then
 	else
 		echo "Nothing to do."
-		rm intermediate_program.gb "*symbols.txt" "*converted.c"
+		rm -rf intermediate_program.gb "*symbols.txt" "*converted.c"
 	fi
 
 }
