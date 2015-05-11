@@ -515,7 +515,7 @@ Function: goto_instrument_parseoptionst::get_goto_program
 void goto_instrument_parseoptionst::get_goto_program(
   goto_functionst &goto_functions)
 {
-  status() << "Reading GOTO program from `" << cmdline.args[0] << "'" << eom;
+  //status() << "Reading GOTO program from `" << cmdline.args[0] << "'" << eom;
 
   if(read_goto_binary(cmdline.args[0],
     symbol_table, goto_functions, get_message_handler()))
