@@ -32,7 +32,7 @@ def parse_and_rename_variables(line):
                                 read_word += line[start_id]
                                 start_id += 1
 
-                        if VARIABLE_NAME_CONVERSIONS.has_key(read_word) and line[i-1]!='.'
+			if (i>0 and line[i-1]!='.') and VARIABLE_NAME_CONVERSIONS.has_key(read_word):
                                 return_line = return_line + VARIABLE_NAME_CONVERSIONS[read_word]
                                 i = start_id
                         else:
