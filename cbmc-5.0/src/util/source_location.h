@@ -17,6 +17,7 @@ public:
   std::string as_string() const;
   std::string line_number_only() const;
   bool need_to_print() const;
+  std::string print_function() const;
 
   inline const irep_idt &get_file() const
   {

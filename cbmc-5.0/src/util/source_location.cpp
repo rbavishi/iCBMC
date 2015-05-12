@@ -66,6 +66,17 @@ bool source_locationt::need_to_print() const
 
 }
 
+std::string source_locationt::print_function() const
+{
+  std::string func_name;
+  const irep_idt &func=get_function();
+  const irep_idt &file=get_file();
+
+  if (file[0]!='<' && file!="") func_name += id2string(func);
+
+  return func_name;
+}
+
 /*******************************************************************\
 
 Function: operator<<
