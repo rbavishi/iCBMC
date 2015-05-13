@@ -330,7 +330,7 @@ void trace_debug_file(
       
     case goto_trace_stept::LOCATION:
       if (it->pc->source_location.need_to_print() && ((nxt)->type)!=goto_trace_stept::FUNCTION_CALL && ((nxt)->type)!=goto_trace_stept::FUNCTION_RETURN) {
-	      line_number_file << "LOCATION||" << from_expr(ns, "", it->pc->guard) << it->pc->source_location.line_number_only();
+	      line_number_file << "LOCATION||" << from_expr(ns, "", it->pc->guard) << "||" << it->pc->source_location.line_number_only();
       }
       break;
 
