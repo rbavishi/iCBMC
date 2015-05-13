@@ -14,6 +14,7 @@ CODE=[]
 TRACE_INST_TYPES=[]
 TRACE_INST_VARIABLES=[]
 TRACE_LINE_NUMBERS=[]
+DECL_USED_VARIABLES={}
 
 
 def test_valid_variable_character(c,first_character):
@@ -40,7 +41,7 @@ def parse_and_rename_variables(line, function):
                                 read_word += line[start_id]
                                 start_id += 1
 
-			if (i>0 and line[i-1]!='.') and VARIABLE_NAME_CONVERSIONS.has_key((read_word, function)):
+			if (i==0 or line[i-1]!='.') and VARIABLE_NAME_CONVERSIONS.has_key((read_word, function)):
                                 return_line = return_line + VARIABLE_NAME_CONVERSIONS[(read_word, function)]
                                 i = start_id
                         else:
@@ -48,20 +49,20 @@ def parse_and_rename_variables(line, function):
                                 i = start_id
 		elif single_inv_comma_encountered==True:
                         return_line += line[i]
-			if line[i] == "'" and (i>0 and line[i-1]!="\\"):
+			if line[i] == "'" and (i==0 or line[i-1]!="\\"):
 				single_inv_comma_encountered=False
                         i += 1
 
 		elif double_inv_comma_encountered==True:
                         return_line += line[i]
-			if line[i] == '"' and (i>0 and line[i-1]!="\\"):
+			if line[i] == '"' and (i==0 or line[i-1]!="\\"):
 				double_inv_comma_encountered=False
                         i += 1
 		else:
 			return_line += line[i]
-			if line[i] == '"' and (i>0 and line[i-1]!="\\"):
+			if line[i] == '"' and (i==0 or line[i-1]!="\\"):
 				double_inv_comma_encountered=True
-			elif line[i] == "'" and (i>0 and line[i-1]!="\\"):
+			elif line[i] == "'" and (i==0 or line[i-1]!="\\"):
 				single_inv_comma_encountered=True
 			i += 1
 
@@ -99,9 +100,10 @@ def read_symbols(f):
 			temp=name.split('::')
                         actual_name=temp[-1]
 			function_name=temp[0]
-                        name=name.replace('::','___')
                         VARIABLE_DATA_TYPES[name]=data_type
+                        name=name.replace('::','___')
                         VARIABLE_NAME_CONVERSIONS[(actual_name, function_name)]=name
+			DECL_USED_VARIABLES[(actual_name,function_name)]=0
 
 def read_code(f):
 
@@ -109,7 +111,6 @@ def read_code(f):
 	f.seek(0)
 	temp=f.read()
 	init_code = temp.split('\n')
-	init_code = [ y for y in init_code if y!='' and y!='{' and y!='}' ]
 	init_code = [ y.lstrip() for y in init_code ]
 	CODE = [''] + init_code
 
@@ -123,7 +124,6 @@ def read_trace(f):
 	temp.remove('')
 	for i in temp:
 		line = i.split('||')
-		print line
 		if len(line) == 3: #Variable involved
 			TRACE_INST_TYPES += [line[0]]
 			TRACE_INST_VARIABLES += [line[1]]
@@ -135,16 +135,84 @@ def read_trace(f):
 			TRACE_LINE_NUMBERS += [int(line[1])]
 
 
+def parse_functions_and_arguments(line):
+
+	print line
+	index = line.find('(')
+	print index
+	i = index - 1
+	while ((i >= 0) and test_valid_variable_character(line[i],False)):
+		i = i - 1
+	
+	i = i + 1
+	j = index
+	single_quotes = False
+	double_quotes = False
+	args=[]
+	while ( j < len(line) ):
+		if double_quotes == True:
+			if line[j] == '"' and ( j == 0 or line[j-1]!='\\'):
+				double_quotes = False
+
+		elif single_quotes == True:
+			if line[j] == "'" and ( j == 0 and line[j-1]!='\\'):
+				single_quotes = False
+		else:	
+			if line[j] == '"' and ( j == 0 and line[j-1]!='\\'):
+				double_quotes = True
+
+			elif line[j] == "'" and ( j == 0 and line[j-1]!='\\'):
+				single_quotes = True
+
+			else:
+				if line[j] == ')':
+					break
+
+		j = j + 1
+
+	it = index + 1
+	single_quotes = False
+	double_quotes = False
+	read_word=''
+	while ( it < j ) :
+		if single_quotes == False and double_quotes == False and line[it]==',':
+			args += [read_word]
+			read_word=''
+
+		else:
+			read_word += line[it]
+
+		it += 1
+	args += [read_word]
+	
+	a = [ i, j, line[i:index], args]
+	print a
+	return a
+
+def fetch_var_name(var_name, curr_function):
+	global DECL_USED_VARIABLES
+
+	actual_name = var_name.split('::')[-1]
+
+	if DECL_USED_VARIABLES[(actual_name, curr_function)]!=0:
+		VARIABLE_NAME_CONVERSIONS[(actual_name, curr_function)]=(var_name+'__'+str(DECL_USED_VARIABLES[(actual_name, curr_function)])).replace('::','___')
+
+	DECL_USED_VARIABLES[(actual_name, curr_function)] += 1
+
 
 def generate_equivalent_program():
 
         global FUNCTIONS, VARIABLE_DATA_TYPES, VARIABLE_NAME_CONVERSIONS, CODE, TRACE_LINE_NUMBERS, TRACE_INST_VARIABLES, TRACE_INST_TYPES
-	final_code = CODE[TRACE_LINE_NUMBERS[0]] + " {\n"
+	final_code = CODE[TRACE_LINE_NUMBERS[0]] + " {\n\n"
 	i = 1
 	curr_function="main"
+	calling_function=''
+	function_return_line=''
+	start_id = 0
+	finish_id = 0
 	while (i < len(TRACE_INST_TYPES) - 1 ):
 
-		if TRACE_INST_TYPES[i] != "FUNCTION_CALL":
+		if TRACE_INST_TYPES[i] != "FUNCTION_CALL" and TRACE_INST_TYPES[i] != "FUNCTION_RETURN":
 
 			if TRACE_LINE_NUMBERS[i + 1] != TRACE_LINE_NUMBERS[i]: #### INDEPENDENT INSTRUCTION : Only need to check for while loops
 
@@ -154,6 +222,14 @@ def generate_equivalent_program():
 						new_line = 'if' + line[5:]    ### Convert whiles to IFs
 						new_line = parse_and_rename_variables(new_line, curr_function)
 						final_code += new_line + "\n"
+
+				elif TRACE_INST_TYPES[i] == "DECL":
+					var_name = TRACE_INST_VARIABLES[i]
+					fetch_var_name(var_name, curr_function)
+					new_line = parse_and_rename_variables(line, curr_function)
+					final_code += new_line + "\n"
+
+
 				else:
 					new_line = parse_and_rename_variables(line, curr_function)
 					final_code += new_line + "\n"
@@ -165,44 +241,65 @@ def generate_equivalent_program():
 				if line[:4] == "for(":                        ### Crude hack, has to work
 					temp = line.strip().split(';')
 					step = temp[-1].strip().lstrip().replace(')','')
-					final_code += parse_and_rename_variables(step, curr_function) + ';'
+					final_code += parse_and_rename_variables(step, curr_function) + ';\n'
 					if len(temp) == 3:                    ### No extra ; character
 						condition = temp[1].strip().lstrip()
-						final_code += parse_and_rename_variables(condition, curr_function) + ';'
+						final_code += 'if('+parse_and_rename_variables(condition, curr_function)+')' + '\n'
 
 					else:
 						condition = reduce(lambda x,y: x + ';' + y, temp[1:len(temp)-1]) ### Reknit the string
 						condition = condition.strip().lstrip()
-						final_code += parse_and_rename_variables(condition, curr_function) + ';'
+						final_code += 'if(' + parse_and_rename_variables(condition, curr_function) + ')'+'\n'
 					i += 2
 
-				else:
-					final_code += parse_and_rename_variables(line, curr_function)
+				else:	
+					if TRACE_INST_TYPES[i] == "DECL":
+						var_name = TRACE_INST_VARIABLES[i]
+						fetch_var_name(var_name, curr_function)
+						new_line = parse_and_rename_variables(line, curr_function)
+						final_code += new_line + "\n"
+									
+					else:
+						final_code += parse_and_rename_variables(line, curr_function)+'\n'
+						
 					cur_line_num = TRACE_LINE_NUMBERS[i]
-
-					while (TRACE_LINE_NUMBERS[i] == cur_line_num):
+					while ((i < len(TRACE_INST_TYPES) - 1) and TRACE_LINE_NUMBERS[i] == cur_line_num):
 						i += 1
 
-		else:
+		elif TRACE_INST_TYPES[i] == "FUNCTION_CALL":
 			##### We have a function call here
+			line = CODE[TRACE_LINE_NUMBERS[i]]
+			start_id, finish_id, func_name, args = parse_functions_and_arguments(line)
+			num_args = FUNCTIONS[func_name]
+			function_return_line = CODE[TRACE_LINE_NUMBERS[i]]
+			for k in xrange(num_args):
+				i = i + 1
+				var = TRACE_INST_VARIABLES[i]
+				actual_name = var.split('::')[-1]
+				fetch_var_name(var, func_name)
+				final_code += VARIABLE_DATA_TYPES[var] + " " + VARIABLE_NAME_CONVERSIONS[actual_name, func_name] + " = " + parse_and_rename_variables(args[k], curr_function)+';\n'
+			calling_function = curr_function
+			curr_function = func_name
+			i += 1
 
+		else:
+			line_num = TRACE_LINE_NUMBERS[i]
+			line_num -= 1
+			line = CODE [line_num]
+			x = line.find(' ')
+			ret_val = line[x+1:len(line)-1]
 
-
-
-					
-
-
-
-
-
-
-
-
-
-
+			new_line = function_return_line[:start_id] + ret_val + function_return_line[finish_id+1:]
+			print "NEW LINE: ",new_line
+			final_code += parse_and_rename_variables(new_line,curr_function)+'\n'
+			curr_function = calling_function
+			i += 2
+	final_code += parse_and_rename_variables(CODE[TRACE_LINE_NUMBERS[i]],curr_function)
 	
-
-
+	final_code+="\n\n}"
+	f = open('equivalent_program.c','w+')
+	f.write(final_code)
+	f.close()
 
 if __name__ == "__main__":
     f=open('generate_trace_symbols.txt','r')
@@ -210,6 +307,7 @@ if __name__ == "__main__":
     print FUNCTIONS
     print VARIABLE_DATA_TYPES
     print VARIABLE_NAME_CONVERSIONS
+    print DECL_USED_VARIABLES
     f.close()
 
     f=open('generate_trace_converted.c','r')
@@ -219,8 +317,13 @@ if __name__ == "__main__":
 
     f=open('trace-debug.txt','r')
     read_trace(f)
-    print TRACE_INST_TYPES, TRACE_INST_VARIABLES, TRACE_LINE_NUMBERS
+    #print TRACE_INST_TYPES, TRACE_INST_VARIABLES, TRACE_LINE_NUMBERS
     f.close()
+
+    generate_equivalent_program()
+    print parse_and_rename_variables('a = a + 1;','main')
+
+
 
 
         
