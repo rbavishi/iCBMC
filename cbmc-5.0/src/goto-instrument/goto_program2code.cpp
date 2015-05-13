@@ -7,6 +7,7 @@ Author: Daniel Kroening, kroening@kroening.com
 \*******************************************************************/
 
 #include <sstream>
+#include <iostream>
 
 #include <util/config.h>
 #include <util/prefix.h>
@@ -227,7 +228,7 @@ goto_programt::const_targett goto_program2codet::convert_instruction(
 
     if(loop_entry!=loop_map.end() &&
         (upper_bound==goto_program.instructions.end() ||
-         upper_bound->location_number > loop_entry->second->location_number))
+         upper_bound->location_number > loop_entry->second->location_number)) 
       return convert_do_while(target, loop_entry->second, dest);
   }
 
@@ -762,10 +763,11 @@ goto_programt::const_targett goto_program2codet::convert_goto_while(
 
     w.body().move_to_operands(i);
   }
-
+/*
   if(w.body().has_operands() &&
      to_code(w.body().operands().back()).get_statement()==ID_assign)
   {
+    std::cout << "Maybe she's the one...\n";
     code_fort f;
 
     f.init().make_nil();
@@ -800,7 +802,7 @@ goto_programt::const_targett goto_program2codet::convert_goto_while(
       d.swap(w);
     }
   }
-
+*/
   dest.move_to_operands(w);
 
   return target;

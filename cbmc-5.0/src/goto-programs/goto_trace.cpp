@@ -304,7 +304,8 @@ Function: trace_debug_file
 
 void trace_debug_file(
   std::ofstream &line_number_file,
-  goto_tracet::stepst::const_iterator it
+  goto_tracet::stepst::const_iterator it,
+  const namespacet &ns
   )
 {
     goto_tracet::stepst::const_iterator nxt;
@@ -329,7 +330,7 @@ void trace_debug_file(
       
     case goto_trace_stept::LOCATION:
       if (it->pc->source_location.need_to_print() && ((nxt)->type)!=goto_trace_stept::FUNCTION_CALL && ((nxt)->type)!=goto_trace_stept::FUNCTION_RETURN) {
-	      line_number_file << "LOCATION||" << it->pc->source_location.line_number_only();
+	      line_number_file << "LOCATION||" << from_expr(ns, "", it->pc->guard) << it->pc->source_location.line_number_only();
       }
       break;
 
@@ -425,6 +426,7 @@ void show_goto_trace(
   std::ofstream line_number_file;
   line_number_file.open("trace-debug.txt", std::ios::out | std::ios::trunc );
 
+  goto_trace.output(ns,out);
   for(goto_tracet::stepst::const_iterator
       it=goto_trace.steps.begin();
       it!=goto_trace.steps.end();
@@ -434,7 +436,7 @@ void show_goto_trace(
     if(it->hidden)
       continue;
   
-    trace_debug_file(line_number_file,it);
+    trace_debug_file(line_number_file,it,ns);
     switch(it->type)
     {
     case goto_trace_stept::ASSERT:
