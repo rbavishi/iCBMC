@@ -50,5 +50,33 @@ class i_Condition:
     def __init__(self, node):
         self.cond_string = cond2string(node)
 
+    def AND(self, node):
+        if type(node)==str:
+            ret_string = '('+self.cond_string + ')&&(' + node + ')'
+        else:
+            ret_string = '('+self.cond_string + ')&&(' + cond2string(node) + ')'
+
+        return ret_string
+    
+    def OR(self, node):
+        if type(node)==str:
+            ret_string = '('+self.cond_string + ')||(' + node + ')'
+        else:
+            ret_string = '('+self.cond_string + ')||(' + cond2string(node) + ')'
+
+        return ret_string
+    
+    def NOT(self,node):
+        if type(node)==str:
+            ret_string = '!(' + node + ')'
+        else:
+            ret_string = '!(' + cond2string(node) + ')'
+
+        return ret_string
+
+
+
+
+
 
         
