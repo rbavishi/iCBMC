@@ -1,8 +1,2 @@
-*~
-*.swp
-*.swo
-generate_trace_*
-trace-debug*
-*.gb
-equivalent_program.c
 *.o
+*.a
