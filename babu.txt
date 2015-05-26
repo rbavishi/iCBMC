@@ -1,0 +1,11 @@
+
+        signed int i;
+        i = -1;
+        IF !(i < 0) THEN GOTO 1
+        i = 2;
+        GOTO 2
+     1: i = 3;
+     2: IF !(i == 3) THEN GOTO 3
+        GOTO 4
+     3: ASSERT FALSE // assertion i == 3
+     4: return 0;

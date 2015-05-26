@@ -8,6 +8,7 @@ Author: Daniel Kroening, kroening@kroening.com
 
 #include <sstream>
 #include <cctype>
+#include <iostream>
 
 #include <util/config.h>
 #include <util/prefix.h>

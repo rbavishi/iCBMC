@@ -305,33 +305,36 @@ Function: trace_debug_file
 void trace_debug_file(
   std::ofstream &line_number_file,
   goto_tracet::stepst::const_iterator it,
-  const namespacet &ns
+  const namespacet &ns,
+  std::ostream &out
   )
 {
     goto_tracet::stepst::const_iterator nxt;
     nxt = it;
     nxt++;
+    //it->pc->output(ns,it->lhs_object.get_identifier(),out);
     switch(it->type)
     {
     case goto_trace_stept::ASSERT:
-      if(!it->cond_value)
-      {
-        if(!it->pc->source_location.is_nil())
+     //if(!it->cond_value)
+      //{
+        //if(!it->pc->source_location.is_nil())
 	
-      	  // ###### LINE NUMBER PRINTING #######
           line_number_file << "ASSERT||" << it->pc->source_location.line_number_only();
 
-      }
+       // if(it->pc->is_assert())
+          line_number_file << "  " << from_expr(ns, "", it->pc->guard) << "\n";       
+      //}
       break;
       
     case goto_trace_stept::ASSUME:
-      line_number_file << "ASSUME||" << it->pc->source_location.line_number_only();
+      line_number_file << "ASSUME||" << from_expr(ns, "", it->pc->guard) << "||" << it->pc->source_location.line_number_only();
       break;
       
     case goto_trace_stept::LOCATION:
-      if (it->pc->source_location.need_to_print() && ((nxt)->type)!=goto_trace_stept::FUNCTION_CALL && ((nxt)->type)!=goto_trace_stept::FUNCTION_RETURN) {
+      //if (it->pc->source_location.need_to_print() && ((nxt)->type)!=goto_trace_stept::FUNCTION_CALL && ((nxt)->type)!=goto_trace_stept::FUNCTION_RETURN) {
 	      line_number_file << "LOCATION||" << from_expr(ns, "", it->pc->guard) << "||" << it->pc->source_location.line_number_only();
-      }
+      //}
       break;
 
     case goto_trace_stept::ASSIGNMENT:
@@ -340,18 +343,14 @@ void trace_debug_file(
          it->pc->is_function_call() ||
          (it->pc->is_other() && it->lhs_object.is_not_nil()))
       {
-        //const irep_idt &identifier=it->lhs_object.get_identifier();
-	// ###### LINE NUMBER PRINTING #######
-	if (it->pc->source_location.need_to_print()) line_number_file << "ASSIGNMENT||" << id2string(it->lhs_object.get_identifier()) << "||" << it->pc->source_location.line_number_only();
+	if (it->pc->source_location.need_to_print()) line_number_file << "ASSIGNMENT||" << from_expr(ns, "", it->pc->guard) << "||" << id2string(it->lhs_object.get_identifier()) << "||" << it->pc->source_location.line_number_only();
       }
 
       break;
 
     case goto_trace_stept::DECL:
 
-      //const irep_idt &identifier=it->lhs_object.get_identifier();
-      // ###### LINE NUMBER PRINTING #######
-      if (it->pc->source_location.need_to_print()) line_number_file << "DECL||" << id2string(it->lhs_object.get_identifier()) << "||" << it->pc->source_location.line_number_only();
+      if (it->pc->source_location.need_to_print()) line_number_file << "DECL||" << from_expr(ns, "", it->pc->guard) << "||" << id2string(it->lhs_object.get_identifier()) << "||" << it->pc->source_location.line_number_only();
       break;
 
     case goto_trace_stept::OUTPUT:
@@ -361,14 +360,12 @@ void trace_debug_file(
       }
       else
       {
-        // ###### LINE NUMBER PRINTING #######
         line_number_file << "OUTPUT||" << it->pc->source_location.line_number_only();
       }
       break;
 
     case goto_trace_stept::INPUT:
       
-      // ###### LINE NUMBER PRINTING #######
       line_number_file << "INPUT||" << it->pc->source_location.line_number_only();
       break;
       
@@ -380,11 +377,11 @@ void trace_debug_file(
       break;
     
     case goto_trace_stept::FUNCTION_CALL:
-       if (it->pc->source_location.need_to_print()) line_number_file << "FUNCTION_CALL||" << it->pc->source_location.line_number_only();
+       if (it->pc->source_location.need_to_print()) line_number_file << "FUNCTION_CALL||" << from_expr(ns, "", it->pc->guard) << "||" << it->pc->source_location.line_number_only();
       break;
 
     case goto_trace_stept::FUNCTION_RETURN:
-       if (it->pc->source_location.need_to_print()) line_number_file << "FUNCTION_RETURN||" << it->pc->source_location.line_number_only();
+       if (it->pc->source_location.need_to_print()) line_number_file << "FUNCTION_RETURN||" << from_expr(ns, "", it->pc->guard) << "||" << it->pc->source_location.line_number_only();
       break;
 
     case goto_trace_stept::CONSTRAINT:
@@ -426,7 +423,6 @@ void show_goto_trace(
   std::ofstream line_number_file;
   line_number_file.open("trace-debug.txt", std::ios::out | std::ios::trunc );
 
-  goto_trace.output(ns,out);
   for(goto_tracet::stepst::const_iterator
       it=goto_trace.steps.begin();
       it!=goto_trace.steps.end();
@@ -436,7 +432,8 @@ void show_goto_trace(
     if(it->hidden)
       continue;
   
-    trace_debug_file(line_number_file,it,ns);
+    //line_number_file << "GOTO: " << from_expr(ns, "", it->pc->guard) << " && " << from_expr(ns, "", it->cond_expr) << it->pc->source_location.line_number_only();
+    trace_debug_file(line_number_file,it,ns,out);
     switch(it->type)
     {
     case goto_trace_stept::ASSERT:

@@ -19,7 +19,8 @@ function generate_trace () {
 	if [ -a "trace-debug.txt" ]; then
 		echo "Okay"
 	else
-		rm -rf intermediate_program.gb "*symbols.txt" "*converted.c"
+		echo "No use"
+		#rm -rf intermediate_program.gb "*symbols.txt" "*converted.c"
 	fi
 
 }

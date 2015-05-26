@@ -69,11 +69,12 @@ void goto_program2codet::operator()()
   scan_for_varargs();
 
   // convert
-  forall_goto_program_instructions(target, goto_program)
+  forall_goto_program_instructions(target, goto_program) { 
     target=convert_instruction(
         target,
         goto_program.instructions.end(),
-        toplevel_block);
+        toplevel_block); }
+
 
   cleanup_code(toplevel_block, ID_nil);
 }
@@ -225,7 +226,7 @@ goto_programt::const_targett goto_program2codet::convert_instruction(
   if(target->is_target() && !target->is_goto())
   {
     loopt::const_iterator loop_entry=loop_map.find(target);
-
+    
     if(loop_entry!=loop_map.end() &&
         (upper_bound==goto_program.instructions.end() ||
          upper_bound->location_number > loop_entry->second->location_number)) 
@@ -233,6 +234,7 @@ goto_programt::const_targett goto_program2codet::convert_instruction(
   }
 
   convert_labels(target, dest);
+  //std::cout << target->type << " ";
 
   switch(target->type)
   {
@@ -270,6 +272,7 @@ goto_programt::const_targett goto_program2codet::convert_instruction(
       return target;
 
     case GOTO:
+//      std::cout << "Just saying" << target->type << " ";
       return convert_goto(target, upper_bound, dest);
 
     case START_THREAD:
@@ -686,14 +689,14 @@ goto_programt::const_targett goto_program2codet::convert_goto(
 
   if(loop_entry!=loop_map.end() &&
       (upper_bound==goto_program.instructions.end() ||
-       upper_bound->location_number > loop_entry->second->location_number))
-    return convert_goto_while(target, loop_entry->second, dest);
-  else if(!target->guard.is_true())
-    return convert_goto_switch(target, upper_bound, dest);
-  else if(!loop_last_stack.empty())
-    return convert_goto_break_continue(target, dest);
-  else
-    return convert_goto_goto(target, dest);
+       upper_bound->location_number > loop_entry->second->location_number)) { //std::cout << "1st Option" << " "; 
+    return convert_goto_while(target, loop_entry->second, dest); }
+  else if(!target->guard.is_true()){ //std::cout << "2st Option" << " "; 
+    return convert_goto_switch(target, upper_bound, dest);}
+  else if(!loop_last_stack.empty()){ //std::cout << "3st Option" << " "; 
+    return convert_goto_break_continue(target, dest);}
+  else{ //std::cout << "4st Option" << " "; 
+    return convert_goto_goto(target, dest);}
 }
 
 /*******************************************************************\
@@ -741,8 +744,9 @@ goto_programt::const_targett goto_program2codet::convert_goto_while(
 
   loop_last_stack.push_back(std::make_pair(loop_end, true));
 
-  for(++target; target!=loop_end; ++target)
-    target=convert_instruction(target, loop_end, w.body());
+  for(++target; target!=loop_end; ++target) {
+	  //std::cout << "Count\n";
+    target=convert_instruction(target, loop_end, w.body());}
 
   loop_last_stack.pop_back();
 
@@ -756,7 +760,6 @@ goto_programt::const_targett goto_program2codet::convert_goto_while(
   else if(!loop_end->guard.is_true())
   {
     code_ifthenelset i;
-
     i.cond()=not_exprt(loop_end->guard);
     simplify(i.cond(), ns);
     i.then_case()=code_breakt();
@@ -1411,8 +1414,10 @@ goto_programt::const_targett goto_program2codet::convert_goto_break_continue(
     simplify(i.cond(), ns);
     i.then_case().swap(brk);
 
-    if(i.cond().is_true())
+    if(i.cond().is_true()) {
+      //std::cout << "Happening\n";
       dest.move_to_operands(i.then_case());
+    }
     else
       dest.move_to_operands(i);
 
