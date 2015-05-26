@@ -57,7 +57,8 @@ Author: Daniel Kroening, kroening@kroening.com
   "(show-call-sequences)(check-call-sequence)" \
   "(interpreter)(show-reaching-definitions)(count-eloc)" \
   "(list-symbols)(list-undefined-functions)" \
-  "(z3)"
+  "(z3)" \
+  "(convert-goto-icbmc)"
 
 class goto_instrument_parseoptionst:
   public parseoptions_baset,

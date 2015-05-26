@@ -459,6 +459,12 @@ int goto_instrument_parseoptionst::doit()
       remove_skip(goto_functions);
       goto_functions.update();
     }
+
+    if(cmdline.isset("convert-goto-icbmc"))
+    {
+      std::cout << "Hello World" << std::endl;
+      return 0;
+    }
     
     // write new binary?
     if(cmdline.args.size()==2)
