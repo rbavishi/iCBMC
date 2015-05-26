@@ -1,13 +1,16 @@
 #Ignore everything
-*
-#Whitelist everything that is a directory
-!*/
-
-#Whitelist specific files
-!*.cpp
-!*.h
-!*.d
-!*.y
-!*.py
+#*
+##Whitelist everything that is a directory
+#!*/
+#
+##Whitelist specific files
+#!*.cpp
+#!*.h
+#!*.d
+#!*.y
+#!*.py
+#!*.l
+*.o
+*.a
 
 
