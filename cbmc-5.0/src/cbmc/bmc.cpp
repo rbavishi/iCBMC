@@ -353,7 +353,9 @@ bool bmct::run(const goto_functionst &goto_functions)
     setup_unwind();
 
     // perform symbolic execution
+    std::cout << "o1" << std::endl;
     symex(goto_functions);
+    std::cout << "o2" << std::endl;
 
     // add a partial ordering, if required    
     if(equation.has_threads())

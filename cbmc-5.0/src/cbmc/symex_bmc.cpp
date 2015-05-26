@@ -7,6 +7,7 @@ Author: Daniel Kroening, kroening@kroening.com
 \*******************************************************************/
 
 #include <limits>
+#include <iostream>
 
 #include <util/source_location.h>
 #include <util/i2string.h>
@@ -32,6 +33,7 @@ symex_bmct::symex_bmct(
   goto_symext(_ns, _new_symbol_table, _target),
   max_unwind_is_set(false)
 {
+	std::cout << "MOMAAAAAAA " << std::endl;
 }
 
 /*******************************************************************\
