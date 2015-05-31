@@ -201,15 +201,6 @@ void goto_convertt::goto_convert_rec(
   goto_programt &dest)
 {
   convert(code, dest);
-  int id_num=0;
-  for(std::list<class goto_programt::instructiont>::iterator it = dest.instructions.begin();
-      it != dest.instructions.end();
-      it++) 
-  {
-    id_num++;
-    it->icbmc_id = id_num;
-    //std::cout << "Code: " << from_expr(ns, "", it->code) << std::endl;
-  }
 
   finish_gotos();
   finish_computed_gotos(dest);
@@ -540,7 +531,6 @@ void goto_convertt::convert(
     dest.add_instruction(SKIP);
     dest.instructions.back().code.make_nil();
   }
-  dest.instructions.back().icbmc_id = id_num;
 }
 
 /*******************************************************************\
