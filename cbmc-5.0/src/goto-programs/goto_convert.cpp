@@ -7,6 +7,7 @@ Author: Daniel Kroening, kroening@kroening.com
 \*******************************************************************/
 
 #include <cassert>
+#include <iostream>
 
 #include <util/i2string.h>
 #include <util/cprover_prefix.h>
@@ -200,6 +201,15 @@ void goto_convertt::goto_convert_rec(
   goto_programt &dest)
 {
   convert(code, dest);
+  int id_num=0;
+  for(std::list<class goto_programt::instructiont>::iterator it = dest.instructions.begin();
+      it != dest.instructions.end();
+      it++) 
+  {
+    id_num++;
+    it->icbmc_id = id_num;
+    //std::cout << "Code: " << from_expr(ns, "", it->code) << std::endl;
+  }
 
   finish_gotos();
   finish_computed_gotos(dest);
@@ -402,7 +412,9 @@ void goto_convertt::convert(
   goto_programt &dest)
 {
   const irep_idt &statement=code.get_statement();
-  
+  static int id_num=0;
+  id_num++;
+    
   if(statement==ID_block)
     convert_block(to_code_block(code), dest);
   else if(statement==ID_decl)
@@ -528,6 +540,7 @@ void goto_convertt::convert(
     dest.add_instruction(SKIP);
     dest.instructions.back().code.make_nil();
   }
+  dest.instructions.back().icbmc_id = id_num;
 }
 
 /*******************************************************************\
@@ -2386,7 +2399,7 @@ symbolt &goto_convertt::new_tmp_symbol(
   
   do
   {
-    new_symbol.base_name="tmp_"+suffix+"$"+i2string(++temporary_counter);
+    new_symbol.base_name="tmp_"+suffix+"__"+i2string(++temporary_counter);
     new_symbol.name=tmp_symbol_prefix+id2string(new_symbol.base_name);
     new_symbol.is_lvalue=true;
     new_symbol.is_thread_local=true;

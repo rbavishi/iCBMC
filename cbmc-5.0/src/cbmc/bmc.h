@@ -25,6 +25,7 @@ Author: Daniel Kroening, kroening@kroening.com
 #include <goto-symex/symex_target_equation.h>
 
 #include "symex_bmc.h"
+#include "icbmc_goto_trace.h"
 
 class bmct:public messaget
 {
@@ -54,14 +55,15 @@ public:
   friend class counterexample_beautification_greedyt;
   
   void set_ui(language_uit::uit _ui) { ui=_ui; }
+  icbmc_goto_tracet icbmc_trace;
   
 protected:
+ 
   const optionst &options;  
   symbol_tablet new_symbol_table;
   namespacet ns;
   symex_target_equationt equation;
   symex_bmct symex;
- 
   // use gui format
   language_uit::uit ui;
   

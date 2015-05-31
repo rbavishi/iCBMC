@@ -9,6 +9,7 @@ Date: June 2003
 \*******************************************************************/
 
 #include <cassert>
+#include <iostream>
 
 #include <util/base_type.h>
 #include <util/std_code.h>

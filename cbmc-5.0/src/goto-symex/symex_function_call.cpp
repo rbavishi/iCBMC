@@ -16,6 +16,7 @@ Author: Daniel Kroening, kroening@kroening.com
 #include <util/base_type.h>
 #include <util/std_expr.h>
 #include <util/symbol_table.h>
+#include <iostream>
 
 #include <ansi-c/c_types.h>
 
@@ -89,13 +90,14 @@ void goto_symext::parameter_assignments(
     const typet &parameter_type=parameter.type();
 
     const irep_idt &identifier=parameter.get_identifier();
-    
+    std::cout << "PARAMETER: " << id2string(identifier) << std::endl; 
     if(identifier==irep_idt())
       throw "no identifier for function parameter";
 
     const symbolt &symbol=ns.lookup(identifier);
     symbol_exprt lhs=symbol.symbol_expr();
 
+    std::cout << "PARAMETER: " << id2string(lhs.get_identifier()) << std::endl; 
     if(it1->is_nil())
     {
       // 'nil' argument doesn't get assigned
@@ -276,6 +278,7 @@ void goto_symext::symex_function_call_code(
   statet &state,
   const code_function_callt &call)
 {
+  
   const irep_idt &identifier=
     to_symbol_expr(call.function()).get_identifier();
   
@@ -339,8 +342,10 @@ void goto_symext::symex_function_call_code(
   
   // read the arguments -- before the locality renaming
   exprt::operandst arguments=call.arguments();
-  for(unsigned i=0; i<arguments.size(); i++)
+  for(unsigned i=0; i<arguments.size(); i++) {
+    std::cout << "ARGUMENTS: " << from_expr(ns, "", arguments[i]) << std::endl;
     state.rename(arguments[i], ns);
+  }
   
   // produce a new frame
   assert(!state.call_stack().empty());

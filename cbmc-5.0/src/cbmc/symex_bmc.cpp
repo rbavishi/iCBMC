@@ -33,7 +33,11 @@ symex_bmct::symex_bmct(
   goto_symext(_ns, _new_symbol_table, _target),
   max_unwind_is_set(false)
 {
-	std::cout << "MOMAAAAAAA " << std::endl;
+}
+
+void symex_bmct::init_icbmc_trace(icbmc_goto_tracet &trace)
+{
+  extract_trace = &trace;
 }
 
 /*******************************************************************\

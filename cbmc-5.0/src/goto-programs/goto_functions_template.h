@@ -107,6 +107,10 @@ public:
   void output(
     const namespacet &ns,
     std::ostream &out) const;
+
+  void output_icbmc(
+    const namespacet &ns,
+    std::ostream &out) const;
     
   void compute_location_numbers();
   void compute_loop_numbers();
@@ -176,6 +180,38 @@ void goto_functions_templatet<bodyT>::output(
   }
 }
 
+/*******************************************************************\
+
+Function: goto_functions_templatet::output_icbmc
+
+  Inputs:
+
+ Outputs:
+
+ Purpose:
+
+\*******************************************************************/
+
+template <class bodyT>
+void goto_functions_templatet<bodyT>::output_icbmc(
+  const namespacet &ns,
+  std::ostream& out) const
+{
+  for(typename function_mapt::const_iterator
+      it=function_map.begin();
+      it!=function_map.end();
+      it++)
+  {
+    if(it->second.body_available)
+    { 
+      const symbolt &symbol=ns.lookup(it->first);
+      if(symbol.name[0] != '_') {
+         out << " /* " << symbol.name << " */" << std::endl;
+         it->second.body.output_icbmc(ns, symbol.name, out);
+      }
+    }
+  }
+}
 /*******************************************************************\
 
 Function: goto_functions_templatet::compute_location_numbers

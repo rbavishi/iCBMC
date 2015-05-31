@@ -93,6 +93,9 @@ public:
 
     //! guard for gotos, assume, assert
     guardT guard;
+
+    //! Unique instruction ID
+    int icbmc_id;
     
     // The below will eventually become a single target only.
     //! the target for gotos and for start_thread nodes
@@ -343,6 +346,10 @@ public:
     const irep_idt &identifier,
     std::ostream &out) const;
 
+  std::ostream &output_icbmc(
+    const namespacet &ns,
+    const irep_idt &identifier,
+    std::ostream &out) const;
   //! Output goto-program to given stream  
   inline std::ostream &output(std::ostream &out) const
   {
@@ -351,6 +358,12 @@ public:
 
   //! Output a single instruction  
   virtual std::ostream &output_instruction(
+    const namespacet &ns,
+    const irep_idt &identifier,
+    std::ostream &out,
+    typename instructionst::const_iterator it) const=0;
+
+  virtual std::ostream &output_instruction_icbmc(
     const namespacet &ns,
     const irep_idt &identifier,
     std::ostream &out,
@@ -579,6 +592,21 @@ std::ostream& goto_program_templatet<codeT, guardT>::output(
   return out;  
 }
 
+template <class codeT, class guardT>
+std::ostream& goto_program_templatet<codeT, guardT>::output_icbmc(
+  const namespacet &ns,
+  const irep_idt &identifier,
+  std::ostream& out) const
+{
+
+  for(typename instructionst::const_iterator
+      it=instructions.begin();
+      it!=instructions.end();
+      it++)
+    output_instruction_icbmc(ns, identifier, out, it);
+
+  return out;  
+}
 template <class codeT, class guardT>
 void goto_program_templatet<codeT, guardT>::compute_target_numbers()
 {

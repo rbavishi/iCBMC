@@ -81,8 +81,8 @@ void remove_returnst::replace_returns(
     new_symbol.is_static_lifetime=true;
     new_symbol.module=function_symbol.module;
     new_symbol.value.make_nil();
-    new_symbol.base_name=id2string(function_symbol.base_name)+"#return_value";
-    new_symbol.name=id2string(function_symbol.name)+"#return_value";
+    new_symbol.base_name=id2string(function_symbol.base_name)+"___return_value";
+    new_symbol.name=id2string(function_symbol.name)+"___return_value";
     new_symbol.mode=function_symbol.mode;
     new_symbol.type=return_type;
 
@@ -109,7 +109,7 @@ void remove_returnst::replace_returns(
 
         // replace "return x;" by "fkt#return_value=x; goto end_function;"
         symbol_exprt lhs_expr;
-        lhs_expr.set_identifier(id2string(function_id)+"#return_value");
+        lhs_expr.set_identifier(id2string(function_id)+"___return_value");
         lhs_expr.type()=return_type;
 
         code_assignt assignment(lhs_expr, i_it->code.op0());
@@ -193,7 +193,7 @@ void remove_returnst::do_function_calls(
           {
             symbol_exprt return_value;
             return_value.type()=function_call.lhs().type();
-            return_value.set_identifier(id2string(function_id)+"#return_value");
+            return_value.set_identifier(id2string(function_id)+"___return_value");
             rhs=return_value;
           }
           else

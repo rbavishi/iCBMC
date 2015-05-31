@@ -28,6 +28,11 @@ public:
     std::ostream &out,
     instructionst::const_iterator it) const;
 
+  std::ostream &output_instruction_icbmc(
+    const class namespacet &ns,
+    const irep_idt &identifier,
+    std::ostream &out,
+    instructionst::const_iterator it) const;
   goto_programt() { }
   
   // get the variables in decl statements

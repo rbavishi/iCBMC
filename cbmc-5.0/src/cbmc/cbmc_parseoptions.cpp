@@ -456,6 +456,7 @@ int cbmc_parseoptionst::doit()
 
   goto_functionst goto_functions;
   bmct bmc(options, symbol_table, ui_message_handler);
+  //bmc.equation.output(std::cout);
 
   if(get_goto_program(options, bmc, goto_functions))
     return 6;
@@ -639,7 +640,6 @@ bool cbmc_parseoptionst::get_goto_program(
       }
 
       status() << "Generating GOTO Program" << eom;
-
       goto_convert(symbol_table, goto_functions, ui_message_handler);
     }
 

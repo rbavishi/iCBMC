@@ -462,7 +462,8 @@ int goto_instrument_parseoptionst::doit()
 
     if(cmdline.isset("convert-goto-icbmc"))
     {
-      std::cout << "Hello World" << std::endl;
+      namespacet ns(symbol_table);
+      goto_functions.output_icbmc(ns, std::cout);
       return 0;
     }
     

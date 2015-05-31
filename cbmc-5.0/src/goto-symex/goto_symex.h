@@ -14,6 +14,7 @@ Author: Daniel Kroening, kroening@kroening.com
 
 #include <util/options.h>
 #include <util/byte_operators.h>
+#include <cbmc/icbmc_goto_trace.h>
 
 #include <goto-programs/goto_functions.h>
 
@@ -63,6 +64,7 @@ public:
   }
 
   typedef goto_symex_statet statet;
+  icbmc_goto_tracet* extract_trace;
 
   /** symex all at once, starting from entry point */
   virtual void operator()(
@@ -77,7 +79,7 @@ public:
   virtual void operator()(
     statet &state,
     const goto_functionst &goto_functions,
-    const goto_programt &goto_program);	   
+    const goto_programt &goto_program);
 
   /** execute just one step */
   virtual void symex_step(

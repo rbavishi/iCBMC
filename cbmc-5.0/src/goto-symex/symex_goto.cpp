@@ -8,6 +8,7 @@ Author: Daniel Kroening, kroening@kroening.com
 
 #include <cassert>
 #include <algorithm>
+#include <iostream>
 
 #include <util/expr_util.h>
 #include <util/std_expr.h>
@@ -34,7 +35,6 @@ void goto_symext::symex_goto(statet &state)
   
   exprt old_guard=instruction.guard;
   clean_expr(old_guard, state, false);
-
   exprt new_guard=old_guard;
   state.rename(new_guard, ns);
   do_simplify(new_guard);
@@ -46,7 +46,9 @@ void goto_symext::symex_goto(statet &state)
     if(instruction.is_backwards_goto())
       frame.loop_iterations[goto_programt::loop_id(state.source.pc)].count=0;
 
+    //state.source.pc->guard.negate();
     // next instruction
+    std::cout << "Special Case Guard: " << from_expr(ns, "", state.source.pc->guard) << std::endl;
     state.source.pc++;
     return; // nothing to do
   }

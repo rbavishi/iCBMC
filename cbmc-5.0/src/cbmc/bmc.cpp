@@ -88,6 +88,7 @@ void bmct::error_trace(const prop_convt &prop_conv)
   {
   case ui_message_handlert::PLAIN:
     std::cout << "\n" << "Counterexample:" << "\n";
+    icbmc_trace.preprocess(ns, goto_trace);
     show_goto_trace(std::cout, ns, goto_trace);
     break;
   
@@ -346,6 +347,7 @@ bool bmct::run(const goto_functionst &goto_functions)
   status() << "Starting Bounded Model Checking" << eom;
 
   symex.last_source_location.make_nil();
+  symex.init_icbmc_trace(icbmc_trace);
 
   try
   {
@@ -353,10 +355,8 @@ bool bmct::run(const goto_functionst &goto_functions)
     setup_unwind();
 
     // perform symbolic execution
-    std::cout << "o1" << std::endl;
     symex(goto_functions);
-    std::cout << "o2" << std::endl;
-
+    //icbmc_trace = symex.extract_trace;
     // add a partial ordering, if required    
     if(equation.has_threads())
     {

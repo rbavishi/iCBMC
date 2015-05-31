@@ -13,6 +13,7 @@ Author: Daniel Kroening
 #include <util/threeval.h>
 #include <util/simplify_expr.h>
 #include <util/arith_tools.h>
+#include <iostream>
 
 #include <solvers/prop/prop_conv.h>
 #include <solvers/prop/prop.h>
@@ -157,7 +158,6 @@ void build_goto_trace(
   time_mapt time_map;
   
   mp_integer current_time=0;
-  
   for(symex_target_equationt::SSA_stepst::const_iterator
       it=target.SSA_steps.begin();
       it!=target.SSA_steps.end();

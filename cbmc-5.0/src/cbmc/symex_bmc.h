@@ -24,6 +24,8 @@ public:
     symbol_tablet &_new_symbol_table,
     symex_targett &_target);
 
+  void init_icbmc_trace(icbmc_goto_tracet &trace);
+
   // To show progress
   irept last_source_location;
 

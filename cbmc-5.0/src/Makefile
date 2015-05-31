@@ -30,7 +30,7 @@ cbmc.dir: languages solvers.dir goto-symex.dir analyses.dir \
 goto-cc.dir: languages pointer-analysis.dir goto-programs.dir linking.dir
 
 # building for a particular directory
-
+#
 $(patsubst %, %.dir, $(DIRS)):
 	## Entering $(basename $@)
 	$(MAKE) $(MAKEARGS) -C $(basename $@)

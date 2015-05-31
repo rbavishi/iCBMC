@@ -9,6 +9,7 @@ Author: Daniel Kroening, kroening@kroening.com
 #include <util/std_expr.h>
 #include <util/expr_util.h>
 #include <util/cprover_prefix.h>
+#include <iostream>
 
 #include <ansi-c/c_types.h>
 

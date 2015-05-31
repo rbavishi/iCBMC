@@ -11,6 +11,7 @@ Author: Daniel Kroening, kroening@kroening.com
 #include <util/arith_tools.h>
 #include <util/base_type.h>
 #include <util/byte_operators.h>
+#include <iostream>
 
 #include <pointer-analysis/value_set_dereference.h>
 #include <pointer-analysis/rewrite_index.h>
@@ -279,7 +280,7 @@ void goto_symext::dereference_rec(
       options,
       symex_dereference_state);      
     
-    // std::cout << "**** " << from_expr(ns, "", tmp1) << std::endl;
+    //std::cout << "**** " << from_expr(ns, "", tmp1) << std::endl;
     exprt tmp2=dereference.dereference(
       tmp1, guard, write?value_set_dereferencet::WRITE:value_set_dereferencet::READ);
     //std::cout << "**** " << from_expr(ns, "", tmp2) << std::endl;

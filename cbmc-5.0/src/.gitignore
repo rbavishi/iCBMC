@@ -12,5 +12,7 @@
 #!*.l
 *.o
 *.a
+*.d
+autom4te.cache/
 
 

@@ -412,7 +412,7 @@ void goto_convertt::remove_function_call(
     
     new_base_name+='_';
     new_base_name+=id2string(symbol.base_name);
-    new_base_name+="$"+i2string(++temporary_counter);
+    new_base_name+="___"+i2string(++temporary_counter);
     
     new_symbol.base_name=new_base_name;
     new_symbol.mode=symbol.mode;

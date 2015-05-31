@@ -7,6 +7,7 @@ Author: Daniel Kroening, kroening@kroening.com
 \*******************************************************************/
 
 #include <cassert>
+#include <iostream>
 
 #include <util/std_expr.h>
 #include <util/rename.h>
@@ -209,8 +210,10 @@ Function: goto_symext::operator()
 
 \*******************************************************************/
 
-void goto_symext::operator()(const goto_functionst &goto_functions)
+void goto_symext::operator()(
+  const goto_functionst &goto_functions)
 {
+
   goto_functionst::function_mapt::const_iterator it=
     goto_functions.function_map.find(goto_functionst::entry_point());
 
@@ -239,15 +242,23 @@ void goto_symext::symex_step(
   statet &state)
 {
   #if 0
-  std::cout << "\ninstruction type is " << state.source.pc->type << std::endl;
-  std::cout << "Location: " << state.source.pc->location << std::endl;
-  std::cout << "Guard: " << from_expr(ns, "", state.guard.as_expr()) << std::endl;
+  std::cout << "\ninstruction type is " << state.source.pc->type << " " << state.source.pc->location_number << std::endl;
+  std::cout << "Location: " << state.source.pc->source_location << std::endl;
+  std::cout << "Guard: " << from_expr(ns, "", state.source.pc->guard) << std::endl;
   std::cout << "Code: " << from_expr(ns, "", state.source.pc->code) << std::endl;
   #endif
 
   assert(!state.threads.empty());
   assert(!state.call_stack().empty());
-
+  if(state.source.pc->source_location.need_to_print()) extract_trace->trace_instructions.push_back(*state.source.pc);
+/* 
+  if (state.source.pc->type == GOTO) { 
+  std::cout << "\ninstruction type is " << state.source.pc->type << " " << extract_trace->trace_instructions.back().type << std::endl;
+  std::cout << "Location: " << state.source.pc->source_location << std::endl;
+  std::cout << "Guard:PC: " << from_expr(ns, "", state.source.pc->guard) << std::endl;
+  std::cout << "Guard:ICBMC: " << from_expr(ns, "", extract_trace->trace_instructions.back().guard) << std::endl;
+  std::cout << "Code: " << from_expr(ns, "", state.source.pc->code) << std::endl;
+  }*/
   const goto_programt::instructiont &instruction=*state.source.pc;
 
   merge_gotos(state);
@@ -306,6 +317,9 @@ void goto_symext::symex_step(
       clean_expr(tmp, state, false);
       vcc(tmp, msg, state);
     }
+    else {
+      std::cout << "We have a problem ########## " << from_expr(ns, "", state.source.pc->guard) << " " << id2string(state.source.pc->source_location.get_comment()) << std::endl;
+    }
 
     state.source.pc++;
     break;
@@ -324,7 +338,6 @@ void goto_symext::symex_step(
 
       clean_expr(deref_code.lhs(), state, true);
       clean_expr(deref_code.rhs(), state, false);
-
       symex_assign(state, deref_code);
     }
 
@@ -336,15 +349,20 @@ void goto_symext::symex_step(
     {
       code_function_callt deref_code=
         to_code_function_call(instruction.code);
-
+      /*exprt::operandst argument=deref_code.arguments();
+      for(unsigned i=0; i<argument.size(); i++) {
+      	std::cout << "ARGUMENTS: " << from_expr(ns, "", argument[i]) << std::endl;
+    	state.rename(argument[i], ns);
+      }*/
       if(deref_code.lhs().is_not_nil())
         clean_expr(deref_code.lhs(), state, true);
 
       clean_expr(deref_code.function(), state, false);
 
-      Forall_expr(it, deref_code.arguments())
+      Forall_expr(it, deref_code.arguments()) {
+	std::cout << "ARGS: " << from_expr(ns, "", *it) << std::endl;
         clean_expr(*it, state, false);
-    
+      } 
       symex_function_call(goto_functions, state, deref_code);
     }
     else

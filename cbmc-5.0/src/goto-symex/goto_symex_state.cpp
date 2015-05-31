@@ -417,7 +417,6 @@ irep_idt goto_symex_statet::rename_identifier(
     assert(false);
   }
 }
-
 /*******************************************************************\
 
 Function: goto_symex_statet::rename
@@ -436,15 +435,15 @@ void goto_symex_statet::rename(
   levelt level)
 {
   // rename all the symbols with their last known value
-  
+  //std::cout << "HOLA!" << std::endl; 
+  //std::cout << "Input Expr: " << from_expr(ns, "", expr) << std::endl;
   rename(expr.type(), ns, level);
-
   if(expr.id()==ID_symbol)
   {
     // we never rename function symbols
     if(ns.follow(expr.type()).id()==ID_code)
       return;
-  
+    //std::cout << "SYMBOL:: Expr: " << from_expr(ns, "", expr) << std::endl; 
     const irep_idt identifier=to_symbol_expr(expr).get_identifier();
 
     if(level==L0 || level==L1)
@@ -490,6 +489,7 @@ void goto_symex_statet::rename(
   else
   {
     // do this recursively
+  //  std::cout << "Yes we are doing it this way" << std::endl;
     Forall_operands(it, expr)
       rename(*it, ns, level);
   }

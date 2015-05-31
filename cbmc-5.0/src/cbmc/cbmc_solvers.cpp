@@ -227,6 +227,7 @@ bool bmct::decide_default()
 
     error_trace(bv_cbmc);
     report_failure();
+    std::cout << "iCBMC Trace Size: " << icbmc_trace.trace_instructions.size() << std::endl;
     break;
 
   default:

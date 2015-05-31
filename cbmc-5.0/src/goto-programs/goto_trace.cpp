@@ -312,18 +312,17 @@ void trace_debug_file(
     goto_tracet::stepst::const_iterator nxt;
     nxt = it;
     nxt++;
-    //it->pc->output(ns,it->lhs_object.get_identifier(),out);
+    std::string idtifier = id2string(it->pc->source_location.get_function());
     switch(it->type)
     {
     case goto_trace_stept::ASSERT:
      //if(!it->cond_value)
       //{
-        //if(!it->pc->source_location.is_nil())
-	
-          line_number_file << "ASSERT||" << it->pc->source_location.line_number_only();
+        if(!it->pc->source_location.is_nil())
+          line_number_file << "ASSERT||" << id2string(it->pc->source_location.get_line());
 
        // if(it->pc->is_assert())
-          line_number_file << "  " << from_expr(ns, "", it->pc->guard) << "\n";       
+          line_number_file << "||" << from_expr(ns, "", it->pc->guard) << "\n";       
       //}
       break;
       
@@ -333,7 +332,7 @@ void trace_debug_file(
       
     case goto_trace_stept::LOCATION:
       //if (it->pc->source_location.need_to_print() && ((nxt)->type)!=goto_trace_stept::FUNCTION_CALL && ((nxt)->type)!=goto_trace_stept::FUNCTION_RETURN) {
-	      line_number_file << "LOCATION||" << from_expr(ns, "", it->pc->guard) << "||" << it->pc->source_location.line_number_only();
+	      line_number_file << "LOCATION||" << from_expr(ns, idtifier, it->pc->guard) << "||" << it->pc->source_location.line_number_only();
       //}
       break;
 
@@ -343,7 +342,7 @@ void trace_debug_file(
          it->pc->is_function_call() ||
          (it->pc->is_other() && it->lhs_object.is_not_nil()))
       {
-	if (it->pc->source_location.need_to_print()) line_number_file << "ASSIGNMENT||" << from_expr(ns, "", it->pc->guard) << "||" << id2string(it->lhs_object.get_identifier()) << "||" << it->pc->source_location.line_number_only();
+	if (it->pc->source_location.need_to_print()) line_number_file << "ASSIGNMENT||" << from_expr(ns, idtifier, it->pc->guard) << "||" << id2string(it->lhs_object.get_identifier()) << "||" << it->pc->source_location.line_number_only();
       }
 
       break;
@@ -422,21 +421,27 @@ void show_goto_trace(
   
   std::ofstream line_number_file;
   line_number_file.open("trace-debug.txt", std::ios::out | std::ios::trunc );
-
+  int assert_count = 0;
   for(goto_tracet::stepst::const_iterator
       it=goto_trace.steps.begin();
       it!=goto_trace.steps.end();
       it++)
   {
+    //it->pc++;
+    //it->pc--;
     // hide the hidden ones
     if(it->hidden)
       continue;
   
-    //line_number_file << "GOTO: " << from_expr(ns, "", it->pc->guard) << " && " << from_expr(ns, "", it->cond_expr) << it->pc->source_location.line_number_only();
+    std::cout << "\n\nMY STATEMENTS... Number:" << it->pc->location_number << std::endl;
+    std::cout << "Type: " << it->pc->type << std::endl;
+    std::cout << "Code: " << from_expr(ns, "", it->pc->code) << std::endl;
+    std::cout << "Guard: " << from_expr(ns, "", it->pc->guard) << std::endl;
     trace_debug_file(line_number_file,it,ns,out);
     switch(it->type)
     {
     case goto_trace_stept::ASSERT:
+      assert_count += 1;
       if(!it->cond_value)
       {
         out << "\n";
@@ -566,4 +571,5 @@ void show_goto_trace(
       assert(false);
     }
   }
+  out << "Number of Assertions: " << assert_count << std::endl;
 }
