@@ -41,6 +41,17 @@ void icbmc_goto_tracet::preprocess(
   bool failed_assertion_reached=false;
   unsigned int failed_assertion_number=goto_trace.steps.back().pc->location_number;
   int cnt;
+  
+  for (std::list<class goto_programt::instructiont>::iterator
+      	icbmc_it = trace_instructions.begin();
+	icbmc_it != trace_instructions.end();
+	icbmc_it++)
+  {
+    std::cout << "\ninstruction type is " << icbmc_it->type << " " << icbmc_it->location_number << std::endl;
+    std::cout << "Location: " << icbmc_it->source_location << std::endl;
+    std::cout << "Guard: " << from_expr(ns, "", icbmc_it->guard) << std::endl;
+    std::cout << "Code: " << from_expr(ns, "", icbmc_it->code) << std::endl;
+  }
 
   for (std::list<class goto_programt::instructiont>::iterator
       	icbmc_it = trace_instructions.begin();
