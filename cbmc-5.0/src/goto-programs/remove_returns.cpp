@@ -133,7 +133,6 @@ void remove_returnst::replace_returns(
         tmp_i.function=i_it->function;
 	tmp_i.is_return_statement=true;
 
-	std::cout << "Is this real?\n" << tmp_i.is_return_statement;
         // inserts the assignment
         goto_program.insert_before_swap(i_it, tmp_d);
         i_it++;

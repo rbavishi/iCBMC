@@ -171,12 +171,10 @@ void icbmc_goto_tracet::process_function_call(
 	break;
 
       case DECL:
-	std::cout << "DECL: ## : " << from_expr(ns, "", instruct.code) << instruct.function << "\n";
 	if (instruct.is_return_statement==false)
   	  rename_identifier_decl(ns, instruct.code.op0(), icbmc_it->function, current_variable_map, current_func_number);
 	else {
   	  rename_identifier_decl(ns, instruct.code.op0(), "", current_variable_map, current_func_number);
-	  std::cout << "Anomaly? : " << from_expr(ns, "", instruct.code) << "\n";
 	}
 
 	counterexample_trace.push_back(instruct);
@@ -191,7 +189,6 @@ void icbmc_goto_tracet::process_function_call(
 	  while (goto_it->pc->type!=END_FUNCTION)
 	    goto_it++;
 	  //We return to the return assignment outside of called function
-	  std::cout << "WORKING???\n";
 	  advance_iterators(ns, goto_trace, icbmc_it, goto_it, current_variable_map);
 	  goto_programt::instructiont return_assign = *icbmc_it;
 	  rename_identifier(ns, return_assign.code.op0(), calling_map);

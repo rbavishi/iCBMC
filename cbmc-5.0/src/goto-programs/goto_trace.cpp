@@ -425,7 +425,6 @@ void show_goto_trace(
   bool first_step=true;
   
   int assert_count = 0;
-  goto_trace.output(ns,out);
   for(goto_tracet::stepst::const_iterator
       it=goto_trace.steps.begin();
       it!=goto_trace.steps.end();
