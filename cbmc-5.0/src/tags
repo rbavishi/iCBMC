@@ -707,7 +707,7 @@ Forall_cpp_declarators	cpp/cpp_declarator.h	61;"	d
 Forall_expr	util/expr.h	31;"	d
 Forall_expr_list	util/expr.h	39;"	d
 Forall_goto_functions	goto-programs/goto_functions.h	22;"	d
-Forall_goto_program_instructions	goto-programs/goto_program.h	43;"	d
+Forall_goto_program_instructions	goto-programs/goto_program.h	48;"	d
 Forall_guard	util/guard.h	81;"	d
 Forall_irep	util/irep.h	68;"	d
 Forall_literals	solvers/prop/literal.h	203;"	d
@@ -774,6 +774,7 @@ HANDLE	util/pipe_stream.h	/^  typedef int HANDLE;$/;"	t	class:filedescriptor_str
 HIDDEN	goto-symex/symex_target.h	/^    STATE, HIDDEN, VISIBLE_ACTUAL_PARAMETER, HIDDEN_ACTUAL_PARAMETER, PHI, GUARD$/;"	e	enum:symex_targett::__anon35
 HIDDEN_ACTUAL_PARAMETER	goto-symex/symex_target.h	/^    STATE, HIDDEN, VISIBLE_ACTUAL_PARAMETER, HIDDEN_ACTUAL_PARAMETER, PHI, GUARD$/;"	e	enum:symex_targett::__anon35
 HTML	goto-instrument/document_properties.cpp	/^  enum { HTML, LATEX } format;$/;"	e	enum:document_propertiest::__anon11	file:
+ICBMC_GOTO_TRACE_H	cbmc/icbmc_goto_trace.h	2;"	d
 ICC	ansi-c/ansi_c_parser.h	/^  typedef enum { ANSI, GCC, MSC, ICC, CW, ARM } modet;$/;"	e	enum:ansi_c_parsert::__anon4
 ID_0	util/irep_ids.h	336;"	d
 ID_1	util/irep_ids.h	337;"	d
@@ -3585,6 +3586,7 @@ adjust_lhs_object	goto-symex/build_goto_trace.cpp	/^exprt adjust_lhs_object($/;"
 adjust_method_type	cpp/cpp_typecheck_compound_type.cpp	/^void cpp_typecheckt::adjust_method_type($/;"	f	class:cpp_typecheckt
 adjust_size	big-int/bigint.cc	/^adjust_size (unsigned size)$/;"	f
 advance_column	util/parser.h	/^  inline void advance_column(unsigned token_width)$/;"	f	class:parsert
+advance_iterators	cbmc/icbmc_goto_trace.cpp	/^void advance_iterators($/;"	f
 affected_by_delay	goto-instrument/wmm/shared_buffers.cpp	/^void shared_bufferst::affected_by_delay($/;"	f	class:shared_bufferst
 affected_by_delay_set	goto-instrument/wmm/shared_buffers.h	/^  std::set<irep_idt> affected_by_delay_set;$/;"	m	class:shared_bufferst
 after_line	musketeer/fence-insertion/fi.py	/^def after_line(s, n):$/;"	f
@@ -5142,6 +5144,7 @@ convert_index_designator	ansi-c/expr2c.cpp	/^std::string expr2ct::convert_index_
 convert_init	goto-programs/goto_convert.cpp	/^void goto_convertt::convert_init($/;"	f	class:goto_convertt
 convert_initializer	cpp/cpp_typecheck_initializer.cpp	/^void cpp_typecheckt::convert_initializer(symbolt &symbol)$/;"	f	class:cpp_typecheckt
 convert_initializer_list	ansi-c/expr2c.cpp	/^std::string expr2ct::convert_initializer_list($/;"	f	class:expr2ct
+convert_instruction	cbmc/icbmc_goto_trace.cpp	/^void convert_instruction($/;"	f
 convert_instruction	goto-instrument/goto_program2code.cpp	/^goto_programt::const_targett goto_program2codet::convert_instruction($/;"	f	class:goto_program2codet
 convert_instructions	java_bytecode/java_bytecode_convert.cpp	/^codet java_bytecode_convertt::convert_instructions($/;"	f	class:java_bytecode_convertt
 convert_integer_literal	ansi-c/literals/convert_integer_literal.cpp	/^exprt convert_integer_literal(const std::string &src)$/;"	f
@@ -5328,6 +5331,7 @@ count_ignored_SSA_steps	goto-symex/symex_target_equation.h	/^  unsigned count_ig
 count_roots	util/union_find.h	/^  size_type count_roots() const$/;"	f	class:unsigned_union_find
 count_transitions	goto-instrument/accelerate/trace_automaton.cpp	/^unsigned int automatont::count_transitions() {$/;"	f	class:automatont
 counterexample_beautificationt	cbmc/counterexample_beautification.h	/^class counterexample_beautificationt$/;"	c
+counterexample_trace	cbmc/icbmc_goto_trace.h	/^  std::list <class goto_programt::instructiont> counterexample_trace;$/;"	m	class:icbmc_goto_tracet
 counterexample_value	goto-programs/goto_trace.cpp	/^void counterexample_value($/;"	f
 counterexample_value_binary	goto-programs/goto_trace.cpp	/^std::string counterexample_value_binary($/;"	f
 cout_message_handlert	util/cout_message.h	/^class cout_message_handlert:public message_handlert$/;"	c
@@ -6292,6 +6296,7 @@ extract_lsb	solvers/flattening/bv_utils.cpp	/^bvt bv_utilst::extract_lsb(const b
 extract_msb	solvers/flattening/bv_utils.cpp	/^bvt bv_utilst::extract_msb(const bvt &a, unsigned n)$/;"	f	class:bv_utilst
 extract_my_events	goto-instrument/wmm/instrumenter_strategies.cpp	/^std::set<unsigned> instrumentert::extract_my_events()$/;"	f	class:instrumentert
 extract_polynomial	goto-instrument/accelerate/acceleration_utils.cpp	/^void acceleration_utilst::extract_polynomial(scratch_programt &program,$/;"	f	class:acceleration_utilst
+extract_trace	goto-symex/goto_symex.h	/^  icbmc_goto_tracet* extract_trace;$/;"	m	class:goto_symext
 extractbit_exprt	util/std_expr.h	/^  inline extractbit_exprt($/;"	f	class:extractbit_exprt
 extractbit_exprt	util/std_expr.h	/^  inline extractbit_exprt():predicate_exprt(ID_extractbit)$/;"	f	class:extractbit_exprt
 extractbit_exprt	util/std_expr.h	/^class extractbit_exprt:public predicate_exprt$/;"	c
@@ -6637,7 +6642,7 @@ forall_expr_list	util/expr.h	35;"	d
 forall_exprt	util/std_expr.h	/^  inline forall_exprt():exprt(ID_forall)$/;"	f	class:forall_exprt
 forall_exprt	util/std_expr.h	/^class forall_exprt:public exprt$/;"	c
 forall_goto_functions	goto-programs/goto_functions.h	26;"	d
-forall_goto_program_instructions	goto-programs/goto_program.h	38;"	d
+forall_goto_program_instructions	goto-programs/goto_program.h	43;"	d
 forall_guard	util/guard.h	85;"	d
 forall_irep	util/irep.h	64;"	d
 forall_literals	solvers/prop/literal.h	199;"	d
@@ -7452,6 +7457,7 @@ goto_symex_statet	goto-symex/goto_symex_state.h	/^class goto_symex_statet$/;"	c
 goto_symext	goto-symex/goto_symex.h	/^  goto_symext($/;"	f	class:goto_symext
 goto_symext	goto-symex/goto_symex.h	/^class goto_symext$/;"	c
 goto_taken	goto-programs/goto_trace.h	/^  bool goto_taken;$/;"	m	class:goto_trace_stept
+goto_targett	cbmc/icbmc_goto_trace.h	/^  typedef goto_tracet::stepst::const_iterator goto_targett;$/;"	t	class:icbmc_goto_tracet
 goto_trace_stept	goto-programs/goto_trace.h	/^  goto_trace_stept():$/;"	f	class:goto_trace_stept
 goto_trace_stept	goto-programs/goto_trace.h	/^class goto_trace_stept $/;"	c
 goto_tracet	goto-programs/goto_trace.h	/^class goto_tracet$/;"	c
@@ -7529,6 +7535,7 @@ has_failed_symbol	pointer-analysis/goto_program_dereference.cpp	/^bool goto_prog
 has_function_call	goto-programs/goto_convert_side_effect.cpp	/^bool goto_convertt::has_function_call(const exprt &expr)$/;"	f	class:goto_convertt
 has_gb	goto-programs/osx_fat_reader.h	/^  inline bool has_gb() const { return has_gb_arch; }$/;"	f	class:osx_fat_readert
 has_gb_arch	goto-programs/osx_fat_reader.h	/^  bool has_gb_arch;$/;"	m	class:osx_fat_readert
+has_icbmc_guard	goto-programs/goto_program_template.h	/^    bool has_icbmc_guard;$/;"	m	class:goto_program_templatet::instructiont
 has_in_core	solvers/sat/satcheck_minisat.h	/^  virtual bool has_in_core() const { return true; }$/;"	f	class:satcheck_minisat1_coret
 has_is_in_conflict	solvers/prop/prop.h	/^  virtual bool has_is_in_conflict() const { return false; }$/;"	f	class:propt
 has_is_in_conflict	solvers/prop/prop_conv.h	/^  virtual bool has_is_in_conflict() const { return false; }$/;"	f	class:prop_convt
@@ -7664,6 +7671,10 @@ i2string	util/i2string.cpp	/^std::string i2string(signed long long i)$/;"	f
 i2string	util/i2string.cpp	/^std::string i2string(unsigned i)$/;"	f
 i2string	util/i2string.cpp	/^std::string i2string(unsigned long int i)$/;"	f
 i2string	util/i2string.cpp	/^std::string i2string(unsigned long long i)$/;"	f
+icbmc_goto_tracet	cbmc/icbmc_goto_trace.h	/^class icbmc_goto_tracet$/;"	c
+icbmc_guard	goto-programs/goto_program_template.h	/^    guardT icbmc_guard;$/;"	m	class:goto_program_templatet::instructiont
+icbmc_id	goto-programs/goto_program_template.h	/^    int icbmc_id;$/;"	m	class:goto_program_templatet::instructiont
+icbmc_trace	cbmc/bmc.h	/^  icbmc_goto_tracet icbmc_trace;$/;"	m	class:bmct
 id	ansi-c/ansi_c_language.h	/^  virtual std::string id() const { return "C"; }$/;"	f	class:ansi_c_languaget
 id	cpp/cpp_language.h	/^  virtual std::string id() const { return "cpp"; }$/;"	f	class:cpp_languaget
 id	cpp/cpp_typecheck_expr.cpp	/^  const irep_idt id;$/;"	m	struct:operator_entryt	file:
@@ -7900,6 +7911,7 @@ init	util/std_expr.h	/^  inline const exprt &init()  const { return op1(); }$/;"
 init	util/std_expr.h	/^  inline exprt &init()  { return op1(); }$/;"	f	class:transt
 init_args	cpp/cpp_declarator.h	/^  const exprt &init_args() const { return static_cast<const exprt&>(find("init_args")); }$/;"	f	class:cpp_declaratort
 init_args	cpp/cpp_declarator.h	/^  exprt &init_args() { return static_cast<exprt&>(add("init_args")); }$/;"	f	class:cpp_declaratort
+init_icbmc_trace	cbmc/symex_bmc.cpp	/^void symex_bmct::init_icbmc_trace(icbmc_goto_tracet &trace)$/;"	f	class:symex_bmct
 init_nta	goto-instrument/accelerate/trace_automaton.cpp	/^void trace_automatont::init_nta() {$/;"	f	class:trace_automatont
 init_state	goto-instrument/accelerate/trace_automaton.h	/^  int init_state() {$/;"	f	class:trace_automatont
 init_state	goto-instrument/accelerate/trace_automaton.h	/^  statet init_state;$/;"	m	class:automatont
@@ -8316,6 +8328,7 @@ is_friend	cpp/cpp_member_spec.h	/^  bool is_friend()   const { return get_bool(I
 is_function_call	goto-programs/goto_program_template.h	/^    inline bool is_function_call() const { return type==FUNCTION_CALL; }$/;"	f	class:goto_program_templatet::instructiont
 is_function_call	goto-programs/goto_trace.h	/^  bool is_function_call() const   { return type==FUNCTION_CALL; }$/;"	f	class:goto_trace_stept
 is_function_call	goto-symex/symex_target_equation.h	/^    bool is_function_call() const   { return type==goto_trace_stept::FUNCTION_CALL; }$/;"	f	class:symex_target_equationt::SSA_stept
+is_function_call_assignment	goto-programs/goto_program_template.h	/^    bool is_function_call_assignment;$/;"	m	class:goto_program_templatet::instructiont
 is_function_return	goto-programs/goto_trace.h	/^  bool is_function_return() const { return type==FUNCTION_RETURN; }$/;"	f	class:goto_trace_stept
 is_function_return	goto-symex/symex_target_equation.h	/^    bool is_function_return() const { return type==goto_trace_stept::FUNCTION_RETURN; }$/;"	f	class:symex_target_equationt::SSA_stept
 is_ge	analyses/invariant_set.h	/^  tvt is_ge(std::pair<unsigned, unsigned> p) const$/;"	f	class:invariant_sett
@@ -8436,6 +8449,7 @@ is_register	cpp/cpp_storage_spec.h	/^  bool is_register()     const { return get
 is_renamed	goto-symex/goto_symex_state.h	/^    inline bool is_renamed(const irep_idt &identifier) const$/;"	f	struct:goto_symex_statet::renaming_levelt
 is_restricted	ansi-c/c_qualifiers.h	/^  bool is_constant, is_volatile, is_restricted, is_atomic;$/;"	m	class:c_qualifierst
 is_return	goto-programs/goto_program_template.h	/^    inline bool is_return       () const { return type==RETURN;        }$/;"	f	class:goto_program_templatet::instructiont
+is_return_statement	goto-programs/goto_program_template.h	/^    bool is_return_statement;$/;"	m	class:goto_program_templatet::instructiont
 is_root	solvers/sat/resolution_proof.h	/^  bool is_root;$/;"	m	class:clauset
 is_root	util/union_find.h	/^  inline bool is_root(const T &a)$/;"	f	class:union_find
 is_root	util/union_find.h	/^  inline bool is_root(size_type a) const$/;"	f	class:unsigned_union_find
@@ -10212,7 +10226,6 @@ operator ()	goto-symex/memory_model_pso.cpp	/^void memory_model_psot::operator()
 operator ()	goto-symex/memory_model_sc.cpp	/^void memory_model_sct::operator()(symex_target_equationt &equation)$/;"	f	class:memory_model_sct
 operator ()	goto-symex/memory_model_tso.cpp	/^void memory_model_tsot::operator()(symex_target_equationt &equation)$/;"	f	class:memory_model_tsot
 operator ()	goto-symex/symex_main.cpp	/^void goto_symext::operator()($/;"	f	class:goto_symext
-operator ()	goto-symex/symex_main.cpp	/^void goto_symext::operator()(const goto_functionst &goto_functions)$/;"	f	class:goto_symext
 operator ()	java_bytecode/java_bytecode_convert.cpp	/^  void operator()(const java_bytecode_parse_treet &parse_tree)$/;"	f	class:java_bytecode_convertt
 operator ()	linking/zero_initializer.cpp	/^  exprt operator()($/;"	f	class:zero_initializert
 operator ()	path-symex/path_symex.cpp	/^void path_symext::operator()($/;"	f	class:path_symext
@@ -10683,7 +10696,10 @@ output_entry	pointer-analysis/value_set_fivrns.cpp	/^void value_set_fivrnst::out
 output_file_executable	goto-cc/compile.h	/^  std::string output_file_object, output_file_executable;$/;"	m	class:compilet
 output_file_object	goto-cc/compile.h	/^  std::string output_file_object, output_file_executable;$/;"	m	class:compilet
 output_fmt	goto-symex/symex_target_equation.cpp	/^void symex_target_equationt::output_fmt($/;"	f	class:symex_target_equationt
+output_icbmc	goto-programs/goto_functions_template.h	/^void goto_functions_templatet<bodyT>::output_icbmc($/;"	f	class:goto_functions_templatet
+output_icbmc	goto-programs/goto_program_template.h	/^std::ostream& goto_program_templatet<codeT, guardT>::output_icbmc($/;"	f	class:goto_program_templatet
 output_instruction	goto-programs/goto_program.cpp	/^std::ostream& goto_programt::output_instruction($/;"	f	class:goto_programt
+output_instruction_icbmc	goto-programs/goto_program.cpp	/^std::ostream& goto_programt::output_instruction_icbmc($/;"	f	class:goto_programt
 output_latest_time	util/timer.h	/^  std::string output_latest_time()$/;"	f	class:timert
 output_map	goto-cc/xml_binaries/xml_irep_hashing.cpp	/^void xml_irep_convertt::output_map(std::ostream &out, unsigned indent) {$/;"	f	class:xml_irep_convertt
 output_path	goto-instrument/accelerate/path.cpp	/^void output_path(patht &path, goto_programt &program, namespacet &ns,$/;"	f
@@ -11058,6 +11074,7 @@ prefix_in_list	goto-cc/goto_cc_cmdline.cpp	/^bool goto_cc_cmdlinet::prefix_in_li
 prepare	musketeer/fence-insertion/test1/test.sh	/^prepare() {$/;"	f
 prepare	musketeer/fence-insertion/test2/test.sh	/^prepare() {$/;"	f
 preprocess	ansi-c/ansi_c_language.cpp	/^bool ansi_c_languaget::preprocess($/;"	f	class:ansi_c_languaget
+preprocess	cbmc/icbmc_goto_trace.cpp	/^void icbmc_goto_tracet::preprocess($/;"	f	class:icbmc_goto_tracet
 preprocess	cpp/cpp_language.cpp	/^bool cpp_languaget::preprocess($/;"	f	class:cpp_languaget
 preprocess	goto-cc/gcc_mode.cpp	/^int gcc_modet::preprocess($/;"	f	class:gcc_modet
 preprocess	java_bytecode/java_bytecode_language.cpp	/^bool java_bytecode_languaget::preprocess($/;"	f	class:java_bytecode_languaget
@@ -11150,6 +11167,7 @@ process_cycles_selection	musketeer/fence_inserter.h	/^  virtual void process_cyc
 process_cycles_selection	musketeer/fence_user_def.cpp	/^void fence_user_def_insertert::process_cycles_selection()$/;"	f	class:fence_user_def_insertert
 process_format	ansi-c/printf_formatter.cpp	/^void printf_formattert::process_format(std::ostream &out)$/;"	f	class:printf_formattert
 process_function	goto-programs/remove_asm.cpp	/^void remove_asmt::process_function($/;"	f	class:remove_asmt
+process_function_call	cbmc/icbmc_goto_trace.cpp	/^void icbmc_goto_tracet::process_function_call($/;"	f	class:icbmc_goto_tracet
 process_goto_program	aa-symex/symex_parseoptions.cpp	/^bool symex_parseoptionst::process_goto_program($/;"	f	class:symex_parseoptionst
 process_goto_program	cbmc/cbmc_parseoptions.cpp	/^bool cbmc_parseoptionst::process_goto_program($/;"	f	class:cbmc_parseoptionst
 process_goto_program	clobber/clobber_parseoptions.cpp	/^bool clobber_parseoptionst::process_goto_program($/;"	f	class:clobber_parseoptionst
@@ -13032,6 +13050,7 @@ symex_decl	goto-symex/symex_decl.cpp	/^void goto_symext::symex_decl(statet &stat
 symex_dereference_statet	goto-symex/symex_dereference_state.h	/^  symex_dereference_statet($/;"	f	class:symex_dereference_statet
 symex_dereference_statet	goto-symex/symex_dereference_state.h	/^class symex_dereference_statet:$/;"	c
 symex_end_of_function	goto-symex/symex_function_call.cpp	/^void goto_symext::symex_end_of_function(statet &state)$/;"	f	class:goto_symext
+symex_execution_trace	cbmc/icbmc_goto_trace.h	/^  std::list <class goto_programt::instructiont> symex_execution_trace;$/;"	m	class:icbmc_goto_tracet
 symex_fkt	goto-symex/symex_builtin_functions.cpp	/^void goto_symext::symex_fkt($/;"	f	class:goto_symext
 symex_function_call	goto-symex/symex_function_call.cpp	/^void goto_symext::symex_function_call($/;"	f	class:goto_symext
 symex_function_call_code	goto-symex/symex_function_call.cpp	/^void goto_symext::symex_function_call_code($/;"	f	class:goto_symext
@@ -14103,6 +14122,7 @@ var_map	goto-instrument/wmm/shared_buffers.h	/^  var_mapt var_map;$/;"	m	class:s
 var_map	path-symex/path_symex_state.h	/^  var_mapt &var_map;$/;"	m	struct:path_symex_statet
 var_mapt	aa-path-symex/var_map.h	/^  explicit var_mapt(const namespacet &_ns):$/;"	f	class:var_mapt
 var_mapt	aa-path-symex/var_map.h	/^class var_mapt$/;"	c
+var_mapt	cbmc/icbmc_goto_trace.h	/^  typedef std::map< irep_idt, irep_idt > var_mapt;$/;"	t	class:icbmc_goto_tracet
 var_mapt	goto-instrument/wmm/shared_buffers.h	/^  typedef std::map<irep_idt, varst> var_mapt;$/;"	t	class:shared_bufferst
 var_mapt	path-symex/var_map.h	/^  explicit var_mapt(const namespacet &_ns):$/;"	f	class:var_mapt
 var_mapt	path-symex/var_map.h	/^class var_mapt$/;"	c
