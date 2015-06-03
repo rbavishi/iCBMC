@@ -380,6 +380,7 @@ void icbmc_goto_tracet::output(
   file_name+=id2string(icbmc_it->source_location.get_file());
   out.open(file_name.c_str(), std::ios::out | std::ios::trunc );
   goto_programt::targett temp;
+  out << "#include <stdio.h>\n#include<stdlib.h>\n\n\n";
   while(icbmc_it!=counterexample_trace.end())
   {
     switch(icbmc_it->type)
