@@ -376,30 +376,56 @@ void icbmc_goto_tracet::output(
   std::ofstream out;
   std::string indentation="    ";
   std::string file_name="icbmc_goto_trace_";
+  std::string declaration;
   file_name+=id2string(icbmc_it->source_location.get_file());
   out.open(file_name.c_str(), std::ios::out | std::ios::trunc );
+  goto_programt::targett temp;
   while(icbmc_it!=counterexample_trace.end())
   {
-    out << indentation << "//" << icbmc_it->source_location << "\n";
     switch(icbmc_it->type)
     {
       case ASSUME:
+    	out << indentation << "//" << icbmc_it->source_location << "\n";
 	out << indentation << "__CPROVER_assume(" << from_expr(ns, "", icbmc_it->guard) << ");\n";
 	break;
 
       case ASSERT:
+    	out << indentation << "//" << icbmc_it->source_location << "\n";
 	out << indentation << "__CPROVER_assert(" << from_expr(ns, "", icbmc_it->guard) << ", \"\");\n";
 	break;
 
       case DECL:
-	out << indentation << from_expr(ns, "", icbmc_it->code) << "\n";
+	temp=icbmc_it;
+	temp++;
+	if (temp->type==ASSIGN) 
+	{
+	  declaration=from_expr(ns, "", icbmc_it->code);
+	  declaration.erase(declaration.size()-1);
+	  out << indentation << "//" << icbmc_it->source_location << "\n";
+	  out << indentation << declaration;
+	}
+	else 
+	{
+	  out << indentation << "//" << icbmc_it->source_location << "\n";
+	  out << indentation << from_expr(ns, "", icbmc_it->code);
+	}
 	break;
 
       case ASSIGN:
-	out << indentation << from_expr(ns, "", icbmc_it->code) << "\n";
+	if (icbmc_it->code.op1().type().id()==ID_array) 
+	  out << "=" << from_expr(ns, "", icbmc_it->code.op1()) << ";\n"; 
+	else
+	{
+	  temp=icbmc_it;
+	  temp--;
+	  if (temp->type==DECL) out << ";\n";
+	  out <<  indentation << "//" << icbmc_it->source_location << "\n";
+	  out << indentation << from_expr(ns, "", icbmc_it->code) << "\n";
+	}
 	break;
 
       case FUNCTION_CALL:
+    	out << indentation << "//" << icbmc_it->source_location << "\n";
 	out << indentation << "//Function Call: " << from_expr(ns, "", icbmc_it->code) << "\n";
 	func_call=from_expr(ns, "", icbmc_it->code);
 	if (func_call==entry_point) out << "int main() {\n";
