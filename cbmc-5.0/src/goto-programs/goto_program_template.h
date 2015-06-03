@@ -14,6 +14,7 @@ Author: Daniel Kroening, kroening@kroening.com
 #include <cassert>
 #include <iosfwd>
 #include <set>
+#include <vector>
 
 #include <util/namespace.h>
 #include <util/symbol_table.h>
@@ -94,8 +95,12 @@ public:
     //! guard for gotos, assume, assert
     guardT guard;
 
-    //! Unique instruction ID
+    //! iCBMC stuff
     int icbmc_id;
+    std::list <guardT> icbmc_guard;
+    bool has_icbmc_guard;
+    bool is_return_statement;
+    bool is_function_call_assignment;
     
     // The below will eventually become a single target only.
     //! the target for gotos and for start_thread nodes
@@ -189,6 +194,8 @@ public:
       location_number(0),
       target_number(unsigned(-1))
     {
+      is_return_statement=false;      
+      is_function_call_assignment=false;
     }
 
     inline instructiont(goto_program_instruction_typet _type):
@@ -198,6 +205,8 @@ public:
       location_number(0),
       target_number(unsigned(-1))
     {
+      is_return_statement=false;
+      is_function_call_assignment=false;
     }
 
     //! swap two instructions    
@@ -209,6 +218,8 @@ public:
       instruction.guard.swap(guard);
       instruction.targets.swap(targets);
       instruction.function.swap(function);
+      std::swap(instruction.is_return_statement, is_return_statement);
+      std::swap(instruction.is_function_call_assignment, is_function_call_assignment);
     }
     
     //! A globally unique number to identify a program location.

@@ -112,7 +112,7 @@ void goto_trace_stept::output(
   {
     irep_idt identifier=lhs_object.get_identifier();
     out << "  " << identifier
-        << " = " << from_expr(ns, identifier, lhs_object_value)
+        << " = " << from_expr(ns, "", lhs_object_value)
         << "\n";
   }
   else if(pc->is_assert())
@@ -129,6 +129,11 @@ void goto_trace_stept::output(
       out << "\n";
     }
   }
+  /*else if(pc->is_decl())
+  {
+	  out << " " << lhs_object.get_identifier();
+	  out << "\n";
+  }*/
   
   out << "\n";
 }
@@ -422,6 +427,7 @@ void show_goto_trace(
   std::ofstream line_number_file;
   line_number_file.open("trace-debug.txt", std::ios::out | std::ios::trunc );
   int assert_count = 0;
+  goto_trace.output(ns,out);
   for(goto_tracet::stepst::const_iterator
       it=goto_trace.steps.begin();
       it!=goto_trace.steps.end();
@@ -433,11 +439,11 @@ void show_goto_trace(
     if(it->hidden)
       continue;
   
-    std::cout << "\n\nMY STATEMENTS... Number:" << it->pc->location_number << std::endl;
+    /*std::cout << "\n\nMY STATEMENTS... Number:" << it->pc->location_number << std::endl;
     std::cout << "Type: " << it->pc->type << std::endl;
     std::cout << "Code: " << from_expr(ns, "", it->pc->code) << std::endl;
-    std::cout << "Guard: " << from_expr(ns, "", it->pc->guard) << std::endl;
-    trace_debug_file(line_number_file,it,ns,out);
+    std::cout << "Guard: " << from_expr(ns, "", it->pc->guard) << std::endl;*/
+    //trace_debug_file(line_number_file,it,ns,out);
     switch(it->type)
     {
     case goto_trace_stept::ASSERT:

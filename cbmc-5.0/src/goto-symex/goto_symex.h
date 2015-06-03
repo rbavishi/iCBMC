@@ -15,6 +15,7 @@ Author: Daniel Kroening, kroening@kroening.com
 #include <util/options.h>
 #include <util/byte_operators.h>
 #include <cbmc/icbmc_goto_trace.h>
+#include <vector>
 
 #include <goto-programs/goto_functions.h>
 
@@ -200,19 +201,22 @@ protected:
   virtual void symex_function_call(
     const goto_functionst &goto_functions,
     statet &state,
-    const code_function_callt &call);
+    const code_function_callt &call,
+    std::vector <exprt> unrefined_args);
 
   virtual void symex_end_of_function(statet &state);
 
   virtual void symex_function_call_symbol(
     const goto_functionst &goto_functions,
     statet &state,
-    const code_function_callt &call);
+    const code_function_callt &call,
+    std::vector <exprt> unrefined_args);
 
   virtual void symex_function_call_code(
     const goto_functionst &goto_functions,
     statet &state,
-    const code_function_callt &call);
+    const code_function_callt &call,
+    std::vector <exprt> unrefined_args);
     
   virtual bool get_unwind_recursion(
     const irep_idt &identifier,
@@ -223,7 +227,8 @@ protected:
     const irep_idt function_identifier,
     const goto_functionst::goto_functiont &goto_function,
     statet &state,
-    const exprt::operandst &arguments);
+    const exprt::operandst &arguments,
+    std::vector <exprt> unrefined_args);
 
   void locality(
     const irep_idt function_identifier,

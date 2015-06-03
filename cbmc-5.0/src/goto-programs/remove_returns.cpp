@@ -10,6 +10,7 @@ Date:   September 2009
 
 #include <util/std_expr.h>
 #include <util/symbol_table.h>
+#include <iostream>
 
 #include "remove_returns.h"
 
@@ -78,7 +79,7 @@ void remove_returnst::replace_returns(
     new_symbol.is_state_var=true;
     new_symbol.is_thread_local=true;
     new_symbol.is_file_local=true;
-    new_symbol.is_static_lifetime=true;
+    new_symbol.is_static_lifetime=false;
     new_symbol.module=function_symbol.module;
     new_symbol.value.make_nil();
     new_symbol.base_name=id2string(function_symbol.base_name)+"___return_value";
@@ -112,22 +113,34 @@ void remove_returnst::replace_returns(
         lhs_expr.set_identifier(id2string(function_id)+"___return_value");
         lhs_expr.type()=return_type;
 
+	code_declt declaration(lhs_expr);
         code_assignt assignment(lhs_expr, i_it->code.op0());
 
         // now turn the `return' into `goto'
         i_it->make_goto(end_function);
+
+        goto_programt::instructiont tmp_d;
+        tmp_d.make_decl();
+        tmp_d.code=declaration;
+        tmp_d.source_location=i_it->source_location;
+        tmp_d.function=i_it->function;
+	tmp_d.is_return_statement=true;
   
         goto_programt::instructiont tmp_i;
         tmp_i.make_assignment();
         tmp_i.code=assignment;
         tmp_i.source_location=i_it->source_location;
         tmp_i.function=i_it->function;
+	tmp_i.is_return_statement=true;
 
+	std::cout << "Is this real?\n" << tmp_i.is_return_statement;
         // inserts the assignment
+        goto_program.insert_before_swap(i_it, tmp_d);
+        i_it++;
         goto_program.insert_before_swap(i_it, tmp_i);
 
         // i_it is now the assignment, advance to the `goto'
-        i_it++;
+	i_it++;
       }
     }
   }

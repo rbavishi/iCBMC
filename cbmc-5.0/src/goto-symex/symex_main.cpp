@@ -250,13 +250,13 @@ void goto_symext::symex_step(
 
   assert(!state.threads.empty());
   assert(!state.call_stack().empty());
-  if(state.source.pc->source_location.need_to_print()) extract_trace->trace_instructions.push_back(*state.source.pc);
+  if(state.source.pc->source_location.need_to_print()) extract_trace->symex_execution_trace.push_back(*state.source.pc);
 /* 
   if (state.source.pc->type == GOTO) { 
-  std::cout << "\ninstruction type is " << state.source.pc->type << " " << extract_trace->trace_instructions.back().type << std::endl;
+  std::cout << "\ninstruction type is " << state.source.pc->type << " " << extract_trace->symex_execution_trace.back().type << std::endl;
   std::cout << "Location: " << state.source.pc->source_location << std::endl;
   std::cout << "Guard:PC: " << from_expr(ns, "", state.source.pc->guard) << std::endl;
-  std::cout << "Guard:ICBMC: " << from_expr(ns, "", extract_trace->trace_instructions.back().guard) << std::endl;
+  std::cout << "Guard:ICBMC: " << from_expr(ns, "", extract_trace->symex_execution_trace.back().guard) << std::endl;
   std::cout << "Code: " << from_expr(ns, "", state.source.pc->code) << std::endl;
   }*/
   const goto_programt::instructiont &instruction=*state.source.pc;
@@ -335,6 +335,9 @@ void goto_symext::symex_step(
     if(!state.guard.is_false())
     {
       code_assignt deref_code=to_code_assign(instruction.code);
+      //const std::string new_name="HEOELE";
+      //to_symbol_expr(deref_code.lhs()).set_identifier(new_name);
+      //std::cout << "\n\nTrial: " << from_expr(ns, "", deref_code) << std::endl;
 
       clean_expr(deref_code.lhs(), state, true);
       clean_expr(deref_code.rhs(), state, false);
@@ -349,21 +352,17 @@ void goto_symext::symex_step(
     {
       code_function_callt deref_code=
         to_code_function_call(instruction.code);
-      /*exprt::operandst argument=deref_code.arguments();
-      for(unsigned i=0; i<argument.size(); i++) {
-      	std::cout << "ARGUMENTS: " << from_expr(ns, "", argument[i]) << std::endl;
-    	state.rename(argument[i], ns);
-      }*/
       if(deref_code.lhs().is_not_nil())
         clean_expr(deref_code.lhs(), state, true);
 
       clean_expr(deref_code.function(), state, false);
+      std::vector <exprt> unrefined_args;
 
       Forall_expr(it, deref_code.arguments()) {
-	std::cout << "ARGS: " << from_expr(ns, "", *it) << std::endl;
+	unrefined_args.push_back(*it);
         clean_expr(*it, state, false);
       } 
-      symex_function_call(goto_functions, state, deref_code);
+      symex_function_call(goto_functions, state, deref_code, unrefined_args);
     }
     else
       state.source.pc++;

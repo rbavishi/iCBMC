@@ -1094,10 +1094,10 @@ std::string expr2ct::convert_malloc(
   unsigned p0;
   std::string op0=convert(src.op0(), p0);
 
-  std::string dest="MALLOC";
+  std::string dest="malloc";
   dest+='(';
-  dest+=convert((const typet &)src.find("#type"));
-  dest+=", ";
+  //dest+=convert((const typet &)src.find("#type"));
+  //dest+=", ";
   dest+=op0;
   dest+=')';
 

@@ -221,7 +221,7 @@ void goto_convert_functionst::convert_function(const irep_idt &identifier)
   goto_functionst::goto_functiont &f=functions.function_map[identifier];
   
   // make tmp variables local to function
-  tmp_symbol_prefix=id2string(symbol.name)+"::$tmp::";
+  tmp_symbol_prefix=id2string(symbol.name)+"__tmp__";
   temporary_counter=0;
   
   f.type=to_code_type(symbol.type);

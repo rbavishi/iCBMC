@@ -200,6 +200,7 @@ void goto_convertt::goto_convert_rec(
   const codet &code,
   goto_programt &dest)
 {
+  std::cout << "Trying\n";
   convert(code, dest);
 
   finish_gotos();
@@ -403,9 +404,7 @@ void goto_convertt::convert(
   goto_programt &dest)
 {
   const irep_idt &statement=code.get_statement();
-  static int id_num=0;
-  id_num++;
-    
+  std::cout << "Trying\n"; 
   if(statement==ID_block)
     convert_block(to_code_block(code), dest);
   else if(statement==ID_decl)
@@ -531,6 +530,7 @@ void goto_convertt::convert(
     dest.add_instruction(SKIP);
     dest.instructions.back().code.make_nil();
   }
+  std::cout << from_expr(ns, "" ,dest.instructions.back().code) << std::endl;
 }
 
 /*******************************************************************\

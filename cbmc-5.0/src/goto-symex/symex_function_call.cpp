@@ -58,7 +58,8 @@ void goto_symext::parameter_assignments(
   const irep_idt function_identifier,
   const goto_functionst::goto_functiont &goto_function,
   statet &state,
-  const exprt::operandst &arguments)
+  const exprt::operandst &arguments,
+  std::vector <exprt> unrefined_args)
 {
   const code_typet &function_type=goto_function.type;
 
@@ -90,14 +91,12 @@ void goto_symext::parameter_assignments(
     const typet &parameter_type=parameter.type();
 
     const irep_idt &identifier=parameter.get_identifier();
-    std::cout << "PARAMETER: " << id2string(identifier) << std::endl; 
     if(identifier==irep_idt())
       throw "no identifier for function parameter";
 
     const symbolt &symbol=ns.lookup(identifier);
     symbol_exprt lhs=symbol.symbol_expr();
 
-    std::cout << "PARAMETER: " << id2string(lhs.get_identifier()) << std::endl; 
     if(it1->is_nil())
     {
       // 'nil' argument doesn't get assigned
@@ -105,6 +104,26 @@ void goto_symext::parameter_assignments(
     else
     {
       exprt rhs=*it1;
+      exprt rhs_unrefined=unrefined_args[it1-arguments.begin()];
+      if (rhs_unrefined.id()==ID_symbol) to_symbol_expr(rhs_unrefined).set_identifier(from_expr(ns, "", rhs_unrefined));
+      code_declt declaration(lhs);
+      goto_programt::instructiont tmp_d;
+      tmp_d.make_decl();
+      tmp_d.code=declaration;
+      tmp_d.source_location=state.source.pc->source_location;
+      tmp_d.function=function_identifier;
+      tmp_d.is_function_call_assignment=true;
+
+      goto_programt::instructiont tmp_a;
+      code_assignt assignment(lhs,rhs_unrefined);
+      tmp_a.make_assignment();
+      tmp_a.code=assignment;
+      tmp_a.source_location=state.source.pc->source_location;
+      tmp_a.function=function_identifier;
+      tmp_a.is_function_call_assignment=true;
+
+      extract_trace->symex_execution_trace.push_back(tmp_d);
+      extract_trace->symex_execution_trace.push_back(tmp_a);
 
       // It should be the same exact type.
       if(!base_type_eq(parameter_type, rhs.type(), ns))
@@ -207,12 +226,13 @@ Function: goto_symext::symex_function_call
 void goto_symext::symex_function_call(
   const goto_functionst &goto_functions,
   statet &state,
-  const code_function_callt &code)
+  const code_function_callt &code,
+  std::vector <exprt> unrefined_args)
 {
   const exprt &function=code.function();
 
   if(function.id()==ID_symbol)
-    symex_function_call_symbol(goto_functions, state, code);
+    symex_function_call_symbol(goto_functions, state, code, unrefined_args);
   else if(function.id()==ID_if)
     throw "symex_function_call can't do if";
   else if(function.id()==ID_dereference)
@@ -236,7 +256,8 @@ Function: goto_symext::symex_function_call_symbol
 void goto_symext::symex_function_call_symbol(
   const goto_functionst &goto_functions,
   statet &state,
-  const code_function_callt &code)
+  const code_function_callt &code,
+  std::vector <exprt> unrefined_args)
 {
   target.location(state.guard.as_expr(), state.source);
 
@@ -258,7 +279,7 @@ void goto_symext::symex_function_call_symbol(
     symex_macro(state, code);
   }
   else
-    symex_function_call_code(goto_functions, state, code);
+    symex_function_call_code(goto_functions, state, code, unrefined_args);
 }
 
 /*******************************************************************\
@@ -276,7 +297,8 @@ Function: goto_symext::symex_function_call_code
 void goto_symext::symex_function_call_code(
   const goto_functionst &goto_functions,
   statet &state,
-  const code_function_callt &call)
+  const code_function_callt &call,
+  std::vector <exprt> unrefined_args)
 {
   
   const irep_idt &identifier=
@@ -343,7 +365,6 @@ void goto_symext::symex_function_call_code(
   // read the arguments -- before the locality renaming
   exprt::operandst arguments=call.arguments();
   for(unsigned i=0; i<arguments.size(); i++) {
-    std::cout << "ARGUMENTS: " << from_expr(ns, "", arguments[i]) << std::endl;
     state.rename(arguments[i], ns);
   }
   
@@ -355,7 +376,7 @@ void goto_symext::symex_function_call_code(
   locality(identifier, state, goto_function);
 
   // assign actuals to formal parameters
-  parameter_assignments(identifier, goto_function, state, arguments);
+  parameter_assignments(identifier, goto_function, state, arguments, unrefined_args);
 
   frame.end_of_function=--goto_function.body.instructions.end();
   frame.return_value=call.lhs();
