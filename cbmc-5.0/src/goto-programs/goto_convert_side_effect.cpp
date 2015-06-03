@@ -555,6 +555,7 @@ void goto_convertt::remove_malloc(
   goto_programt &dest,
   bool result_is_used)
 {
+  codet call_decl;
   codet call;
 
   if(result_is_used)
@@ -570,6 +571,8 @@ void goto_convertt::remove_malloc(
     new_name(new_symbol);
     tmp_symbols.push_back(new_symbol.name);
 
+    call_decl=code_declt(new_symbol.symbol_expr());
+    call_decl.add_source_location()=expr.source_location();
     call=code_assignt(new_symbol.symbol_expr(), expr);
     call.add_source_location()=expr.source_location();
     
@@ -581,6 +584,7 @@ void goto_convertt::remove_malloc(
     call.move_to_operands(expr);
   }
 
+  convert(call_decl,dest);
   convert(call, dest);
 }
 
