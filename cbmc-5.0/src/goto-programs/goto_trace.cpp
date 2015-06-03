@@ -424,8 +424,6 @@ void show_goto_trace(
   unsigned prev_step_nr=0;
   bool first_step=true;
   
-  std::ofstream line_number_file;
-  line_number_file.open("trace-debug.txt", std::ios::out | std::ios::trunc );
   int assert_count = 0;
   goto_trace.output(ns,out);
   for(goto_tracet::stepst::const_iterator

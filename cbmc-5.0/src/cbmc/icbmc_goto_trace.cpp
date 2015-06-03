@@ -171,6 +171,7 @@ void icbmc_goto_tracet::process_function_call(
 	break;
 
       case DECL:
+	std::cout << "DECL: ## : " << from_expr(ns, "", instruct.code) << instruct.function << "\n";
 	if (instruct.is_return_statement==false)
   	  rename_identifier_decl(ns, instruct.code.op0(), icbmc_it->function, current_variable_map, current_func_number);
 	else {
@@ -215,7 +216,6 @@ void icbmc_goto_tracet::process_function_call(
 	break;
 
       case END_FUNCTION:
-	advance_iterators(ns, goto_trace, icbmc_it, goto_it, current_variable_map);
 	return ;
 
       case FUNCTION_CALL:
@@ -377,31 +377,33 @@ void icbmc_goto_tracet::output(
   std::string func_call;
   std::string entry_point="main();";
   std::ofstream out;
-  std::string identation="    ";
-  out.open("icbmc_goto_trace.c", std::ios::out | std::ios::trunc );
+  std::string indentation="    ";
+  std::string file_name="icbmc_goto_trace_";
+  file_name+=id2string(icbmc_it->source_location.get_file());
+  out.open(file_name.c_str(), std::ios::out | std::ios::trunc );
   while(icbmc_it!=counterexample_trace.end())
   {
-    out << identation << "//" << icbmc_it->source_location << "\n";
+    out << indentation << "//" << icbmc_it->source_location << "\n";
     switch(icbmc_it->type)
     {
       case ASSUME:
-	out << identation << "__CPROVER_assume(" << from_expr(ns, "", icbmc_it->guard) << ");\n";
+	out << indentation << "__CPROVER_assume(" << from_expr(ns, "", icbmc_it->guard) << ");\n";
 	break;
 
       case ASSERT:
-	out << identation << "__CPROVER_assert(" << from_expr(ns, "", icbmc_it->guard) << ", \"\");\n";
+	out << indentation << "__CPROVER_assert(" << from_expr(ns, "", icbmc_it->guard) << ", \"\");\n";
 	break;
 
       case DECL:
-	out << identation << from_expr(ns, "", icbmc_it->code) << "\n";
+	out << indentation << from_expr(ns, "", icbmc_it->code) << "\n";
 	break;
 
       case ASSIGN:
-	out << identation << from_expr(ns, "", icbmc_it->code) << "\n";
+	out << indentation << from_expr(ns, "", icbmc_it->code) << "\n";
 	break;
 
       case FUNCTION_CALL:
-	out << identation << "//Function Call: " << from_expr(ns, "", icbmc_it->code) << "\n";
+	out << indentation << "//Function Call: " << from_expr(ns, "", icbmc_it->code) << "\n";
 	func_call=from_expr(ns, "", icbmc_it->code);
 	if (func_call==entry_point) out << "int main() {\n";
 	break;
@@ -411,7 +413,7 @@ void icbmc_goto_tracet::output(
     }
     icbmc_it++;
   }
-  out << "\n}\n";
+  out << indentation << "return 0;" << "\n}\n";
   out.close();
 }
 
