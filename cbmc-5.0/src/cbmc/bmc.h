@@ -56,6 +56,7 @@ public:
   
   void set_ui(language_uit::uit _ui) { ui=_ui; }
   icbmc_goto_tracet icbmc_trace;
+  bool show_icbmc_trace;
   
 protected:
  

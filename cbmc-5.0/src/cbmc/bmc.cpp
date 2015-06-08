@@ -88,9 +88,13 @@ void bmct::error_trace(const prop_convt &prop_conv)
   {
   case ui_message_handlert::PLAIN:
     std::cout << "\n" << "Counterexample:" << "\n";
-    icbmc_trace.preprocess(ns, goto_trace);
-    icbmc_trace.output(ns);
-    show_goto_trace(std::cout, ns, goto_trace);
+    if (show_icbmc_trace==true) 
+    {
+      icbmc_trace.preprocess(ns, goto_trace);
+      icbmc_trace.output(ns);
+    }
+    else  
+      show_goto_trace(std::cout, ns, goto_trace);
     break;
   
   case ui_message_handlert::XML_UI:

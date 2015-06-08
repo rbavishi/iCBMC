@@ -874,6 +874,11 @@ int cbmc_parseoptionst::do_bmc(
   bmc.set_ui(get_ui());
 
   // do actual BMC
+  if (cmdline.isset("show-icbmc-trace"))
+    bmc.show_icbmc_trace=true;
+  else
+    bmc.show_icbmc_trace=false;
+
   bool result=bmc.run(goto_functions);
 
   // let's log some more statistics
