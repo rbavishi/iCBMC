@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include<stdlib.h>
+
+
     //file nested_ifs.c line 2
     //Function Call: main();
 int main() {
@@ -31,5 +35,5 @@ int main() {
     main___d = 10;
     //file nested_ifs.c line 33 function main
     __CPROVER_assert(main___d < 10, "");
-
+    return 0;
 }
