@@ -408,7 +408,7 @@ void icbmc_goto_tracet::output(
 	else 
 	{
 	  out << indentation << "//" << icbmc_it->source_location << "\n";
-	  out << indentation << from_expr(ns, "", icbmc_it->code);
+	  out << indentation << from_expr(ns, "", icbmc_it->code) << "\n";
 	}
 	break;
 
