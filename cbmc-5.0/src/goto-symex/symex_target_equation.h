@@ -55,6 +55,7 @@ public:
     const exprt &ssa_full_lhs,
     const exprt &original_full_lhs,
     const exprt &ssa_rhs,
+    const exprt &original_rhs,
     const sourcet &source,
     assignment_typet assignment_type);
     
@@ -161,6 +162,7 @@ public:
   void convert_io(decision_proceduret &decision_procedure);
 
   exprt make_expression() const;
+  bool icbmc_smt2;
 
   class SSA_stept
   {
@@ -194,6 +196,7 @@ public:
     symbol_exprt ssa_lhs, original_lhs_object;
     exprt ssa_full_lhs, original_full_lhs;
     exprt ssa_rhs;
+    exprt original_rhs;
     assignment_typet assignment_type;
     
     // for ASSUME/ASSERT/CONSTRAINT

@@ -241,6 +241,7 @@ void symex_target_equationt::assignment(
   const exprt &ssa_full_lhs,
   const exprt &original_full_lhs,
   const exprt &ssa_rhs,
+  const exprt &original_rhs,
   const sourcet &source,
   assignment_typet assignment_type)
 {
@@ -255,6 +256,7 @@ void symex_target_equationt::assignment(
   SSA_step.ssa_full_lhs=ssa_full_lhs;
   SSA_step.original_full_lhs=original_full_lhs;
   SSA_step.ssa_rhs=ssa_rhs;
+  SSA_step.original_rhs=original_rhs;
   SSA_step.assignment_type=assignment_type;
 
   SSA_step.cond_expr=equal_exprt(SSA_step.ssa_lhs, SSA_step.ssa_rhs);
@@ -632,8 +634,11 @@ void symex_target_equationt::convert_assignments(
   for(SSA_stepst::const_iterator it=SSA_steps.begin();
       it!=SSA_steps.end(); it++)
   {
-    if(it->is_assignment() && !it->ignore)
-      decision_procedure.set_to_true(it->cond_expr);
+    if(it->is_assignment() && !it->ignore) {
+      if (icbmc_smt2==false) decision_procedure.set_to_true(it->cond_expr);
+      else decision_procedure.set_to_true(equal_exprt(it->ssa_lhs, it->original_rhs));
+      //std::cout << "We're here ###############" << from_expr(ns, "", it->ssa_lhs) << " " << from_expr(ns, "", it->original_rhs) << std::endl;
+    }
   }
 }
 
@@ -709,10 +714,14 @@ void symex_target_equationt::convert_assumptions(
   {
     if(it->is_assume())
     {
-      if(it->ignore)
+      if(it->ignore) {
         it->cond_literal=const_literal(true);
-      else
+	std::cout << "################################# Yep it's happening\n";
+      }
+      else {
         it->cond_literal=prop_conv.convert(it->cond_expr);
+	std::cout << "################################# Yep it's happening\n";
+      }
     }
   }
 }

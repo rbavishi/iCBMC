@@ -218,6 +218,7 @@ public:
   // performs renaming _up to_ the given level
   irep_idt rename_identifier(const irep_idt &identifier, const namespacet &ns, levelt level=L2);
   void rename(exprt &expr, const namespacet &ns, levelt level=L2);
+  void rename_with_preserve(exprt &expr, const namespacet &ns, levelt level=L2);
   void rename(typet &type, const namespacet &ns, levelt level=L2);
   
   void rename_address(exprt &expr, const namespacet &ns, levelt level);

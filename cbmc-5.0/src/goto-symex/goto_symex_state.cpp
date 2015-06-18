@@ -435,15 +435,12 @@ void goto_symex_statet::rename(
   levelt level)
 {
   // rename all the symbols with their last known value
-  //std::cout << "HOLA!" << std::endl; 
-  //std::cout << "Input Expr: " << from_expr(ns, "", expr) << std::endl;
   rename(expr.type(), ns, level);
   if(expr.id()==ID_symbol)
   {
     // we never rename function symbols
     if(ns.follow(expr.type()).id()==ID_code)
       return;
-    //std::cout << "SYMBOL:: Expr: " << from_expr(ns, "", expr) << std::endl; 
     const irep_idt identifier=to_symbol_expr(expr).get_identifier();
 
     if(level==L0 || level==L1)
@@ -470,8 +467,9 @@ void goto_symex_statet::rename(
         propagationt::valuest::const_iterator p_it=
           propagation.values.find(l1_identifier);
 
-        if(p_it!=propagation.values.end())
+        if(p_it!=propagation.values.end()) 
           expr=p_it->second; // already L2
+
         else
         {
           irep_idt new_name=level2(l1_identifier); // L2
@@ -489,9 +487,77 @@ void goto_symex_statet::rename(
   else
   {
     // do this recursively
-  //  std::cout << "Yes we are doing it this way" << std::endl;
     Forall_operands(it, expr)
       rename(*it, ns, level);
+  }
+}
+
+/*******************************************************************\
+
+Function: goto_symex_statet::rename_with_preserve
+
+  Inputs:
+
+ Outputs:
+
+ Purpose:
+
+\*******************************************************************/
+
+void goto_symex_statet::rename_with_preserve(
+  exprt &expr,
+  const namespacet &ns,
+  levelt level)
+{
+  // rename all the symbols with their last known value
+  rename(expr.type(), ns, level);
+  if(expr.id()==ID_symbol)
+  {
+    // we never rename function symbols
+    if(ns.follow(expr.type()).id()==ID_code)
+      return;
+    const irep_idt identifier=to_symbol_expr(expr).get_identifier();
+
+    if(level==L0 || level==L1)
+    {
+      const irep_idt new_name=rename_identifier(identifier, ns, level);
+      to_symbol_expr(expr).set_identifier(new_name);
+    }  
+    else if(level==L2)
+    {
+      if(l2_thread_read_encoding(to_symbol_expr(expr), ns))
+      {
+        // renaming taken care of by l2_thread_encoding
+      }
+      else if(level2.is_renamed(identifier))
+      {
+        // already at L2
+      }
+      else
+      {
+        irep_idt l1_identifier=rename_identifier(identifier, ns, L1);
+
+        // We also consider propagation if we go up to L2.
+        // L1 identifiers are used for propagation!
+        propagationt::valuest::const_iterator p_it=
+          propagation.values.find(l1_identifier);
+
+          irep_idt new_name=level2(l1_identifier); // L2
+          to_symbol_expr(expr).set_identifier(new_name);
+      }
+    }
+    
+  }
+  else if(expr.id()==ID_address_of)
+  {
+    assert(expr.operands().size()==1);
+    rename_address(expr.op0(), ns, level);
+  }
+  else
+  {
+    // do this recursively
+    Forall_operands(it, expr)
+      rename_with_preserve(*it, ns, level);
   }
 }
 
@@ -601,6 +667,7 @@ bool goto_symex_statet::l2_thread_read_encoding(
     symex_target->assignment(
       guard.as_expr(),
       expr, lhs, expr, lhs,
+      tmp,
       tmp,
       source,
       symex_targett::PHI);

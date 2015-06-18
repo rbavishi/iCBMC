@@ -48,7 +48,6 @@ void goto_symext::symex_goto(statet &state)
 
     //state.source.pc->guard.negate();
     // next instruction
-    std::cout << "Special Case Guard: " << from_expr(ns, "", state.source.pc->guard) << std::endl;
     state.source.pc++;
     return; // nothing to do
   }
@@ -149,6 +148,7 @@ void goto_symext::symex_goto(statet &state)
         guard.as_expr(),
         new_lhs, guard_symbol_expr, new_lhs, guard_symbol_expr,
         new_rhs,
+	new_rhs,
         state.source,
         symex_targett::GUARD);
       
@@ -387,6 +387,7 @@ void goto_symext::phi_function(
     target.assignment(
       true_exprt(),
       new_lhs, lhs, new_lhs, lhs,
+      rhs,
       rhs,
       dest_state.source,
       symex_targett::PHI);

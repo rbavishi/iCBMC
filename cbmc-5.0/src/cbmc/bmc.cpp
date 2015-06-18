@@ -358,10 +358,10 @@ bool bmct::run(const goto_functionst &goto_functions)
   {
     // get unwinding info
     setup_unwind();
+    symex.icbmc_smt2=equation.icbmc_smt2;
 
     // perform symbolic execution
     symex(goto_functions);
-    //icbmc_trace = symex.extract_trace;
     // add a partial ordering, if required    
     if(equation.has_threads())
     {

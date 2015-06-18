@@ -254,9 +254,6 @@ void goto_symext::symex_step(
 /* 
   if (state.source.pc->type == GOTO) { 
   std::cout << "\ninstruction type is " << state.source.pc->type << " " << extract_trace->symex_execution_trace.back().type << std::endl;
-  std::cout << "Location: " << state.source.pc->source_location << std::endl;
-  std::cout << "Guard:PC: " << from_expr(ns, "", state.source.pc->guard) << std::endl;
-  std::cout << "Guard:ICBMC: " << from_expr(ns, "", extract_trace->symex_execution_trace.back().guard) << std::endl;
   std::cout << "Code: " << from_expr(ns, "", state.source.pc->code) << std::endl;
   }*/
   const goto_programt::instructiont &instruction=*state.source.pc;
@@ -270,7 +267,6 @@ void goto_symext::symex_step(
       state.guard.add(false_exprt());
     state.depth++;
   }
-
   // actually do instruction
   switch(instruction.type)
   {
@@ -301,7 +297,8 @@ void goto_symext::symex_step(
     {
       exprt tmp=instruction.guard;
       clean_expr(tmp, state, false);
-      state.rename(tmp, ns);
+      if (icbmc_smt2==true) state.rename_with_preserve(tmp, ns);
+      else state.rename(tmp, ns);
       symex_assume(state, tmp);
     }
 
@@ -337,7 +334,6 @@ void goto_symext::symex_step(
       code_assignt deref_code=to_code_assign(instruction.code);
       //const std::string new_name="HEOELE";
       //to_symbol_expr(deref_code.lhs()).set_identifier(new_name);
-      //std::cout << "\n\nTrial: " << from_expr(ns, "", deref_code) << std::endl;
 
       clean_expr(deref_code.lhs(), state, true);
       clean_expr(deref_code.rhs(), state, false);

@@ -53,7 +53,8 @@ class optionst;
   "(round-to-nearest)(round-to-plus-inf)(round-to-minus-inf)(round-to-zero)" \
   "(graphml-cex):" \
   "(decide)" \
-  "(show-icbmc-trace)"// legacy, and will eventually disappear
+  "(show-icbmc-trace)" \
+  "(icbmc-smt2)" // legacy, and will eventually disappear
 
 class cbmc_parseoptionst:
   public parseoptions_baset,

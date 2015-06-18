@@ -78,6 +78,7 @@ public:
     const exprt &ssa_full_lhs,
     const exprt &original_full_lhs,
     const exprt &ssa_rhs,
+    const exprt &original_rhs,
     const sourcet &source,
     assignment_typet assignment_type)=0;
 

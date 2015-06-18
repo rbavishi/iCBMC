@@ -65,7 +65,9 @@ public:
   }
 
   typedef goto_symex_statet statet;
+
   icbmc_goto_tracet* extract_trace;
+  bool icbmc_smt2;
 
   /** symex all at once, starting from entry point */
   virtual void operator()(

@@ -292,7 +292,7 @@ void cbmc_parseoptionst::get_command_line_options(optionst &options)
     version_set = true;
   }
 
-  if(cmdline.isset("smt2"))
+  if(cmdline.isset("smt2") || cmdline.isset("icbmc-smt2"))
   {
     options.set_option("smt1", false);// If both are given, smt2 takes precedence
     options.set_option("smt2", true);
@@ -878,6 +878,11 @@ int cbmc_parseoptionst::do_bmc(
     bmc.show_icbmc_trace=true;
   else
     bmc.show_icbmc_trace=false;
+
+  if (cmdline.isset("icbmc-smt2"))
+    bmc.icbmc_smt2_true();
+  else
+    bmc.icbmc_smt2_false();
 
   bool result=bmc.run(goto_functions);
 

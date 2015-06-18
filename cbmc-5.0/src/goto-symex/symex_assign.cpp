@@ -6,6 +6,7 @@ Author: Daniel Kroening, kroening@kroening.com
 
 \*******************************************************************/
 
+#include<iostream>
 #include <util/expr_util.h>
 #include <util/byte_operators.h>
 #include <util/cprover_prefix.h>
@@ -235,6 +236,7 @@ void goto_symext::symex_assign_symbol(
   assignment_typet assignment_type)
 {
   exprt ssa_rhs=rhs;
+  exprt original_rhs=rhs;
   
   // put assignment guard into the rhs
   if(!guard.empty())
@@ -254,6 +256,8 @@ void goto_symext::symex_assign_symbol(
   if(symbol.is_auxiliary) assignment_type=symex_targett::HIDDEN;
   
   state.rename(ssa_rhs, ns);
+  state.rename_with_preserve(original_rhs, ns);
+  std::cout << "Okay ## " << from_expr(ns, "", original_rhs) << "\n";
   do_simplify(ssa_rhs);
   
   symbol_exprt ssa_lhs=lhs;
@@ -276,6 +280,7 @@ void goto_symext::symex_assign_symbol(
     ssa_lhs, original_lhs,
     ssa_full_lhs, add_to_lhs(full_lhs, original_lhs),
     ssa_rhs, 
+    original_rhs,
     state.source,
     assignment_type);
 }

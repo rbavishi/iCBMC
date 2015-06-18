@@ -57,7 +57,9 @@ public:
   void set_ui(language_uit::uit _ui) { ui=_ui; }
   icbmc_goto_tracet icbmc_trace;
   bool show_icbmc_trace;
-  
+  void icbmc_smt2_true() { equation.icbmc_smt2=true; }
+  void icbmc_smt2_false() { equation.icbmc_smt2=false; }
+
 protected:
  
   const optionst &options;  
