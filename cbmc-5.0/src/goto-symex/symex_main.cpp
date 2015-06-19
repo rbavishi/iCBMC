@@ -59,7 +59,8 @@ void goto_symext::vcc(
   rewrite_quantifiers(expr, state);
 
   // now rename, enables propagation    
-  state.rename(expr, ns);
+  if (icbmc_smt2==true) state.rename_with_preserve(expr, ns);
+  else state.rename(expr, ns);
   
   // now try simplifier on it
   do_simplify(expr);
@@ -313,9 +314,6 @@ void goto_symext::symex_step(
       exprt tmp(instruction.guard);
       clean_expr(tmp, state, false);
       vcc(tmp, msg, state);
-    }
-    else {
-      std::cout << "We have a problem ########## " << from_expr(ns, "", state.source.pc->guard) << " " << id2string(state.source.pc->source_location.get_comment()) << std::endl;
     }
 
     state.source.pc++;

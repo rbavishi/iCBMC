@@ -257,7 +257,6 @@ void goto_symext::symex_assign_symbol(
   
   state.rename(ssa_rhs, ns);
   state.rename_with_preserve(original_rhs, ns);
-  std::cout << "Okay ## " << from_expr(ns, "", original_rhs) << "\n";
   do_simplify(ssa_rhs);
   
   symbol_exprt ssa_lhs=lhs;

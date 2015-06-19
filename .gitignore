@@ -4,3 +4,6 @@
 *.swo
 main_script.sh
 parser_classes.py
+cbmc-5.0/src/cbmc/cbmc
+cbmc-5.0/src/goto-cc/goto-cc
+cbmc-5.0/src/goto-instrument/goto-instrument

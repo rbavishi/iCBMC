@@ -34,6 +34,9 @@ public:
 
   void output(
       const namespacet &ns);
+
+  void trial(
+      int a);
  
 };
 

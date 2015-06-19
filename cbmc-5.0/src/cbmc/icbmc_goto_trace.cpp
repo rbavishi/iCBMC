@@ -331,6 +331,7 @@ void icbmc_goto_tracet::preprocess(
 	counterexample_trace.push_back(assume_instruction);
       }
     }
+    trial(10);
 
     switch(instruct.type)
     {
