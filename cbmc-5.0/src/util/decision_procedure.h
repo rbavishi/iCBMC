@@ -54,6 +54,7 @@ public:
   
   // return a textual description of the decision procedure
   virtual std::string decision_procedure_text() const=0;
+  bool icbmc_directfix;
   
 protected:
   const namespacet &ns;

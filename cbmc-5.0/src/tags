@@ -626,7 +626,7 @@ ENDPI	xmllang/xml_y.tab.h	/^    ENDPI = 261,$/;"	e	enum:yytokentype
 ENDPI	xmllang/xml_y.tab.h	68;"	d
 END_FUNCTION	goto-programs/goto_program_template.h	/^               END_FUNCTION=9,  \/\/ exit point of a function$/;"	e	enum:__anon31
 END_THREAD	goto-programs/goto_program_template.h	/^               END_THREAD=7,    \/\/ end the current thread$/;"	e	enum:__anon31
-ENTRY	util/simplify_expr.cpp	85;"	d	file:
+ENTRY	util/simplify_expr.cpp	86;"	d	file:
 ENUM	cpp/cpp_id.h	/^    UNKNOWN, SYMBOL, TYPEDEF, CLASS, ENUM, TEMPLATE,$/;"	e	enum:cpp_idt::__anon7
 ENUMERATING_LOOP_ACCELERATION_H	goto-instrument/accelerate/enumerating_loop_acceleration.h	2;"	d
 EOB_ACT_CONTINUE_SCAN	ansi-c/ansi_c_lex.yy.cpp	185;"	d	file:
@@ -693,7 +693,7 @@ FLOAT128	ansi-c/c_typecast.h	/^                 SINGLE, DOUBLE, LONGDOUBLE, FLOA
 FLOW_INSENSITIVE_ANALYSIS_H_	goto-programs/flow_insensitive_analysis.h	11;"	d
 FORCE_INLINE	util/irep_hash.h	39;"	d
 FORCE_INLINE	util/irep_hash.h	51;"	d
-FPCONVTODO	solvers/smt2/smt2_conv.cpp	47;"	d	file:
+FPCONVTODO	solvers/smt2/smt2_conv.cpp	48;"	d	file:
 FUNCTION	cpp/parse.cpp	/^  typedef enum { MEMBER, FUNCTION, VARIABLE, TAG,$/;"	e	enum:new_scopet::__anon8	file:
 FUNCTION_CALL	goto-programs/goto_program_template.h	/^               FUNCTION_CALL=16,\/\/ call a function$/;"	e	enum:__anon31
 FUNCTION_CALL	goto-programs/goto_trace.h	/^                 FUNCTION_CALL, FUNCTION_RETURN,$/;"	e	enum:goto_trace_stept::__anon24
@@ -1481,7 +1481,7 @@ INT8_MIN	ansi-c/ansi_c_lex.yy.cpp	79;"	d	file:
 INT8_MIN	assembler/assembler_lex.yy.cpp	79;"	d	file:
 INT8_MIN	xmllang/xml_lex.yy.cpp	79;"	d	file:
 INTEGER	ansi-c/c_typecast.h	/^                 INTEGER, \/\/ these are unbounded integers$/;"	e	enum:c_typecastt::c_typet
-INVALIDEXPR	solvers/smt2/smt2_conv.cpp	38;"	d	file:
+INVALIDEXPR	solvers/smt2/smt2_conv.cpp	39;"	d	file:
 IREP_HASH_BASIC	util/irep_hash.h	14;"	d
 IS_BIG_ENDIAN	util/config.h	/^    typedef enum { NO_ENDIANNESS, IS_LITTLE_ENDIAN, IS_BIG_ENDIAN } endiannesst;$/;"	e	enum:configt::ansi_ct::__anon65
 IS_BV	solvers/flattening/boolbv_type.h	/^  IS_BV, IS_SIGNED, IS_UNSIGNED, IS_FLOAT, IS_FIXED, IS_C_BOOL,$/;"	e	enum:__anon45
@@ -1660,7 +1660,7 @@ PARSER	ansi-c/ansi_c_lex.yy.cpp	2870;"	d	file:
 PARSER	ansi-c/ansi_c_y.tab.cpp	86;"	d	file:
 PARSER	assembler/assembler_lex.yy.cpp	499;"	d	file:
 PARSER	xmllang/xml_lex.yy.cpp	601;"	d	file:
-PARSERERROR	solvers/smt2/smt2_conv.cpp	35;"	d	file:
+PARSERERROR	solvers/smt2/smt2_conv.cpp	36;"	d	file:
 PASS	aa-symex/path_search.h	/^  enum statust { NOT_REACHED, PASS, FAIL };$/;"	e	enum:path_searcht::statust
 PASS	goto-programs/property_checker.h	/^  typedef enum { PASS, FAIL, ERROR, UNKNOWN } resultt;$/;"	e	enum:property_checkert::__anon23
 PASS	symex/path_search.h	/^  enum statust { NOT_REACHED, PASS, FAIL };$/;"	e	enum:path_searcht::statust
@@ -1861,7 +1861,7 @@ TEXT	goto-programs/format_strings.h	/^                 TEXT,$/;"	e	enum:format_t
 THREAD_LOCAL	aa-path-symex/var_map.h	/^    enum { SHARED, THREAD_LOCAL, PROCEDURE_LOCAL } kind;$/;"	e	enum:var_mapt::var_infot::__anon1
 THREAD_LOCAL	path-symex/var_map.h	/^    enum { SHARED, THREAD_LOCAL, PROCEDURE_LOCAL } kind;$/;"	e	enum:var_mapt::var_infot::__anon40
 THROW	goto-programs/goto_program_template.h	/^               THROW=17,        \/\/ throw an exception$/;"	e	enum:__anon31
-TODO	solvers/smt2/smt2_conv.cpp	44;"	d	file:
+TODO	solvers/smt2/smt2_conv.cpp	45;"	d	file:
 TOK_ACSL_EXISTS	ansi-c/ansi_c_y.tab.cpp	/^    TOK_ACSL_EXISTS = 369,$/;"	e	enum:yytokentype	file:
 TOK_ACSL_EXISTS	ansi-c/ansi_c_y.tab.cpp	430;"	d	file:
 TOK_ACSL_EXISTS	ansi-c/ansi_c_y.tab.h	/^    TOK_ACSL_EXISTS = 369,$/;"	e	enum:yytokentype
@@ -2582,13 +2582,13 @@ UINT8_MAX	assembler/assembler_lex.yy.cpp	97;"	d	file:
 UINT8_MAX	xmllang/xml_lex.yy.cpp	97;"	d	file:
 ULONG	ansi-c/c_typecast.h	/^                 LONG, ULONG,$/;"	e	enum:c_typecastt::c_typet
 ULONGLONG	ansi-c/c_typecast.h	/^                 LONGLONG, ULONGLONG,$/;"	e	enum:c_typecastt::c_typet
-UNEXPECTEDCASE	solvers/smt2/smt2_conv.cpp	41;"	d	file:
+UNEXPECTEDCASE	solvers/smt2/smt2_conv.cpp	42;"	d	file:
 UNIVERSAL	solvers/qbf/qdimacs_cnf.h	/^    typedef enum { NONE, EXISTENTIAL, UNIVERSAL } typet;$/;"	e	enum:qdimacs_cnft::quantifiert::__anon56
 UNKNOWN	cpp/cpp_id.h	/^    UNKNOWN, SYMBOL, TYPEDEF, CLASS, ENUM, TEMPLATE,$/;"	e	enum:cpp_idt::__anon7
 UNKNOWN	goto-programs/format_strings.h	/^  typedef enum { UNKNOWN,$/;"	e	enum:format_tokent::__anon19
 UNKNOWN	goto-programs/property_checker.h	/^  typedef enum { PASS, FAIL, ERROR, UNKNOWN } resultt;$/;"	e	enum:property_checkert::__anon23
 UNKNOWN	util/ieee_float.h	/^    UNKNOWN, NONDETERMINISTIC }$/;"	e	enum:ieee_floatt::__anon71
-UNREACHABLE	solvers/smt2/smt2_conv.cpp	34;"	d	file:
+UNREACHABLE	solvers/smt2/smt2_conv.cpp	35;"	d	file:
 UNSAFE	goto-programs/safety_checker.h	/^  typedef enum { SAFE, UNSAFE, ERROR } resultt;$/;"	e	enum:safety_checkert::__anon22
 UNSAT	solvers/sat/cnf.h	/^  typedef enum { INIT, SAT, UNSAT, ERROR } statust;$/;"	e	enum:cnf_solvert::__anon50
 UNSAT	solvers/sat/satcheck_zchaff.h	/^  typedef enum { INIT, SAT, UNSAT, ERROR } statust;$/;"	e	enum:satcheck_zchaff_baset::__anon49
@@ -3586,7 +3586,7 @@ adjust_lhs_object	goto-symex/build_goto_trace.cpp	/^exprt adjust_lhs_object($/;"
 adjust_method_type	cpp/cpp_typecheck_compound_type.cpp	/^void cpp_typecheckt::adjust_method_type($/;"	f	class:cpp_typecheckt
 adjust_size	big-int/bigint.cc	/^adjust_size (unsigned size)$/;"	f
 advance_column	util/parser.h	/^  inline void advance_column(unsigned token_width)$/;"	f	class:parsert
-advance_iterators	cbmc/icbmc_goto_trace.cpp	/^void advance_iterators($/;"	f
+advance_iterators	cbmc/icbmc_goto_trace.cpp	/^void icbmc_goto_tracet::advance_iterators($/;"	f	class:icbmc_goto_tracet
 affected_by_delay	goto-instrument/wmm/shared_buffers.cpp	/^void shared_bufferst::affected_by_delay($/;"	f	class:shared_bufferst
 affected_by_delay_set	goto-instrument/wmm/shared_buffers.h	/^  std::set<irep_idt> affected_by_delay_set;$/;"	m	class:shared_bufferst
 after_line	musketeer/fence-insertion/fi.py	/^def after_line(s, n):$/;"	f
@@ -5072,6 +5072,7 @@ convert_decl	goto-programs/goto_convert.cpp	/^void goto_convertt::convert_decl($
 convert_decl_type	goto-programs/goto_convert.cpp	/^void goto_convertt::convert_decl_type($/;"	f	class:goto_convertt
 convert_decls	goto-symex/symex_target_equation.cpp	/^void symex_target_equationt::convert_decls($/;"	f	class:symex_target_equationt
 convert_designated_initializer	ansi-c/expr2c.cpp	/^std::string expr2ct::convert_designated_initializer($/;"	f	class:expr2ct
+convert_directfix	goto-symex/symex_target_equation.cpp	/^void symex_target_equationt::convert_directfix($/;"	f	class:symex_target_equationt
 convert_div	solvers/flattening/boolbv_div.cpp	/^void boolbvt::convert_div(const exprt &expr, bvt &bv)$/;"	f	class:boolbvt
 convert_div	solvers/refinement/refine_arithmetic.cpp	/^void bv_refinementt::convert_div(const exprt &expr, bvt &bv)$/;"	f	class:bv_refinementt
 convert_div	solvers/smt1/smt1_conv.cpp	/^void smt1_convt::convert_div(const div_exprt &expr)$/;"	f	class:smt1_convt
@@ -7671,9 +7672,14 @@ i2string	util/i2string.cpp	/^std::string i2string(signed long long i)$/;"	f
 i2string	util/i2string.cpp	/^std::string i2string(unsigned i)$/;"	f
 i2string	util/i2string.cpp	/^std::string i2string(unsigned long int i)$/;"	f
 i2string	util/i2string.cpp	/^std::string i2string(unsigned long long i)$/;"	f
+icbmc_directfix	util/decision_procedure.h	/^  bool icbmc_directfix;$/;"	m	class:decision_proceduret
 icbmc_goto_tracet	cbmc/icbmc_goto_trace.h	/^class icbmc_goto_tracet$/;"	c
-icbmc_guard	goto-programs/goto_program_template.h	/^    guardT icbmc_guard;$/;"	m	class:goto_program_templatet::instructiont
+icbmc_guard	goto-programs/goto_program_template.h	/^    std::list <guardT> icbmc_guard;$/;"	m	class:goto_program_templatet::instructiont
 icbmc_id	goto-programs/goto_program_template.h	/^    int icbmc_id;$/;"	m	class:goto_program_templatet::instructiont
+icbmc_smt2	goto-symex/goto_symex.h	/^  bool icbmc_smt2;$/;"	m	class:goto_symext
+icbmc_smt2	goto-symex/symex_target_equation.h	/^  bool icbmc_smt2;$/;"	m	class:symex_target_equationt
+icbmc_smt2_false	cbmc/bmc.h	/^  void icbmc_smt2_false() { equation.icbmc_smt2=false; }$/;"	f	class:bmct
+icbmc_smt2_true	cbmc/bmc.h	/^  void icbmc_smt2_true() { equation.icbmc_smt2=true; }$/;"	f	class:bmct
 icbmc_trace	cbmc/bmc.h	/^  icbmc_goto_tracet icbmc_trace;$/;"	m	class:bmct
 id	ansi-c/ansi_c_language.h	/^  virtual std::string id() const { return "C"; }$/;"	f	class:ansi_c_languaget
 id	cpp/cpp_language.h	/^  virtual std::string id() const { return "cpp"; }$/;"	f	class:cpp_languaget
@@ -10592,6 +10598,7 @@ original_full_lhs	goto-symex/symex_target_equation.h	/^    exprt ssa_full_lhs, o
 original_identifiers	goto-symex/goto_symex_state.h	/^    original_identifierst original_identifiers;$/;"	m	struct:goto_symex_statet::renaming_levelt
 original_identifierst	goto-symex/goto_symex_state.h	/^  typedef std::map<irep_idt, irep_idt> original_identifierst;$/;"	t	class:goto_symex_statet
 original_lhs_object	goto-symex/symex_target_equation.h	/^    symbol_exprt ssa_lhs, original_lhs_object;$/;"	m	class:symex_target_equationt::SSA_stept
+original_rhs	goto-symex/symex_target_equation.h	/^    exprt original_rhs;$/;"	m	class:symex_target_equationt::SSA_stept
 original_scope	cpp/cpp_typecheck_resolve.h	/^  cpp_scopet *original_scope;$/;"	m	class:cpp_typecheck_resolvet
 os	musketeer/fence-insertion/fi.py	/^import os$/;"	i
 os	util/config.h	/^    ost os;$/;"	m	struct:configt::ansi_ct
@@ -10643,6 +10650,7 @@ output	analyses/static_analysis.h	/^  void output($/;"	f	class:static_analysis_b
 output	analyses/uninitialized_domain.cpp	/^void uninitialized_domaint::output($/;"	f	class:uninitialized_domaint
 output	ansi-c/ansi_c_declaration.cpp	/^void ansi_c_declarationt::output(std::ostream &out) const$/;"	f	class:ansi_c_declarationt
 output	ansi-c/ansi_c_parse_tree.cpp	/^void ansi_c_parse_treet::output(std::ostream &out) const$/;"	f	class:ansi_c_parse_treet
+output	cbmc/icbmc_goto_trace.cpp	/^void icbmc_goto_tracet::output($/;"	f	class:icbmc_goto_tracet
 output	cpp/cpp_declaration.cpp	/^void cpp_declarationt::output(std::ostream &out) const$/;"	f	class:cpp_declarationt
 output	cpp/cpp_declarator.cpp	/^void cpp_declaratort::output(std::ostream &out) const$/;"	f	class:cpp_declaratort
 output	cpp/cpp_namespace_spec.cpp	/^void cpp_namespace_spect::output(std::ostream &out) const$/;"	f	class:cpp_namespace_spect
@@ -11702,13 +11710,16 @@ rename	util/rename.cpp	/^bool rename(exprt &expr, const irep_idt &old_name,$/;"	
 rename	util/rename_symbol.cpp	/^bool rename_symbolt::rename(exprt &dest) const$/;"	f	class:rename_symbolt
 rename	util/rename_symbol.cpp	/^bool rename_symbolt::rename(typet &dest) const$/;"	f	class:rename_symbolt
 rename_address	goto-symex/goto_symex_state.cpp	/^void goto_symex_statet::rename_address($/;"	f	class:goto_symex_statet
+rename_identifier	cbmc/icbmc_goto_trace.cpp	/^void rename_identifier($/;"	f
 rename_identifier	goto-symex/goto_symex_state.cpp	/^irep_idt goto_symex_statet::rename_identifier($/;"	f	class:goto_symex_statet
 rename_identifier	goto-symex/goto_symex_state.h	/^    irep_idt rename_identifier(const irep_idt &identifier, unsigned count)$/;"	f	struct:goto_symex_statet::renaming_levelt
+rename_identifier_decl	cbmc/icbmc_goto_trace.cpp	/^void rename_identifier_decl($/;"	f
 rename_symbol	linking/linking_class.h	/^  rename_symbolt rename_symbol;$/;"	m	class:linkingt
 rename_symbols	linking/linking.cpp	/^void linkingt::rename_symbols(const id_sett &needs_to_be_renamed)$/;"	f	class:linkingt
 rename_symbols_in_function	goto-cc/compile.cpp	/^void compilet::rename_symbols_in_function($/;"	f	class:compilet
 rename_symbolt	util/rename_symbol.cpp	/^rename_symbolt::rename_symbolt()$/;"	f	class:rename_symbolt
 rename_symbolt	util/rename_symbol.h	/^class rename_symbolt$/;"	c
+rename_with_preserve	goto-symex/goto_symex_state.cpp	/^void goto_symex_statet::rename_with_preserve($/;"	f	class:goto_symex_statet
 renamed_ids	linking/linking_class.h	/^  id_sett renamed_ids;$/;"	m	class:linkingt
 renaming_levelt	goto-symex/goto_symex_state.h	/^  struct renaming_levelt$/;"	s	class:goto_symex_statet
 renaming_nst	goto-symex/renaming_ns.h	/^  renaming_nst($/;"	f	class:renaming_nst
@@ -12320,6 +12331,7 @@ show_counterexample	aa-symex/symex_parseoptions.cpp	/^void symex_parseoptionst::
 show_counterexample	clobber/clobber_parseoptions.cpp	/^void clobber_parseoptionst::show_counterexample($/;"	f	class:clobber_parseoptionst
 show_counterexample	symex/symex_parseoptions.cpp	/^void symex_parseoptionst::show_counterexample($/;"	f	class:symex_parseoptionst
 show_goto_trace	goto-programs/goto_trace.cpp	/^void show_goto_trace($/;"	f
+show_icbmc_trace	cbmc/bmc.h	/^  bool show_icbmc_trace;$/;"	m	class:bmct
 show_identifiers	cpp/cpp_typecheck_resolve.cpp	/^void cpp_typecheck_resolvet::show_identifiers($/;"	f	class:cpp_typecheck_resolvet
 show_instantiation_stack	cpp/cpp_instantiate_template.cpp	/^void cpp_typecheckt::show_instantiation_stack(std::ostream &out)$/;"	f	class:cpp_typecheckt
 show_locations	goto-instrument/show_locations.cpp	/^void show_locations($/;"	f
@@ -13586,6 +13598,7 @@ translation_unit	ansi-c/parser.y	/^translation_unit:$/;"	l
 translation_unit	ansi-c/trans_unit.cpp	/^std::string translation_unit(const std::string &path)$/;"	f
 transt	util/std_expr.h	/^  inline transt()$/;"	f	class:transt
 transt	util/std_expr.h	/^class transt:public exprt$/;"	c
+trial	cbmc/icbmc_smt2.cpp	/^void icbmc_goto_tracet::trial(int a)$/;"	f	class:icbmc_goto_tracet
 trigger_auto_object	goto-symex/auto_objects.cpp	/^void goto_symext::trigger_auto_object($/;"	f	class:goto_symext
 trim	goto-instrument/accelerate/trace_automaton.cpp	/^void automatont::trim() {$/;"	f	class:automatont
 true	big-int/bigint.hh	64;"	d
@@ -14122,7 +14135,7 @@ var_map	goto-instrument/wmm/shared_buffers.h	/^  var_mapt var_map;$/;"	m	class:s
 var_map	path-symex/path_symex_state.h	/^  var_mapt &var_map;$/;"	m	struct:path_symex_statet
 var_mapt	aa-path-symex/var_map.h	/^  explicit var_mapt(const namespacet &_ns):$/;"	f	class:var_mapt
 var_mapt	aa-path-symex/var_map.h	/^class var_mapt$/;"	c
-var_mapt	cbmc/icbmc_goto_trace.h	/^  typedef std::map< irep_idt, irep_idt > var_mapt;$/;"	t	class:icbmc_goto_tracet
+var_mapt	cbmc/icbmc_goto_trace.h	/^  typedef std::map< irep_idt, std::list<irep_idt> > var_mapt;$/;"	t	class:icbmc_goto_tracet
 var_mapt	goto-instrument/wmm/shared_buffers.h	/^  typedef std::map<irep_idt, varst> var_mapt;$/;"	t	class:shared_bufferst
 var_mapt	path-symex/var_map.h	/^  explicit var_mapt(const namespacet &_ns):$/;"	f	class:var_mapt
 var_mapt	path-symex/var_map.h	/^class var_mapt$/;"	c

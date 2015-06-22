@@ -537,13 +537,8 @@ void goto_symex_statet::rename_with_preserve(
       {
         irep_idt l1_identifier=rename_identifier(identifier, ns, L1);
 
-        // We also consider propagation if we go up to L2.
-        // L1 identifiers are used for propagation!
-        propagationt::valuest::const_iterator p_it=
-          propagation.values.find(l1_identifier);
-
-          irep_idt new_name=level2(l1_identifier); // L2
-          to_symbol_expr(expr).set_identifier(new_name);
+        irep_idt new_name=level2(l1_identifier); // L2
+        to_symbol_expr(expr).set_identifier(new_name);
       }
     }
     

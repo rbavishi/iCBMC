@@ -258,6 +258,7 @@ void symex_target_equationt::assignment(
   SSA_step.ssa_rhs=ssa_rhs;
   SSA_step.original_rhs=original_rhs;
   SSA_step.assignment_type=assignment_type;
+  std::cout << "From Expr: ### " << from_expr(ns, "", ssa_rhs) << "\n";
 
   SSA_step.cond_expr=equal_exprt(SSA_step.ssa_lhs, SSA_step.ssa_rhs);
   SSA_step.type=goto_trace_stept::ASSIGNMENT;
@@ -618,6 +619,29 @@ void symex_target_equationt::convert(
 
 /*******************************************************************\
 
+Function: symex_target_equationt::convert_directfix
+
+  Inputs: converter
+
+ Outputs: 
+
+ Purpose:
+
+\*******************************************************************/
+
+void symex_target_equationt::convert_directfix(
+   prop_convt &prop_conv)
+{
+  //convert_guards(prop_conv);
+  convert_assignments(prop_conv);
+  //convert_decls(prop_conv);
+  convert_assumptions(prop_conv);
+  convert_assertions(prop_conv);
+  convert_io(prop_conv);
+  convert_constraints(prop_conv);
+}
+/*******************************************************************\
+
 Function: symex_target_equationt::convert_assignments
 
   Inputs: decision procedure
@@ -637,7 +661,7 @@ void symex_target_equationt::convert_assignments(
     if(it->is_assignment() && !it->ignore) {
       if (icbmc_smt2==false) decision_procedure.set_to_true(it->cond_expr);
       else decision_procedure.set_to_true(equal_exprt(it->ssa_lhs, it->original_rhs));
-      //std::cout << "We're here ###############" << from_expr(ns, "", it->ssa_lhs) << " " << from_expr(ns, "", it->original_rhs) << std::endl;
+      std::cout << "We're here ###############" << from_expr(ns, "", it->original_rhs) << std::endl;
     }
   }
 }

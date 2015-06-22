@@ -54,7 +54,8 @@ class optionst;
   "(graphml-cex):" \
   "(decide)" \
   "(show-icbmc-trace)" \
-  "(icbmc-smt2)" // legacy, and will eventually disappear
+  "(icbmc-smt2)" \
+  "(icbmc-directfix)" // legacy, and will eventually disappear
 
 class cbmc_parseoptionst:
   public parseoptions_baset,

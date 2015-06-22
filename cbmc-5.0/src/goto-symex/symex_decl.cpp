@@ -81,13 +81,15 @@ void goto_symext::symex_decl(statet &state)
     symbol_exprt l1_lhs;
     l1_lhs.type()=code.op0().type();
     l1_lhs.set_identifier(l1_identifier);
-    state.rename(rhs, ns, goto_symex_statet::L1);
+    if (icbmc_smt2==true) state.rename_with_preserve(rhs, ns, goto_symex_statet::L1);
+    else state.rename(rhs, ns, goto_symex_statet::L1);
     state.value_set.assign(l1_lhs, rhs, ns);
   }
   
   // record the declaration
   symbol_exprt original_lhs=to_symbol_expr(code.op0());
   symbol_exprt ssa_lhs=original_lhs;
+  if (icbmc_smt2==true) state.rename_with_preserve(ssa_lhs, ns);
   state.rename(ssa_lhs, ns);
 
   // we hide the declaration of auxiliary variables

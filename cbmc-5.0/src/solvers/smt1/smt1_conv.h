@@ -62,6 +62,7 @@ public:
   virtual std::string decision_procedure_text() const { return "SMT1"; }
   virtual void print_assignment(std::ostream &out) const;
 
+
 protected:
   std::string benchmark, source, logic;
   solvert solver;

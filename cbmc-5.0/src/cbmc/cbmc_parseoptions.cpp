@@ -285,11 +285,15 @@ void cbmc_parseoptionst::get_command_line_options(optionst &options)
   // SMT Options
   bool version_set = false;
 
-  if(cmdline.isset("smt1"))
+  if(cmdline.isset("smt1") || cmdline.isset("icbmc-directfix"))
   {
     options.set_option("smt1", true);
     options.set_option("smt2", false);
     version_set = true;
+    if (cmdline.isset("icbmc-directfix"))
+      options.set_option("icbmc-directfix",true);
+    else
+      options.set_option("icbmc-directfix",false);
   }
 
   if(cmdline.isset("smt2") || cmdline.isset("icbmc-smt2"))
@@ -879,7 +883,7 @@ int cbmc_parseoptionst::do_bmc(
   else
     bmc.show_icbmc_trace=false;
 
-  if (cmdline.isset("icbmc-smt2"))
+  if (cmdline.isset("icbmc-smt2") || cmdline.isset("icbmc-directfix"))
     bmc.icbmc_smt2_true();
   else
     bmc.icbmc_smt2_false();

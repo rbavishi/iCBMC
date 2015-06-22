@@ -393,7 +393,7 @@ void bmct::smt1_convert(smt1_dect::solvert solver, std::ostream &out)
     out);
 
   smt1_conv.set_message_handler(get_message_handler());
-  
+ 
   do_conversion(smt1_conv);
 
   smt1_conv.dec_solve();

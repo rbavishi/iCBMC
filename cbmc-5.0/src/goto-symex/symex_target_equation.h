@@ -153,6 +153,7 @@ public:
     const sourcet &source);
 
   void convert(prop_convt &prop_conv);
+  void convert_directfix(prop_convt &prop_conv);
   void convert_assignments(decision_proceduret &decision_procedure) const;
   void convert_decls(prop_convt &prop_conv) const;
   void convert_assumptions(prop_convt &prop_conv);

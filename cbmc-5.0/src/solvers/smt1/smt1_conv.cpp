@@ -7,6 +7,7 @@ Author: Daniel Kroening, kroening@kroening.com
 \*******************************************************************/
 
 #include <cassert>
+#include <iostream>
 
 #include <util/arith_tools.h>
 #include <util/expr_util.h>
@@ -3180,8 +3181,9 @@ void smt1_convt::set_to(const exprt &expr, bool value)
     convert_expr(expr, false);
     out << ")";
   }
-  else
+  else {
     convert_expr(expr, false);
+  }
 
   out << "\n";
 }

@@ -158,7 +158,8 @@ void goto_symext::parameter_assignments(
       }
       
       guardt guard;
-      state.rename(lhs, ns, goto_symex_statet::L1);
+      if (icbmc_smt2==true) state.rename_with_preserve(lhs, ns, goto_symex_statet::L1);
+      else state.rename(lhs, ns, goto_symex_statet::L1);
       
       symex_targett::assignment_typet assignment_type=
         goto_function.is_hidden()?
@@ -195,7 +196,8 @@ void goto_symext::parameter_assignments(
       symbol_exprt lhs=symbol_exprt(id, it1->type());
 
       guardt guard;
-      state.rename(lhs, ns, goto_symex_statet::L1);
+      if (icbmc_smt2==true) state.rename_with_preserve(lhs, ns, goto_symex_statet::L1);
+      else state.rename(lhs, ns, goto_symex_statet::L1);
 
       symex_targett::assignment_typet assignment_type=
         goto_function.is_hidden()?
@@ -353,7 +355,8 @@ void goto_symext::symex_function_call_code(
     {
       side_effect_expr_nondett rhs(call.lhs().type());
       rhs.add_source_location()=call.source_location();
-      state.rename(rhs, ns, goto_symex_statet::L1);
+      if (icbmc_smt2==true) state.rename_with_preserve(rhs, ns, goto_symex_statet::L1);
+      else state.rename(rhs, ns, goto_symex_statet::L1);
       code_assignt code(call.lhs(), rhs);
       symex_assign(state, to_code_assign(code)); /* TODO: clean_expr? */
     }
@@ -365,7 +368,8 @@ void goto_symext::symex_function_call_code(
   // read the arguments -- before the locality renaming
   exprt::operandst arguments=call.arguments();
   for(unsigned i=0; i<arguments.size(); i++) {
-    state.rename(arguments[i], ns);
+    if (icbmc_smt2==true) state.rename_with_preserve(arguments[i], ns);
+    else state.rename(arguments[i], ns);
   }
   
   // produce a new frame

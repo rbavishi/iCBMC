@@ -36,7 +36,8 @@ void goto_symext::symex_goto(statet &state)
   exprt old_guard=instruction.guard;
   clean_expr(old_guard, state, false);
   exprt new_guard=old_guard;
-  state.rename(new_guard, ns);
+  if (icbmc_smt2==true) state.rename_with_preserve(new_guard, ns);
+  else state.rename(new_guard, ns);
   do_simplify(new_guard);
   
   if(new_guard.is_false() ||
@@ -139,7 +140,8 @@ void goto_symext::symex_goto(statet &state)
       new_rhs.make_not();
       
       symbol_exprt new_lhs=guard_symbol_expr;
-      state.rename(new_lhs, ns, goto_symex_statet::L1);
+      if (icbmc_smt2==true) state.rename_with_preserve(new_lhs, ns, goto_symex_statet::L1);
+      else state.rename(new_lhs, ns, goto_symex_statet::L1);
       state.assignment(new_lhs, new_rhs, ns, false);
       
       guardt guard;
@@ -154,7 +156,8 @@ void goto_symext::symex_goto(statet &state)
       
       guard_expr=guard_symbol_expr;
       guard_expr.make_not();
-      state.rename(guard_expr, ns);
+      if (icbmc_smt2==true) state.rename_with_preserve(guard_expr, ns);
+      else state.rename(guard_expr, ns);
     }
     
     if(forward)
@@ -190,7 +193,8 @@ void goto_symext::symex_step_goto(statet &state, bool taken)
   
   exprt guard(instruction.guard);
   dereference(guard, state, false);
-  state.rename(guard, ns);
+  if (icbmc_smt2==true) state.rename_with_preserve(guard, ns);
+  else state.rename(guard, ns);
   
   if(!taken) guard.make_not();
   
@@ -344,7 +348,7 @@ void goto_symext::phi_function(
       goto_symex_statet::propagationt::valuest::const_iterator p_it=
         goto_state.propagation.values.find(l1_identifier);
 
-      if(p_it!=goto_state.propagation.values.end())
+      if(icbmc_smt2==false && p_it!=goto_state.propagation.values.end())
         goto_state_rhs=p_it->second;
       else
         goto_state_rhs=symbol_exprt(goto_state.level2_current_name(l1_identifier), type);
@@ -354,7 +358,7 @@ void goto_symext::phi_function(
       goto_symex_statet::propagationt::valuest::const_iterator p_it=
         dest_state.propagation.values.find(l1_identifier);
 
-      if(p_it!=dest_state.propagation.values.end())
+      if(icbmc_smt2==false && p_it!=dest_state.propagation.values.end())
         dest_state_rhs=p_it->second;
       else
         dest_state_rhs=symbol_exprt(dest_state.level2.current_name(l1_identifier), type);

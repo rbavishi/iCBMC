@@ -2040,6 +2040,7 @@ void goto_convertt::generate_ifthenelse(
      false_case.instructions.empty())
     return;
 
+  true_case.output(std::cout);
   // do guarded gotos directly
   if(false_case.instructions.empty() &&
      true_case.instructions.size()==1 &&

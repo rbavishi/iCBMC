@@ -387,7 +387,8 @@ void goto_symext::dereference(
   // from different frames. Would be enough to rename
   // symbols whose address is taken.
   assert(!state.call_stack().empty());
-  state.rename(expr, ns, goto_symex_statet::L1);
+  if (icbmc_smt2==true) state.rename_with_preserve(expr, ns, goto_symex_statet::L1);
+  else state.rename(expr, ns, goto_symex_statet::L1);
 
   // start the recursion!
   guardt guard;  

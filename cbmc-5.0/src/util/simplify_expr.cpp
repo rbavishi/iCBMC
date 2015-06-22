@@ -8,6 +8,7 @@ Author: Daniel Kroening, kroening@kroening.com
 
 #include <cassert>
 #include <algorithm>
+#include <iostream>
 
 #include "simplify_expr_class.h"
 #include "simplify_expr.h"

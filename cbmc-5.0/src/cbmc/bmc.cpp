@@ -34,6 +34,7 @@ Author: Daniel Kroening, kroening@kroening.com
 
 #include "bmc.h"
 #include "bv_cbmc.h"
+#include <solvers/smt1/smt1_dec.h>
 
 /*******************************************************************\
 
@@ -143,7 +144,16 @@ void bmct::do_conversion(prop_convt &prop_conv)
   do_unwind_module(prop_conv);
 
   // convert SSA
-  equation.convert(prop_conv);
+  if (options.get_bool_option("icbmc-directfix"))
+  {
+    prop_conv.icbmc_directfix=true;
+    equation.convert_directfix(prop_conv);
+  }
+  else
+  {
+    prop_conv.icbmc_directfix=false;
+    equation.convert(prop_conv);
+  }
 
   // the 'extra constraints'
   forall_expr_list(it, bmc_constraints)

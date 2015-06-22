@@ -330,8 +330,6 @@ void goto_symext::symex_step(
     if(!state.guard.is_false())
     {
       code_assignt deref_code=to_code_assign(instruction.code);
-      //const std::string new_name="HEOELE";
-      //to_symbol_expr(deref_code.lhs()).set_identifier(new_name);
 
       clean_expr(deref_code.lhs(), state, true);
       clean_expr(deref_code.rhs(), state, false);
