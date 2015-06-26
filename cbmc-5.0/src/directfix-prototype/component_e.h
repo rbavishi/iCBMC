@@ -79,9 +79,11 @@ class component_exprt
 
 
   expr_listt location_variables;
+  expr_listt component_variables;
   expr_listt out_location_variables;
   expr_listt out_component_variables;
-  expr_listt component_variables;
+  expr_listt in_location_variables;
+  expr_listt in_component_variables;
 
   expr_listt phi_struct;  //Structure Constraint - Soft
   expr_listt phi_range;   //Range Constraint - Hard

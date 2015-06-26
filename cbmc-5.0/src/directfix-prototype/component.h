@@ -5,6 +5,7 @@
 #include <util/std_types.h>
 #include <util/std_expr.h>
 #include <util/dstring.h>
+#include <solvers/prop/prop_conv.h>
 
 #include <string>
 #include <list>
@@ -12,6 +13,7 @@
 
 class component_exprt
 {
+  public:
   component_exprt(
     const namespacet &_ns,
     const exprt &_expr,
@@ -19,7 +21,9 @@ class component_exprt
     const exprt &_sep_j,
     const std::string &_function,
     const int &_instruction_number,
-    const bool &_is_loop_statement);
+    const bool &_is_loop_statement,
+    decision_proceduret &_solver);
+
 
   const namespacet &ns;
   const exprt &expr;
@@ -28,20 +32,11 @@ class component_exprt
   const std::string function;
   const int &instruction_number;
   const bool &is_loop_statement;
+  decision_proceduret &solver;
   int component_cnt; //Should be equal to (sep_j-sep_i)
 
   std::map<dstring, std::string> id_maps; //Couldn't think of a workaround
 
-  expr_listt location_variables;
-  expr_listt out_location_variables;
-  expr_listt component_variables;
-
-  expr_listt phi_struct;  //Structure Constraint - Soft
-  expr_listt phi_range;   //Range Constraint - Hard
-  expr_listt phi_sem;     //Semantics Constraint - Hard
-  expr_listt phi_conn;    //Connection Constraint - Hard
-  expr_listt phi_cons;    //Consistency Constraint - Hard - Output of each component has a unique location
-  expr_listt phi_acyc;    //Acyclic Constraint - Hard - Forbid Cyclic Connections
 
   //If need be - Can improve efficiency, but not needed right now
   //std::map<dstring, int> op_cnt;
@@ -54,7 +49,7 @@ class component_exprt
   //Define Location Variable
   void get_df_loc_var(const exprt &expr);
   exprt gen_loc_var(const exprt &expr, std::string suffix="");
-  exprt gen_comp_var(const exprt &expr, std::string suffix="");
+  exprt gen_comp_var(const exprt &expr, const typet &type, std::string suffix="");
 
   void add_range_constraint(const exprt &expr);
 
@@ -68,10 +63,27 @@ class component_exprt
 
   void add_consistency_constraint(const exprt &loc_var);
 
+  void add_conn_constraint(
+    const exprt &loc_inp_var, 
+    const exprt &comp_inv_var);
+
 
 
   void parse_expr(const exprt &expr);
   void parse_expr_rec(const exprt &expr);
+
+
+  expr_listt location_variables;
+  expr_listt out_location_variables;
+  expr_listt out_component_variables;
+  expr_listt component_variables;
+
+  expr_listt phi_struct;  //Structure Constraint - Soft
+  expr_listt phi_range;   //Range Constraint - Hard
+  expr_listt phi_sem;     //Semantics Constraint - Hard
+  expr_listt phi_conn;    //Connection Constraint - Hard
+  expr_listt phi_cons;    //Consistency Constraint - Hard - Output of each component has a unique location
+  expr_listt phi_acyc;    //Acyclic Constraint - Hard - Forbid Cyclic Connections
 };
 
 #endif

@@ -24,7 +24,8 @@ OBJ += ../ansi-c/ansi-c$(LIBEXT) \
       ../goto-instrument/wmm/cycle_collection$(OBJEXT) \
       ../goto-instrument/wmm/shared_buffers$(OBJEXT) \
       ../goto-instrument/wmm/pair_collection$(OBJEXT) \
-      ../goto-instrument/rw_set$(OBJEXT)
+      ../goto-instrument/rw_set$(OBJEXT) \
+      ../directfix-prototype/cbe$(LIBEXT)
 
 INCLUDES= -I ..
 

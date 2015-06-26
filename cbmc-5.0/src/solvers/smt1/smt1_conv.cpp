@@ -2432,6 +2432,17 @@ void smt1_convt::convert_minus(const minus_exprt &expr)
         expr.type()),
       true);
   }
+  else if(expr.type().id()==ID_integer)
+  {
+    out << "(";
+
+    out << expr.id();
+    out << " ";
+    convert_expr(expr.op0(), true);
+    out << " ";
+    convert_expr(expr.op1(), true);
+    out << ")";
+  }
   else
     throw "unsupported type for -: "+expr.type().id_string();
 }
@@ -3163,6 +3174,21 @@ void smt1_convt::set_to(const exprt &expr, bool value)
   out << "\n";
 
   find_symbols(expr);
+  /* 
+  typet ok(ID_integer);
+  exprt trial(ID_symbol, ok);
+  to_symbol_expr(trial).set_identifier("MyVar#1");
+
+  exprt trial1(ID_constant, ok);
+  to_constant_expr(trial1).set_value("1");
+  minus_exprt aagoo(trial,trial1);
+  binary_relation_exprt agoogoo(trial, ID_lt, trial1);
+  std::cout << "Type: " << aagoo.type().id() << "\n";
+  */
+  //convert_expr(aagoo, false);
+  //convert_expr(agoogoo, false);
+  
+
 
   #if 0
   out << "; CONV: "

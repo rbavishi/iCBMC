@@ -215,7 +215,6 @@ void goto_convertt::clean_expr(
   //   compound literals
 
   if(!needs_cleaning(expr)) return;
-    std::cout << "Trying... " << from_expr(ns, "", expr) << "\n";
 
   if(expr.id()==ID_and || expr.id()==ID_or)
   {

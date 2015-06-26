@@ -147,6 +147,7 @@ void bmct::do_conversion(prop_convt &prop_conv)
   if (options.get_bool_option("icbmc-directfix"))
   {
     prop_conv.icbmc_directfix=true;
+    std::cout << "YEAHHAH#### " << symex.loop_statement_map.size() << std::endl;
     equation.convert_directfix(prop_conv);
   }
   else

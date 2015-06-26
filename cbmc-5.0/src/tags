@@ -122,6 +122,7 @@ CLEANFILES	big-int/makefile	/^CLEANFILES = $(PRG) big-int$(LIBEXT) bigint-test$(
 CLEANFILES	cbmc/Makefile	/^CLEANFILES = cbmc$(EXEEXT)$/;"	m
 CLEANFILES	clobber/Makefile	/^CLEANFILES = clobber$(EXEEXT)$/;"	m
 CLEANFILES	cpp/Makefile	/^CLEANFILES = cpp$(LIBEXT)$/;"	m
+CLEANFILES	directfix-prototype/Makefile	/^CLEANFILES = cbe$(LIBEXT)$/;"	m
 CLEANFILES	goto-cc/Makefile	/^CLEANFILES = goto-cc$(EXEEXT) goto-cl$(EXEEXT)$/;"	m
 CLEANFILES	goto-instrument/Makefile	/^CLEANFILES = goto-instrument$(EXEEXT)$/;"	m
 CLEANFILES	goto-programs/Makefile	/^CLEANFILES = goto-programs$(LIBEXT) test_wp$(EXEEXT) osx_fat_reader_test$(EXEEXT)$/;"	m
@@ -582,6 +583,8 @@ DECIMAL	util/format_spec.h	/^  typedef enum { DECIMAL, SCIENTIFIC, AUTOMATIC } s
 DECL	goto-programs/goto_program_template.h	/^               DECL=14,         \/\/ declare a local variable$/;"	e	enum:__anon31
 DECL	goto-programs/goto_trace.h	/^                 LOCATION, INPUT, OUTPUT, DECL, DEAD,$/;"	e	enum:goto_trace_stept::__anon24
 DELIMITERS	solvers/sat/read_dimacs_cnf.cpp	32;"	d	file:
+DIRECTFIX_COMPONENT	directfix-prototype/component.h	2;"	d
+DIRECTFIX_PROTOTYPE	directfix-prototype/cbe.h	2;"	d
 DIRS	Makefile	/^DIRS = ansi-c big-int cbmc cpp goto-cc goto-instrument goto-programs \\$/;"	m
 DISJUNCTIVE_POLYNOMIAL_ACCELERATION_H	goto-instrument/accelerate/disjunctive_polynomial_acceleration.h	2;"	d
 DISJUNCTIVE_POLYNOMIAL_ACCELERATION_H	goto-instrument/accelerate/sat_path_enumerator.h	2;"	d
@@ -704,8 +707,8 @@ F_TYPE	util/find_symbols.cpp	/^typedef enum { F_TYPE, F_EXPR, F_BOTH } kindt;$/;
 Fence	goto-instrument/wmm/abstract_event.h	/^  typedef enum {Write, Read, Fence, Lwfence, ASMfence} operationt;$/;"	e	enum:abstract_eventt::__anon16
 Fence	musketeer/fence_inserter.h	/^  typedef enum {Fence=0, Dp=1, Lwfence=2, Branching=3, Ctlfence=4} fence_typet;$/;"	e	enum:fence_insertert::__anon37
 Forall_cpp_declarators	cpp/cpp_declarator.h	61;"	d
-Forall_expr	util/expr.h	31;"	d
-Forall_expr_list	util/expr.h	39;"	d
+Forall_expr	util/expr.h	32;"	d
+Forall_expr_list	util/expr.h	40;"	d
 Forall_goto_functions	goto-programs/goto_functions.h	22;"	d
 Forall_goto_program_instructions	goto-programs/goto_program.h	48;"	d
 Forall_guard	util/guard.h	81;"	d
@@ -717,7 +720,7 @@ Forall_named_irep	util/irep.h	76;"	d
 Forall_objects	pointer-analysis/value_set_fi.cpp	38;"	d	file:
 Forall_objects	pointer-analysis/value_set_fivr.cpp	45;"	d	file:
 Forall_objects	pointer-analysis/value_set_fivrns.cpp	45;"	d	file:
-Forall_operands	util/expr.h	22;"	d
+Forall_operands	util/expr.h	23;"	d
 Forall_subtypes	util/type.h	173;"	d
 Forall_symbolptr_list	util/symbol.h	128;"	d
 Forall_symbols	util/symbol_table.h	31;"	d
@@ -1438,6 +1441,7 @@ INCLUDES	assembler/Makefile	/^INCLUDES= -I ..$/;"	m
 INCLUDES	cbmc/Makefile	/^INCLUDES= -I ..$/;"	m
 INCLUDES	clobber/Makefile	/^INCLUDES= -I ..$/;"	m
 INCLUDES	cpp/Makefile	/^INCLUDES= -I ..$/;"	m
+INCLUDES	directfix-prototype/Makefile	/^INCLUDES= -I ..$/;"	m
 INCLUDES	goto-cc/Makefile	/^INCLUDES= -I ..$/;"	m
 INCLUDES	goto-instrument/Makefile	/^INCLUDES= -I ..$/;"	m
 INCLUDES	goto-programs/Makefile	/^INCLUDES= -I ..$/;"	m
@@ -1792,6 +1796,7 @@ SRC	big-int/makefile	/^SRC = bigint-func.cc bigint.cc$/;"	m
 SRC	cbmc/Makefile	/^SRC = cbmc_main.cpp cbmc_parseoptions.cpp bmc.cpp dimacs.cpp \\$/;"	m
 SRC	clobber/Makefile	/^SRC = clobber_main.cpp clobber_parseoptions.cpp$/;"	m
 SRC	cpp/Makefile	/^SRC = cpp_id.cpp cpp_language.cpp expr2cpp.cpp cpp_parser.cpp \\$/;"	m
+SRC	directfix-prototype/Makefile	/^SRC = cbe.cpp component.cpp $/;"	m
 SRC	goto-cc/Makefile	/^SRC = goto_cc_main.cpp goto_cc_mode.cpp gcc_mode.cpp \\$/;"	m
 SRC	goto-instrument/Makefile	/^SRC = goto_instrument_parseoptions.cpp rw_set.cpp \\$/;"	m
 SRC	goto-programs/Makefile	/^SRC = goto_convert.cpp goto_convert_function_call.cpp \\$/;"	m
@@ -3425,6 +3430,7 @@ add	util/irep.cpp	/^irept &irept::add(const irep_namet &name, const irept &irep)
 add	util/namespace.h	/^  inline void add(const symbol_tablet &symbol_table)$/;"	f	class:multi_namespacet
 add	util/std_code.h	/^  inline void add(const codet &code)$/;"	f	class:code_blockt
 add	util/symbol_table.cpp	/^bool symbol_tablet::add(const symbolt &symbol)$/;"	f	class:symbol_tablet
+add_acyclic_constraint	directfix-prototype/component.cpp	/^void component_exprt::add_acyclic_constraint($/;"	f	class:component_exprt
 add_addr	solvers/flattening/bv_pointers.cpp	/^void bv_pointerst::add_addr(const exprt &expr, bvt &bv)$/;"	f	class:bv_pointerst
 add_all_pos	goto-instrument/wmm/goto2graph.h	181;"	d
 add_anonymous_members_to_scope	cpp/cpp_typecheck_compound_type.cpp	/^void cpp_typecheckt::add_anonymous_members_to_scope($/;"	f	class:cpp_typecheckt
@@ -3450,6 +3456,8 @@ add_catch	util/std_code.h	/^  void add_catch(const code_declt &to_catch, const c
 add_class	java_bytecode/java_bytecode_parse_tree.h	/^  inline classt &add_class()$/;"	f	class:java_bytecode_parse_treet
 add_com_edge	goto-instrument/wmm/event_graph.h	/^  void add_com_edge(unsigned a, unsigned b)$/;"	f	class:event_grapht
 add_compiler_specific_defines	goto-cc/compile.cpp	/^void compilet::add_compiler_specific_defines(configt &config) const$/;"	f	class:compilet
+add_conn_constraint	directfix-prototype/component.cpp	/^void component_exprt::add_conn_constraint($/;"	f	class:component_exprt
+add_consistency_constraint	directfix-prototype/component.cpp	/^void component_exprt::add_consistency_constraint(const exprt &loc_var)$/;"	f	class:component_exprt
 add_constraint	goto-symex/partial_order_concurrency.cpp	/^void partial_order_concurrencyt::add_constraint($/;"	f	class:partial_order_concurrencyt
 add_constraint	solvers/prop/prop_conv_store.h	/^    constraintt &add_constraint()$/;"	f	class:prop_conv_storet::constraintst
 add_declarator	ansi-c/ansi_c_parser.cpp	/^void ansi_c_parsert::add_declarator($/;"	f	class:ansi_c_parsert
@@ -3514,9 +3522,11 @@ add_quantifier	solvers/qbf/qbf_squolem.cpp	/^void qbf_squolemt::add_quantifier(c
 add_quantifier	solvers/qbf/qbf_squolem_core.cpp	/^void qbf_squolem_coret::add_quantifier(const quantifiert &quantifier)$/;"	f	class:qbf_squolem_coret
 add_quantifier	solvers/qbf/qdimacs_cnf.h	/^  inline void add_quantifier(const quantifiert::typet type, const literalt l)$/;"	f	class:qdimacs_cnft
 add_quantifier	solvers/qbf/qdimacs_cnf.h	/^  virtual void add_quantifier(const quantifiert &quantifier)$/;"	f	class:qdimacs_cnft
+add_range_constraint	directfix-prototype/component.cpp	/^void component_exprt::add_range_constraint(const exprt &expr)$/;"	f	class:component_exprt
 add_return	goto-programs/goto_convert_functions.cpp	/^void goto_convert_functionst::add_return($/;"	f	class:goto_convert_functionst
 add_safety_assertion	goto-programs/remove_function_pointers.cpp	/^  bool add_safety_assertion;$/;"	m	class:remove_function_pointerst	file:
 add_secondary_scope	cpp/cpp_scope.h	/^  void add_secondary_scope(cpp_scopet &other)$/;"	f	class:cpp_scopet
+add_semantic_constraint	directfix-prototype/component.cpp	/^void component_exprt::add_semantic_constraint($/;"	f	class:component_exprt
 add_source_location	cpp/cpp_name.h	/^    inline source_locationt &add_source_location()$/;"	f	class:cpp_namet::namet
 add_source_location	util/expr.h	/^  inline source_locationt &add_source_location()$/;"	f	class:exprt
 add_source_location	util/type.h	/^  inline source_locationt &add_source_location()$/;"	f	class:typet
@@ -4711,8 +4721,12 @@ complex_member	goto-programs/remove_complex.cpp	/^exprt complex_member(const exp
 complex_typet	util/std_types.h	/^  explicit inline complex_typet(const typet &_subtype):$/;"	f	class:complex_typet
 complex_typet	util/std_types.h	/^  inline complex_typet():type_with_subtypet(ID_complex)$/;"	f	class:complex_typet
 complex_typet	util/std_types.h	/^class complex_typet:public type_with_subtypet$/;"	c
+component_cnt	directfix-prototype/component.h	/^  int component_cnt; \/\/Should be equal to (sep_j-sep_i)$/;"	m	class:component_exprt
+component_exprt	directfix-prototype/component.cpp	/^component_exprt::component_exprt($/;"	f	class:component_exprt
+component_exprt	directfix-prototype/component.h	/^class component_exprt$/;"	c
 component_number	util/std_types.cpp	/^unsigned struct_union_typet::component_number($/;"	f	class:struct_union_typet
 component_type	util/std_types.cpp	/^typet struct_union_typet::component_type($/;"	f	class:struct_union_typet
+component_variables	directfix-prototype/component.h	/^  expr_listt component_variables;$/;"	m	class:component_exprt
 components	util/identifier.h	/^  componentst components;$/;"	m	class:identifiert
 components	util/std_types.h	/^  inline componentst &components()$/;"	f	class:struct_union_typet
 components	util/std_types.h	/^  inline const componentst &components() const$/;"	f	class:struct_union_typet
@@ -6224,6 +6238,7 @@ exponent	util/ieee_float.h	/^  mp_integer exponent; \/\/ this is unbiased$/;"	m	
 exponent_all_ones	solvers/floatbv/float_utils.cpp	/^literalt float_utilst::exponent_all_ones(const bvt &src)$/;"	f	class:float_utilst
 exponent_all_zeros	solvers/floatbv/float_utils.cpp	/^literalt float_utilst::exponent_all_zeros(const bvt &src)$/;"	f	class:float_utilst
 expr	analyses/invariant_set.h	/^    exprt expr;$/;"	m	struct:inv_object_storet::entryt
+expr	directfix-prototype/component.h	/^  const exprt &expr;$/;"	m	class:component_exprt
 expr	solvers/flattening/boolbv.h	/^    exprt expr;$/;"	m	class:boolbvt::quantifiert
 expr	solvers/flattening/bv_pointers.h	/^    exprt expr;$/;"	m	struct:bv_pointerst::postponedt
 expr	solvers/prop/prop_conv_store.h	/^    exprt expr;$/;"	m	struct:prop_conv_storet::constraintt
@@ -6276,6 +6291,7 @@ exprt	util/expr.h	/^  inline explicit exprt(const irep_idt &_id):irept(_id) { }$
 exprt	util/expr.h	/^  inline exprt() { }$/;"	f	class:exprt
 exprt	util/expr.h	/^  inline exprt(const irep_idt &_id, const typet &_type):irept(_id) { add(ID_type, _type); }$/;"	f	class:exprt
 exprt	util/expr.h	/^class exprt:public irept$/;"	c
+exprt_visit	directfix-prototype/cbe.cpp	/^void exprt_visit(const exprt &expr)$/;"	f
 extend_path	goto-instrument/accelerate/all_paths_enumerator.cpp	/^void all_paths_enumeratort::extend_path(patht &path,$/;"	f	class:all_paths_enumeratort
 extends	java_bytecode/java_bytecode_parse_tree.h	/^    irep_idt name, extends;$/;"	m	class:java_bytecode_parse_treet::classt
 extension	solvers/flattening/bv_utils.cpp	/^bvt bv_utilst::extension($/;"	f	class:bv_utilst
@@ -6638,8 +6654,8 @@ fopen	ansi-c/library/stdio.c	/^inline FILE *fopen(const char *filename, const ch
 for_has_scope	ansi-c/ansi_c_parser.h	/^  bool for_has_scope;$/;"	m	class:ansi_c_parsert
 for_has_scope	util/config.h	/^    bool for_has_scope;$/;"	m	struct:configt::ansi_ct
 forall_cpp_declarators	cpp/cpp_declarator.h	57;"	d
-forall_expr	util/expr.h	27;"	d
-forall_expr_list	util/expr.h	35;"	d
+forall_expr	util/expr.h	28;"	d
+forall_expr_list	util/expr.h	36;"	d
 forall_exprt	util/std_expr.h	/^  inline forall_exprt():exprt(ID_forall)$/;"	f	class:forall_exprt
 forall_exprt	util/std_expr.h	/^class forall_exprt:public exprt$/;"	c
 forall_goto_functions	goto-programs/goto_functions.h	26;"	d
@@ -6653,7 +6669,7 @@ forall_named_irep	util/irep.h	72;"	d
 forall_objects	pointer-analysis/value_set_fi.cpp	33;"	d	file:
 forall_objects	pointer-analysis/value_set_fivr.cpp	34;"	d	file:
 forall_objects	pointer-analysis/value_set_fivrns.cpp	34;"	d	file:
-forall_operands	util/expr.h	16;"	d
+forall_operands	util/expr.h	17;"	d
 forall_rw_set_r_entries	goto-instrument/rw_set.h	102;"	d
 forall_rw_set_w_entries	goto-instrument/rw_set.h	106;"	d
 forall_subtypes	util/type.h	167;"	d
@@ -6780,6 +6796,7 @@ func	util/message.h	/^    inline mstreamt &operator << (mstreamt &(*func)(mstrea
 func_name	goto-instrument/goto_program2code.h	/^  const irep_idt &func_name;$/;"	m	class:goto_program2codet
 function	aa-path-symex/locs.h	/^  irep_idt function;$/;"	m	struct:loct
 function	ansi-c/cprover_library.cpp	/^  const char *function;$/;"	m	struct:cprover_library_entryt	file:
+function	directfix-prototype/component.h	/^  const std::string function;$/;"	m	class:component_exprt
 function	goto-programs/goto_program_template.h	/^    irep_idt function;$/;"	m	class:goto_program_templatet::instructiont
 function	goto-programs/interpreter_class.h	/^  goto_functionst::function_mapt::const_iterator function;$/;"	m	class:interpretert
 function	path-symex/locs.h	/^  irep_idt function;$/;"	m	struct:loct
@@ -6924,6 +6941,8 @@ gen_argument	java_bytecode/java_entry_point.cpp	/^static exprt gen_argument(cons
 gen_array_index_type	solvers/cvc/cvc_conv.cpp	/^typet cvc_convt::gen_array_index_type()$/;"	f	class:cvc_convt
 gen_array_index_type	solvers/dplib/dplib_conv.cpp	/^typet dplib_convt::gen_array_index_type()$/;"	f	class:dplib_convt
 gen_binary	util/expr_util.cpp	/^exprt gen_binary($/;"	f
+gen_comp_var	directfix-prototype/component.cpp	/^exprt component_exprt::gen_comp_var(const exprt &expr, std::string suffix)$/;"	f	class:component_exprt
+gen_loc_var	directfix-prototype/component.cpp	/^exprt component_exprt::gen_loc_var(const exprt &expr, std::string suffix)$/;"	f	class:component_exprt
 gen_not	util/expr_util.cpp	/^exprt gen_not(const exprt &op)$/;"	f
 gen_one	util/expr_util.cpp	/^exprt gen_one(const typet &type)$/;"	f
 gen_unary	util/expr_util.cpp	/^exprt gen_unary(const irep_idt &id, const typet &type, const exprt &op)$/;"	f
@@ -7027,6 +7046,7 @@ get_depth	aa-path-symex/path_symex_state.h	/^  inline unsigned get_depth() const
 get_depth	path-symex/path_symex_state.h	/^  inline unsigned get_depth() const$/;"	f	struct:path_symex_statet
 get_destination	util/std_code.h	/^  const irep_idt &get_destination() const$/;"	f	class:code_gotot
 get_destructor	goto-programs/destructor.cpp	/^code_function_callt get_destructor($/;"	f
+get_df_loc_var	directfix-prototype/component.cpp	/^void component_exprt::get_df_loc_var(const exprt &expr)  $/;"	f	class:component_exprt
 get_dominator_info	analyses/natural_loops.h	/^  inline const cfg_dominators_templatet<P, T>& get_dominator_info() const$/;"	f	class:natural_loops_templatet
 get_dynamic_objects	solvers/flattening/pointer_logic.cpp	/^void pointer_logict::get_dynamic_objects(std::vector<unsigned> &o) const$/;"	f	class:pointer_logict
 get_e	util/std_types.h	/^  inline unsigned get_e() const$/;"	f	class:floatbv_typet
@@ -7710,6 +7730,7 @@ id_map	aa-path-symex/var_map.h	/^  id_mapt id_map;$/;"	m	class:var_mapt
 id_map	cpp/cpp_scopes.h	/^  id_mapt id_map;$/;"	m	class:cpp_scopest
 id_map	cpp/parse.cpp	/^  id_mapt id_map;$/;"	m	class:new_scopet	file:
 id_map	path-symex/var_map.h	/^  id_mapt id_map;$/;"	m	class:var_mapt
+id_maps	directfix-prototype/component.h	/^  std::map<dstring, std::string> id_maps; \/\/Couldn't think of a workaround$/;"	m	class:component_exprt
 id_mapt	aa-path-symex/var_map.h	/^  typedef std::map<irep_idt, var_infot> id_mapt;$/;"	t	class:var_mapt
 id_mapt	cpp/cpp_scopes.h	/^  typedef hash_map_cont<irep_idt, cpp_idt *, irep_id_hash> id_mapt;$/;"	t	class:cpp_scopest
 id_mapt	cpp/parse.cpp	/^  typedef std::map<irep_idt, new_scopet> id_mapt;$/;"	t	class:new_scopet	file:
@@ -8045,6 +8066,7 @@ instantiation_stack	cpp/cpp_typecheck.h	/^  instantiation_stackt instantiation_s
 instantiation_stackt	cpp/cpp_typecheck.h	/^  typedef std::list<instantiationt> instantiation_stackt;$/;"	t	class:cpp_typecheckt
 instantiationt	cpp/cpp_typecheck.h	/^  class instantiationt$/;"	c	class:cpp_typecheckt
 instr	goto-instrument/wmm/goto2graph.cpp	/^  instrumentert& instr;$/;"	m	class:pthread_argumentt	file:
+instruction_number	directfix-prototype/component.h	/^  const int &instruction_number;$/;"	m	class:component_exprt
 instructions	assembler/assembler_parser.h	/^  std::list<instructiont> instructions;$/;"	m	class:assembler_parsert
 instructions	goto-programs/goto_program_template.h	/^  instructionst instructions;$/;"	m	class:goto_program_templatet
 instructions	java_bytecode/java_bytecode_parse_tree.h	/^    instructionst instructions;$/;"	m	class:java_bytecode_parse_treet::itemt
@@ -8383,6 +8405,7 @@ is_location	goto-programs/goto_program_template.h	/^    inline bool is_location 
 is_location	goto-programs/goto_trace.h	/^  bool is_location() const        { return type==LOCATION; }$/;"	f	class:goto_trace_stept
 is_location	goto-symex/symex_target_equation.h	/^    bool is_location() const        { return type==goto_trace_stept::LOCATION; }$/;"	f	class:symex_target_equationt::SSA_stept
 is_long	big-int/bigint.cc	/^BigInt::is_long() const$/;"	f	class:BigInt
+is_loop_statement	directfix-prototype/component.h	/^  const bool &is_loop_statement;$/;"	m	class:component_exprt
 is_looping	goto-instrument/accelerate/all_paths_enumerator.cpp	/^bool all_paths_enumeratort::is_looping(patht &path) {$/;"	f	class:all_paths_enumeratort
 is_lt	analyses/invariant_set.h	/^  tvt is_lt(std::pair<unsigned, unsigned> p) const$/;"	f	class:invariant_sett
 is_lvalue	goto-programs/builtin_functions.cpp	/^bool is_lvalue(const exprt &expr)$/;"	f
@@ -9031,6 +9054,8 @@ location	util/symbol.h	/^  source_locationt location;$/;"	m	class:symbolt
 location	util/type.h	/^  inline const source_locationt &location() const$/;"	f	class:typet
 location_number	goto-programs/goto_program_template.h	/^    unsigned location_number;$/;"	m	class:goto_program_templatet::instructiont
 location_number	pointer-analysis/value_set.h	/^  unsigned location_number;$/;"	m	class:value_sett
+location_v_assign	directfix-prototype/component.h	/^  exprt location_v_assign;$/;"	m	class:component_exprt
+location_variables	directfix-prototype/component.h	/^  expr_listt location_variables;$/;"	m	class:component_exprt
 locationt	analyses/ai.h	/^  typedef goto_programt::const_targett locationt;$/;"	t	class:ai_baset
 locationt	analyses/ai.h	/^  typedef goto_programt::const_targett locationt;$/;"	t	class:ai_domain_baset
 locationt	analyses/ai.h	/^  typedef goto_programt::const_targett locationt;$/;"	t	class:ait
@@ -9097,10 +9122,12 @@ loop	goto-instrument/accelerate/enumerating_loop_acceleration.h	/^  natural_loop
 loop	goto-instrument/accelerate/sat_path_enumerator.h	/^  natural_loops_mutablet::natural_loopt &loop;$/;"	m	class:sat_path_enumeratort
 loop_accelerationt	goto-instrument/accelerate/loop_acceleration.h	/^class loop_accelerationt {$/;"	c
 loop_bound_exceeded	goto-symex/symex_goto.cpp	/^void goto_symext::loop_bound_exceeded($/;"	f	class:goto_symext
+loop_cnt	goto-symex/goto_symex.h	/^  int loop_cnt;$/;"	m	class:goto_symext
 loop_counter	goto-instrument/accelerate/acceleration_utils.h	/^  exprt &loop_counter;$/;"	m	class:acceleration_utilst
 loop_counter	goto-instrument/accelerate/disjunctive_polynomial_acceleration.h	/^  exprt loop_counter;$/;"	m	class:disjunctive_polynomial_accelerationt
 loop_counter	goto-instrument/accelerate/polynomial_accelerator.h	/^  exprt loop_counter;$/;"	m	class:polynomial_acceleratort
 loop_counter	goto-instrument/accelerate/sat_path_enumerator.h	/^  exprt loop_counter;$/;"	m	class:sat_path_enumeratort
+loop_entered	goto-symex/goto_symex.h	/^  std::list<int> loop_entered;$/;"	m	class:goto_symext
 loop_header	goto-instrument/accelerate/all_paths_enumerator.h	/^  goto_programt::targett loop_header;$/;"	m	class:all_paths_enumeratort
 loop_header	goto-instrument/accelerate/disjunctive_polynomial_acceleration.h	/^  goto_programt::targett loop_header;$/;"	m	class:disjunctive_polynomial_accelerationt
 loop_header	goto-instrument/accelerate/enumerating_loop_acceleration.h	/^  goto_programt::targett loop_header;$/;"	m	class:enumerating_loop_accelerationt
@@ -9118,6 +9145,7 @@ loop_map	analyses/natural_loops.h	/^  loop_mapt loop_map;$/;"	m	class:natural_lo
 loop_map	goto-instrument/goto_program2code.h	/^  loopt loop_map;$/;"	m	class:goto_program2codet
 loop_mapt	analyses/natural_loops.h	/^  typedef std::map<T, natural_loopt> loop_mapt;$/;"	t	class:natural_loops_templatet
 loop_number	goto-programs/goto_program_template.h	/^    unsigned loop_number;$/;"	m	class:goto_program_templatet::instructiont
+loop_statement_map	goto-symex/goto_symex.h	/^  std::map<int, int> loop_statement_map;$/;"	m	class:goto_symext
 loop_strategyt	goto-instrument/wmm/wmm.h	/^} loop_strategyt;$/;"	t	typeref:enum:__anon15
 loops	goto-instrument/goto_program2code.h	/^  natural_loopst loops;$/;"	m	class:goto_program2codet
 loops	goto-instrument/wmm/event_graph.h	/^  std::set<std::pair<unsigned,unsigned> > loops;$/;"	m	class:event_grapht
@@ -9872,6 +9900,7 @@ ns	ansi-c/c_typecast.h	/^  const namespacet &ns;$/;"	m	class:c_typecastt
 ns	ansi-c/expr2c_class.h	/^  const namespacet &ns;$/;"	m	class:expr2ct
 ns	ansi-c/printf_formatter.h	/^  const namespacet &ns;$/;"	m	class:printf_formattert
 ns	cbmc/bmc.h	/^  namespacet ns;$/;"	m	class:bmct
+ns	directfix-prototype/component.h	/^  const namespacet &ns;$/;"	m	class:component_exprt
 ns	goto-cc/compile.h	/^  namespacet ns;$/;"	m	class:compilet
 ns	goto-instrument/accelerate/accelerate.h	/^  namespacet ns;$/;"	m	class:acceleratet
 ns	goto-instrument/accelerate/acceleration_utils.h	/^  namespacet ns;$/;"	m	class:acceleration_utilst
@@ -10622,6 +10651,8 @@ out	util/graph.h	/^  edgest in, out;$/;"	m	class:graph_nodet
 out	util/graph.h	/^  inline const edgest &out(unsigned n) const$/;"	f	class:graph
 out	util/message.h	/^  std::ostream &out;$/;"	m	class:stream_message_handlert
 out	util/preprocessor.h	/^  std::ostream &out;$/;"	m	class:preprocessort
+out_component_variables	directfix-prototype/component.h	/^  expr_listt out_component_variables;$/;"	m	class:component_exprt
+out_location_variables	directfix-prototype/component.h	/^  expr_listt out_location_variables;$/;"	m	class:component_exprt
 out_nodes	goto-instrument/wmm/goto2graph.h	/^    std::map<irep_idt,std::set<nodet> > in_nodes, out_nodes;$/;"	m	class:instrumentert::cfg_visitort
 out_pos	goto-instrument/wmm/goto2graph.h	/^    incoming_post out_pos;    $/;"	m	class:instrumentert::cfg_visitort
 output	aa-path-symex/locs.cpp	/^void locst::output(std::ostream &out) const$/;"	f	class:locst
@@ -10798,6 +10829,8 @@ parse_conversion_specifier	goto-programs/format_strings.cpp	/^void parse_convers
 parse_env	goto-cc/ms_cl_cmdline.cpp	/^void ms_cl_cmdlinet::parse_env()$/;"	f	class:ms_cl_cmdlinet
 parse_error	util/parser.cpp	/^void parsert::parse_error($/;"	f	class:parsert
 parse_events	goto-symex/slice_by_trace.cpp	/^void symex_slice_by_tracet::parse_events(std::string read_line) {$/;"	f	class:symex_slice_by_tracet
+parse_expr	directfix-prototype/component.cpp	/^void component_exprt::parse_expr(const exprt &expr)$/;"	f	class:component_exprt
+parse_expr_rec	directfix-prototype/component.cpp	/^void component_exprt::parse_expr_rec(const exprt &expr)$/;"	f	class:component_exprt
 parse_field_width	goto-programs/format_strings.cpp	/^void parse_field_width($/;"	f
 parse_flags	goto-programs/format_strings.cpp	/^void parse_flags($/;"	f
 parse_float	ansi-c/literals/parse_float.cpp	/^void parse_float($/;"	f
@@ -10915,7 +10948,13 @@ per_address_mapt	goto-symex/partial_order_concurrency.h	/^  typedef std::map<ire
 per_thread_mapt	goto-symex/memory_model.h	/^  typedef std::map<unsigned, event_listt> per_thread_mapt;$/;"	t	class:memory_model_baset
 per_valuet	goto-symex/partial_order_concurrency.h	/^  typedef std::list<evtt const*> per_valuet;$/;"	t	class:partial_order_concurrencyt
 perror	ansi-c/library/stdio.c	/^void perror(const char *s)$/;"	f
+phi_acyc	directfix-prototype/component.h	/^  expr_listt phi_acyc;    \/\/Acyclic Constraint - Hard - Forbid Cyclic Connections$/;"	m	class:component_exprt
+phi_conn	directfix-prototype/component.h	/^  expr_listt phi_conn;    \/\/Connection Constraint - Hard$/;"	m	class:component_exprt
+phi_cons	directfix-prototype/component.h	/^  expr_listt phi_cons;    \/\/Consistency Constraint - Hard - Output of each component has a unique location$/;"	m	class:component_exprt
 phi_function	goto-symex/symex_goto.cpp	/^void goto_symext::phi_function($/;"	f	class:goto_symext
+phi_range	directfix-prototype/component.h	/^  expr_listt phi_range;   \/\/Range Constraint - Hard$/;"	m	class:component_exprt
+phi_sem	directfix-prototype/component.h	/^  expr_listt phi_sem;     \/\/Semantics Constraint - Hard$/;"	m	class:component_exprt
+phi_struct	directfix-prototype/component.h	/^  expr_listt phi_struct;  \/\/Structure Constraint - Soft$/;"	m	class:component_exprt
 pi	util/pipe_stream.h	/^  PROCESS_INFORMATION pi;$/;"	m	class:pipe_stream
 pick_state	aa-symex/path_search.cpp	/^path_searcht::queuet::iterator path_searcht::pick_state()$/;"	f	class:path_searcht
 pick_state	symex/path_search.cpp	/^path_searcht::queuet::iterator path_searcht::pick_state()$/;"	f	class:path_searcht
@@ -12009,6 +12048,8 @@ selected_cycles	musketeer/fence_user_def.h	/^  std::set<unsigned> selected_cycle
 selection_statement	ansi-c/parser.y	/^selection_statement:$/;"	l
 semantics	goto-symex/slice_by_trace.h	/^  std::string semantics;$/;"	m	class:symex_slice_by_tracet
 send_msg	util/message_stream.h	/^  void send_msg(unsigned level, const std::string &message)$/;"	f	class:message_streamt
+sep_i	directfix-prototype/component.h	/^  const exprt &sep_i;$/;"	m	class:component_exprt
+sep_j	directfix-prototype/component.h	/^  const exprt &sep_j;$/;"	m	class:component_exprt
 sequence	goto-instrument/call_sequences.cpp	/^  const std::vector<irep_idt> &sequence;$/;"	m	class:check_call_sequencet	file:
 sequence_number	util/message_stream.h	/^  unsigned sequence_number;$/;"	m	class:message_streamt
 set	cpp/template_map.cpp	/^void template_mapt::set($/;"	f	class:template_mapt
@@ -14002,6 +14043,7 @@ utils	goto-instrument/accelerate/polynomial_accelerator.h	/^  acceleration_utils
 utils	goto-instrument/accelerate/sat_path_enumerator.h	/^  acceleration_utilst utils;$/;"	m	class:sat_path_enumeratort
 uuf	util/union_find.h	/^  unsigned_union_find uuf;$/;"	m	class:union_find
 v	util/fixedbv.h	/^  mp_integer v;$/;"	m	class:fixedbvt
+v_assign	directfix-prototype/component.h	/^  exprt v_assign;$/;"	m	class:component_exprt
 va_list_expr	goto-instrument/goto_program2code.h	/^  hash_set_cont<exprt, irep_hash> va_list_expr;$/;"	m	class:goto_program2codet
 valid	util/std_expr.h	/^  inline const exprt &valid() const$/;"	f	class:dynamic_object_exprt
 valid	util/std_expr.h	/^  inline exprt &valid()$/;"	f	class:dynamic_object_exprt

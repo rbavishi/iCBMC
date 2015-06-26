@@ -20,6 +20,7 @@ Author: Daniel Kroening, kroening@kroening.com
 
 #include "goto_symex_state.h"
 #include "symex_target_equation.h"
+#include <directfix-prototype/component_e.h>
 
 /*******************************************************************\
 
@@ -258,13 +259,13 @@ void symex_target_equationt::assignment(
   SSA_step.ssa_rhs=ssa_rhs;
   SSA_step.original_rhs=original_rhs;
   SSA_step.assignment_type=assignment_type;
-  std::cout << "From Expr: ### " << from_expr(ns, "", ssa_rhs) << "\n";
 
   SSA_step.cond_expr=equal_exprt(SSA_step.ssa_lhs, SSA_step.ssa_rhs);
   SSA_step.type=goto_trace_stept::ASSIGNMENT;
   SSA_step.hidden=(assignment_type!=STATE &&
                    assignment_type!=VISIBLE_ACTUAL_PARAMETER);
   SSA_step.source=source;
+  std::cout << "Source: " << SSA_step.source.pc->location_number << " Code: " << from_expr(ns, "", SSA_step.cond_expr) << "\n";
 
   merge_ireps(SSA_step);
 }
@@ -635,7 +636,7 @@ void symex_target_equationt::convert_directfix(
   //convert_guards(prop_conv);
   convert_assignments(prop_conv);
   //convert_decls(prop_conv);
-  convert_assumptions(prop_conv);
+  //convert_assumptions(prop_conv);
   convert_assertions(prop_conv);
   convert_io(prop_conv);
   convert_constraints(prop_conv);
@@ -661,8 +662,66 @@ void symex_target_equationt::convert_assignments(
     if(it->is_assignment() && !it->ignore) {
       if (icbmc_smt2==false) decision_procedure.set_to_true(it->cond_expr);
       else decision_procedure.set_to_true(equal_exprt(it->ssa_lhs, it->original_rhs));
-      std::cout << "We're here ###############" << from_expr(ns, "", it->original_rhs) << std::endl;
+      std::cout << "We're here ############### ::: " << from_expr(ns, "", it->cond_expr) <<  std::endl;
+      exprt_visit(it->cond_expr);
+      typet type(ID_integer);
+      exprt s_i(ID_symbol, type);
+      exprt s_j(ID_symbol, type);
+      to_symbol_expr(s_i).set_identifier("s_i"+i2string(it->source.pc->location_number));
+      to_symbol_expr(s_j).set_identifier("s_j"+i2string(it->source.pc->location_number));
+      component_exprt trial(ns, it->cond_expr, s_i, s_j, "main", it->source.pc->location_number, false, decision_procedure); 
+      trial.parse_expr(trial.expr);
+      
+      expr_listt::iterator it=trial.phi_struct.begin();
+      std::cout<<"Size" << trial.phi_struct.size() << std::endl;
+      //decision_procedure.set_to_true(trial.phi_struct.back());
+      while (it!=trial.phi_struct.end())
+      {
+      	decision_procedure.set_to_true(*it);
+	it++;
+      }
+      it=trial.phi_range.begin();
+      std::cout<<"Size" << trial.phi_range.size() << std::endl;
+      //decision_procedure.set_to_true(trial.phi_struct.back());
+      while (it!=trial.phi_range.end())
+      {
+      	decision_procedure.set_to_true(*it);
+	it++;
+      }
+      it=trial.phi_sem.begin();
+      std::cout<<"Size" << trial.phi_sem.size() << std::endl;
+      //decision_procedure.set_to_true(trial.phi_struct.back());
+      while (it!=trial.phi_sem.end())
+      {
+      	decision_procedure.set_to_true(*it);
+	it++;
+      }
+      it=trial.phi_acyc.begin();
+      std::cout<<"Size" << trial.phi_acyc.size() << std::endl;
+      //decision_procedure.set_to_true(trial.phi_struct.back());
+      while (it!=trial.phi_acyc.end())
+      {
+      	decision_procedure.set_to_true(*it);
+	it++;
+      }
+      it=trial.phi_conn.begin();
+      std::cout<<"Size" << trial.phi_conn.size() << std::endl;
+      //decision_procedure.set_to_true(trial.phi_struct.back());
+      while (it!=trial.phi_conn.end())
+      {
+      	decision_procedure.set_to_true(*it);
+	it++;
+      }
+      it=trial.phi_cons.begin();
+      std::cout<<"Size" << trial.phi_cons.size() << std::endl;
+      //decision_procedure.set_to_true(trial.phi_struct.back());
+      while (it!=trial.phi_cons.end())
+      {
+      	decision_procedure.set_to_true(*it);
+	it++;
+      }
     }
+    //if(it->is_decl()) std::cout << "We have a declaration!!!" << from_expr(ns, "", it->cond_expr) << "\n";
   }
 }
 

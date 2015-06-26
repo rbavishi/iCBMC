@@ -56,7 +56,6 @@ void goto_symext::symex_dead(statet &state)
   // L2 renaming
   unsigned new_count=state.level2.current_count(l1_identifier)+1;
   state.level2.rename_identifier(l1_identifier, new_count);
-  std::cout << l1_identifier << " " << new_count << std::endl;
     
   // in case of pointers, put something into the value set
   if(ns.follow(code.op0().type()).id()==ID_pointer)

@@ -142,11 +142,47 @@ void component_exprt::parse_expr(const exprt &expr)
   location_v_assign=temp_loc_var;
   component_cnt=0;
   gen_loc_var(location_v_assign, v_assign);
+  add_range_constraint(location_v_assign);
   
   parse_expr_rec(expr.op1());
+
+  //Structure Constraint
   equal_exprt struct_constraint(location_variables.front(), location_v_assign);
   phi_struct.push_back(struct_constraint);
 
+  //Connection Constraint
+  in_location_variables.push_back(location_v_assign);
+  in_component_variables.push_back(v_assign);
+  std::list<exprt>::const_iterator it_loc=out_location_variables.begin();
+  std::list<exprt>::const_iterator it_c=out_component_variables.begin();
+  std::list<exprt>::const_iterator it_loc_in, it_c_in;
+  while (it_loc!=out_location_variables.end())
+  {
+    it_loc_in=in_location_variables.begin();
+    it_c_in=in_component_variables.begin();
+    while (it_loc_in!=in_location_variables.end())
+    {
+      if (it_c->type()==it_c_in->type())
+      {
+	 equal_exprt L_part(*it_loc, *it_loc_in);
+	 equal_exprt C_part(*it_c, *it_c_in);
+	 implies_exprt implication(L_part, C_part);
+	 phi_conn.push_back(implication);
+      }
+      it_loc_in++;
+      it_c_in++;
+    }
+    it_loc++;
+    it_c++;
+  }
+}
+
+void component_exprt::add_range_constraint(const exprt &loc_var)
+{
+  binary_relation_exprt range_constraint_le(sep_i, ID_le, loc_var);
+  phi_range.push_back(range_constraint_le);
+  binary_relation_exprt range_constraint_lt(loc_var, ID_lt, sep_j);
+  phi_range.push_back(range_constraint_lt);
 }
 
 void component_exprt::parse_expr_rec(const exprt &expr)
@@ -156,7 +192,18 @@ void component_exprt::parse_expr_rec(const exprt &expr)
   exprt loc_var(ID_symbol, type);
   exprt comp_var(ID_symbol, expr.type());
   gen_loc_var(loc_var, expr);
+  add_range_constraint(loc_var);
   gen_comp_var(comp_var, expr);
+  std::vector <exprt> inputs;
+
+  //Consistency Constraint
+  std::list<exprt>::iterator it_cons=out_location_variables.begin();
+  while (it_cons!=out_location_variables.end())
+  {
+    notequal_exprt cons_constraint(*it_cons, loc_var);
+    phi_cons.push_back(cons_constraint);
+    it_cons++;
+  }
 
   if(component_cnt!=1)
   {
@@ -177,8 +224,28 @@ void component_exprt::parse_expr_rec(const exprt &expr)
     exprt comp_var_in(ID_symbol, it->type());
     gen_loc_var(loc_var_in, expr, "_in"+i2string(cnt));
     gen_comp_var(comp_var_in, expr, "_in"+i2string(cnt));
+    add_range_constraint(loc_var_in);
     location_variables.push_back(loc_var_in);
     component_variables.push_back(comp_var_in);
     parse_expr_rec(*it);
-  } 
+
+    inputs.push_back(comp_var_in);
+    in_location_variables.push_back(loc_var_in);
+    in_component_variables.push_back(comp_var_in);
+
+    //Acyclic Constraint
+    binary_relation_exprt acyclic(loc_var_in, ID_lt, loc_var);
+    phi_acyc.push_back(acyclic);
+
+  }
+  if (cnt!=0) 
+  {
+    exprt rhs=expr;
+    for (unsigned int i=0; i<inputs.size(); i++)
+    {
+      rhs.operands()[i]=inputs[i];
+    }
+    equal_exprt semantic_constraint(comp_var, rhs);
+    phi_sem.push_back(semantic_constraint);
+  }
 }

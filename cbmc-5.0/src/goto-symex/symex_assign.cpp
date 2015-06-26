@@ -255,8 +255,9 @@ void goto_symext::symex_assign_symbol(
   const symbolt &symbol=ns.lookup(original_lhs);
   if(symbol.is_auxiliary) assignment_type=symex_targett::HIDDEN;
   
-  if (icbmc_smt2==true) state.rename_with_preserve(ssa_rhs, ns);
-  else state.rename(ssa_rhs, ns);
+  //if (icbmc_smt2==true) state.rename_with_preserve(ssa_rhs, ns);
+  //else state.rename(ssa_rhs, ns);
+  state.rename(ssa_rhs, ns);
   state.rename_with_preserve(original_rhs, ns);
   do_simplify(ssa_rhs);
   
@@ -264,6 +265,7 @@ void goto_symext::symex_assign_symbol(
   if (icbmc_smt2==true) state.rename_with_preserve(ssa_lhs, ns, goto_symex_statet::L1);
   else state.rename(ssa_lhs, ns, goto_symex_statet::L1);
   state.assignment(ssa_lhs, ssa_rhs, ns, constant_propagation);
+  if (icbmc_smt2==true) ssa_rhs=original_rhs;
   
   exprt ssa_full_lhs=full_lhs;
   ssa_full_lhs=add_to_lhs(ssa_full_lhs, ssa_lhs);
@@ -501,6 +503,7 @@ void goto_symext::symex_assign_if(
   exprt renamed_guard=lhs.cond();
   if (icbmc_smt2==true) state.rename_with_preserve(renamed_guard, ns);
   else state.rename(renamed_guard, ns);
+  //state.rename(renamed_guard, ns);
   do_simplify(renamed_guard);
 
   if(!renamed_guard.is_false())  

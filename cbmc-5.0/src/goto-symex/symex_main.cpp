@@ -269,6 +269,16 @@ void goto_symext::symex_step(
     state.depth++;
   }
   // actually do instruction
+  /*if (!state.guard.is_false())
+  {
+    std::cout << "Loop Code: " << from_expr(ns, "", instruction.code) << "||" << from_expr(ns, "", instruction.guard) << "\n";
+    loop_statement_map[instruction.location_number]=loop_entered.back();
+  }*/
+  if (loop_entered.back()!=0) {
+    loop_statement_map[instruction.location_number]=loop_entered.back();
+    //std::cout << "Number: " << instruction.location_number << " Code: " << from_expr(ns, "", instruction.code) << " Guard: " << from_expr(ns, "", instruction.guard) << "\n";
+  }
+
   switch(instruction.type)
   {
   case SKIP:

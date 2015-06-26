@@ -1,6 +1,6 @@
 DIRS = ansi-c big-int cbmc cpp goto-cc goto-instrument goto-programs \
        goto-symex langapi pointer-analysis solvers util linking xmllang \
-       assembler analyses java_bytecode aa-path-symex path-symex musketeer
+       assembler analyses java_bytecode aa-path-symex path-symex musketeer directfix-prototype
 
 all: cbmc.dir goto-cc.dir goto-instrument.dir path-symex.dir
 
@@ -14,6 +14,8 @@ $(patsubst %, %.dir, $(filter-out big-int util, $(DIRS))): util.dir
 .PHONY: languages
 .PHONY: clean
 
+directfix-prototype.dir: util.dir solvers.dir langapi.dir
+	
 cpp.dir: ansi-c.dir
 
 languages: util.dir langapi.dir \
@@ -23,6 +25,8 @@ goto-instrument.dir: languages goto-programs.dir pointer-analysis.dir \
                      goto-symex.dir linking.dir analyses.dir solvers.dir
 
 musketeer.dir: goto-instrument.dir
+
+goto-symex.dir: directfix-prototype.dir
 
 cbmc.dir: languages solvers.dir goto-symex.dir analyses.dir \
           pointer-analysis.dir goto-programs.dir linking.dir

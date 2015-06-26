@@ -14,5 +14,8 @@
 *.a
 *.d
 autom4te.cache/
+cscope.out
+mysession
+util/ieee_float_test
 
 

@@ -12,6 +12,7 @@ Author: Daniel Kroening, kroening@kroening.com
 #define OPERANDS_IN_GETSUB
 
 #include "type.h"
+#include <string>
 
 #define forall_operands(it, expr) \
   if((expr).has_operands()) \
@@ -107,6 +108,8 @@ public:
   void copy_to_operands(const exprt &expr); // does not destroy expr
   void copy_to_operands(const exprt &e1, const exprt &e2); // does not destroy expr
   void copy_to_operands(const exprt &e1, const exprt &e2, const exprt &e3); // does not destroy expr
+
+  //std::string df_loc_var;
 
   // the following are deprecated -- use constructors instead
   void make_typecast(const typet &_type);

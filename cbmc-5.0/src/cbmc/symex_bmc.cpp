@@ -103,8 +103,9 @@ bool symex_bmct::get_unwind(
   else
   {
     l_it=loop_limits.find(id);
-    if(l_it!=loop_limits.end())
+    if(l_it!=loop_limits.end()) {
       this_loop_limit=l_it->second;
+    }
     else if(max_unwind_is_set)
       this_loop_limit=max_unwind;
   }

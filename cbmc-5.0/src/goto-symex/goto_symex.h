@@ -58,6 +58,8 @@ public:
   {
     options.set_option("simplify", true);
     options.set_option("assertions", true);
+    loop_entered.push_back(0);
+    loop_cnt=0;
   }
   
   virtual ~goto_symext()
@@ -68,6 +70,9 @@ public:
 
   icbmc_goto_tracet* extract_trace;
   bool icbmc_smt2;
+  std::list<int> loop_entered;
+  int loop_cnt;
+  std::map<int, int> loop_statement_map;
 
   /** symex all at once, starting from entry point */
   virtual void operator()(

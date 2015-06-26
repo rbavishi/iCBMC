@@ -1,6 +1,7 @@
 #include "component.h"
 #include <util/i2string.h>
 #include <util/irep.h>
+#include <langapi/language_util.h>
 
 #include <iostream>
 
@@ -18,14 +19,16 @@ component_exprt::component_exprt(
   const exprt &_sep_j,
   const std::string &_function,
   const int &_instruction_number,
-  const bool &_is_loop_statement):
+  const bool &_is_loop_statement,
+  decision_proceduret &_solver):
   ns(_ns),
   expr(_expr),
   sep_i(_sep_i),
   sep_j(_sep_j),
   function(_function),
   instruction_number(_instruction_number),
-  is_loop_statement(_is_loop_statement)
+  is_loop_statement(_is_loop_statement),
+  solver(_solver)
 {
   id_maps[ID_plus]="plus";
   id_maps[ID_minus]="minus";
@@ -40,7 +43,7 @@ component_exprt::component_exprt(
   id_maps[ID_lt]="lt";
   id_maps[ID_unary_minus]="unary_minus";
   id_maps[ID_unary_plus]="unary_plus";
-  parse_expr(expr);
+  //parse_expr(expr);
 }
 
 /*********************************\
@@ -53,15 +56,19 @@ component_exprt::component_exprt(
 exprt component_exprt::gen_loc_var(const exprt &expr, std::string suffix)
 {
   irep_idt base;
-  if(id_maps.find(expr.id())!=id_maps.end())
+  if (expr.id()==ID_symbol)
     base=to_symbol_expr(expr).get_identifier();
-  else
+  else if (expr.id()==ID_constant)
+    base="const";
+  else if(id_maps.find(expr.id())!=id_maps.end())
     base=id_maps[expr.id()];
+  else
+    base=id2string(expr.id());
   std::string final_name="L_"+i2string(instruction_number)+"_"+i2string(component_cnt)+"_"+id2string(base)+suffix;
   typet type(ID_integer);
   exprt loc_var(ID_symbol, type);
   to_symbol_expr(loc_var).set_identifier(final_name);
-  add_range_constraint(loc_var);
+  //std::cout << "Name: " << to_symbol_expr(loc_var).get_identifier() << std::endl;
   return loc_var;
 }
 
@@ -72,15 +79,20 @@ exprt component_exprt::gen_loc_var(const exprt &expr, std::string suffix)
 
 \*********************************/
 
-exprt component_exprt::gen_comp_var(const exprt &expr, std::string suffix)
+exprt component_exprt::gen_comp_var(const exprt &expr, const typet &type, std::string suffix)
 {
   irep_idt base;
-  if(id_maps.find(expr.id())!=id_maps.end())
+  if (expr.id()==ID_symbol)
     base=to_symbol_expr(expr).get_identifier();
-  else
+  else if (expr.id()==ID_constant)
+    base="const";
+  else if(id_maps.find(expr.id())!=id_maps.end())
     base=id_maps[expr.id()];
+  else
+    base=id2string(expr.id());
+
   std::string final_name="C_"+i2string(instruction_number)+"_"+i2string(component_cnt)+"_"+id2string(base)+suffix;
-  exprt comp_var=expr;
+  exprt comp_var(ID_symbol, type);
   to_symbol_expr(comp_var).set_identifier(final_name);
   return comp_var;
 }
@@ -96,8 +108,10 @@ exprt component_exprt::gen_comp_var(const exprt &expr, std::string suffix)
 void component_exprt::get_df_loc_var(const exprt &expr)  
 {
   exprt loc_var=gen_loc_var(expr);
-  exprt comp_var=gen_comp_var(expr);
+  add_range_constraint(loc_var);
+  exprt comp_var=gen_comp_var(expr, expr.type());
   location_variables.push_back(loc_var);
+  //std::cout << "Array Name: " << to_symbol_expr(location_variables.back()).get_identifier() << std::endl;
   component_variables.push_back(comp_var);
 
   //Look for inputs
@@ -106,15 +120,31 @@ void component_exprt::get_df_loc_var(const exprt &expr)
   {
     cnt+=1;
     exprt loc_var_in=gen_loc_var(expr, "_in"+i2string(cnt));
-    exprt comp_var_in=gen_comp_var(expr, "_in"+i2string(cnt));
+    add_range_constraint(loc_var_in);
+    exprt comp_var_in=gen_comp_var(expr, it->type(), "_in"+i2string(cnt));
     location_variables.push_back(loc_var_in);
     component_variables.push_back(comp_var_in);
+  //std::cout << "iArray Name: " << to_symbol_expr(location_variables.back()).get_identifier() << std::endl;
     add_acyclic_constraint(loc_var_in, loc_var);
+    //add_conn_constraint(loc_var_in, comp_var_in);
   }
-  add_consistency_constraint(loc_var);
+  //add_consistency_constraint(loc_var);
   out_location_variables.push_back(loc_var);
+ // std::cout << "Out Array Name: " << to_symbol_expr(out_location_variables.back()).get_identifier() << std::endl;
+  out_component_variables.push_back(comp_var);
+ // std::cout << "2Out Array Name: " << to_symbol_expr(out_location_variables.back()).get_identifier() << std::endl;
 
   add_semantic_constraint(comp_var, expr);
+   //std::cout << "Yeah" << to_symbol_expr(out_location_variables.back()).get_identifier() << "\n";
+  //std::cout << "yeah " << "\n" ;
+  //std::cout << out_location_variables.size() << "\n";
+  /*std::list<exprt>::iterator it=out_location_variables.begin();
+  int a_cnt=0;
+  while (it!=out_location_variables.end()) {
+    it++;
+    a_cnt++;
+    std::cout << "Cnt: " << a_cnt << std::endl;
+  }*/
 }
 
 /*********************************\
@@ -126,8 +156,10 @@ void component_exprt::get_df_loc_var(const exprt &expr)
 
 void component_exprt::add_range_constraint(const exprt &expr)
 {
-  phi_range.push_back(binary_relation_exprt(expr, ID_lt, sep_j));
-  phi_range.push_back(binary_relation_exprt(sep_i, ID_le, expr));
+  //phi_range.push_back(binary_relation_exprt(expr, ID_lt, sep_j));
+  //solver.set_to_true(binary_relation_exprt(expr, ID_lt, sep_j));
+  //phi_range.push_back(binary_relation_exprt(sep_i, ID_le, expr));
+  //solver.set_to_true(binary_relation_exprt(expr, ID_lt, sep_j));
 }
 
 /*********************************\
@@ -155,7 +187,8 @@ void component_exprt::add_semantic_constraint(
     it++;
   }
   rhs.operands()=new_ops;
-  phi_sem.push_back(equal_exprt(comp_var, rhs));
+  //phi_sem.push_back(equal_exprt(comp_var, rhs));
+  solver.set_to_true(equal_exprt(comp_var, rhs));
 }
 
 /*********************************\
@@ -188,4 +221,98 @@ void component_exprt::add_consistency_constraint(const exprt &loc_var)
     it++;
   }
 }
+
+/*********************************\
+ 
+  Function:    add_conn_constraint
+  Description: Generate the phi_connection constraint
+
+\*********************************/
+
+void component_exprt::add_conn_constraint(
+  const exprt &loc_inp_var, 
+  const exprt &comp_inv_var)
+{
+  //std::cout << "HelloOut SizeL: " << out_location_variables.size() << "\n";
+  expr_listt::iterator it=out_location_variables.begin();
+  //std::cout << "Out SizeL: " << out_location_variables.size() << "\n";
+  expr_listt::iterator c_it=out_component_variables.begin();
+  while (it!=out_location_variables.end())
+  {
+    phi_conn.push_back(
+	implies_exprt(
+	  equal_exprt(*it, loc_inp_var),
+	  equal_exprt(*c_it, comp_inv_var)
+	  ));
+    it++;
+    c_it++;
+  }
+}
+
+/*********************************\
+ 
+  Function:    parse_expr
+  Description: Parsing the entire expression
+
+\*********************************/
+
+void component_exprt::parse_expr(const exprt &expr)
+{
+  assert(expr.id()==ID_equal);  //Format should be v = expr;
+  v_assign=expr.op0();
+  component_cnt=0;
+  location_v_assign=gen_loc_var(v_assign);
+  component_cnt++;
+
+  //std::cout << "Finished Here we are ..." << from_expr(ns, "", expr) << "\n";
+ // std::cout << out_location_variables.size() << std::endl;
+  out_location_variables.push_back(expr);
+  parse_expr_rec(expr.op1());
+  //std::cout << phi_acyc.size() << std::endl;
+  //std::cout << "Hello" << std::endl;
+  //expr_listt::iterator it = out_location_variables.begin();
+  //it++;
+  //std::cout << "My stuff: " << (it==out_location_variables.end());
+  //(*it).op0();
+  //std::cout << from_expr(ns, "", *it) << std::endl;
+  //int trial=out_location_variables.size();
+  //std::cout << trial << std::endl;
+ // std::cout << "Hola" << std::endl;
+  //std::cout << out_location_variables.size() << std::endl;
+
+  //add_conn_constraint(location_v_assign, v_assign);
+  add_range_constraint(location_v_assign);
+
+  phi_struct.push_back(equal_exprt(location_v_assign, location_variables.front()));
+}
+
+/*********************************\
+ 
+  Function:    parse_expr_rec
+  Description: Recursive auxilliary for the above function
+
+\*********************************/
+
+void component_exprt::parse_expr_rec(const exprt &expr)
+{
+  expr_listt::iterator inp_it=location_variables.end();
+  expr_listt::iterator out_it;
+  get_df_loc_var(expr);
+  //std::cout << to_symbol_expr(out_location_variables.back()).get_identifier() << out_location_variables.size() << std::endl;
+  int trial=out_location_variables.size();
+  std::cout << trial << std::endl;
+  component_cnt++;
+  inp_it++;
+
+  forall_operands(it, expr)
+  {
+    out_it=location_variables.end();
+    parse_expr_rec(*it);
+    phi_struct.push_back(equal_exprt(*inp_it, *out_it));
+    inp_it++;
+  }
+}
+
+
+
 

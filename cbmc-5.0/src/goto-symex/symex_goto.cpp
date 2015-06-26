@@ -44,15 +44,17 @@ void goto_symext::symex_goto(statet &state)
      state.guard.is_false())
   {
     // reset unwinding counter
-    if(instruction.is_backwards_goto())
+    if(instruction.is_backwards_goto()) 
+    {
       frame.loop_iterations[goto_programt::loop_id(state.source.pc)].count=0;
+      loop_entered.pop_back();
+    }
 
-    //state.source.pc->guard.negate();
     // next instruction
     state.source.pc++;
     return; // nothing to do
   }
-  
+
   target.location(state.guard.as_expr(), state.source);
     
   assert(!instruction.targets.empty());
@@ -70,6 +72,10 @@ void goto_symext::symex_goto(statet &state)
   {
     unsigned &unwind=
       frame.loop_iterations[goto_programt::loop_id(state.source.pc)].count;
+    if (unwind==0) {
+      loop_cnt++;
+      loop_entered.push_back(loop_cnt);
+    }
     unwind++;
     
     // continue unwinding?
@@ -80,11 +86,12 @@ void goto_symext::symex_goto(statet &state)
 
       // reset unwinding
       unwind=0;
+      loop_entered.pop_back();
       
       // next instruction
       state.source.pc++;
       return;
-    }      
+    }
   
     if(new_guard.is_true())
     {
@@ -444,7 +451,8 @@ void goto_symext::loop_bound_exceeded(
     else
     {
       // generate unwinding assumption, unless we permit partial loops
-      symex_assume(state, negated_cond);
+      if (icbmc_smt2==false)
+	symex_assume(state, negated_cond);
     }
   }
 }
@@ -466,5 +474,6 @@ bool goto_symext::get_unwind(
   unsigned unwind)
 {
   // by default, we keep going
+  std::cout << "Coalled\n";
   return false;
 }

@@ -20,6 +20,7 @@ Author: Daniel Kroening, kroening@kroening.com
 #include <solvers/prop/literal.h>
 
 #include "symex_target.h"
+#include <directfix-prototype/cbe.h>
 
 class decision_proceduret;
 class namespacet;
