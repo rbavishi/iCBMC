@@ -8,6 +8,7 @@ ABSTRACT_EVENT_H	goto-instrument/wmm/abstract_event.h	12;"	d
 ACCELERATE_UTIL_H	goto-instrument/accelerate/util.h	2;"	d
 ACCELERATION_UTILS_H	goto-instrument/accelerate/acceleration_utils.h	2;"	d
 ACTUAL_PARAMETER	goto-programs/goto_trace.h	/^  typedef enum { STATE, ACTUAL_PARAMETER } assignment_typet;$/;"	e	enum:goto_trace_stept::__anon25
+ACYCLIC	solvers/prop/prop_conv.h	/^    RANGE, CONSISTENCY, ACYCLIC, CONNECTION, SEMANTIC, FORMULA$/;"	e	enum:prop_convt::__anon55
 AC_GHB	goto-symex/partial_order_concurrency.h	/^    AC_GHB=2,$/;"	e	enum:partial_order_concurrencyt::__anon34
 AC_N_AXIOMS	goto-symex/partial_order_concurrency.h	/^    AC_N_AXIOMS=4$/;"	e	enum:partial_order_concurrencyt::__anon34
 AC_PPC_WS_FENCE	goto-symex/partial_order_concurrency.h	/^    AC_PPC_WS_FENCE=3,$/;"	e	enum:partial_order_concurrencyt::__anon34
@@ -23,17 +24,17 @@ ANSI_C_SYMBOL	ansi-c/ansi_c_scope.h	/^typedef enum { ANSI_C_UNKNOWN, ANSI_C_SYMB
 ANSI_C_TAG	ansi-c/ansi_c_scope.h	/^               ANSI_C_TAG, ANSI_C_LOCAL_LABEL } ansi_c_id_classt;$/;"	e	enum:__anon3
 ANSI_C_TYPEDEF	ansi-c/ansi_c_scope.h	/^typedef enum { ANSI_C_UNKNOWN, ANSI_C_SYMBOL, ANSI_C_TYPEDEF,$/;"	e	enum:__anon3
 ANSI_C_UNKNOWN	ansi-c/ansi_c_scope.h	/^typedef enum { ANSI_C_UNKNOWN, ANSI_C_SYMBOL, ANSI_C_TYPEDEF,$/;"	e	enum:__anon3
-ARCH_ALPHA	util/config.h	/^                   ARCH_ALPHA, ARCH_MIPS, ARCH_S390, ARCH_S390X, ARCH_SPARC,$/;"	e	enum:configt::ansi_ct::__anon67
-ARCH_ARM	util/config.h	/^    typedef enum { NO_ARCH, ARCH_I386, ARCH_X86_64, ARCH_POWER, ARCH_ARM,$/;"	e	enum:configt::ansi_ct::__anon67
-ARCH_I386	util/config.h	/^    typedef enum { NO_ARCH, ARCH_I386, ARCH_X86_64, ARCH_POWER, ARCH_ARM,$/;"	e	enum:configt::ansi_ct::__anon67
-ARCH_IA64	util/config.h	/^                   ARCH_IA64, ARCH_X32 } archt;$/;"	e	enum:configt::ansi_ct::__anon67
-ARCH_MIPS	util/config.h	/^                   ARCH_ALPHA, ARCH_MIPS, ARCH_S390, ARCH_S390X, ARCH_SPARC,$/;"	e	enum:configt::ansi_ct::__anon67
-ARCH_POWER	util/config.h	/^    typedef enum { NO_ARCH, ARCH_I386, ARCH_X86_64, ARCH_POWER, ARCH_ARM,$/;"	e	enum:configt::ansi_ct::__anon67
-ARCH_S390	util/config.h	/^                   ARCH_ALPHA, ARCH_MIPS, ARCH_S390, ARCH_S390X, ARCH_SPARC,$/;"	e	enum:configt::ansi_ct::__anon67
-ARCH_S390X	util/config.h	/^                   ARCH_ALPHA, ARCH_MIPS, ARCH_S390, ARCH_S390X, ARCH_SPARC,$/;"	e	enum:configt::ansi_ct::__anon67
-ARCH_SPARC	util/config.h	/^                   ARCH_ALPHA, ARCH_MIPS, ARCH_S390, ARCH_S390X, ARCH_SPARC,$/;"	e	enum:configt::ansi_ct::__anon67
-ARCH_X32	util/config.h	/^                   ARCH_IA64, ARCH_X32 } archt;$/;"	e	enum:configt::ansi_ct::__anon67
-ARCH_X86_64	util/config.h	/^    typedef enum { NO_ARCH, ARCH_I386, ARCH_X86_64, ARCH_POWER, ARCH_ARM,$/;"	e	enum:configt::ansi_ct::__anon67
+ARCH_ALPHA	util/config.h	/^                   ARCH_ALPHA, ARCH_MIPS, ARCH_S390, ARCH_S390X, ARCH_SPARC,$/;"	e	enum:configt::ansi_ct::__anon68
+ARCH_ARM	util/config.h	/^    typedef enum { NO_ARCH, ARCH_I386, ARCH_X86_64, ARCH_POWER, ARCH_ARM,$/;"	e	enum:configt::ansi_ct::__anon68
+ARCH_I386	util/config.h	/^    typedef enum { NO_ARCH, ARCH_I386, ARCH_X86_64, ARCH_POWER, ARCH_ARM,$/;"	e	enum:configt::ansi_ct::__anon68
+ARCH_IA64	util/config.h	/^                   ARCH_IA64, ARCH_X32 } archt;$/;"	e	enum:configt::ansi_ct::__anon68
+ARCH_MIPS	util/config.h	/^                   ARCH_ALPHA, ARCH_MIPS, ARCH_S390, ARCH_S390X, ARCH_SPARC,$/;"	e	enum:configt::ansi_ct::__anon68
+ARCH_POWER	util/config.h	/^    typedef enum { NO_ARCH, ARCH_I386, ARCH_X86_64, ARCH_POWER, ARCH_ARM,$/;"	e	enum:configt::ansi_ct::__anon68
+ARCH_S390	util/config.h	/^                   ARCH_ALPHA, ARCH_MIPS, ARCH_S390, ARCH_S390X, ARCH_SPARC,$/;"	e	enum:configt::ansi_ct::__anon68
+ARCH_S390X	util/config.h	/^                   ARCH_ALPHA, ARCH_MIPS, ARCH_S390, ARCH_S390X, ARCH_SPARC,$/;"	e	enum:configt::ansi_ct::__anon68
+ARCH_SPARC	util/config.h	/^                   ARCH_ALPHA, ARCH_MIPS, ARCH_S390, ARCH_S390X, ARCH_SPARC,$/;"	e	enum:configt::ansi_ct::__anon68
+ARCH_X32	util/config.h	/^                   ARCH_IA64, ARCH_X32 } archt;$/;"	e	enum:configt::ansi_ct::__anon68
+ARCH_X86_64	util/config.h	/^    typedef enum { NO_ARCH, ARCH_I386, ARCH_X86_64, ARCH_POWER, ARCH_ARM,$/;"	e	enum:configt::ansi_ct::__anon68
 ARIGHT	solvers/flattening/bv_utils.h	/^  typedef enum { LEFT, LRIGHT, ARIGHT } shiftt;$/;"	e	enum:bv_utilst::__anon43
 ARM	ansi-c/ansi_c_parser.h	/^  typedef enum { ANSI, GCC, MSC, ICC, CW, ARM } modet;$/;"	e	enum:ansi_c_parsert::__anon4
 ASM_BLOCK	ansi-c/ansi_c_lex.yy.cpp	3007;"	d	file:
@@ -50,7 +51,7 @@ ATOMIC_BEGIN	goto-programs/goto_program_template.h	/^               ATOMIC_BEGIN
 ATOMIC_BEGIN	goto-programs/goto_trace.h	/^                 SPAWN, MEMORY_BARRIER, ATOMIC_BEGIN, ATOMIC_END } typet;$/;"	e	enum:goto_trace_stept::__anon24
 ATOMIC_END	goto-programs/goto_program_template.h	/^               ATOMIC_END=11,   \/\/ end of a block without interleavings$/;"	e	enum:__anon31
 ATOMIC_END	goto-programs/goto_trace.h	/^                 SPAWN, MEMORY_BARRIER, ATOMIC_BEGIN, ATOMIC_END } typet;$/;"	e	enum:goto_trace_stept::__anon24
-AUTOMATIC	util/format_spec.h	/^  typedef enum { DECIMAL, SCIENTIFIC, AUTOMATIC } stylet;$/;"	e	enum:format_spect::__anon61
+AUTOMATIC	util/format_spec.h	/^  typedef enum { DECIMAL, SCIENTIFIC, AUTOMATIC } stylet;$/;"	e	enum:format_spect::__anon62
 AX_NO_THINAIR	goto-symex/partial_order_concurrency.h	/^    AX_NO_THINAIR=2,$/;"	e	enum:partial_order_concurrencyt::__anon33
 AX_OBSERVATION	goto-symex/partial_order_concurrency.h	/^    AX_OBSERVATION=4,$/;"	e	enum:partial_order_concurrencyt::__anon33
 AX_PROPAGATION	goto-symex/partial_order_concurrency.h	/^    AX_PROPAGATION=8$/;"	e	enum:partial_order_concurrencyt::__anon33
@@ -78,10 +79,10 @@ BTWN1	musketeer/graph_visitor.cpp	13;"	d	file:
 BUFSIZE	goto-programs/interpreter.cpp	103;"	d	file:
 BUFSIZE	util/unicode.cpp	29;"	d	file:
 BV_ADDR_BITS	solvers/flattening/pointer_logic.h	17;"	d
-BV_NONE	util/bitvector.h	/^typedef enum { BV_UNKNOWN, BV_NONE, BV_SIGNED, BV_UNSIGNED } bv_semt;$/;"	e	enum:__anon62
-BV_SIGNED	util/bitvector.h	/^typedef enum { BV_UNKNOWN, BV_NONE, BV_SIGNED, BV_UNSIGNED } bv_semt;$/;"	e	enum:__anon62
-BV_UNKNOWN	util/bitvector.h	/^typedef enum { BV_UNKNOWN, BV_NONE, BV_SIGNED, BV_UNSIGNED } bv_semt;$/;"	e	enum:__anon62
-BV_UNSIGNED	util/bitvector.h	/^typedef enum { BV_UNKNOWN, BV_NONE, BV_SIGNED, BV_UNSIGNED } bv_semt;$/;"	e	enum:__anon62
+BV_NONE	util/bitvector.h	/^typedef enum { BV_UNKNOWN, BV_NONE, BV_SIGNED, BV_UNSIGNED } bv_semt;$/;"	e	enum:__anon63
+BV_SIGNED	util/bitvector.h	/^typedef enum { BV_UNKNOWN, BV_NONE, BV_SIGNED, BV_UNSIGNED } bv_semt;$/;"	e	enum:__anon63
+BV_UNKNOWN	util/bitvector.h	/^typedef enum { BV_UNKNOWN, BV_NONE, BV_SIGNED, BV_UNSIGNED } bv_semt;$/;"	e	enum:__anon63
+BV_UNSIGNED	util/bitvector.h	/^typedef enum { BV_UNKNOWN, BV_NONE, BV_SIGNED, BV_UNSIGNED } bv_semt;$/;"	e	enum:__anon63
 B_dynamic_heap	analyses/local_bitvector_analysis.h	/^      B_dynamic_heap=1<<4,$/;"	e	enum:local_bitvector_analysist::flagst::__anon2
 B_dynamic_local	analyses/local_bitvector_analysis.h	/^      B_dynamic_local=1<<3,$/;"	e	enum:local_bitvector_analysist::flagst::__anon2
 B_integer_address	analyses/local_bitvector_analysis.h	/^      B_integer_address=1<<7$/;"	e	enum:local_bitvector_analysist::flagst::__anon2
@@ -122,7 +123,7 @@ CLEANFILES	big-int/makefile	/^CLEANFILES = $(PRG) big-int$(LIBEXT) bigint-test$(
 CLEANFILES	cbmc/Makefile	/^CLEANFILES = cbmc$(EXEEXT)$/;"	m
 CLEANFILES	clobber/Makefile	/^CLEANFILES = clobber$(EXEEXT)$/;"	m
 CLEANFILES	cpp/Makefile	/^CLEANFILES = cpp$(LIBEXT)$/;"	m
-CLEANFILES	directfix-prototype/Makefile	/^CLEANFILES = cbe$(LIBEXT)$/;"	m
+CLEANFILES	directfix-prototype/Makefile	/^CLEANFILES = cbe$(LIBEXT) component_e$(LIBEXT)$/;"	m
 CLEANFILES	goto-cc/Makefile	/^CLEANFILES = goto-cc$(EXEEXT) goto-cl$(EXEEXT)$/;"	m
 CLEANFILES	goto-instrument/Makefile	/^CLEANFILES = goto-instrument$(EXEEXT)$/;"	m
 CLEANFILES	goto-programs/Makefile	/^CLEANFILES = goto-programs$(LIBEXT) test_wp$(EXEEXT) osx_fat_reader_test$(EXEEXT)$/;"	m
@@ -155,6 +156,8 @@ COMPILE_LINK_EXECUTABLE	goto-cc/compile.h	/^         COMPILE_LINK_EXECUTABLE \/\
 COMPILE_ONLY	goto-cc/compile.h	/^         COMPILE_ONLY, \/\/ gcc -c$/;"	e	enum:compilet::__anon10
 COMPLEX	ansi-c/c_typecast.h	/^                 COMPLEX,$/;"	e	enum:c_typecastt::c_typet
 CONE_OF_INFLUENCE_H	goto-instrument/accelerate/cone_of_influence.h	2;"	d
+CONNECTION	solvers/prop/prop_conv.h	/^    RANGE, CONSISTENCY, ACYCLIC, CONNECTION, SEMANTIC, FORMULA$/;"	e	enum:prop_convt::__anon55
+CONSISTENCY	solvers/prop/prop_conv.h	/^    RANGE, CONSISTENCY, ACYCLIC, CONNECTION, SEMANTIC, FORMULA$/;"	e	enum:prop_convt::__anon55
 CONSTRAINT	goto-programs/goto_trace.h	/^                 CONSTRAINT,$/;"	e	enum:goto_trace_stept::__anon24
 CONST_GRAPH_VISITOR_H	musketeer/graph_visitor.h	10;"	d
 CONTENT	xmllang/xml_lex.yy.cpp	629;"	d	file:
@@ -579,17 +582,17 @@ DEBUG	goto-instrument/accelerate/disjunctive_polynomial_acceleration.cpp	39;"	d	
 DEBUG	goto-instrument/accelerate/polynomial_accelerator.cpp	35;"	d	file:
 DEBUG	goto-instrument/accelerate/sat_path_enumerator.cpp	38;"	d	file:
 DEBUG	java_bytecode/java_bytecode_convert.cpp	9;"	d	file:
-DECIMAL	util/format_spec.h	/^  typedef enum { DECIMAL, SCIENTIFIC, AUTOMATIC } stylet;$/;"	e	enum:format_spect::__anon61
+DECIMAL	util/format_spec.h	/^  typedef enum { DECIMAL, SCIENTIFIC, AUTOMATIC } stylet;$/;"	e	enum:format_spect::__anon62
 DECL	goto-programs/goto_program_template.h	/^               DECL=14,         \/\/ declare a local variable$/;"	e	enum:__anon31
 DECL	goto-programs/goto_trace.h	/^                 LOCATION, INPUT, OUTPUT, DECL, DEAD,$/;"	e	enum:goto_trace_stept::__anon24
 DELIMITERS	solvers/sat/read_dimacs_cnf.cpp	32;"	d	file:
-DIRECTFIX_COMPONENT	directfix-prototype/component.h	2;"	d
+DIRECTFIX_COMPONENT	directfix-prototype/component_e.h	2;"	d
 DIRECTFIX_PROTOTYPE	directfix-prototype/cbe.h	2;"	d
 DIRS	Makefile	/^DIRS = ansi-c big-int cbmc cpp goto-cc goto-instrument goto-programs \\$/;"	m
 DISJUNCTIVE_POLYNOMIAL_ACCELERATION_H	goto-instrument/accelerate/disjunctive_polynomial_acceleration.h	2;"	d
 DISJUNCTIVE_POLYNOMIAL_ACCELERATION_H	goto-instrument/accelerate/sat_path_enumerator.h	2;"	d
 DIV	solvers/floatbv/float_utils_test.cpp	/^typedef enum { PLUS=0, MINUS=1, MULT=2, DIV=3 } binopt;$/;"	e	enum:__anon51	file:
-DIV	util/ieee_float_test.cpp	/^typedef enum { PLUS=0, MINUS=1, MULT=2, DIV=3 } binopt;$/;"	e	enum:__anon57	file:
+DIV	util/ieee_float_test.cpp	/^typedef enum { PLUS=0, MINUS=1, MULT=2, DIV=3 } binopt;$/;"	e	enum:__anon58	file:
 DOTGRAPHSETTINGS	goto-cc/compile.cpp	43;"	d	file:
 DOTGRAPHSETTINGS	goto-instrument/dot.cpp	13;"	d	file:
 DOUBLE	ansi-c/c_typecast.h	/^                 SINGLE, DOUBLE, LONGDOUBLE, FLOAT128, \/\/ float$/;"	e	enum:c_typecastt::c_typet
@@ -599,9 +602,9 @@ DOUBLE_G	goto-programs/format_strings.h	/^                 DOUBLE_G, \/\/ g, G$/
 DOUBLE_HEX	goto-programs/format_strings.h	/^                 DOUBLE_HEX, \/\/ a, A$/;"	e	enum:format_tokent::__anon19
 DSTRING_H	util/dstring.h	10;"	d
 DTD	xmllang/xml_lex.yy.cpp	631;"	d	file:
-D_ERROR	util/decision_procedure.h	/^  typedef enum { D_SATISFIABLE, D_UNSATISFIABLE, D_ERROR } resultt;$/;"	e	enum:decision_proceduret::__anon64
-D_SATISFIABLE	util/decision_procedure.h	/^  typedef enum { D_SATISFIABLE, D_UNSATISFIABLE, D_ERROR } resultt;$/;"	e	enum:decision_proceduret::__anon64
-D_UNSATISFIABLE	util/decision_procedure.h	/^  typedef enum { D_SATISFIABLE, D_UNSATISFIABLE, D_ERROR } resultt;$/;"	e	enum:decision_proceduret::__anon64
+D_ERROR	util/decision_procedure.h	/^  typedef enum { D_SATISFIABLE, D_UNSATISFIABLE, D_ERROR } resultt;$/;"	e	enum:decision_proceduret::__anon65
+D_SATISFIABLE	util/decision_procedure.h	/^  typedef enum { D_SATISFIABLE, D_UNSATISFIABLE, D_ERROR } resultt;$/;"	e	enum:decision_proceduret::__anon65
+D_UNSATISFIABLE	util/decision_procedure.h	/^  typedef enum { D_SATISFIABLE, D_UNSATISFIABLE, D_ERROR } resultt;$/;"	e	enum:decision_proceduret::__anon65
 DeclKind	cpp/parse.cpp	/^  enum DeclKind { kDeclarator, kArgDeclarator, kCastDeclarator };$/;"	g	class:Parser	file:
 Dp	musketeer/fence_inserter.h	/^  typedef enum {Fence=0, Dp=1, Lwfence=2, Branching=3, Ctlfence=4} fence_typet;$/;"	e	enum:fence_insertert::__anon37
 ECHO	ansi-c/ansi_c_lex.yy.cpp	2872;"	d	file:
@@ -642,7 +645,7 @@ EOB_ACT_LAST_MATCH	ansi-c/ansi_c_lex.yy.cpp	187;"	d	file:
 EOB_ACT_LAST_MATCH	assembler/assembler_lex.yy.cpp	187;"	d	file:
 EOB_ACT_LAST_MATCH	xmllang/xml_lex.yy.cpp	187;"	d	file:
 EQ	solvers/floatbv/float_utils.h	/^  typedef enum { LT, LE, EQ, GT, GE } relt;$/;"	e	enum:float_utilst::__anon52
-EQ	util/ieee_float_test.cpp	/^typedef enum { EQ=0, NEQ=1, LT=2, LE=3, GT=4, GE=5} binrel;$/;"	e	enum:__anon58	file:
+EQ	util/ieee_float_test.cpp	/^typedef enum { EQ=0, NEQ=1, LT=2, LE=3, GT=4, GE=5} binrel;$/;"	e	enum:__anon59	file:
 EQ	xmllang/xml_y.tab.cpp	/^    EQ = 262,$/;"	e	enum:yytokentype	file:
 EQ	xmllang/xml_y.tab.cpp	145;"	d	file:
 EQ	xmllang/xml_y.tab.h	/^    EQ = 262,$/;"	e	enum:yytokentype
@@ -653,7 +656,7 @@ ERROR	solvers/sat/cnf.h	/^  typedef enum { INIT, SAT, UNSAT, ERROR } statust;$/;
 ERROR	solvers/sat/satcheck_zchaff.h	/^  typedef enum { INIT, SAT, UNSAT, ERROR } statust;$/;"	e	enum:satcheck_zchaff_baset::__anon49
 ERROR_TOKENS	cpp/parse.cpp	346;"	d	file:
 EVENT_GRAPH_H	goto-instrument/wmm/event_graph.h	12;"	d
-EXISTENTIAL	solvers/qbf/qdimacs_cnf.h	/^    typedef enum { NONE, EXISTENTIAL, UNIVERSAL } typet;$/;"	e	enum:qdimacs_cnft::quantifiert::__anon56
+EXISTENTIAL	solvers/qbf/qdimacs_cnf.h	/^    typedef enum { NONE, EXISTENTIAL, UNIVERSAL } typet;$/;"	e	enum:qdimacs_cnft::quantifiert::__anon57
 EXIT_SUCCESS	ansi-c/ansi_c_y.tab.cpp	641;"	d	file:
 EXIT_SUCCESS	ansi-c/ansi_c_y.tab.cpp	669;"	d	file:
 EXIT_SUCCESS	xmllang/xml_y.tab.cpp	311;"	d	file:
@@ -696,14 +699,15 @@ FLOAT128	ansi-c/c_typecast.h	/^                 SINGLE, DOUBLE, LONGDOUBLE, FLOA
 FLOW_INSENSITIVE_ANALYSIS_H_	goto-programs/flow_insensitive_analysis.h	11;"	d
 FORCE_INLINE	util/irep_hash.h	39;"	d
 FORCE_INLINE	util/irep_hash.h	51;"	d
+FORMULA	solvers/prop/prop_conv.h	/^    RANGE, CONSISTENCY, ACYCLIC, CONNECTION, SEMANTIC, FORMULA$/;"	e	enum:prop_convt::__anon55
 FPCONVTODO	solvers/smt2/smt2_conv.cpp	48;"	d	file:
 FUNCTION	cpp/parse.cpp	/^  typedef enum { MEMBER, FUNCTION, VARIABLE, TAG,$/;"	e	enum:new_scopet::__anon8	file:
 FUNCTION_CALL	goto-programs/goto_program_template.h	/^               FUNCTION_CALL=16,\/\/ call a function$/;"	e	enum:__anon31
 FUNCTION_CALL	goto-programs/goto_trace.h	/^                 FUNCTION_CALL, FUNCTION_RETURN,$/;"	e	enum:goto_trace_stept::__anon24
 FUNCTION_RETURN	goto-programs/goto_trace.h	/^                 FUNCTION_CALL, FUNCTION_RETURN,$/;"	e	enum:goto_trace_stept::__anon24
-F_BOTH	util/find_symbols.cpp	/^typedef enum { F_TYPE, F_EXPR, F_BOTH } kindt;$/;"	e	enum:__anon59	file:
-F_EXPR	util/find_symbols.cpp	/^typedef enum { F_TYPE, F_EXPR, F_BOTH } kindt;$/;"	e	enum:__anon59	file:
-F_TYPE	util/find_symbols.cpp	/^typedef enum { F_TYPE, F_EXPR, F_BOTH } kindt;$/;"	e	enum:__anon59	file:
+F_BOTH	util/find_symbols.cpp	/^typedef enum { F_TYPE, F_EXPR, F_BOTH } kindt;$/;"	e	enum:__anon60	file:
+F_EXPR	util/find_symbols.cpp	/^typedef enum { F_TYPE, F_EXPR, F_BOTH } kindt;$/;"	e	enum:__anon60	file:
+F_TYPE	util/find_symbols.cpp	/^typedef enum { F_TYPE, F_EXPR, F_BOTH } kindt;$/;"	e	enum:__anon60	file:
 Fence	goto-instrument/wmm/abstract_event.h	/^  typedef enum {Write, Read, Fence, Lwfence, ASMfence} operationt;$/;"	e	enum:abstract_eventt::__anon16
 Fence	musketeer/fence_inserter.h	/^  typedef enum {Fence=0, Dp=1, Lwfence=2, Branching=3, Ctlfence=4} fence_typet;$/;"	e	enum:fence_insertert::__anon37
 Forall_cpp_declarators	cpp/cpp_declarator.h	61;"	d
@@ -740,7 +744,7 @@ GCC_DEFINES_32	ansi-c/c_preprocess.cpp	48;"	d	file:
 GCC_DEFINES_LLP64	ansi-c/c_preprocess.cpp	74;"	d	file:
 GCC_DEFINES_LP64	ansi-c/c_preprocess.cpp	61;"	d	file:
 GE	solvers/floatbv/float_utils.h	/^  typedef enum { LT, LE, EQ, GT, GE } relt;$/;"	e	enum:float_utilst::__anon52
-GE	util/ieee_float_test.cpp	/^typedef enum { EQ=0, NEQ=1, LT=2, LE=3, GT=4, GE=5} binrel;$/;"	e	enum:__anon58	file:
+GE	util/ieee_float_test.cpp	/^typedef enum { EQ=0, NEQ=1, LT=2, LE=3, GT=4, GE=5} binrel;$/;"	e	enum:__anon59	file:
 GENERIC	solvers/smt1/smt1_conv.h	/^  typedef enum { GENERIC, BOOLECTOR, CVC3, CVC4, MATHSAT, OPENSMT, YICES, Z3 } solvert;$/;"	e	enum:smt1_convt::__anon48
 GENERIC	solvers/smt2/smt2_conv.h	/^  typedef enum { GENERIC, BOOLECTOR, CVC3, CVC4, MATHSAT, OPENSMT, YICES, Z3 } solvert;$/;"	e	enum:smt2_convt::__anon46
 GLUCOSE_INCLUDE	solvers/Makefile	/^  GLUCOSE_INCLUDE=-I $(GLUCOSE)$/;"	m
@@ -768,14 +772,14 @@ GOTO_PROGRAM_IREP_H_	goto-programs/goto_program_irep.h	12;"	d
 GRAMMAR	ansi-c/ansi_c_lex.yy.cpp	3002;"	d	file:
 GRAMMAR	assembler/assembler_lex.yy.cpp	518;"	d	file:
 GT	solvers/floatbv/float_utils.h	/^  typedef enum { LT, LE, EQ, GT, GE } relt;$/;"	e	enum:float_utilst::__anon52
-GT	util/ieee_float_test.cpp	/^typedef enum { EQ=0, NEQ=1, LT=2, LE=3, GT=4, GE=5} binrel;$/;"	e	enum:__anon58	file:
-GUARD	goto-symex/symex_target.h	/^    STATE, HIDDEN, VISIBLE_ACTUAL_PARAMETER, HIDDEN_ACTUAL_PARAMETER, PHI, GUARD$/;"	e	enum:symex_targett::__anon35
+GT	util/ieee_float_test.cpp	/^typedef enum { EQ=0, NEQ=1, LT=2, LE=3, GT=4, GE=5} binrel;$/;"	e	enum:__anon59	file:
+GUARD	goto-symex/symex_target.h	/^    STATE, HIDDEN, VISIBLE_ACTUAL_PARAMETER, HIDDEN_ACTUAL_PARAMETER, PHI, GUARD, RETURN$/;"	e	enum:symex_targett::__anon35
 GetToken	cpp/cpp_token_buffer.cpp	/^int cpp_token_buffert::GetToken()$/;"	f	class:cpp_token_buffert
 GetToken	cpp/cpp_token_buffer.cpp	/^int cpp_token_buffert::GetToken(cpp_tokent &token)$/;"	f	class:cpp_token_buffert
 Glucose	solvers/sat/satcheck_glucose.h	/^namespace Glucose$/;"	n
 HANDLE	util/pipe_stream.h	/^  typedef int HANDLE;$/;"	t	class:filedescriptor_streambuf
-HIDDEN	goto-symex/symex_target.h	/^    STATE, HIDDEN, VISIBLE_ACTUAL_PARAMETER, HIDDEN_ACTUAL_PARAMETER, PHI, GUARD$/;"	e	enum:symex_targett::__anon35
-HIDDEN_ACTUAL_PARAMETER	goto-symex/symex_target.h	/^    STATE, HIDDEN, VISIBLE_ACTUAL_PARAMETER, HIDDEN_ACTUAL_PARAMETER, PHI, GUARD$/;"	e	enum:symex_targett::__anon35
+HIDDEN	goto-symex/symex_target.h	/^    STATE, HIDDEN, VISIBLE_ACTUAL_PARAMETER, HIDDEN_ACTUAL_PARAMETER, PHI, GUARD, RETURN$/;"	e	enum:symex_targett::__anon35
+HIDDEN_ACTUAL_PARAMETER	goto-symex/symex_target.h	/^    STATE, HIDDEN, VISIBLE_ACTUAL_PARAMETER, HIDDEN_ACTUAL_PARAMETER, PHI, GUARD, RETURN$/;"	e	enum:symex_targett::__anon35
 HTML	goto-instrument/document_properties.cpp	/^  enum { HTML, LATEX } format;$/;"	e	enum:document_propertiest::__anon11	file:
 ICBMC_GOTO_TRACE_H	cbmc/icbmc_goto_trace.h	2;"	d
 ICC	ansi-c/ansi_c_parser.h	/^  typedef enum { ANSI, GCC, MSC, ICC, CW, ARM } modet;$/;"	e	enum:ansi_c_parsert::__anon4
@@ -1487,14 +1491,14 @@ INT8_MIN	xmllang/xml_lex.yy.cpp	79;"	d	file:
 INTEGER	ansi-c/c_typecast.h	/^                 INTEGER, \/\/ these are unbounded integers$/;"	e	enum:c_typecastt::c_typet
 INVALIDEXPR	solvers/smt2/smt2_conv.cpp	39;"	d	file:
 IREP_HASH_BASIC	util/irep_hash.h	14;"	d
-IS_BIG_ENDIAN	util/config.h	/^    typedef enum { NO_ENDIANNESS, IS_LITTLE_ENDIAN, IS_BIG_ENDIAN } endiannesst;$/;"	e	enum:configt::ansi_ct::__anon65
+IS_BIG_ENDIAN	util/config.h	/^    typedef enum { NO_ENDIANNESS, IS_LITTLE_ENDIAN, IS_BIG_ENDIAN } endiannesst;$/;"	e	enum:configt::ansi_ct::__anon66
 IS_BV	solvers/flattening/boolbv_type.h	/^  IS_BV, IS_SIGNED, IS_UNSIGNED, IS_FLOAT, IS_FIXED, IS_C_BOOL,$/;"	e	enum:__anon45
 IS_C_BIT_FIELD	solvers/flattening/boolbv_type.h	/^  IS_VERILOGBV, IS_RANGE, IS_UNKNOWN, IS_C_ENUM, IS_C_BIT_FIELD$/;"	e	enum:__anon45
 IS_C_BOOL	solvers/flattening/boolbv_type.h	/^  IS_BV, IS_SIGNED, IS_UNSIGNED, IS_FLOAT, IS_FIXED, IS_C_BOOL,$/;"	e	enum:__anon45
 IS_C_ENUM	solvers/flattening/boolbv_type.h	/^  IS_VERILOGBV, IS_RANGE, IS_UNKNOWN, IS_C_ENUM, IS_C_BIT_FIELD$/;"	e	enum:__anon45
 IS_FIXED	solvers/flattening/boolbv_type.h	/^  IS_BV, IS_SIGNED, IS_UNSIGNED, IS_FLOAT, IS_FIXED, IS_C_BOOL,$/;"	e	enum:__anon45
 IS_FLOAT	solvers/flattening/boolbv_type.h	/^  IS_BV, IS_SIGNED, IS_UNSIGNED, IS_FLOAT, IS_FIXED, IS_C_BOOL,$/;"	e	enum:__anon45
-IS_LITTLE_ENDIAN	util/config.h	/^    typedef enum { NO_ENDIANNESS, IS_LITTLE_ENDIAN, IS_BIG_ENDIAN } endiannesst;$/;"	e	enum:configt::ansi_ct::__anon65
+IS_LITTLE_ENDIAN	util/config.h	/^    typedef enum { NO_ENDIANNESS, IS_LITTLE_ENDIAN, IS_BIG_ENDIAN } endiannesst;$/;"	e	enum:configt::ansi_ct::__anon66
 IS_RANGE	solvers/flattening/boolbv_type.h	/^  IS_VERILOGBV, IS_RANGE, IS_UNKNOWN, IS_C_ENUM, IS_C_BIT_FIELD$/;"	e	enum:__anon45
 IS_SIGNED	solvers/flattening/boolbv_type.h	/^  IS_BV, IS_SIGNED, IS_UNSIGNED, IS_FLOAT, IS_FIXED, IS_C_BOOL,$/;"	e	enum:__anon45
 IS_UNKNOWN	solvers/flattening/boolbv_type.h	/^  IS_VERILOGBV, IS_RANGE, IS_UNKNOWN, IS_C_ENUM, IS_C_BIT_FIELD$/;"	e	enum:__anon45
@@ -1523,7 +1527,7 @@ LARGE_SIGNED_INT	ansi-c/c_typecast.h	/^                 LARGE_SIGNED_INT, LARGE_
 LARGE_UNSIGNED_INT	ansi-c/c_typecast.h	/^                 LARGE_SIGNED_INT, LARGE_UNSIGNED_INT,$/;"	e	enum:c_typecastt::c_typet
 LATEX	goto-instrument/document_properties.cpp	/^  enum { HTML, LATEX } format;$/;"	e	enum:document_propertiest::__anon11	file:
 LE	solvers/floatbv/float_utils.h	/^  typedef enum { LT, LE, EQ, GT, GE } relt;$/;"	e	enum:float_utilst::__anon52
-LE	util/ieee_float_test.cpp	/^typedef enum { EQ=0, NEQ=1, LT=2, LE=3, GT=4, GE=5} binrel;$/;"	e	enum:__anon58	file:
+LE	util/ieee_float_test.cpp	/^typedef enum { EQ=0, NEQ=1, LT=2, LE=3, GT=4, GE=5} binrel;$/;"	e	enum:__anon59	file:
 LEFT	solvers/flattening/bv_utils.h	/^  typedef enum { LEFT, LRIGHT, ARIGHT } shiftt;$/;"	e	enum:bv_utilst::__anon43
 LEFT_ADJUST	goto-programs/format_strings.h	/^  typedef enum { ALTERNATE, ZERO_PAD, LEFT_ADJUST, $/;"	e	enum:format_tokent::__anon20
 LENGTH	goto-programs/string_abstraction.h	/^  typedef enum { IS_ZERO, LENGTH, SIZE } whatt;$/;"	e	enum:string_abstractiont::__anon17
@@ -1544,8 +1548,8 @@ LIBS	goto-programs/Makefile	/^LIBS = ..\/ansi-c\/ansi-c$(LIBEXT) \\$/;"	m
 LIBS	musketeer/Makefile	/^LIBS =$/;"	m
 LIBS	symex/Makefile	/^LIBS =$/;"	m
 LIBS	util/Makefile	/^LIBS = ..\/big-int\/bigint$(OBJEXT) ..\/big-int\/bigint-func$(OBJEXT)$/;"	m
-LIB_FULL	util/config.h	/^    typedef enum { LIB_NONE, LIB_FULL } libt;$/;"	e	enum:configt::ansi_ct::__anon70
-LIB_NONE	util/config.h	/^    typedef enum { LIB_NONE, LIB_FULL } libt;$/;"	e	enum:configt::ansi_ct::__anon70
+LIB_FULL	util/config.h	/^    typedef enum { LIB_NONE, LIB_FULL } libt;$/;"	e	enum:configt::ansi_ct::__anon71
+LIB_NONE	util/config.h	/^    typedef enum { LIB_NONE, LIB_FULL } libt;$/;"	e	enum:configt::ansi_ct::__anon71
 LINEARIZE_H	goto-instrument/accelerate/linearize.h	2;"	d
 LINE_COMMENT	assembler/assembler_lex.yy.cpp	519;"	d	file:
 LINGELING_INCLUDE	solvers/Makefile	/^  LINGELING_INCLUDE=-I $(LINGELING)$/;"	m
@@ -1560,8 +1564,8 @@ LONGLONG	ansi-c/c_typecast.h	/^                 LONGLONG, ULONGLONG,$/;"	e	enum:
 LOOP_ACCELERATION_H	goto-instrument/accelerate/loop_acceleration.h	2;"	d
 LRIGHT	solvers/flattening/bv_utils.h	/^  typedef enum { LEFT, LRIGHT, ARIGHT } shiftt;$/;"	e	enum:bv_utilst::__anon43
 LT	solvers/floatbv/float_utils.h	/^  typedef enum { LT, LE, EQ, GT, GE } relt;$/;"	e	enum:float_utilst::__anon52
-LT	util/ieee_float_test.cpp	/^typedef enum { EQ=0, NEQ=1, LT=2, LE=3, GT=4, GE=5} binrel;$/;"	e	enum:__anon58	file:
-List	util/lispexpr.h	/^  enum { String, Symbol, Number, List } type;$/;"	e	enum:lispexprt::__anon63
+LT	util/ieee_float_test.cpp	/^typedef enum { EQ=0, NEQ=1, LT=2, LE=3, GT=4, GE=5} binrel;$/;"	e	enum:__anon59	file:
+List	util/lispexpr.h	/^  enum { String, Symbol, Number, List } type;$/;"	e	enum:lispexprt::__anon64
 LookAhead	cpp/cpp_token_buffer.cpp	/^int cpp_token_buffert::LookAhead(unsigned offset)$/;"	f	class:cpp_token_buffert
 LookAhead	cpp/cpp_token_buffer.cpp	/^int cpp_token_buffert::LookAhead(unsigned offset, cpp_tokent &token)$/;"	f	class:cpp_token_buffert
 Lt_	util/sorted_vector.h	/^	bool Lt_(const Myt_& x) const$/;"	f	class:sorted_vector
@@ -1584,13 +1588,13 @@ MINISAT_INCLUDE	solvers/Makefile	/^  MINISAT_INCLUDE=-I $(MINISAT)$/;"	m
 MINISAT_LIB	solvers/Makefile	/^  MINISAT_LIB=$(MINISAT)\/Solver$(OBJEXT) $(MINISAT)\/Proof$(OBJEXT) $(MINISAT)\/File$(OBJEXT)$/;"	m
 MINISAT_SRC	solvers/Makefile	/^  MINISAT_SRC=sat\/satcheck_minisat.cpp$/;"	m
 MINUS	solvers/floatbv/float_utils_test.cpp	/^typedef enum { PLUS=0, MINUS=1, MULT=2, DIV=3 } binopt;$/;"	e	enum:__anon51	file:
-MINUS	util/ieee_float_test.cpp	/^typedef enum { PLUS=0, MINUS=1, MULT=2, DIV=3 } binopt;$/;"	e	enum:__anon57	file:
-MODE_ANSI_C_CPP	util/config.h	/^    typedef enum { NO_MODE, MODE_ANSI_C_CPP, MODE_GCC_C, MODE_GCC_CPP,$/;"	e	enum:configt::ansi_ct::__anon68
-MODE_ARM_C_CPP	util/config.h	/^                   MODE_CODEWARRIOR_C_CPP, MODE_ARM_C_CPP } flavourt;$/;"	e	enum:configt::ansi_ct::__anon68
-MODE_CODEWARRIOR_C_CPP	util/config.h	/^                   MODE_CODEWARRIOR_C_CPP, MODE_ARM_C_CPP } flavourt;$/;"	e	enum:configt::ansi_ct::__anon68
-MODE_GCC_C	util/config.h	/^    typedef enum { NO_MODE, MODE_ANSI_C_CPP, MODE_GCC_C, MODE_GCC_CPP,$/;"	e	enum:configt::ansi_ct::__anon68
-MODE_GCC_CPP	util/config.h	/^    typedef enum { NO_MODE, MODE_ANSI_C_CPP, MODE_GCC_C, MODE_GCC_CPP,$/;"	e	enum:configt::ansi_ct::__anon68
-MODE_VISUAL_STUDIO_C_CPP	util/config.h	/^                   MODE_VISUAL_STUDIO_C_CPP,$/;"	e	enum:configt::ansi_ct::__anon68
+MINUS	util/ieee_float_test.cpp	/^typedef enum { PLUS=0, MINUS=1, MULT=2, DIV=3 } binopt;$/;"	e	enum:__anon58	file:
+MODE_ANSI_C_CPP	util/config.h	/^    typedef enum { NO_MODE, MODE_ANSI_C_CPP, MODE_GCC_C, MODE_GCC_CPP,$/;"	e	enum:configt::ansi_ct::__anon69
+MODE_ARM_C_CPP	util/config.h	/^                   MODE_CODEWARRIOR_C_CPP, MODE_ARM_C_CPP } flavourt;$/;"	e	enum:configt::ansi_ct::__anon69
+MODE_CODEWARRIOR_C_CPP	util/config.h	/^                   MODE_CODEWARRIOR_C_CPP, MODE_ARM_C_CPP } flavourt;$/;"	e	enum:configt::ansi_ct::__anon69
+MODE_GCC_C	util/config.h	/^    typedef enum { NO_MODE, MODE_ANSI_C_CPP, MODE_GCC_C, MODE_GCC_CPP,$/;"	e	enum:configt::ansi_ct::__anon69
+MODE_GCC_CPP	util/config.h	/^    typedef enum { NO_MODE, MODE_ANSI_C_CPP, MODE_GCC_C, MODE_GCC_CPP,$/;"	e	enum:configt::ansi_ct::__anon69
+MODE_VISUAL_STUDIO_C_CPP	util/config.h	/^                   MODE_VISUAL_STUDIO_C_CPP,$/;"	e	enum:configt::ansi_ct::__anon69
 MSC	ansi-c/ansi_c_parser.h	/^  typedef enum { ANSI, GCC, MSC, ICC, CW, ARM } modet;$/;"	e	enum:ansi_c_parsert::__anon4
 MSC_ANNOTATION	ansi-c/ansi_c_lex.yy.cpp	3011;"	d	file:
 MSC_ASM	ansi-c/ansi_c_lex.yy.cpp	3008;"	d	file:
@@ -1598,16 +1602,16 @@ MSC_Keyword	ansi-c/ansi_c_lex.yy.cpp	/^int MSC_Keyword(int token)$/;"	f
 MSC_PRAGMA	ansi-c/ansi_c_lex.yy.cpp	3010;"	d	file:
 MSC_cpp_keyword	ansi-c/ansi_c_lex.yy.cpp	/^int MSC_cpp_keyword(int token)$/;"	f
 MULT	solvers/floatbv/float_utils_test.cpp	/^typedef enum { PLUS=0, MINUS=1, MULT=2, DIV=3 } binopt;$/;"	e	enum:__anon51	file:
-MULT	util/ieee_float_test.cpp	/^typedef enum { PLUS=0, MINUS=1, MULT=2, DIV=3 } binopt;$/;"	e	enum:__anon57	file:
-M_COMPLEX	solvers/qbf/qdimacs_core.h	/^  typedef enum { M_TRUE, M_FALSE, M_DONTCARE, M_COMPLEX } modeltypet;$/;"	e	enum:qdimacs_coret::__anon55
+MULT	util/ieee_float_test.cpp	/^typedef enum { PLUS=0, MINUS=1, MULT=2, DIV=3 } binopt;$/;"	e	enum:__anon58	file:
+M_COMPLEX	solvers/qbf/qdimacs_core.h	/^  typedef enum { M_TRUE, M_FALSE, M_DONTCARE, M_COMPLEX } modeltypet;$/;"	e	enum:qdimacs_coret::__anon56
 M_DEBUG	util/message.h	/^    M_ERROR=1, M_WARNING=2, M_RESULT=4, M_STATUS=6, M_STATISTICS=8, M_DEBUG=10$/;"	e	enum:message_clientt::message_levelt
-M_DONTCARE	solvers/qbf/qdimacs_core.h	/^  typedef enum { M_TRUE, M_FALSE, M_DONTCARE, M_COMPLEX } modeltypet;$/;"	e	enum:qdimacs_coret::__anon55
+M_DONTCARE	solvers/qbf/qdimacs_core.h	/^  typedef enum { M_TRUE, M_FALSE, M_DONTCARE, M_COMPLEX } modeltypet;$/;"	e	enum:qdimacs_coret::__anon56
 M_ERROR	util/message.h	/^    M_ERROR=1, M_WARNING=2, M_RESULT=4, M_STATUS=6, M_STATISTICS=8, M_DEBUG=10$/;"	e	enum:message_clientt::message_levelt
-M_FALSE	solvers/qbf/qdimacs_core.h	/^  typedef enum { M_TRUE, M_FALSE, M_DONTCARE, M_COMPLEX } modeltypet;$/;"	e	enum:qdimacs_coret::__anon55
+M_FALSE	solvers/qbf/qdimacs_core.h	/^  typedef enum { M_TRUE, M_FALSE, M_DONTCARE, M_COMPLEX } modeltypet;$/;"	e	enum:qdimacs_coret::__anon56
 M_RESULT	util/message.h	/^    M_ERROR=1, M_WARNING=2, M_RESULT=4, M_STATUS=6, M_STATISTICS=8, M_DEBUG=10$/;"	e	enum:message_clientt::message_levelt
 M_STATISTICS	util/message.h	/^    M_ERROR=1, M_WARNING=2, M_RESULT=4, M_STATUS=6, M_STATISTICS=8, M_DEBUG=10$/;"	e	enum:message_clientt::message_levelt
 M_STATUS	util/message.h	/^    M_ERROR=1, M_WARNING=2, M_RESULT=4, M_STATUS=6, M_STATISTICS=8, M_DEBUG=10$/;"	e	enum:message_clientt::message_levelt
-M_TRUE	solvers/qbf/qdimacs_core.h	/^  typedef enum { M_TRUE, M_FALSE, M_DONTCARE, M_COMPLEX } modeltypet;$/;"	e	enum:qdimacs_coret::__anon55
+M_TRUE	solvers/qbf/qdimacs_core.h	/^  typedef enum { M_TRUE, M_FALSE, M_DONTCARE, M_COMPLEX } modeltypet;$/;"	e	enum:qdimacs_coret::__anon56
 M_WARNING	util/message.h	/^    M_ERROR=1, M_WARNING=2, M_RESULT=4, M_STATUS=6, M_STATISTICS=8, M_DEBUG=10$/;"	e	enum:message_clientt::message_levelt
 MaybeTypeNameOrClassTemplate	cpp/parse.cpp	/^bool Parser::MaybeTypeNameOrClassTemplate(Token&)$/;"	f	class:Parser
 MetaChar	util/c_misc.cpp	/^std::string MetaChar(char c)$/;"	f
@@ -1623,35 +1627,35 @@ NAMESPACE	cpp/cpp_id.h	/^    TEMPLATE_PARAMETER, NAMESPACE, BLOCK_SCOPE,$/;"	e	e
 NAMESPACE	cpp/parse.cpp	/^                 NAMESPACE, TEMPLATE, BLOCK } kindt;$/;"	e	enum:new_scopet::__anon8	file:
 NAN	util/ieee_float_test.cpp	24;"	d	file:
 NB_COLOURS	goto-instrument/wmm/event_graph.cpp	19;"	d	file:
-NEQ	util/ieee_float_test.cpp	/^typedef enum { EQ=0, NEQ=1, LT=2, LE=3, GT=4, GE=5} binrel;$/;"	e	enum:__anon58	file:
+NEQ	util/ieee_float_test.cpp	/^typedef enum { EQ=0, NEQ=1, LT=2, LE=3, GT=4, GE=5} binrel;$/;"	e	enum:__anon59	file:
 NINF	util/ieee_float_test.cpp	17;"	d	file:
-NONDETERMINISTIC	util/ieee_float.h	/^    UNKNOWN, NONDETERMINISTIC }$/;"	e	enum:ieee_floatt::__anon71
+NONDETERMINISTIC	util/ieee_float.h	/^    UNKNOWN, NONDETERMINISTIC }$/;"	e	enum:ieee_floatt::__anon72
 NONE	goto-programs/goto_trace.h	/^  typedef enum { NONE, ASSIGNMENT, ASSUME, ASSERT,$/;"	e	enum:goto_trace_stept::__anon24
 NONE	solvers/prop/prop_conv_store.h	/^    typedef enum { NONE, CONVERT, SET_TO } typet;$/;"	e	enum:prop_conv_storet::constraintt::__anon53
-NONE	solvers/qbf/qdimacs_cnf.h	/^    typedef enum { NONE, EXISTENTIAL, UNIVERSAL } typet;$/;"	e	enum:qdimacs_cnft::quantifiert::__anon56
+NONE	solvers/qbf/qdimacs_cnf.h	/^    typedef enum { NONE, EXISTENTIAL, UNIVERSAL } typet;$/;"	e	enum:qdimacs_cnft::quantifiert::__anon57
 NON_BRANCH	path-symex/path_symex_history.h	/^    NON_BRANCH, BRANCH_TAKEN, BRANCH_NOT_TAKEN$/;"	e	enum:path_symex_stept::kindt
 NOT_REACHED	aa-symex/path_search.h	/^  enum statust { NOT_REACHED, PASS, FAIL };$/;"	e	enum:path_searcht::statust
 NOT_REACHED	symex/path_search.h	/^  enum statust { NOT_REACHED, PASS, FAIL };$/;"	e	enum:path_searcht::statust
-NO_ARCH	util/config.h	/^    typedef enum { NO_ARCH, ARCH_I386, ARCH_X86_64, ARCH_POWER, ARCH_ARM,$/;"	e	enum:configt::ansi_ct::__anon67
-NO_ENDIANNESS	util/config.h	/^    typedef enum { NO_ENDIANNESS, IS_LITTLE_ENDIAN, IS_BIG_ENDIAN } endiannesst;$/;"	e	enum:configt::ansi_ct::__anon65
+NO_ARCH	util/config.h	/^    typedef enum { NO_ARCH, ARCH_I386, ARCH_X86_64, ARCH_POWER, ARCH_ARM,$/;"	e	enum:configt::ansi_ct::__anon68
+NO_ENDIANNESS	util/config.h	/^    typedef enum { NO_ENDIANNESS, IS_LITTLE_ENDIAN, IS_BIG_ENDIAN } endiannesst;$/;"	e	enum:configt::ansi_ct::__anon66
 NO_INSTRUCTION_TYPE	goto-programs/goto_program_template.h	/^typedef enum { NO_INSTRUCTION_TYPE=0,$/;"	e	enum:__anon31
-NO_MODE	util/config.h	/^    typedef enum { NO_MODE, MODE_ANSI_C_CPP, MODE_GCC_C, MODE_GCC_CPP,$/;"	e	enum:configt::ansi_ct::__anon68
-NO_OS	util/config.h	/^    typedef enum { NO_OS, OS_LINUX, OS_MACOS, OS_WIN } ost;$/;"	e	enum:configt::ansi_ct::__anon66
-NO_PP	util/config.h	/^    typedef enum { NO_PP, PP_GCC, PP_CLANG, PP_VISUAL_STUDIO,$/;"	e	enum:configt::ansi_ct::__anon69
+NO_MODE	util/config.h	/^    typedef enum { NO_MODE, MODE_ANSI_C_CPP, MODE_GCC_C, MODE_GCC_CPP,$/;"	e	enum:configt::ansi_ct::__anon69
+NO_OS	util/config.h	/^    typedef enum { NO_OS, OS_LINUX, OS_MACOS, OS_WIN } ost;$/;"	e	enum:configt::ansi_ct::__anon67
+NO_PP	util/config.h	/^    typedef enum { NO_PP, PP_GCC, PP_CLANG, PP_VISUAL_STUDIO,$/;"	e	enum:configt::ansi_ct::__anon70
 NULL_is_zero	util/config.h	/^    bool NULL_is_zero;$/;"	m	struct:configt::ansi_ct
 NZERO	util/ieee_float_test.cpp	19;"	d	file:
 NaN	solvers/floatbv/float_utils.h	/^    literalt NaN;$/;"	m	struct:float_utilst::unpacked_floatt
 NaN	util/ieee_float.h	/^  static ieee_floatt NaN(const ieee_float_spect &_spec)$/;"	f	class:ieee_floatt
 NaN_flag	util/ieee_float.h	/^  bool NaN_flag, infinity_flag;$/;"	m	class:ieee_floatt
-Number	util/lispexpr.h	/^  enum { String, Symbol, Number, List } type;$/;"	e	enum:lispexprt::__anon63
+Number	util/lispexpr.h	/^  enum { String, Symbol, Number, List } type;$/;"	e	enum:lispexprt::__anon64
 OPENSMT	solvers/smt1/smt1_conv.h	/^  typedef enum { GENERIC, BOOLECTOR, CVC3, CVC4, MATHSAT, OPENSMT, YICES, Z3 } solvert;$/;"	e	enum:smt1_convt::__anon48
 OPENSMT	solvers/smt2/smt2_conv.h	/^  typedef enum { GENERIC, BOOLECTOR, CVC3, CVC4, MATHSAT, OPENSMT, YICES, Z3 } solvert;$/;"	e	enum:smt2_convt::__anon46
 OPERANDS_IN_GETSUB	util/expr.h	12;"	d
 OPTIMAL_FULL_ADDER	solvers/flattening/bv_utils.cpp	250;"	d	file:
 OPTIMIZE	big-int/nt.cmd	/^set OPTIMIZE=-Ox$/;"	v
-OS_LINUX	util/config.h	/^    typedef enum { NO_OS, OS_LINUX, OS_MACOS, OS_WIN } ost;$/;"	e	enum:configt::ansi_ct::__anon66
-OS_MACOS	util/config.h	/^    typedef enum { NO_OS, OS_LINUX, OS_MACOS, OS_WIN } ost;$/;"	e	enum:configt::ansi_ct::__anon66
-OS_WIN	util/config.h	/^    typedef enum { NO_OS, OS_LINUX, OS_MACOS, OS_WIN } ost;$/;"	e	enum:configt::ansi_ct::__anon66
+OS_LINUX	util/config.h	/^    typedef enum { NO_OS, OS_LINUX, OS_MACOS, OS_WIN } ost;$/;"	e	enum:configt::ansi_ct::__anon67
+OS_MACOS	util/config.h	/^    typedef enum { NO_OS, OS_LINUX, OS_MACOS, OS_WIN } ost;$/;"	e	enum:configt::ansi_ct::__anon67
+OS_WIN	util/config.h	/^    typedef enum { NO_OS, OS_LINUX, OS_MACOS, OS_WIN } ost;$/;"	e	enum:configt::ansi_ct::__anon67
 OTHER	ansi-c/ansi_c_parser.h	/^  typedef enum { TAG, MEMBER, PARAMETER, OTHER } decl_typet;$/;"	e	enum:ansi_c_parsert::__anon5
 OTHER	ansi-c/c_typecast.h	/^                 VOIDPTR, PTR, OTHER };$/;"	e	enum:c_typecastt::c_typet
 OTHER	goto-programs/goto_program_template.h	/^               OTHER=4,         \/\/ anything else$/;"	e	enum:__anon31
@@ -1679,24 +1683,24 @@ PC	analyses/cfg_dominators.h	/^    T PC;$/;"	m	struct:cfg_dominators_templatet::
 PC	goto-programs/cfg.h	/^    goto_programt::const_targett PC;$/;"	m	struct:cfg_baset::entryt
 PC	goto-programs/interpreter_class.h	/^  goto_programt::const_targett PC, next_PC;$/;"	m	class:interpretert
 PERCENT	goto-programs/format_strings.h	/^                 PERCENT \/\/ %$/;"	e	enum:format_tokent::__anon19
-PHI	goto-symex/symex_target.h	/^    STATE, HIDDEN, VISIBLE_ACTUAL_PARAMETER, HIDDEN_ACTUAL_PARAMETER, PHI, GUARD$/;"	e	enum:symex_targett::__anon35
+PHI	goto-symex/symex_target.h	/^    STATE, HIDDEN, VISIBLE_ACTUAL_PARAMETER, HIDDEN_ACTUAL_PARAMETER, PHI, GUARD, RETURN$/;"	e	enum:symex_targett::__anon35
 PI	xmllang/xml_lex.yy.cpp	630;"	d	file:
 PICOSAT_INCLUDE	solvers/Makefile	/^  PICOSAT_INCLUDE=-I $(PICOSAT)$/;"	m
 PICOSAT_LIB	solvers/Makefile	/^  PICOSAT_LIB=$(PICOSAT)\/libpicosat$(LIBEXT)$/;"	m
 PICOSAT_SRC	solvers/Makefile	/^  PICOSAT_SRC=sat\/satcheck_picosat.cpp$/;"	m
 PINF	util/ieee_float_test.cpp	16;"	d	file:
-PLAIN	util/ui_message.h	/^  typedef enum { PLAIN, XML_UI } uit;$/;"	e	enum:ui_message_handlert::__anon72
+PLAIN	util/ui_message.h	/^  typedef enum { PLAIN, XML_UI } uit;$/;"	e	enum:ui_message_handlert::__anon73
 PLUS	solvers/floatbv/float_utils_test.cpp	/^typedef enum { PLUS=0, MINUS=1, MULT=2, DIV=3 } binopt;$/;"	e	enum:__anon51	file:
-PLUS	util/ieee_float_test.cpp	/^typedef enum { PLUS=0, MINUS=1, MULT=2, DIV=3 } binopt;$/;"	e	enum:__anon57	file:
+PLUS	util/ieee_float_test.cpp	/^typedef enum { PLUS=0, MINUS=1, MULT=2, DIV=3 } binopt;$/;"	e	enum:__anon58	file:
 POINTER	goto-programs/format_strings.h	/^                 POINTER, \/\/ p$/;"	e	enum:format_tokent::__anon19
 POLYNOMIAL_ACCELERATOR_H	goto-instrument/accelerate/polynomial_accelerator.h	2;"	d
 POLYNOMIAL_H	goto-instrument/accelerate/polynomial.h	2;"	d
 POLY_WIDTH	goto-instrument/accelerate/util.h	7;"	d
-PP_ARM	util/config.h	/^                   PP_CODEWARRIOR, PP_ARM } preprocessort;$/;"	e	enum:configt::ansi_ct::__anon69
-PP_CLANG	util/config.h	/^    typedef enum { NO_PP, PP_GCC, PP_CLANG, PP_VISUAL_STUDIO,$/;"	e	enum:configt::ansi_ct::__anon69
-PP_CODEWARRIOR	util/config.h	/^                   PP_CODEWARRIOR, PP_ARM } preprocessort;$/;"	e	enum:configt::ansi_ct::__anon69
-PP_GCC	util/config.h	/^    typedef enum { NO_PP, PP_GCC, PP_CLANG, PP_VISUAL_STUDIO,$/;"	e	enum:configt::ansi_ct::__anon69
-PP_VISUAL_STUDIO	util/config.h	/^    typedef enum { NO_PP, PP_GCC, PP_CLANG, PP_VISUAL_STUDIO,$/;"	e	enum:configt::ansi_ct::__anon69
+PP_ARM	util/config.h	/^                   PP_CODEWARRIOR, PP_ARM } preprocessort;$/;"	e	enum:configt::ansi_ct::__anon70
+PP_CLANG	util/config.h	/^    typedef enum { NO_PP, PP_GCC, PP_CLANG, PP_VISUAL_STUDIO,$/;"	e	enum:configt::ansi_ct::__anon70
+PP_CODEWARRIOR	util/config.h	/^                   PP_CODEWARRIOR, PP_ARM } preprocessort;$/;"	e	enum:configt::ansi_ct::__anon70
+PP_GCC	util/config.h	/^    typedef enum { NO_PP, PP_GCC, PP_CLANG, PP_VISUAL_STUDIO,$/;"	e	enum:configt::ansi_ct::__anon70
+PP_VISUAL_STUDIO	util/config.h	/^    typedef enum { NO_PP, PP_GCC, PP_CLANG, PP_VISUAL_STUDIO,$/;"	e	enum:configt::ansi_ct::__anon70
 PRECOSAT_INCLUDE	solvers/Makefile	/^  PRECOSAT_INCLUDE=-I $(PRECOSAT)$/;"	m
 PRECOSAT_LIB	solvers/Makefile	/^  PRECOSAT_LIB=$(PRECOSAT)\/precosat$(OBJEXT)$/;"	m
 PRECOSAT_SRC	solvers/Makefile	/^  PRECOSAT_SRC=sat\/satcheck_precosat.cpp$/;"	m
@@ -1723,6 +1727,7 @@ QBF_CORE_NONE	solvers/qbf/qbf_core.h	16;"	d
 QBF_CORE_SKIZZO	solvers/qbf/qbf_core.h	14;"	d
 QUALIFIED	cpp/cpp_scope.h	/^  enum lookup_kindt { SCOPE_ONLY, QUALIFIED, RECURSIVE };$/;"	e	enum:cpp_scopet::lookup_kindt
 QueryPerformanceFrequency	ansi-c/library/windows.c	/^BOOL QueryPerformanceFrequency(LARGE_INTEGER *lpFrequency)$/;"	f
+RANGE	solvers/prop/prop_conv.h	/^    RANGE, CONSISTENCY, ACYCLIC, CONNECTION, SEMANTIC, FORMULA$/;"	e	enum:prop_convt::__anon55
 RATIONAL	ansi-c/c_typecast.h	/^                 RATIONAL, REAL, \/\/ these are infinite precision$/;"	e	enum:c_typecastt::c_typet
 READ	goto-instrument/object_id.cpp	/^typedef enum { LHS_R, LHS_W, READ } get_modet;$/;"	e	enum:__anon12	file:
 READ	goto-programs/goto_rw.cpp	/^typedef enum { LHS_W, READ } get_modet;$/;"	e	enum:__anon32	file:
@@ -1735,6 +1740,7 @@ REJECT	assembler/assembler_lex.yy.cpp	485;"	d	file:
 REJECT	xmllang/xml_lex.yy.cpp	581;"	d	file:
 REPLACE_ASYNC_H	musketeer/replace_async.h	12;"	d
 RETURN	goto-programs/goto_program_template.h	/^               RETURN=12,       \/\/ return from a function$/;"	e	enum:__anon31
+RETURN	goto-symex/symex_target.h	/^    STATE, HIDDEN, VISIBLE_ACTUAL_PARAMETER, HIDDEN_ACTUAL_PARAMETER, PHI, GUARD, RETURN$/;"	e	enum:symex_targett::__anon35
 RM	solvers/refinement/refine_arithmetic.cpp	24;"	d	file:
 RMO	goto-instrument/wmm/wmm.h	/^  RMO=2, $/;"	e	enum:__anon13
 ROOT_SCOPE	cpp/cpp_id.h	/^    TEMPLATE_SCOPE, ROOT_SCOPE$/;"	e	enum:cpp_idt::__anon7
@@ -1742,10 +1748,10 @@ ROTL32	util/irep_hash.h	/^static FORCE_INLINE uint32_t ROTL32(uint32_t x, int8_t
 ROTL32	util/irep_hash.h	44;"	d
 ROTL64	util/irep_hash.h	/^static FORCE_INLINE uint64_t ROTL64(uint64_t x, int8_t r)$/;"	f
 ROTL64	util/irep_hash.h	45;"	d
-ROUND_TO_EVEN	util/ieee_float.h	/^    ROUND_TO_EVEN=0, ROUND_TO_MINUS_INF=1,$/;"	e	enum:ieee_floatt::__anon71
-ROUND_TO_MINUS_INF	util/ieee_float.h	/^    ROUND_TO_EVEN=0, ROUND_TO_MINUS_INF=1,$/;"	e	enum:ieee_floatt::__anon71
-ROUND_TO_PLUS_INF	util/ieee_float.h	/^    ROUND_TO_PLUS_INF=2,  ROUND_TO_ZERO=3,$/;"	e	enum:ieee_floatt::__anon71
-ROUND_TO_ZERO	util/ieee_float.h	/^    ROUND_TO_PLUS_INF=2,  ROUND_TO_ZERO=3,$/;"	e	enum:ieee_floatt::__anon71
+ROUND_TO_EVEN	util/ieee_float.h	/^    ROUND_TO_EVEN=0, ROUND_TO_MINUS_INF=1,$/;"	e	enum:ieee_floatt::__anon72
+ROUND_TO_MINUS_INF	util/ieee_float.h	/^    ROUND_TO_EVEN=0, ROUND_TO_MINUS_INF=1,$/;"	e	enum:ieee_floatt::__anon72
+ROUND_TO_PLUS_INF	util/ieee_float.h	/^    ROUND_TO_PLUS_INF=2,  ROUND_TO_ZERO=3,$/;"	e	enum:ieee_floatt::__anon72
+ROUND_TO_ZERO	util/ieee_float.h	/^    ROUND_TO_PLUS_INF=2,  ROUND_TO_ZERO=3,$/;"	e	enum:ieee_floatt::__anon72
 RRcumul	goto-instrument/wmm/abstract_event.h	/^  bool RRcumul;$/;"	m	class:abstract_eventt
 RRfence	goto-instrument/wmm/abstract_event.h	/^  bool RRfence;$/;"	m	class:abstract_eventt
 RWcumul	goto-instrument/wmm/abstract_event.h	/^  bool RWcumul;$/;"	m	class:abstract_eventt
@@ -1758,9 +1764,10 @@ SAT	solvers/sat/cnf.h	/^  typedef enum { INIT, SAT, UNSAT, ERROR } statust;$/;"	
 SAT	solvers/sat/satcheck_zchaff.h	/^  typedef enum { INIT, SAT, UNSAT, ERROR } statust;$/;"	e	enum:satcheck_zchaff_baset::__anon49
 SATCHECK_MINISAT2	solvers/sat/satcheck.h	16;"	d
 SCCs	util/graph.h	/^unsigned graph<N>::SCCs(std::vector<unsigned> &subgraph_nr)$/;"	f	class:graph
-SCIENTIFIC	util/format_spec.h	/^  typedef enum { DECIMAL, SCIENTIFIC, AUTOMATIC } stylet;$/;"	e	enum:format_spect::__anon61
+SCIENTIFIC	util/format_spec.h	/^  typedef enum { DECIMAL, SCIENTIFIC, AUTOMATIC } stylet;$/;"	e	enum:format_spect::__anon62
 SCOPE_ONLY	cpp/cpp_scope.h	/^  enum lookup_kindt { SCOPE_ONLY, QUALIFIED, RECURSIVE };$/;"	e	enum:cpp_scopet::lookup_kindt
 SCRATCH_PROGRAM_H	goto-instrument/accelerate/scratch_program.h	2;"	d
+SEMANTIC	solvers/prop/prop_conv.h	/^    RANGE, CONSISTENCY, ACYCLIC, CONNECTION, SEMANTIC, FORMULA$/;"	e	enum:prop_convt::__anon55
 SET_TO	solvers/prop/prop_conv_store.h	/^    typedef enum { NONE, CONVERT, SET_TO } typet;$/;"	e	enum:prop_conv_storet::constraintt::__anon53
 SHARED	aa-path-symex/var_map.h	/^    enum { SHARED, THREAD_LOCAL, PROCEDURE_LOCAL } kind;$/;"	e	enum:var_mapt::var_infot::__anon1
 SHARED	path-symex/var_map.h	/^    enum { SHARED, THREAD_LOCAL, PROCEDURE_LOCAL } kind;$/;"	e	enum:var_mapt::var_infot::__anon40
@@ -1796,7 +1803,7 @@ SRC	big-int/makefile	/^SRC = bigint-func.cc bigint.cc$/;"	m
 SRC	cbmc/Makefile	/^SRC = cbmc_main.cpp cbmc_parseoptions.cpp bmc.cpp dimacs.cpp \\$/;"	m
 SRC	clobber/Makefile	/^SRC = clobber_main.cpp clobber_parseoptions.cpp$/;"	m
 SRC	cpp/Makefile	/^SRC = cpp_id.cpp cpp_language.cpp expr2cpp.cpp cpp_parser.cpp \\$/;"	m
-SRC	directfix-prototype/Makefile	/^SRC = cbe.cpp component.cpp $/;"	m
+SRC	directfix-prototype/Makefile	/^SRC = cbe.cpp component_e.cpp $/;"	m
 SRC	goto-cc/Makefile	/^SRC = goto_cc_main.cpp goto_cc_mode.cpp gcc_mode.cpp \\$/;"	m
 SRC	goto-instrument/Makefile	/^SRC = goto_instrument_parseoptions.cpp rw_set.cpp \\$/;"	m
 SRC	goto-programs/Makefile	/^SRC = goto_convert.cpp goto_convert_function_call.cpp \\$/;"	m
@@ -1813,6 +1820,7 @@ SRC	util/Makefile	/^SRC = arith_tools.cpp base_type.cpp cmdline.cpp config.cpp s
 SRC	xmllang/Makefile	/^SRC = xml_parser.cpp xml_y.tab.cpp xml_lex.yy.cpp xml_parse_tree.cpp graphml.cpp$/;"	m
 SSA_step	goto-symex/postcondition.cpp	/^  const symex_target_equationt::SSA_stept &SSA_step;$/;"	m	class:postconditiont	file:
 SSA_step	goto-symex/precondition.cpp	/^  const symex_target_equationt::SSA_stept &SSA_step;$/;"	m	class:preconditiont	file:
+SSA_step_listt	directfix-prototype/cbe.h	/^  typedef std::list<symex_target_equationt::SSA_stept> SSA_step_listt;$/;"	t	class:test_caset
 SSA_steps	goto-symex/symex_target_equation.h	/^  SSA_stepst SSA_steps;$/;"	m	class:symex_target_equationt
 SSA_stepst	goto-symex/symex_target_equation.h	/^  typedef std::list<SSA_stept> SSA_stepst;$/;"	t	class:symex_target_equationt
 SSA_stept	goto-symex/symex_target_equation.h	/^    SSA_stept():$/;"	f	class:symex_target_equationt::SSA_stept
@@ -1831,7 +1839,7 @@ STARTXMLDECL	xmllang/xml_y.tab.h	/^    STARTXMLDECL = 258,$/;"	e	enum:yytokentyp
 STARTXMLDECL	xmllang/xml_y.tab.h	65;"	d
 START_THREAD	goto-programs/goto_program_template.h	/^               START_THREAD=6,  \/\/ spawns an asynchronous thread$/;"	e	enum:__anon31
 STATE	goto-programs/goto_trace.h	/^  typedef enum { STATE, ACTUAL_PARAMETER } assignment_typet;$/;"	e	enum:goto_trace_stept::__anon25
-STATE	goto-symex/symex_target.h	/^    STATE, HIDDEN, VISIBLE_ACTUAL_PARAMETER, HIDDEN_ACTUAL_PARAMETER, PHI, GUARD$/;"	e	enum:symex_targett::__anon35
+STATE	goto-symex/symex_target.h	/^    STATE, HIDDEN, VISIBLE_ACTUAL_PARAMETER, HIDDEN_ACTUAL_PARAMETER, PHI, GUARD, RETURN$/;"	e	enum:symex_targett::__anon35
 STL_HASH_TR1	util/hash_cont.h	26;"	d
 STRING	goto-programs/format_strings.h	/^                 STRING, \/\/ s$/;"	e	enum:format_tokent::__anon19
 STRING_CONTAINER_H	util/string_container.h	10;"	d
@@ -1852,8 +1860,8 @@ SYM_SWAP1	util/symbol.cpp	181;"	d	file:
 SYM_SWAP2	util/symbol.cpp	192;"	d	file:
 Save	cpp/cpp_token_buffer.cpp	/^cpp_token_buffert::post cpp_token_buffert::Save()$/;"	f	class:cpp_token_buffert
 SkipTo	cpp/parse.cpp	/^void Parser::SkipTo(int token)$/;"	f	class:Parser
-String	util/lispexpr.h	/^  enum { String, Symbol, Number, List } type;$/;"	e	enum:lispexprt::__anon63
-Symbol	util/lispexpr.h	/^  enum { String, Symbol, Number, List } type;$/;"	e	enum:lispexprt::__anon63
+String	util/lispexpr.h	/^  enum { String, Symbol, Number, List } type;$/;"	e	enum:lispexprt::__anon64
+Symbol	util/lispexpr.h	/^  enum { String, Symbol, Number, List } type;$/;"	e	enum:lispexprt::__anon64
 SyntaxError	cpp/parse.cpp	/^bool Parser::SyntaxError()$/;"	f	class:Parser
 TAG	ansi-c/ansi_c_parser.h	/^  typedef enum { TAG, MEMBER, PARAMETER, OTHER } decl_typet;$/;"	e	enum:ansi_c_parsert::__anon5
 TAG	cpp/parse.cpp	/^  typedef enum { MEMBER, FUNCTION, VARIABLE, TAG,$/;"	e	enum:new_scopet::__anon8	file:
@@ -2567,9 +2575,9 @@ TRACK_FUNCTION_POINTERS	pointer-analysis/value_set_analysis_fi.h	/^  enum track_
 TRACK_FUNCTION_POINTERS	pointer-analysis/value_set_analysis_fivr.h	/^  enum track_optionst { TRACK_ALL_POINTERS, TRACK_FUNCTION_POINTERS };$/;"	e	enum:value_set_analysis_fivrt::track_optionst
 TRACK_FUNCTION_POINTERS	pointer-analysis/value_set_analysis_fivrns.h	/^  enum track_optionst { TRACK_ALL_POINTERS, TRACK_FUNCTION_POINTERS };$/;"	e	enum:value_set_analysis_fivrnst::track_optionst
 TSO	goto-instrument/wmm/wmm.h	/^  TSO=0, $/;"	e	enum:__anon13
-TV_FALSE	util/threeval.h	/^  typedef enum { TV_FALSE, TV_UNKNOWN, TV_TRUE } tv_enumt;$/;"	e	enum:tvt::__anon60
-TV_TRUE	util/threeval.h	/^  typedef enum { TV_FALSE, TV_UNKNOWN, TV_TRUE } tv_enumt;$/;"	e	enum:tvt::__anon60
-TV_UNKNOWN	util/threeval.h	/^  typedef enum { TV_FALSE, TV_UNKNOWN, TV_TRUE } tv_enumt;$/;"	e	enum:tvt::__anon60
+TV_FALSE	util/threeval.h	/^  typedef enum { TV_FALSE, TV_UNKNOWN, TV_TRUE } tv_enumt;$/;"	e	enum:tvt::__anon61
+TV_TRUE	util/threeval.h	/^  typedef enum { TV_FALSE, TV_UNKNOWN, TV_TRUE } tv_enumt;$/;"	e	enum:tvt::__anon61
+TV_UNKNOWN	util/threeval.h	/^  typedef enum { TV_FALSE, TV_UNKNOWN, TV_TRUE } tv_enumt;$/;"	e	enum:tvt::__anon61
 TYPE	cpp/cpp_typecheck_resolve.h	/^  typedef enum { VAR, TYPE, BOTH } wantt;$/;"	e	enum:cpp_typecheck_resolvet::__anon9
 TYPEDEF	cpp/cpp_id.h	/^    UNKNOWN, SYMBOL, TYPEDEF, CLASS, ENUM, TEMPLATE,$/;"	e	enum:cpp_idt::__anon7
 TemplateDeclKind	cpp/parse.cpp	/^  enum TemplateDeclKind { tdk_unknown, tdk_decl, tdk_instantiation,$/;"	g	class:Parser	file:
@@ -2588,11 +2596,11 @@ UINT8_MAX	xmllang/xml_lex.yy.cpp	97;"	d	file:
 ULONG	ansi-c/c_typecast.h	/^                 LONG, ULONG,$/;"	e	enum:c_typecastt::c_typet
 ULONGLONG	ansi-c/c_typecast.h	/^                 LONGLONG, ULONGLONG,$/;"	e	enum:c_typecastt::c_typet
 UNEXPECTEDCASE	solvers/smt2/smt2_conv.cpp	42;"	d	file:
-UNIVERSAL	solvers/qbf/qdimacs_cnf.h	/^    typedef enum { NONE, EXISTENTIAL, UNIVERSAL } typet;$/;"	e	enum:qdimacs_cnft::quantifiert::__anon56
+UNIVERSAL	solvers/qbf/qdimacs_cnf.h	/^    typedef enum { NONE, EXISTENTIAL, UNIVERSAL } typet;$/;"	e	enum:qdimacs_cnft::quantifiert::__anon57
 UNKNOWN	cpp/cpp_id.h	/^    UNKNOWN, SYMBOL, TYPEDEF, CLASS, ENUM, TEMPLATE,$/;"	e	enum:cpp_idt::__anon7
 UNKNOWN	goto-programs/format_strings.h	/^  typedef enum { UNKNOWN,$/;"	e	enum:format_tokent::__anon19
 UNKNOWN	goto-programs/property_checker.h	/^  typedef enum { PASS, FAIL, ERROR, UNKNOWN } resultt;$/;"	e	enum:property_checkert::__anon23
-UNKNOWN	util/ieee_float.h	/^    UNKNOWN, NONDETERMINISTIC }$/;"	e	enum:ieee_floatt::__anon71
+UNKNOWN	util/ieee_float.h	/^    UNKNOWN, NONDETERMINISTIC }$/;"	e	enum:ieee_floatt::__anon72
 UNREACHABLE	solvers/smt2/smt2_conv.cpp	35;"	d	file:
 UNSAFE	goto-programs/safety_checker.h	/^  typedef enum { SAFE, UNSAFE, ERROR } resultt;$/;"	e	enum:safety_checkert::__anon22
 UNSAT	solvers/sat/cnf.h	/^  typedef enum { INIT, SAT, UNSAT, ERROR } statust;$/;"	e	enum:cnf_solvert::__anon50
@@ -2629,7 +2637,7 @@ VERSION	xmllang/xml_y.tab.cpp	142;"	d	file:
 VERSION	xmllang/xml_y.tab.h	/^    VERSION = 259,$/;"	e	enum:yytokentype
 VERSION	xmllang/xml_y.tab.h	66;"	d
 VERSION_SORTED_VECTOR_	util/sorted_vector.h	25;"	d
-VISIBLE_ACTUAL_PARAMETER	goto-symex/symex_target.h	/^    STATE, HIDDEN, VISIBLE_ACTUAL_PARAMETER, HIDDEN_ACTUAL_PARAMETER, PHI, GUARD$/;"	e	enum:symex_targett::__anon35
+VISIBLE_ACTUAL_PARAMETER	goto-symex/symex_target.h	/^    STATE, HIDDEN, VISIBLE_ACTUAL_PARAMETER, HIDDEN_ACTUAL_PARAMETER, PHI, GUARD, RETURN$/;"	e	enum:symex_targett::__anon35
 VOIDPTR	ansi-c/c_typecast.h	/^                 VOIDPTR, PTR, OTHER };$/;"	e	enum:c_typecastt::c_typet
 WRITE	pointer-analysis/value_set_dereference.h	/^  typedef enum { READ, WRITE } modet;$/;"	e	enum:value_set_dereferencet::__anon41
 WRfence	goto-instrument/wmm/abstract_event.h	/^  bool WRfence;$/;"	m	class:abstract_eventt
@@ -2646,7 +2654,7 @@ XML_IREP_HASHING_H_	goto-cc/xml_binaries/xml_irep_hashing.h	12;"	d
 XML_PARSER_H	xmllang/xml_parser.h	10;"	d
 XML_SYMBOL_HASHING_H_	goto-cc/xml_binaries/xml_symbol_hashing.h	12;"	d
 XML_SYMBOL_H_	goto-cc/xml_binaries/xml_symbol.h	12;"	d
-XML_UI	util/ui_message.h	/^  typedef enum { PLAIN, XML_UI } uit;$/;"	e	enum:ui_message_handlert::__anon72
+XML_UI	util/ui_message.h	/^  typedef enum { PLAIN, XML_UI } uit;$/;"	e	enum:ui_message_handlert::__anon73
 XML_VERSION	goto-cc/xml_binaries/read_goto_object.cpp	16;"	d	file:
 XXFLAGS	solvers/Makefile	/^  override CXXFLAGS := $(filter-out -pedantic, $(CXXFLAGS))$/;"	m
 YICES	solvers/smt1/smt1_conv.h	/^  typedef enum { GENERIC, BOOLECTOR, CVC3, CVC4, MATHSAT, OPENSMT, YICES, Z3 } solvert;$/;"	e	enum:smt1_convt::__anon48
@@ -3430,7 +3438,6 @@ add	util/irep.cpp	/^irept &irept::add(const irep_namet &name, const irept &irep)
 add	util/namespace.h	/^  inline void add(const symbol_tablet &symbol_table)$/;"	f	class:multi_namespacet
 add	util/std_code.h	/^  inline void add(const codet &code)$/;"	f	class:code_blockt
 add	util/symbol_table.cpp	/^bool symbol_tablet::add(const symbolt &symbol)$/;"	f	class:symbol_tablet
-add_acyclic_constraint	directfix-prototype/component.cpp	/^void component_exprt::add_acyclic_constraint($/;"	f	class:component_exprt
 add_addr	solvers/flattening/bv_pointers.cpp	/^void bv_pointerst::add_addr(const exprt &expr, bvt &bv)$/;"	f	class:bv_pointerst
 add_all_pos	goto-instrument/wmm/goto2graph.h	181;"	d
 add_anonymous_members_to_scope	cpp/cpp_typecheck_compound_type.cpp	/^void cpp_typecheckt::add_anonymous_members_to_scope($/;"	f	class:cpp_typecheckt
@@ -3448,6 +3455,8 @@ add_array_constraints_update	solvers/flattening/arrays.cpp	/^void arrayst::add_a
 add_array_constraints_with	solvers/flattening/arrays.cpp	/^void arrayst::add_array_constraints_with($/;"	f	class:arrayst
 add_array_symbols	goto-instrument/concurrency.cpp	/^void concurrency_instrumentationt::add_array_symbols()$/;"	f	class:concurrency_instrumentationt
 add_assertions	goto-instrument/uninitialized.cpp	/^void uninitializedt::add_assertions(goto_programt &goto_program)$/;"	f	class:uninitializedt
+add_assignment	directfix-prototype/cbe.cpp	/^void test_caset::add_assignment($/;"	f	class:test_caset
+add_assumption_assertion	directfix-prototype/cbe.cpp	/^void test_caset::add_assumption_assertion(const symex_target_equationt::SSA_stept &SSA_step)$/;"	f	class:test_caset
 add_back	big-int/bigint.cc	/^add_back (onedig_t *r, onedig_t const *y, unsigned l)$/;"	f	file:
 add_base_components	cpp/cpp_typecheck_bases.cpp	/^void cpp_typecheckt::add_base_components($/;"	f	class:cpp_typecheckt
 add_bias	solvers/floatbv/float_utils.cpp	/^bvt float_utilst::add_bias(const bvt &src)$/;"	f	class:float_utilst
@@ -3456,10 +3465,10 @@ add_catch	util/std_code.h	/^  void add_catch(const code_declt &to_catch, const c
 add_class	java_bytecode/java_bytecode_parse_tree.h	/^  inline classt &add_class()$/;"	f	class:java_bytecode_parse_treet
 add_com_edge	goto-instrument/wmm/event_graph.h	/^  void add_com_edge(unsigned a, unsigned b)$/;"	f	class:event_grapht
 add_compiler_specific_defines	goto-cc/compile.cpp	/^void compilet::add_compiler_specific_defines(configt &config) const$/;"	f	class:compilet
-add_conn_constraint	directfix-prototype/component.cpp	/^void component_exprt::add_conn_constraint($/;"	f	class:component_exprt
-add_consistency_constraint	directfix-prototype/component.cpp	/^void component_exprt::add_consistency_constraint(const exprt &loc_var)$/;"	f	class:component_exprt
 add_constraint	goto-symex/partial_order_concurrency.cpp	/^void partial_order_concurrencyt::add_constraint($/;"	f	class:partial_order_concurrencyt
 add_constraint	solvers/prop/prop_conv_store.h	/^    constraintt &add_constraint()$/;"	f	class:prop_conv_storet::constraintst
+add_dead	directfix-prototype/cbe.cpp	/^void test_caset::add_dead(const symex_target_equationt::SSA_stept &SSA_step)$/;"	f	class:test_caset
+add_decl	directfix-prototype/cbe.cpp	/^void test_caset::add_decl( $/;"	f	class:test_caset
 add_declarator	ansi-c/ansi_c_parser.cpp	/^void ansi_c_parsert::add_declarator($/;"	f	class:ansi_c_parsert
 add_dirty_checks	goto-instrument/accelerate/accelerate.cpp	/^void acceleratet::add_dirty_checks() {$/;"	f	class:acceleratet
 add_dstate	goto-instrument/accelerate/trace_automaton.cpp	/^statet trace_automatont::add_dstate(state_sett &s) {$/;"	f	class:trace_automatont
@@ -3522,11 +3531,11 @@ add_quantifier	solvers/qbf/qbf_squolem.cpp	/^void qbf_squolemt::add_quantifier(c
 add_quantifier	solvers/qbf/qbf_squolem_core.cpp	/^void qbf_squolem_coret::add_quantifier(const quantifiert &quantifier)$/;"	f	class:qbf_squolem_coret
 add_quantifier	solvers/qbf/qdimacs_cnf.h	/^  inline void add_quantifier(const quantifiert::typet type, const literalt l)$/;"	f	class:qdimacs_cnft
 add_quantifier	solvers/qbf/qdimacs_cnf.h	/^  virtual void add_quantifier(const quantifiert &quantifier)$/;"	f	class:qdimacs_cnft
-add_range_constraint	directfix-prototype/component.cpp	/^void component_exprt::add_range_constraint(const exprt &expr)$/;"	f	class:component_exprt
+add_range_constraint	directfix-prototype/component_e.cpp	/^void component_exprt::add_range_constraint(const exprt &loc_var)$/;"	f	class:component_exprt
 add_return	goto-programs/goto_convert_functions.cpp	/^void goto_convert_functionst::add_return($/;"	f	class:goto_convert_functionst
 add_safety_assertion	goto-programs/remove_function_pointers.cpp	/^  bool add_safety_assertion;$/;"	m	class:remove_function_pointerst	file:
+add_scope	directfix-prototype/cbe.cpp	/^void test_caset::add_scope($/;"	f	class:test_caset
 add_secondary_scope	cpp/cpp_scope.h	/^  void add_secondary_scope(cpp_scopet &other)$/;"	f	class:cpp_scopet
-add_semantic_constraint	directfix-prototype/component.cpp	/^void component_exprt::add_semantic_constraint($/;"	f	class:component_exprt
 add_source_location	cpp/cpp_name.h	/^    inline source_locationt &add_source_location()$/;"	f	class:cpp_namet::namet
 add_source_location	util/expr.h	/^  inline source_locationt &add_source_location()$/;"	f	class:exprt
 add_source_location	util/type.h	/^  inline source_locationt &add_source_location()$/;"	f	class:typet
@@ -3559,6 +3568,8 @@ add_var	pointer-analysis/value_set_fivr.h	/^  void add_var(const entryt &e)$/;"	
 add_var	pointer-analysis/value_set_fivr.h	/^  void add_var(const idt &id, const std::string &suffix)$/;"	f	class:value_set_fivrt
 add_var	pointer-analysis/value_set_fivrns.h	/^  void add_var(const entryt &e)$/;"	f	class:value_set_fivrnst
 add_var	pointer-analysis/value_set_fivrns.h	/^  void add_var(const idt &id, const std::string &suffix)$/;"	f	class:value_set_fivrnst
+add_variable_component	directfix-prototype/component_e.cpp	/^void component_exprt::add_variable_component($/;"	f	class:component_exprt
+add_variable_components	directfix-prototype/cbe.cpp	/^void test_caset::add_variable_components()$/;"	f	class:test_caset
 add_variables	solvers/sat/satcheck_glucose.cpp	/^void satcheck_glucose_baset<T>::add_variables()$/;"	f	class:satcheck_glucose_baset
 add_variables	solvers/sat/satcheck_minisat.cpp	/^void satcheck_minisat1_baset::add_variables()$/;"	f	class:satcheck_minisat1_baset
 add_variables	solvers/sat/satcheck_minisat2.cpp	/^void satcheck_minisat2_baset<T>::add_variables()$/;"	f	class:satcheck_minisat2_baset
@@ -3572,6 +3583,7 @@ add_with_childs	goto-cc/xml_binaries/xml_irep_hashing.cpp	/^unsigned long xml_ir
 adder	solvers/flattening/bv_utils.cpp	/^void bv_utilst::adder($/;"	f	class:bv_utilst
 adder_no_overflow	solvers/flattening/bv_utils.cpp	/^void bv_utilst::adder_no_overflow($/;"	f	class:bv_utilst
 adder_no_overflow	solvers/flattening/bv_utils.cpp	/^void bv_utilst::adder_no_overflow(bvt &sum, const bvt &op)$/;"	f	class:bv_utilst
+additional_components	directfix-prototype/cbe.h	/^  int additional_components;$/;"	m	class:test_caset
 additive_expression	ansi-c/parser.y	/^additive_expression:$/;"	l
 address	goto-symex/partial_order_concurrency.h	/^  inline irep_idt address(event_it event) const$/;"	f	class:partial_order_concurrencyt
 address	java_bytecode/java_bytecode_parse_tree.h	/^    unsigned address;$/;"	m	class:java_bytecode_parse_treet::instructiont
@@ -3597,6 +3609,7 @@ adjust_method_type	cpp/cpp_typecheck_compound_type.cpp	/^void cpp_typecheckt::ad
 adjust_size	big-int/bigint.cc	/^adjust_size (unsigned size)$/;"	f
 advance_column	util/parser.h	/^  inline void advance_column(unsigned token_width)$/;"	f	class:parsert
 advance_iterators	cbmc/icbmc_goto_trace.cpp	/^void icbmc_goto_tracet::advance_iterators($/;"	f	class:icbmc_goto_tracet
+advance_separators	directfix-prototype/cbe.cpp	/^void test_caset::advance_separators()$/;"	f	class:test_caset
 affected_by_delay	goto-instrument/wmm/shared_buffers.cpp	/^void shared_bufferst::affected_by_delay($/;"	f	class:shared_bufferst
 affected_by_delay_set	goto-instrument/wmm/shared_buffers.h	/^  std::set<irep_idt> affected_by_delay_set;$/;"	m	class:shared_bufferst
 after_line	musketeer/fence-insertion/fi.py	/^def after_line(s, n):$/;"	f
@@ -3710,7 +3723,7 @@ approximationt	solvers/refinement/bv_refinement.h	/^    explicit approximationt(
 approximationt	solvers/refinement/bv_refinement.h	/^  struct approximationt$/;"	s	class:bv_refinementt
 arch	util/config.h	/^    archt arch;$/;"	m	struct:configt::ansi_ct
 architecture_string	ansi-c/ansi_c_internal_additions.cpp	/^static std::string architecture_string(int value, const char *s)$/;"	f	file:
-archt	util/config.h	/^                   ARCH_IA64, ARCH_X32 } archt;$/;"	t	struct:configt::ansi_ct	typeref:enum:configt::ansi_ct::__anon67
+archt	util/config.h	/^                   ARCH_IA64, ARCH_X32 } archt;$/;"	t	struct:configt::ansi_ct	typeref:enum:configt::ansi_ct::__anon68
 are_po_ordered	goto-instrument/wmm/event_graph.h	/^  bool are_po_ordered(unsigned a, unsigned b)$/;"	f	class:event_grapht
 arg	goto-cc/goto_cc_cmdline.h	/^    std::string arg;$/;"	m	struct:goto_cc_cmdlinet::argt
 arg_is_type_compatible	goto-programs/remove_function_pointers.cpp	/^bool remove_function_pointerst::arg_is_type_compatible($/;"	f	class:remove_function_pointerst
@@ -3916,6 +3929,7 @@ attributest	util/xml.h	/^  typedef std::map<std::string, std::string> attributes
 automatic	util/format_spec.h	/^  static format_spect automatic()$/;"	f	class:format_spect
 automatont	goto-instrument/accelerate/trace_automaton.h	/^  automatont() :$/;"	f	class:automatont
 automatont	goto-instrument/accelerate/trace_automaton.h	/^class automatont {$/;"	c
+aux_var_cnt	directfix-prototype/cbe.h	/^  int aux_var_cnt;$/;"	m	class:test_caset
 await	aa-symex/path_search.cpp	/^int path_searcht::await()$/;"	f	class:path_searcht
 axiomt	goto-symex/partial_order_concurrency.h	/^  } axiomt;$/;"	t	class:partial_order_concurrencyt	typeref:enum:partial_order_concurrencyt::__anon33
 b	solvers/prop/aig.h	/^  literalt a, b;$/;"	m	class:aig_nodet
@@ -4008,8 +4022,8 @@ binary_search	solvers/sat/pbs_dimacs_cnf.h	/^  bool binary_search;$/;"	m	class:p
 binopsyms	solvers/floatbv/float_utils_test.cpp	/^const char *binopsyms[]={ " + ", " - ", " * ", " \/ " };$/;"	v
 binopsyms	util/ieee_float_test.cpp	/^const char *binopsyms[]={ " + ", " - ", " * ", " \/ " };$/;"	v
 binopt	solvers/floatbv/float_utils_test.cpp	/^typedef enum { PLUS=0, MINUS=1, MULT=2, DIV=3 } binopt;$/;"	t	typeref:enum:__anon51	file:
-binopt	util/ieee_float_test.cpp	/^typedef enum { PLUS=0, MINUS=1, MULT=2, DIV=3 } binopt;$/;"	t	typeref:enum:__anon57	file:
-binrel	util/ieee_float_test.cpp	/^typedef enum { EQ=0, NEQ=1, LT=2, LE=3, GT=4, GE=5} binrel;$/;"	t	typeref:enum:__anon58	file:
+binopt	util/ieee_float_test.cpp	/^typedef enum { PLUS=0, MINUS=1, MULT=2, DIV=3 } binopt;$/;"	t	typeref:enum:__anon58	file:
+binrel	util/ieee_float_test.cpp	/^typedef enum { EQ=0, NEQ=1, LT=2, LE=3, GT=4, GE=5} binrel;$/;"	t	typeref:enum:__anon59	file:
 binrelsyms	util/ieee_float_test.cpp	/^const char *binrelsyms[]={ " == ", " != ", " < ", " <= ", " > ", " >= "};$/;"	v
 bit_field_size	ansi-c/parser.y	/^bit_field_size:$/;"	l
 bit_field_size_opt	ansi-c/parser.y	/^bit_field_size_opt:$/;"	l
@@ -4200,7 +4214,7 @@ bv_pointerst	solvers/flattening/bv_pointers.h	/^class bv_pointerst:public boolbv
 bv_refinementt	solvers/refinement/bv_refinement.h	/^class bv_refinementt:public bv_pointerst$/;"	c
 bv_refinementt	solvers/refinement/bv_refinement_loop.cpp	/^bv_refinementt::bv_refinementt($/;"	f	class:bv_refinementt
 bv_sem	util/bitvector.cpp	/^bv_semt bv_sem(const typet &type)$/;"	f
-bv_semt	util/bitvector.h	/^typedef enum { BV_UNKNOWN, BV_NONE, BV_SIGNED, BV_UNSIGNED } bv_semt;$/;"	t	typeref:enum:__anon62
+bv_semt	util/bitvector.h	/^typedef enum { BV_UNKNOWN, BV_NONE, BV_SIGNED, BV_UNSIGNED } bv_semt;$/;"	t	typeref:enum:__anon63
 bv_spect	util/bv_arithmetic.h	/^  bv_spect():width(0), is_signed(false)$/;"	f	class:bv_spect
 bv_spect	util/bv_arithmetic.h	/^  bv_spect(const typet &type)$/;"	f	class:bv_spect
 bv_spect	util/bv_arithmetic.h	/^class bv_spect$/;"	c
@@ -4337,6 +4351,7 @@ cast_expression	ansi-c/parser.y	/^cast_expression:$/;"	l
 catch_map	goto-symex/goto_symex_state.h	/^    catch_mapt catch_map;$/;"	m	class:goto_symex_statet::framet
 catch_mapt	goto-symex/goto_symex_state.h	/^    typedef std::map<irep_idt, goto_programt::targett> catch_mapt;$/;"	t	class:goto_symex_statet::framet
 cav11	goto-instrument/wmm/shared_buffers.h	/^  bool cav11;$/;"	m	class:shared_bufferst
+cbe_expressions	directfix-prototype/cbe.h	/^  component_expr_listt cbe_expressions;$/;"	m	class:test_caset
 cbmc_parseoptionst	cbmc/cbmc_parseoptions.cpp	/^::cbmc_parseoptionst::cbmc_parseoptionst($/;"	f	class:cbmc_parseoptionst
 cbmc_parseoptionst	cbmc/cbmc_parseoptions.cpp	/^cbmc_parseoptionst::cbmc_parseoptionst(int argc, const char **argv):$/;"	f	class:cbmc_parseoptionst
 cbmc_parseoptionst	cbmc/cbmc_parseoptions.h	/^class cbmc_parseoptionst:$/;"	c
@@ -4452,6 +4467,7 @@ clean_identifier	ansi-c/expr2c.cpp	/^static std::string clean_identifier(const i
 clean_postfix_typedef_declarator	ansi-c/parser.y	/^clean_postfix_typedef_declarator:$/;"	l
 clean_typedef_declarator	ansi-c/parser.y	/^clean_typedef_declarator:$/;"	l
 clean_up	cpp/cpp_typecheck.cpp	/^void cpp_typecheckt::clean_up()$/;"	f	class:cpp_typecheckt
+clean_up	directfix-prototype/cbe.cpp	/^void test_caset::clean_up($/;"	f	class:test_caset
 cleanup_code	goto-instrument/goto_program2code.cpp	/^void goto_program2codet::cleanup_code($/;"	f	class:goto_program2codet
 cleanup_code_block	goto-instrument/goto_program2code.cpp	/^void goto_program2codet::cleanup_code_block($/;"	f	class:goto_program2codet
 cleanup_code_ifthenelse	goto-instrument/goto_program2code.cpp	/^void goto_program2codet::cleanup_code_ifthenelse($/;"	f	class:goto_program2codet
@@ -4721,12 +4737,13 @@ complex_member	goto-programs/remove_complex.cpp	/^exprt complex_member(const exp
 complex_typet	util/std_types.h	/^  explicit inline complex_typet(const typet &_subtype):$/;"	f	class:complex_typet
 complex_typet	util/std_types.h	/^  inline complex_typet():type_with_subtypet(ID_complex)$/;"	f	class:complex_typet
 complex_typet	util/std_types.h	/^class complex_typet:public type_with_subtypet$/;"	c
-component_cnt	directfix-prototype/component.h	/^  int component_cnt; \/\/Should be equal to (sep_j-sep_i)$/;"	m	class:component_exprt
-component_exprt	directfix-prototype/component.cpp	/^component_exprt::component_exprt($/;"	f	class:component_exprt
-component_exprt	directfix-prototype/component.h	/^class component_exprt$/;"	c
+component_cnt	directfix-prototype/component_e.h	/^  int component_cnt; \/\/Should be equal to (sep_j-sep_i)$/;"	m	class:component_exprt
+component_expr_listt	directfix-prototype/cbe.h	/^  typedef std::list<component_exprt> component_expr_listt;$/;"	t	class:test_caset
+component_exprt	directfix-prototype/component_e.cpp	/^component_exprt::component_exprt($/;"	f	class:component_exprt
+component_exprt	directfix-prototype/component_e.h	/^class component_exprt$/;"	c
 component_number	util/std_types.cpp	/^unsigned struct_union_typet::component_number($/;"	f	class:struct_union_typet
 component_type	util/std_types.cpp	/^typet struct_union_typet::component_type($/;"	f	class:struct_union_typet
-component_variables	directfix-prototype/component.h	/^  expr_listt component_variables;$/;"	m	class:component_exprt
+component_variables	directfix-prototype/component_e.h	/^  expr_listt component_variables;$/;"	m	class:component_exprt
 components	util/identifier.h	/^  componentst components;$/;"	m	class:identifiert
 components	util/std_types.h	/^  inline componentst &components()$/;"	f	class:struct_union_typet
 components	util/std_types.h	/^  inline const componentst &components() const$/;"	f	class:struct_union_typet
@@ -4871,6 +4888,7 @@ constraint	solvers/prop/cover_goals.cpp	/^void cover_goalst::constraint()$/;"	f	
 constraint	solvers/prop/minimize.cpp	/^literalt prop_minimizet::constraint()$/;"	f	class:prop_minimizet
 constraint_list	solvers/prop/prop_conv_store.h	/^    constraint_listt constraint_list;$/;"	m	class:prop_conv_storet::constraintst
 constraint_listt	solvers/prop/prop_conv_store.h	/^    typedef std::list<constraintt> constraint_listt;$/;"	t	class:prop_conv_storet::constraintst
+constraint_type	solvers/prop/prop_conv.h	/^  hard_constraint_typet constraint_type;$/;"	m	class:prop_convt
 constraints	solvers/prop/aig_prop.h	/^  constraintst constraints;$/;"	m	class:aig_prop_constraintt
 constraints	solvers/prop/prop_conv_store.h	/^  constraintst constraints;$/;"	m	class:prop_conv_storet
 constraints_number	musketeer/fence_inserter.h	/^  unsigned constraints_number;$/;"	m	class:fence_insertert
@@ -6073,7 +6091,7 @@ end_of_function	goto-symex/goto_symex_state.h	/^    goto_programt::const_targett
 endianness	util/config.h	/^    endiannesst endianness;$/;"	m	struct:configt::ansi_ct
 endianness_mapt	util/byte_operators.h	/^  inline endianness_mapt($/;"	f	class:endianness_mapt
 endianness_mapt	util/byte_operators.h	/^class endianness_mapt$/;"	c
-endiannesst	util/config.h	/^    typedef enum { NO_ENDIANNESS, IS_LITTLE_ENDIAN, IS_BIG_ENDIAN } endiannesst;$/;"	t	struct:configt::ansi_ct	typeref:enum:configt::ansi_ct::__anon65
+endiannesst	util/config.h	/^    typedef enum { NO_ENDIANNESS, IS_LITTLE_ENDIAN, IS_BIG_ENDIAN } endiannesst;$/;"	t	struct:configt::ansi_ct	typeref:enum:configt::ansi_ct::__anon66
 endl	util/message.h	/^  static inline mstreamt &endl(mstreamt &m)$/;"	f	class:messaget
 enforce_rules	cpp/cpp_declarator_converter.cpp	/^void cpp_declarator_convertert::enforce_rules(const symbolt &symbol)$/;"	f	class:cpp_declarator_convertert
 ensure_no_overflows	goto-instrument/accelerate/acceleration_utils.cpp	/^void acceleration_utilst::ensure_no_overflows(scratch_programt &program) {$/;"	f	class:acceleration_utilst
@@ -6238,7 +6256,7 @@ exponent	util/ieee_float.h	/^  mp_integer exponent; \/\/ this is unbiased$/;"	m	
 exponent_all_ones	solvers/floatbv/float_utils.cpp	/^literalt float_utilst::exponent_all_ones(const bvt &src)$/;"	f	class:float_utilst
 exponent_all_zeros	solvers/floatbv/float_utils.cpp	/^literalt float_utilst::exponent_all_zeros(const bvt &src)$/;"	f	class:float_utilst
 expr	analyses/invariant_set.h	/^    exprt expr;$/;"	m	struct:inv_object_storet::entryt
-expr	directfix-prototype/component.h	/^  const exprt &expr;$/;"	m	class:component_exprt
+expr	directfix-prototype/component_e.h	/^  const exprt &expr;$/;"	m	class:component_exprt
 expr	solvers/flattening/boolbv.h	/^    exprt expr;$/;"	m	class:boolbvt::quantifiert
 expr	solvers/flattening/bv_pointers.h	/^    exprt expr;$/;"	m	struct:bv_pointerst::postponedt
 expr	solvers/prop/prop_conv_store.h	/^    exprt expr;$/;"	m	struct:prop_conv_storet::constraintt
@@ -6284,6 +6302,7 @@ expr_to_string	linking/linking.cpp	/^std::string linkingt::expr_to_string($/;"	f
 expr_visitort	util/expr.h	/^class expr_visitort$/;"	c
 expression	util/std_code.h	/^  inline const exprt &expression() const$/;"	f	class:code_expressiont
 expression	util/std_code.h	/^  inline exprt &expression()$/;"	f	class:code_expressiont
+expression_cnt	directfix-prototype/cbe.h	/^  int expression_cnt;$/;"	m	class:test_caset
 expression_statement	ansi-c/parser.y	/^expression_statement:$/;"	l
 expressions_read	goto-programs/goto_program.cpp	/^std::list<exprt> expressions_read($/;"	f
 expressions_written	goto-programs/goto_program.cpp	/^std::list<exprt> expressions_written($/;"	f
@@ -6566,7 +6585,7 @@ flatten_seent	pointer-analysis/value_set_fi.h	/^  typedef hash_set_cont<idt, str
 flatten_seent	pointer-analysis/value_set_fi.h	/^  typedef std::set<idt> flatten_seent;$/;"	t	class:value_set_fit
 flatten_seent	pointer-analysis/value_set_fivr.h	/^  typedef hash_set_cont<idt, irep_id_hash> flatten_seent;$/;"	t	class:value_set_fivrt
 flatten_seent	pointer-analysis/value_set_fivr.h	/^  typedef hash_set_cont<idt, string_hash> flatten_seent;$/;"	t	class:value_set_fivrt
-flavourt	util/config.h	/^                   MODE_CODEWARRIOR_C_CPP, MODE_ARM_C_CPP } flavourt;$/;"	t	struct:configt::ansi_ct	typeref:enum:configt::ansi_ct::__anon68
+flavourt	util/config.h	/^                   MODE_CODEWARRIOR_C_CPP, MODE_ARM_C_CPP } flavourt;$/;"	t	struct:configt::ansi_ct	typeref:enum:configt::ansi_ct::__anon69
 flex_int16_t	ansi-c/ansi_c_lex.yy.cpp	/^typedef int16_t flex_int16_t;$/;"	t	file:
 flex_int16_t	ansi-c/ansi_c_lex.yy.cpp	/^typedef short int flex_int16_t;$/;"	t	file:
 flex_int16_t	assembler/assembler_lex.yy.cpp	/^typedef int16_t flex_int16_t;$/;"	t	file:
@@ -6796,7 +6815,7 @@ func	util/message.h	/^    inline mstreamt &operator << (mstreamt &(*func)(mstrea
 func_name	goto-instrument/goto_program2code.h	/^  const irep_idt &func_name;$/;"	m	class:goto_program2codet
 function	aa-path-symex/locs.h	/^  irep_idt function;$/;"	m	struct:loct
 function	ansi-c/cprover_library.cpp	/^  const char *function;$/;"	m	struct:cprover_library_entryt	file:
-function	directfix-prototype/component.h	/^  const std::string function;$/;"	m	class:component_exprt
+function	directfix-prototype/component_e.h	/^  const std::string function;$/;"	m	class:component_exprt
 function	goto-programs/goto_program_template.h	/^    irep_idt function;$/;"	m	class:goto_program_templatet::instructiont
 function	goto-programs/interpreter_class.h	/^  goto_functionst::function_mapt::const_iterator function;$/;"	m	class:interpretert
 function	path-symex/locs.h	/^  irep_idt function;$/;"	m	struct:loct
@@ -6941,8 +6960,8 @@ gen_argument	java_bytecode/java_entry_point.cpp	/^static exprt gen_argument(cons
 gen_array_index_type	solvers/cvc/cvc_conv.cpp	/^typet cvc_convt::gen_array_index_type()$/;"	f	class:cvc_convt
 gen_array_index_type	solvers/dplib/dplib_conv.cpp	/^typet dplib_convt::gen_array_index_type()$/;"	f	class:dplib_convt
 gen_binary	util/expr_util.cpp	/^exprt gen_binary($/;"	f
-gen_comp_var	directfix-prototype/component.cpp	/^exprt component_exprt::gen_comp_var(const exprt &expr, std::string suffix)$/;"	f	class:component_exprt
-gen_loc_var	directfix-prototype/component.cpp	/^exprt component_exprt::gen_loc_var(const exprt &expr, std::string suffix)$/;"	f	class:component_exprt
+gen_comp_var	directfix-prototype/component_e.cpp	/^void component_exprt::gen_comp_var($/;"	f	class:component_exprt
+gen_loc_var	directfix-prototype/component_e.cpp	/^void component_exprt::gen_loc_var($/;"	f	class:component_exprt
 gen_not	util/expr_util.cpp	/^exprt gen_not(const exprt &op)$/;"	f
 gen_one	util/expr_util.cpp	/^exprt gen_one(const typet &type)$/;"	f
 gen_unary	util/expr_util.cpp	/^exprt gen_unary(const irep_idt &id, const typet &type, const exprt &op)$/;"	f
@@ -6992,6 +7011,7 @@ get_base_name	util/std_types.h	/^    inline const irep_idt &get_base_name() cons
 get_base_name	util/std_types.h	/^    inline const irep_idt &get_base_name() const$/;"	f	class:struct_union_typet::componentt
 get_base_name	util/std_types.h	/^    inline irep_idt get_base_name() const { return get(ID_base_name); }    $/;"	f	class:c_enum_typet::c_enum_membert
 get_bases	cpp/cpp_typecheck_compound_type.cpp	/^void cpp_typecheckt::get_bases($/;"	f	class:cpp_typecheckt
+get_basic_name	directfix-prototype/cbe.cpp	/^std::string get_basic_name(std::string var_name)$/;"	f
 get_bool	solvers/prop/prop_conv.cpp	/^bool prop_conv_solvert::get_bool(const exprt &expr, tvt &value) const$/;"	f	class:prop_conv_solvert
 get_bool	util/irep.cpp	/^bool irept::get_bool(const irep_namet &name) const$/;"	f	class:irept
 get_bool_option	util/options.cpp	/^bool optionst::get_bool_option(const std::string &option) const$/;"	f	class:optionst
@@ -7046,7 +7066,7 @@ get_depth	aa-path-symex/path_symex_state.h	/^  inline unsigned get_depth() const
 get_depth	path-symex/path_symex_state.h	/^  inline unsigned get_depth() const$/;"	f	struct:path_symex_statet
 get_destination	util/std_code.h	/^  const irep_idt &get_destination() const$/;"	f	class:code_gotot
 get_destructor	goto-programs/destructor.cpp	/^code_function_callt get_destructor($/;"	f
-get_df_loc_var	directfix-prototype/component.cpp	/^void component_exprt::get_df_loc_var(const exprt &expr)  $/;"	f	class:component_exprt
+get_df_loc_var	directfix-prototype/component_e.cpp	/^void component_exprt::get_df_loc_var(const exprt &expr) $/;"	f	class:component_exprt
 get_dominator_info	analyses/natural_loops.h	/^  inline const cfg_dominators_templatet<P, T>& get_dominator_info() const$/;"	f	class:natural_loops_templatet
 get_dynamic_objects	solvers/flattening/pointer_logic.cpp	/^void pointer_logict::get_dynamic_objects(std::vector<unsigned> &o) const$/;"	f	class:pointer_logict
 get_e	util/std_types.h	/^  inline unsigned get_e() const$/;"	f	class:floatbv_typet
@@ -7533,6 +7553,8 @@ handle_dp	musketeer/fence-insertion/fi.py	/^handle_dp = False$/;"	v
 handle_initializer	cpp/cpp_declarator_converter.cpp	/^void cpp_declarator_convertert::handle_initializer($/;"	f	class:cpp_declarator_convertert
 handover	pointer-analysis/value_set_fivr.cpp	/^bool value_set_fivrt::handover(void)$/;"	f	class:value_set_fivrt
 handover	pointer-analysis/value_set_fivrns.cpp	/^bool value_set_fivrnst::handover(void)$/;"	f	class:value_set_fivrnst
+hard_constraint_typet	solvers/prop/prop_conv.h	/^  } hard_constraint_typet;$/;"	t	class:prop_convt	typeref:enum:prop_convt::__anon55
+hard_constraints	directfix-prototype/cbe.h	/^  expr_listt hard_constraints;$/;"	m	class:test_caset
 has	musketeer/propagate_const_function_pointers.cpp	/^  bool has(const irep_idt& symb) const {$/;"	f	class:const_function_pointer_propagationt
 has_and_or	goto-programs/goto_convert.cpp	/^static bool has_and_or(const exprt &expr)$/;"	f	file:
 has_assertion	goto-programs/goto_program_template.h	/^bool goto_program_templatet<codeT, guardT>::has_assertion() const$/;"	f	class:goto_program_templatet
@@ -7730,7 +7752,7 @@ id_map	aa-path-symex/var_map.h	/^  id_mapt id_map;$/;"	m	class:var_mapt
 id_map	cpp/cpp_scopes.h	/^  id_mapt id_map;$/;"	m	class:cpp_scopest
 id_map	cpp/parse.cpp	/^  id_mapt id_map;$/;"	m	class:new_scopet	file:
 id_map	path-symex/var_map.h	/^  id_mapt id_map;$/;"	m	class:var_mapt
-id_maps	directfix-prototype/component.h	/^  std::map<dstring, std::string> id_maps; \/\/Couldn't think of a workaround$/;"	m	class:component_exprt
+id_maps	directfix-prototype/component_e.h	/^  std::map<dstring, std::string> id_maps; \/\/Couldn't think of a workaround$/;"	m	class:component_exprt
 id_mapt	aa-path-symex/var_map.h	/^  typedef std::map<irep_idt, var_infot> id_mapt;$/;"	t	class:var_mapt
 id_mapt	cpp/cpp_scopes.h	/^  typedef hash_map_cont<irep_idt, cpp_idt *, irep_id_hash> id_mapt;$/;"	t	class:cpp_scopest
 id_mapt	cpp/parse.cpp	/^  typedef std::map<irep_idt, new_scopet> id_mapt;$/;"	t	class:new_scopet	file:
@@ -7855,11 +7877,13 @@ in	util/parser.h	/^  std::istream *in;$/;"	m	class:parsert
 in	util/preprocessor.h	/^  std::istream &in;$/;"	m	class:preprocessort
 in_alphabet	goto-instrument/accelerate/trace_automaton.h	/^  bool in_alphabet(goto_programt::targett t) {$/;"	f	class:trace_automatont
 in_buffer	util/pipe_stream.h	/^  char *in_buffer;$/;"	m	class:filedescriptor_streambuf
+in_component_variables	directfix-prototype/component_e.h	/^  expr_listt in_component_variables;$/;"	m	class:component_exprt
 in_core	solvers/sat/satcheck_minisat.h	/^  std::vector<bool> in_core;$/;"	m	class:satcheck_minisat1_coret
 in_core	solvers/sat/satcheck_smvsat.h	/^  std::vector<bool> in_core;$/;"	m	class:satcheck_smvsat_coret
 in_core	solvers/sat/satcheck_zcore.h	/^  std::set<unsigned> in_core;$/;"	m	class:satcheck_zcoret
 in_core	util/decision_procedure.cpp	/^bool decision_proceduret::in_core(const exprt &expr)$/;"	f	class:decision_proceduret
 in_list	goto-cc/goto_cc_cmdline.cpp	/^bool goto_cc_cmdlinet::in_list(const char *option, const char **list)$/;"	f	class:goto_cc_cmdlinet
+in_location_variables	directfix-prototype/component_e.h	/^  expr_listt in_location_variables;$/;"	m	class:component_exprt
 in_nodes	goto-instrument/wmm/goto2graph.h	/^    std::map<irep_idt,std::set<nodet> > in_nodes, out_nodes;$/;"	m	class:instrumentert::cfg_visitort
 in_pos	goto-instrument/wmm/goto2graph.h	/^    incoming_post in_pos;$/;"	m	class:instrumentert::cfg_visitort
 in_progress	util/language_file.h	/^  bool type_checked, in_progress;$/;"	m	class:language_modulet
@@ -7960,6 +7984,7 @@ initialize	analyses/reaching_definitions.cpp	/^void reaching_definitions_analysi
 initialize	analyses/reaching_definitions.h	/^  virtual void initialize($/;"	f	class:reaching_definitions_analysist
 initialize	analyses/static_analysis.h	/^  virtual void initialize($/;"	f	class:domain_baset
 initialize	analyses/static_analysis.h	/^  virtual void initialize($/;"	f	class:static_analysis_baset
+initialize	directfix-prototype/cbe.cpp	/^void test_caset::initialize()$/;"	f	class:test_caset
 initialize	goto-programs/flow_insensitive_analysis.h	/^  virtual void initialize($/;"	f	class:flow_insensitive_analysis_baset
 initialize	goto-symex/goto_symex_state.cpp	/^void goto_symex_statet::initialize(const goto_functionst &goto_functions)$/;"	f	class:goto_symex_statet
 initialize	pointer-analysis/value_set_analysis.cpp	/^void value_set_analysist::initialize($/;"	f	class:value_set_analysist
@@ -8066,7 +8091,7 @@ instantiation_stack	cpp/cpp_typecheck.h	/^  instantiation_stackt instantiation_s
 instantiation_stackt	cpp/cpp_typecheck.h	/^  typedef std::list<instantiationt> instantiation_stackt;$/;"	t	class:cpp_typecheckt
 instantiationt	cpp/cpp_typecheck.h	/^  class instantiationt$/;"	c	class:cpp_typecheckt
 instr	goto-instrument/wmm/goto2graph.cpp	/^  instrumentert& instr;$/;"	m	class:pthread_argumentt	file:
-instruction_number	directfix-prototype/component.h	/^  const int &instruction_number;$/;"	m	class:component_exprt
+instruction_number	directfix-prototype/component_e.h	/^  const int &instruction_number;$/;"	m	class:component_exprt
 instructions	assembler/assembler_parser.h	/^  std::list<instructiont> instructions;$/;"	m	class:assembler_parsert
 instructions	goto-programs/goto_program_template.h	/^  instructionst instructions;$/;"	m	class:goto_program_templatet
 instructions	java_bytecode/java_bytecode_parse_tree.h	/^    instructionst instructions;$/;"	m	class:java_bytecode_parse_treet::itemt
@@ -8303,6 +8328,7 @@ is_cumul	goto-instrument/wmm/abstract_event.h	/^  bool is_cumul() const { return
 is_cycle	goto-instrument/wmm/event_graph.h	/^    bool is_cycle()$/;"	f	class:event_grapht::critical_cyclet
 is_dead	goto-programs/goto_program_template.h	/^    inline bool is_dead         () const { return type==DEAD;          }$/;"	f	class:goto_program_templatet::instructiont
 is_dead	goto-programs/goto_trace.h	/^  bool is_dead() const            { return type==DEAD; }$/;"	f	class:goto_trace_stept
+is_dead	goto-symex/symex_target_equation.h	/^    bool is_dead() const            { return type==goto_trace_stept::DEAD; }$/;"	f	class:symex_target_equationt::SSA_stept
 is_decl	goto-programs/goto_program_template.h	/^    inline bool is_decl         () const { return type==DECL;          }$/;"	f	class:goto_program_templatet::instructiont
 is_decl	goto-programs/goto_trace.h	/^  bool is_decl() const            { return type==DECL; }$/;"	f	class:goto_trace_stept
 is_decl	goto-symex/symex_target_equation.h	/^    bool is_decl() const            { return type==goto_trace_stept::DECL; }$/;"	f	class:symex_target_equationt::SSA_stept
@@ -8405,7 +8431,8 @@ is_location	goto-programs/goto_program_template.h	/^    inline bool is_location 
 is_location	goto-programs/goto_trace.h	/^  bool is_location() const        { return type==LOCATION; }$/;"	f	class:goto_trace_stept
 is_location	goto-symex/symex_target_equation.h	/^    bool is_location() const        { return type==goto_trace_stept::LOCATION; }$/;"	f	class:symex_target_equationt::SSA_stept
 is_long	big-int/bigint.cc	/^BigInt::is_long() const$/;"	f	class:BigInt
-is_loop_statement	directfix-prototype/component.h	/^  const bool &is_loop_statement;$/;"	m	class:component_exprt
+is_loop_statement	directfix-prototype/component_e.h	/^  const bool &is_loop_statement;$/;"	m	class:component_exprt
+is_loop_stmt	goto-symex/symex_target_equation.h	/^    bool is_loop_stmt;$/;"	m	class:symex_target_equationt::SSA_stept
 is_looping	goto-instrument/accelerate/all_paths_enumerator.cpp	/^bool all_paths_enumeratort::is_looping(patht &path) {$/;"	f	class:all_paths_enumeratort
 is_lt	analyses/invariant_set.h	/^  tvt is_lt(std::pair<unsigned, unsigned> p) const$/;"	f	class:invariant_sett
 is_lvalue	goto-programs/builtin_functions.cpp	/^bool is_lvalue(const exprt &expr)$/;"	f
@@ -8471,6 +8498,7 @@ is_ptr_argument	goto-programs/string_abstraction.cpp	/^static inline bool is_ptr
 is_ptr_string_struct	goto-programs/string_abstraction.cpp	/^bool string_abstractiont::is_ptr_string_struct(const typet &type) const$/;"	f	class:string_abstractiont
 is_qualified	cpp/cpp_name.h	/^  bool is_qualified() const$/;"	f	class:cpp_namet
 is_quantified	solvers/qbf/qdimacs_cnf.cpp	/^bool qdimacs_cnft::is_quantified(const literalt l) const$/;"	f	class:qdimacs_cnft
+is_ready	directfix-prototype/cbe.h	/^  std::map<std::string, bool> is_ready;$/;"	m	class:test_caset
 is_recursion	goto-symex/goto_symex_state.h	/^      bool is_recursion;$/;"	m	struct:goto_symex_statet::framet::loop_infot
 is_reference	util/std_types.cpp	/^bool is_reference(const typet &type)$/;"	f
 is_register	ansi-c/c_storage_spec.h	/^  bool is_typedef, is_extern, is_static, is_register,$/;"	m	class:c_storage_spect
@@ -8564,6 +8592,7 @@ is_unsafe	goto-instrument/wmm/event_graph.cpp	/^bool event_grapht::critical_cycl
 is_unsafe_asm	goto-instrument/wmm/event_graph.cpp	/^bool event_grapht::critical_cyclet::is_unsafe_asm(memory_modelt model, $/;"	f	class:event_grapht::critical_cyclet
 is_unsafe_fast	goto-instrument/wmm/event_graph.h	/^    bool is_unsafe_fast(memory_modelt model)$/;"	f	class:event_grapht::critical_cyclet
 is_unsigned	goto-instrument/accelerate/util.cpp	/^bool is_unsigned(const typet &t) {$/;"	f
+is_used	directfix-prototype/cbe.h	/^  std::map<std::string, bool> is_used;$/;"	m	class:test_caset
 is_used	goto-symex/postcondition.cpp	/^bool postconditiont::is_used($/;"	f	class:postconditiont
 is_used_address_of	goto-symex/postcondition.cpp	/^bool postconditiont::is_used_address_of($/;"	f	class:postconditiont
 is_uses_offset	analyses/local_bitvector_analysis.h	/^    inline bool is_uses_offset() const$/;"	f	struct:local_bitvector_analysist::flagst
@@ -8697,7 +8726,7 @@ kind	java_bytecode/javap_parse.cpp	/^    irep_idt kind;$/;"	m	class:javap_parser
 kind	path-symex/var_map.h	/^    enum { SHARED, THREAD_LOCAL, PROCEDURE_LOCAL } kind;$/;"	m	struct:var_mapt::var_infot	typeref:enum:var_mapt::var_infot::__anon40
 kindt	cpp/parse.cpp	/^                 NAMESPACE, TEMPLATE, BLOCK } kindt;$/;"	t	class:new_scopet	typeref:enum:new_scopet::__anon8	file:
 kindt	path-symex/path_symex_history.h	/^  enum kindt {$/;"	g	class:path_symex_stept
-kindt	util/find_symbols.cpp	/^typedef enum { F_TYPE, F_EXPR, F_BOTH } kindt;$/;"	t	typeref:enum:__anon59	file:
+kindt	util/find_symbols.cpp	/^typedef enum { F_TYPE, F_EXPR, F_BOTH } kindt;$/;"	t	typeref:enum:__anon60	file:
 l	musketeer/fence-insertion/fi.py	/^      l = line.split('|')$/;"	v
 l	solvers/flattening/arrays.h	/^    literalt l;$/;"	m	struct:arrayst::array_equalityt
 l	solvers/flattening/boolbv.h	/^    literalt l;$/;"	m	class:boolbvt::quantifiert
@@ -8899,7 +8928,7 @@ lhs_object_value	goto-programs/goto_trace.h	/^  exprt lhs_object_value, full_lhs
 lib	util/config.h	/^    libt lib;$/;"	m	struct:configt::ansi_ct
 libraries	goto-cc/compile.h	/^  std::list<std::string> libraries;$/;"	m	class:compilet
 library_paths	goto-cc/compile.h	/^  std::list<std::string> library_paths;$/;"	m	class:compilet
-libt	util/config.h	/^    typedef enum { LIB_NONE, LIB_FULL } libt;$/;"	t	struct:configt::ansi_ct	typeref:enum:configt::ansi_ct::__anon70
+libt	util/config.h	/^    typedef enum { LIB_NONE, LIB_FULL } libt;$/;"	t	struct:configt::ansi_ct	typeref:enum:configt::ansi_ct::__anon71
 limit_distance	solvers/floatbv/float_utils.cpp	/^bvt float_utilst::limit_distance($/;"	f	class:float_utilst
 limplies	solvers/cvc/cvc_prop.cpp	/^literalt cvc_propt::limplies(literalt a, literalt b)$/;"	f	class:cvc_propt
 limplies	solvers/cvc/cvc_prop.cpp	/^void cvc_propt::limplies(literalt a, literalt b, literalt o)$/;"	f	class:cvc_propt
@@ -9054,8 +9083,8 @@ location	util/symbol.h	/^  source_locationt location;$/;"	m	class:symbolt
 location	util/type.h	/^  inline const source_locationt &location() const$/;"	f	class:typet
 location_number	goto-programs/goto_program_template.h	/^    unsigned location_number;$/;"	m	class:goto_program_templatet::instructiont
 location_number	pointer-analysis/value_set.h	/^  unsigned location_number;$/;"	m	class:value_sett
-location_v_assign	directfix-prototype/component.h	/^  exprt location_v_assign;$/;"	m	class:component_exprt
-location_variables	directfix-prototype/component.h	/^  expr_listt location_variables;$/;"	m	class:component_exprt
+location_v_assign	directfix-prototype/component_e.h	/^  exprt location_v_assign;$/;"	m	class:component_exprt
+location_variables	directfix-prototype/component_e.h	/^  expr_listt location_variables;$/;"	m	class:component_exprt
 locationt	analyses/ai.h	/^  typedef goto_programt::const_targett locationt;$/;"	t	class:ai_baset
 locationt	analyses/ai.h	/^  typedef goto_programt::const_targett locationt;$/;"	t	class:ai_domain_baset
 locationt	analyses/ai.h	/^  typedef goto_programt::const_targett locationt;$/;"	t	class:ait
@@ -9143,6 +9172,8 @@ loop_limits	cbmc/symex_bmc.h	/^  loop_limitst loop_limits;$/;"	m	class:symex_bmc
 loop_limitst	cbmc/symex_bmc.h	/^  typedef hash_map_cont<irep_idt, unsigned, irep_id_hash> loop_limitst;$/;"	t	class:symex_bmct
 loop_map	analyses/natural_loops.h	/^  loop_mapt loop_map;$/;"	m	class:natural_loops_templatet
 loop_map	goto-instrument/goto_program2code.h	/^  loopt loop_map;$/;"	m	class:goto_program2codet
+loop_map	goto-symex/symex_target_equation.h	/^  std::map<int,int> loop_map;$/;"	m	class:symex_target_equationt
+loop_maps	directfix-prototype/cbe.h	/^  std::map<int, int> loop_maps;$/;"	m	class:test_caset
 loop_mapt	analyses/natural_loops.h	/^  typedef std::map<T, natural_loopt> loop_mapt;$/;"	t	class:natural_loops_templatet
 loop_number	goto-programs/goto_program_template.h	/^    unsigned loop_number;$/;"	m	class:goto_program_templatet::instructiont
 loop_statement_map	goto-symex/goto_symex.h	/^  std::map<int, int> loop_statement_map;$/;"	m	class:goto_symext
@@ -9582,7 +9613,7 @@ model	ansi-c/cprover_library.cpp	/^  const char *model;$/;"	m	struct:cprover_lib
 model	musketeer/fence_inserter.h	/^  const memory_modelt model;$/;"	m	class:fence_insertert
 model_bdds	solvers/qbf/qbf_bdd_core.h	/^  model_bddst model_bdds;$/;"	m	class:qbf_bdd_certificatet
 model_bddst	solvers/qbf/qbf_bdd_core.h	/^  typedef std::vector<BDD*> model_bddst;$/;"	t	class:qbf_bdd_certificatet
-modeltypet	solvers/qbf/qdimacs_core.h	/^  typedef enum { M_TRUE, M_FALSE, M_DONTCARE, M_COMPLEX } modeltypet;$/;"	t	class:qdimacs_coret	typeref:enum:qdimacs_coret::__anon55
+modeltypet	solvers/qbf/qdimacs_core.h	/^  typedef enum { M_TRUE, M_FALSE, M_DONTCARE, M_COMPLEX } modeltypet;$/;"	t	class:qdimacs_coret	typeref:enum:qdimacs_coret::__anon56
 modet	ansi-c/ansi_c_parser.h	/^  typedef enum { ANSI, GCC, MSC, ICC, CW, ARM } modet;$/;"	t	class:ansi_c_parsert	typeref:enum:ansi_c_parsert::__anon4
 modet	pointer-analysis/value_set_dereference.h	/^  typedef enum { READ, WRITE } modet;$/;"	t	class:value_set_dereferencet	typeref:enum:value_set_dereferencet::__anon41
 modified	goto-instrument/accelerate/disjunctive_polynomial_acceleration.h	/^  expr_sett modified;$/;"	m	class:disjunctive_polynomial_accelerationt
@@ -9900,7 +9931,8 @@ ns	ansi-c/c_typecast.h	/^  const namespacet &ns;$/;"	m	class:c_typecastt
 ns	ansi-c/expr2c_class.h	/^  const namespacet &ns;$/;"	m	class:expr2ct
 ns	ansi-c/printf_formatter.h	/^  const namespacet &ns;$/;"	m	class:printf_formattert
 ns	cbmc/bmc.h	/^  namespacet ns;$/;"	m	class:bmct
-ns	directfix-prototype/component.h	/^  const namespacet &ns;$/;"	m	class:component_exprt
+ns	directfix-prototype/cbe.h	/^  const namespacet &ns;$/;"	m	class:test_caset
+ns	directfix-prototype/component_e.h	/^  const namespacet &ns;$/;"	m	class:component_exprt
 ns	goto-cc/compile.h	/^  namespacet ns;$/;"	m	class:compilet
 ns	goto-instrument/accelerate/accelerate.h	/^  namespacet ns;$/;"	m	class:acceleratet
 ns	goto-instrument/accelerate/acceleration_utils.h	/^  namespacet ns;$/;"	m	class:acceleration_utilst
@@ -10631,7 +10663,7 @@ original_rhs	goto-symex/symex_target_equation.h	/^    exprt original_rhs;$/;"	m	
 original_scope	cpp/cpp_typecheck_resolve.h	/^  cpp_scopet *original_scope;$/;"	m	class:cpp_typecheck_resolvet
 os	musketeer/fence-insertion/fi.py	/^import os$/;"	i
 os	util/config.h	/^    ost os;$/;"	m	struct:configt::ansi_ct
-ost	util/config.h	/^    typedef enum { NO_OS, OS_LINUX, OS_MACOS, OS_WIN } ost;$/;"	t	struct:configt::ansi_ct	typeref:enum:configt::ansi_ct::__anon66
+ost	util/config.h	/^    typedef enum { NO_OS, OS_LINUX, OS_MACOS, OS_WIN } ost;$/;"	t	struct:configt::ansi_ct	typeref:enum:configt::ansi_ct::__anon67
 osx_fat_readert	goto-programs/osx_fat_reader.cpp	/^osx_fat_readert::osx_fat_readert(std::ifstream &in) :$/;"	f	class:osx_fat_readert
 osx_fat_readert	goto-programs/osx_fat_reader.h	/^class osx_fat_readert$/;"	c
 other	ansi-c/ansi_c_convert_type.h	/^  std::list<typet> other;$/;"	m	class:ansi_c_convert_typet
@@ -10651,8 +10683,8 @@ out	util/graph.h	/^  edgest in, out;$/;"	m	class:graph_nodet
 out	util/graph.h	/^  inline const edgest &out(unsigned n) const$/;"	f	class:graph
 out	util/message.h	/^  std::ostream &out;$/;"	m	class:stream_message_handlert
 out	util/preprocessor.h	/^  std::ostream &out;$/;"	m	class:preprocessort
-out_component_variables	directfix-prototype/component.h	/^  expr_listt out_component_variables;$/;"	m	class:component_exprt
-out_location_variables	directfix-prototype/component.h	/^  expr_listt out_location_variables;$/;"	m	class:component_exprt
+out_component_variables	directfix-prototype/component_e.h	/^  expr_listt out_component_variables;$/;"	m	class:component_exprt
+out_location_variables	directfix-prototype/component_e.h	/^  expr_listt out_location_variables;$/;"	m	class:component_exprt
 out_nodes	goto-instrument/wmm/goto2graph.h	/^    std::map<irep_idt,std::set<nodet> > in_nodes, out_nodes;$/;"	m	class:instrumentert::cfg_visitort
 out_pos	goto-instrument/wmm/goto2graph.h	/^    incoming_post out_pos;    $/;"	m	class:instrumentert::cfg_visitort
 output	aa-path-symex/locs.cpp	/^void locst::output(std::ostream &out) const$/;"	f	class:locst
@@ -10685,6 +10717,7 @@ output	cbmc/icbmc_goto_trace.cpp	/^void icbmc_goto_tracet::output($/;"	f	class:i
 output	cpp/cpp_declaration.cpp	/^void cpp_declarationt::output(std::ostream &out) const$/;"	f	class:cpp_declarationt
 output	cpp/cpp_declarator.cpp	/^void cpp_declaratort::output(std::ostream &out) const$/;"	f	class:cpp_declaratort
 output	cpp/cpp_namespace_spec.cpp	/^void cpp_namespace_spect::output(std::ostream &out) const$/;"	f	class:cpp_namespace_spect
+output	directfix-prototype/cbe.cpp	/^void test_caset::output()$/;"	f	class:test_caset
 output	goto-instrument/accelerate/trace_automaton.cpp	/^void automatont::output(std::ostream &str) {$/;"	f	class:automatont
 output	goto-instrument/dot.cpp	/^void dott::output(std::ostream &out)$/;"	f	class:dott
 output	goto-instrument/points_to.cpp	/^void points_tot::output(std::ostream &out) const$/;"	f	class:points_tot
@@ -10725,6 +10758,9 @@ output	pointer-analysis/value_set_fivrns.cpp	/^void value_set_fivrnst::output($/
 output	util/byte_operators.cpp	/^void endianness_mapt::output(std::ostream &out) const$/;"	f	class:endianness_mapt
 output	util/stringdb.cpp	/^void stringdbt::output(std::ostream &out) const$/;"	f	class:stringdbt
 output	util/xml.cpp	/^void xmlt::output(std::ostream &out, unsigned indent) const$/;"	f	class:xmlt
+output_acyc	directfix-prototype/component_e.cpp	/^void component_exprt::output_acyc()$/;"	f	class:component_exprt
+output_conn	directfix-prototype/component_e.cpp	/^void component_exprt::output_conn()$/;"	f	class:component_exprt
+output_cons	directfix-prototype/component_e.cpp	/^void component_exprt::output_cons()$/;"	f	class:component_exprt
 output_dot	analyses/call_graph.cpp	/^void call_grapht::output_dot(std::ostream &out) const$/;"	f	class:call_grapht
 output_dot	solvers/prop/aig.cpp	/^void aigt::output_dot(std::ostream& out) const$/;"	f	class:aigt
 output_dot	util/graph.h	/^void graph<N>::output_dot(std::ostream &out) const$/;"	f	class:graph
@@ -10735,6 +10771,8 @@ output_entry	pointer-analysis/value_set_fivrns.cpp	/^void value_set_fivrnst::out
 output_file_executable	goto-cc/compile.h	/^  std::string output_file_object, output_file_executable;$/;"	m	class:compilet
 output_file_object	goto-cc/compile.h	/^  std::string output_file_object, output_file_executable;$/;"	m	class:compilet
 output_fmt	goto-symex/symex_target_equation.cpp	/^void symex_target_equationt::output_fmt($/;"	f	class:symex_target_equationt
+output_hard	directfix-prototype/cbe.cpp	/^void test_caset::output_hard()$/;"	f	class:test_caset
+output_hard	directfix-prototype/component_e.cpp	/^void component_exprt::output_hard()$/;"	f	class:component_exprt
 output_icbmc	goto-programs/goto_functions_template.h	/^void goto_functions_templatet<bodyT>::output_icbmc($/;"	f	class:goto_functions_templatet
 output_icbmc	goto-programs/goto_program_template.h	/^std::ostream& goto_program_templatet<codeT, guardT>::output_icbmc($/;"	f	class:goto_program_templatet
 output_instruction	goto-programs/goto_program.cpp	/^std::ostream& goto_programt::output_instruction($/;"	f	class:goto_programt
@@ -10742,6 +10780,9 @@ output_instruction_icbmc	goto-programs/goto_program.cpp	/^std::ostream& goto_pro
 output_latest_time	util/timer.h	/^  std::string output_latest_time()$/;"	f	class:timert
 output_map	goto-cc/xml_binaries/xml_irep_hashing.cpp	/^void xml_irep_convertt::output_map(std::ostream &out, unsigned indent) {$/;"	f	class:xml_irep_convertt
 output_path	goto-instrument/accelerate/path.cpp	/^void output_path(patht &path, goto_programt &program, namespacet &ns,$/;"	f
+output_range	directfix-prototype/component_e.cpp	/^void component_exprt::output_range()$/;"	f	class:component_exprt
+output_sem	directfix-prototype/component_e.cpp	/^void component_exprt::output_sem()$/;"	f	class:component_exprt
+output_soft	directfix-prototype/component_e.cpp	/^void component_exprt::output_soft()$/;"	f	class:component_exprt
 output_total_time	util/timer.h	/^  std::string output_total_time()$/;"	f	class:timert
 output_vcd	goto-programs/vcd_goto_trace.cpp	/^void output_vcd($/;"	f
 output_xml	analyses/call_graph.cpp	/^void call_grapht::output_xml(std::ostream &out) const$/;"	f	class:call_grapht
@@ -10829,8 +10870,8 @@ parse_conversion_specifier	goto-programs/format_strings.cpp	/^void parse_convers
 parse_env	goto-cc/ms_cl_cmdline.cpp	/^void ms_cl_cmdlinet::parse_env()$/;"	f	class:ms_cl_cmdlinet
 parse_error	util/parser.cpp	/^void parsert::parse_error($/;"	f	class:parsert
 parse_events	goto-symex/slice_by_trace.cpp	/^void symex_slice_by_tracet::parse_events(std::string read_line) {$/;"	f	class:symex_slice_by_tracet
-parse_expr	directfix-prototype/component.cpp	/^void component_exprt::parse_expr(const exprt &expr)$/;"	f	class:component_exprt
-parse_expr_rec	directfix-prototype/component.cpp	/^void component_exprt::parse_expr_rec(const exprt &expr)$/;"	f	class:component_exprt
+parse_expr	directfix-prototype/component_e.cpp	/^void component_exprt::parse_expr()$/;"	f	class:component_exprt
+parse_expr_rec	directfix-prototype/component_e.cpp	/^void component_exprt::parse_expr_rec(const exprt &expr)$/;"	f	class:component_exprt
 parse_field_width	goto-programs/format_strings.cpp	/^void parse_field_width($/;"	f
 parse_flags	goto-programs/format_strings.cpp	/^void parse_flags($/;"	f
 parse_float	ansi-c/literals/parse_float.cpp	/^void parse_float($/;"	f
@@ -10948,13 +10989,13 @@ per_address_mapt	goto-symex/partial_order_concurrency.h	/^  typedef std::map<ire
 per_thread_mapt	goto-symex/memory_model.h	/^  typedef std::map<unsigned, event_listt> per_thread_mapt;$/;"	t	class:memory_model_baset
 per_valuet	goto-symex/partial_order_concurrency.h	/^  typedef std::list<evtt const*> per_valuet;$/;"	t	class:partial_order_concurrencyt
 perror	ansi-c/library/stdio.c	/^void perror(const char *s)$/;"	f
-phi_acyc	directfix-prototype/component.h	/^  expr_listt phi_acyc;    \/\/Acyclic Constraint - Hard - Forbid Cyclic Connections$/;"	m	class:component_exprt
-phi_conn	directfix-prototype/component.h	/^  expr_listt phi_conn;    \/\/Connection Constraint - Hard$/;"	m	class:component_exprt
-phi_cons	directfix-prototype/component.h	/^  expr_listt phi_cons;    \/\/Consistency Constraint - Hard - Output of each component has a unique location$/;"	m	class:component_exprt
+phi_acyc	directfix-prototype/component_e.h	/^  expr_listt phi_acyc;    \/\/Acyclic Constraint - Hard - Forbid Cyclic Connections$/;"	m	class:component_exprt
+phi_conn	directfix-prototype/component_e.h	/^  expr_listt phi_conn;    \/\/Connection Constraint - Hard$/;"	m	class:component_exprt
+phi_cons	directfix-prototype/component_e.h	/^  expr_listt phi_cons;    \/\/Consistency Constraint - Hard - Output of each component has a unique location$/;"	m	class:component_exprt
 phi_function	goto-symex/symex_goto.cpp	/^void goto_symext::phi_function($/;"	f	class:goto_symext
-phi_range	directfix-prototype/component.h	/^  expr_listt phi_range;   \/\/Range Constraint - Hard$/;"	m	class:component_exprt
-phi_sem	directfix-prototype/component.h	/^  expr_listt phi_sem;     \/\/Semantics Constraint - Hard$/;"	m	class:component_exprt
-phi_struct	directfix-prototype/component.h	/^  expr_listt phi_struct;  \/\/Structure Constraint - Soft$/;"	m	class:component_exprt
+phi_range	directfix-prototype/component_e.h	/^  expr_listt phi_range;   \/\/Range Constraint - Hard$/;"	m	class:component_exprt
+phi_sem	directfix-prototype/component_e.h	/^  expr_listt phi_sem;     \/\/Semantics Constraint - Hard$/;"	m	class:component_exprt
+phi_struct	directfix-prototype/component_e.h	/^  expr_listt phi_struct;  \/\/Structure Constraint - Soft$/;"	m	class:component_exprt
 pi	util/pipe_stream.h	/^  PROCESS_INFORMATION pi;$/;"	m	class:pipe_stream
 pick_state	aa-symex/path_search.cpp	/^path_searcht::queuet::iterator path_searcht::pick_state()$/;"	f	class:path_searcht
 pick_state	symex/path_search.cpp	/^path_searcht::queuet::iterator path_searcht::pick_state()$/;"	f	class:path_searcht
@@ -11131,7 +11172,7 @@ preprocessing	cbmc/cbmc_parseoptions.cpp	/^void cbmc_parseoptionst::preprocessin
 preprocessor	util/config.h	/^    preprocessort preprocessor; \/\/ the preprocessor to use$/;"	m	struct:configt::ansi_ct
 preprocessor_line	ansi-c/preprocessor_line.cpp	/^void preprocessor_line($/;"	f
 preprocessor_options	util/config.h	/^    std::list<std::string> preprocessor_options;$/;"	m	struct:configt::ansi_ct
-preprocessort	util/config.h	/^                   PP_CODEWARRIOR, PP_ARM } preprocessort;$/;"	t	struct:configt::ansi_ct	typeref:enum:configt::ansi_ct::__anon69
+preprocessort	util/config.h	/^                   PP_CODEWARRIOR, PP_ARM } preprocessort;$/;"	t	struct:configt::ansi_ct	typeref:enum:configt::ansi_ct::__anon70
 preprocessort	util/preprocessor.h	/^  preprocessort($/;"	f	class:preprocessort
 preprocessort	util/preprocessor.h	/^class preprocessort:public messaget$/;"	c
 pretty	util/irep.cpp	/^std::string irept::pretty(unsigned indent, unsigned max_indent) const$/;"	f	class:irept
@@ -11845,7 +11886,7 @@ result_value	solvers/refinement/bv_refinement.h	/^    mp_integer op0_value, op1_
 resultt	goto-programs/property_checker.h	/^  typedef enum { PASS, FAIL, ERROR, UNKNOWN } resultt;$/;"	t	class:property_checkert	typeref:enum:property_checkert::__anon23
 resultt	goto-programs/safety_checker.h	/^  typedef enum { SAFE, UNSAFE, ERROR } resultt;$/;"	t	class:safety_checkert	typeref:enum:safety_checkert::__anon22
 resultt	solvers/prop/prop.h	/^  typedef enum { P_SATISFIABLE, P_UNSATISFIABLE, P_ERROR } resultt;$/;"	t	class:propt	typeref:enum:propt::__anon54
-resultt	util/decision_procedure.h	/^  typedef enum { D_SATISFIABLE, D_UNSATISFIABLE, D_ERROR } resultt;$/;"	t	class:decision_proceduret	typeref:enum:decision_proceduret::__anon64
+resultt	util/decision_procedure.h	/^  typedef enum { D_SATISFIABLE, D_UNSATISFIABLE, D_ERROR } resultt;$/;"	t	class:decision_proceduret	typeref:enum:decision_proceduret::__anon65
 retain_trivial	analyses/goto_check.cpp	/^  bool retain_trivial;$/;"	m	class:goto_checkt	file:
 return_PC	goto-programs/interpreter_class.h	/^    goto_programt::const_targett return_PC;$/;"	m	class:interpretert::stack_framet
 return_address	goto-instrument/call_sequences.cpp	/^    goto_programt::const_targett return_address;$/;"	m	struct:check_call_sequencet::call_stack_entryt	file:
@@ -11903,7 +11944,7 @@ rounding_mode	util/std_expr.h	/^  inline exprt &rounding_mode()$/;"	f	class:floa
 rounding_mode_bits	solvers/floatbv/float_utils.h	/^  rounding_mode_bitst rounding_mode_bits;$/;"	m	class:float_utilst
 rounding_mode_bitst	solvers/floatbv/float_utils.h	/^    rounding_mode_bitst():$/;"	f	struct:float_utilst::rounding_mode_bitst
 rounding_mode_bitst	solvers/floatbv/float_utils.h	/^  struct rounding_mode_bitst$/;"	s	class:float_utilst
-rounding_modet	util/ieee_float.h	/^    rounding_modet;$/;"	t	class:ieee_floatt	typeref:enum:ieee_floatt::__anon71
+rounding_modet	util/ieee_float.h	/^    rounding_modet;$/;"	t	class:ieee_floatt	typeref:enum:ieee_floatt::__anon72
 rtype	java_bytecode/javap_parse.cpp	/^typet javap_parsert::rtype()$/;"	f	class:javap_parsert
 run	cbmc/bmc.cpp	/^bool bmct::run(const goto_functionst &goto_functions)$/;"	f	class:bmct
 run	goto-cc/run.cpp	/^int run($/;"	f
@@ -12026,6 +12067,7 @@ scc_count	util/graph.h	/^    unsigned scc_count, max_dfs;$/;"	m	class:graph::tar
 scc_stack	util/graph.h	/^    std::stack<unsigned> scc_stack;$/;"	m	class:graph::tarjant
 scientific	util/format_spec.h	/^  static format_spect scientific()$/;"	f	class:format_spect
 scope	cpp/cpp_declarator_converter.h	/^  cpp_scopet *scope;$/;"	m	class:cpp_declarator_convertert
+scope	directfix-prototype/cbe.h	/^  std::map<std::string, exprt> scope;$/;"	m	class:test_caset
 scope_listt	cpp/cpp_id.h	/^  typedef std::vector<cpp_idt *> scope_listt;$/;"	t	class:cpp_idt
 scope_ptr	cpp/parse.cpp	/^  new_scopet *&scope_ptr;$/;"	m	class:save_scopet	file:
 scope_sett	cpp/cpp_scopes.h	/^  typedef std::set<cpp_scopet *> scope_sett;$/;"	t	class:cpp_scopest
@@ -12048,8 +12090,9 @@ selected_cycles	musketeer/fence_user_def.h	/^  std::set<unsigned> selected_cycle
 selection_statement	ansi-c/parser.y	/^selection_statement:$/;"	l
 semantics	goto-symex/slice_by_trace.h	/^  std::string semantics;$/;"	m	class:symex_slice_by_tracet
 send_msg	util/message_stream.h	/^  void send_msg(unsigned level, const std::string &message)$/;"	f	class:message_streamt
-sep_i	directfix-prototype/component.h	/^  const exprt &sep_i;$/;"	m	class:component_exprt
-sep_j	directfix-prototype/component.h	/^  const exprt &sep_j;$/;"	m	class:component_exprt
+sep_i	directfix-prototype/component_e.h	/^  const exprt &sep_i;$/;"	m	class:component_exprt
+sep_j	directfix-prototype/component_e.h	/^  const exprt &sep_j;$/;"	m	class:component_exprt
+separators	directfix-prototype/cbe.h	/^  expr_listt separators;$/;"	m	class:test_caset
 sequence	goto-instrument/call_sequences.cpp	/^  const std::vector<irep_idt> &sequence;$/;"	m	class:check_call_sequencet	file:
 sequence_number	util/message_stream.h	/^  unsigned sequence_number;$/;"	m	class:message_streamt
 set	cpp/template_map.cpp	/^void template_mapt::set($/;"	f	class:template_mapt
@@ -12169,6 +12212,7 @@ set_frozen	solvers/sat/satcheck_lingeling.cpp	/^void satcheck_lingelingt::set_fr
 set_frozen	solvers/sat/satcheck_minisat2.cpp	/^void satcheck_minisat_simplifiert::set_frozen(literalt a)$/;"	f	class:satcheck_minisat_simplifiert
 set_function	util/parser.h	/^  inline void set_function(const irep_idt &function)$/;"	f	class:parsert
 set_function	util/source_location.h	/^  inline void set_function(const irep_idt &function)$/;"	f	class:source_locationt
+set_hard_constraint	solvers/smt1/smt1_conv.cpp	/^void smt1_convt::set_hard_constraint(const exprt &expr)$/;"	f	class:smt1_convt
 set_hide	util/source_location.h	/^  inline void set_hide()$/;"	f	class:source_locationt
 set_identifier	util/std_expr.h	/^  inline void set_identifier(const irep_idt &identifier)$/;"	f	class:symbol_exprt
 set_identifier	util/std_types.h	/^    inline void set_identifier(const irep_idt &identifier) { set(ID_identifier, identifier); }$/;"	f	class:c_enum_typet::c_enum_membert
@@ -12255,6 +12299,7 @@ set_rounding_mode	solvers/floatbv/float_utils.cpp	/^void float_utilst::set_round
 set_scope	cpp/cpp_scopes.h	/^  cpp_scopet &set_scope(const irep_idt &identifier)$/;"	f	class:cpp_scopest
 set_sign	util/ieee_float.h	/^  void set_sign(bool _sign)$/;"	f	class:ieee_floatt
 set_size	musketeer/ilp.h	/^  void set_size(unsigned mat_size) {$/;"	f	class:ilpt
+set_soft_constraint	solvers/smt1/smt1_conv.cpp	/^void smt1_convt::set_soft_constraint(const exprt &expr)$/;"	f	class:smt1_convt
 set_source_location	util/parser.h	/^  inline void set_source_location(exprt &e)$/;"	f	class:parsert
 set_specialization_of	cpp/cpp_declaration.h	/^  inline void set_specialization_of(const irep_idt &id)$/;"	f	class:cpp_declarationt
 set_stack	util/set_stack.h	/^class set_stack$/;"	c
@@ -12615,6 +12660,8 @@ snprintf	util/c_misc.cpp	13;"	d	file:
 snprintf	util/i2string.cpp	20;"	d	file:
 solve	musketeer/fence_inserter.cpp	/^void fence_insertert::solve() {$/;"	f	class:fence_insertert
 solve	musketeer/ilp.h	/^  void solve() {$/;"	f	class:ilpt
+solver	directfix-prototype/cbe.h	/^  prop_convt &solver;$/;"	m	class:test_caset
+solver	directfix-prototype/component_e.h	/^  prop_convt &solver;$/;"	m	class:component_exprt
 solver	solvers/prop/aig_prop.h	/^  propt &solver;$/;"	m	class:aig_prop_solvert
 solver	solvers/sat/satcheck_glucose.h	/^  T *solver;$/;"	m	class:satcheck_glucose_baset
 solver	solvers/sat/satcheck_limmat.h	/^  struct Limmat *solver;$/;"	m	class:satcheck_limmatt	typeref:struct:satcheck_limmatt::Limmat
@@ -12681,9 +12728,11 @@ source_location	cpp/cpp_name.h	/^    inline const source_locationt &source_locat
 source_location	cpp/cpp_name.h	/^  inline const source_locationt &source_location() const$/;"	f	class:cpp_namet
 source_location	cpp/cpp_typecheck.h	/^    source_locationt source_location;$/;"	m	class:cpp_typecheckt::instantiationt
 source_location	cpp/cpp_typecheck_resolve.h	/^  source_locationt source_location;$/;"	m	class:cpp_typecheck_resolvet
+source_location	directfix-prototype/component_e.h	/^  const source_locationt &source_location;$/;"	m	class:component_exprt
 source_location	goto-instrument/wmm/abstract_event.h	/^  source_locationt source_location;$/;"	m	class:abstract_eventt
 source_location	goto-programs/goto_program_template.h	/^    source_locationt source_location;$/;"	m	class:goto_program_templatet::instructiont
 source_location	java_bytecode/java_bytecode_parse_tree.h	/^    source_locationt source_location;$/;"	m	class:java_bytecode_parse_treet::instructiont
+source_location	solvers/prop/prop_conv.h	/^  source_locationt source_location;      \/\/Very hacky$/;"	m	class:prop_convt
 source_location	util/expr.h	/^  inline const source_locationt &source_location() const$/;"	f	class:exprt
 source_location	util/parser.h	/^  source_locationt source_location;$/;"	m	class:parsert
 source_location	util/type.h	/^  inline const source_locationt &source_location() const$/;"	f	class:typet
@@ -12926,7 +12975,7 @@ struct_typet	util/std_types.h	/^class struct_typet:public struct_union_typet$/;"
 struct_union_typet	util/std_types.h	/^  inline explicit struct_union_typet(const irep_idt &_id):typet(_id)$/;"	f	class:struct_union_typet
 struct_union_typet	util/std_types.h	/^class struct_union_typet:public typet$/;"	c
 style	util/format_spec.h	/^  stylet style;$/;"	m	class:format_spect
-stylet	util/format_spec.h	/^  typedef enum { DECIMAL, SCIENTIFIC, AUTOMATIC } stylet;$/;"	t	class:format_spect	typeref:enum:format_spect::__anon61
+stylet	util/format_spec.h	/^  typedef enum { DECIMAL, SCIENTIFIC, AUTOMATIC } stylet;$/;"	t	class:format_spect	typeref:enum:format_spect::__anon62
 sub	cpp/cpp_id.h	/^  cpp_id_mapt sub;$/;"	m	class:cpp_idt
 sub	solvers/flattening/bv_utils.h	/^  bvt sub(const bvt &op0, const bvt &op1) { return add_sub(op0, op1, true); }$/;"	f	class:bv_utilst
 sub	solvers/floatbv/float_utils.h	/^  bvt sub(const bvt &src1, const bvt &src2) { return add_sub(src1, src2, true); }$/;"	f	class:float_utilst
@@ -13228,6 +13277,8 @@ terminalst	solvers/prop/aig.h	/^  typedef std::map<unsigned, terminal_sett> term
 terms	goto-instrument/accelerate/polynomial.h	/^  std::vector<termt> terms;$/;"	m	class:monomialt
 termt	goto-instrument/accelerate/polynomial.h	/^  } termt;$/;"	t	class:monomialt	typeref:struct:monomialt::term
 test_c_preprocessor	ansi-c/c_preprocess.cpp	/^bool test_c_preprocessor(message_handlert &message_handler)$/;"	f
+test_caset	directfix-prototype/cbe.h	/^  test_caset($/;"	f	class:test_caset
+test_caset	directfix-prototype/cbe.h	/^class test_caset$/;"	c
 test_lispexpr	util/lispexpr.cpp	/^int test_lispexpr()$/;"	f
 text	cpp/cpp_token.h	/^  std::string text;$/;"	m	class:cpp_tokent
 text	goto-instrument/document_properties.cpp	/^    std::string text;$/;"	m	struct:document_propertiest::linet	file:
@@ -13600,6 +13651,7 @@ top	analyses/cfg_dominators.h	/^  target_sett top;$/;"	m	class:cfg_dominators_te
 top	goto-symex/goto_symex_state.h	/^  inline const framet &top() const$/;"	f	class:goto_symex_statet
 top	goto-symex/goto_symex_state.h	/^  inline framet &top()$/;"	f	class:goto_symex_statet
 toplevel_block	goto-instrument/goto_program2code.h	/^  code_blockt &toplevel_block;$/;"	m	class:goto_program2codet
+total_components	directfix-prototype/cbe.h	/^  int total_components;$/;"	m	class:test_caset
 total_time	util/timer.h	/^  virtual time_periodt total_time()$/;"	f	class:timert
 total_vccs	goto-symex/goto_symex.h	/^  unsigned total_vccs, remaining_vccs;$/;"	m	class:goto_symext
 total_width	solvers/flattening/boolbv_width.h	/^    std::size_t total_width;$/;"	m	struct:boolbv_widtht::entryt
@@ -13651,7 +13703,7 @@ true_exprt	util/std_expr.h	/^class true_exprt:public constant_exprt$/;"	c
 try_await	aa-symex/path_search.cpp	/^bool path_searcht::try_await()$/;"	f	class:path_searcht
 try_code	util/std_code.h	/^  codet &try_code()$/;"	f	class:code_try_catcht
 try_code	util/std_code.h	/^  const codet &try_code() const$/;"	f	class:code_try_catcht
-tv_enumt	util/threeval.h	/^  typedef enum { TV_FALSE, TV_UNKNOWN, TV_TRUE } tv_enumt;$/;"	t	class:tvt	typeref:enum:tvt::__anon60
+tv_enumt	util/threeval.h	/^  typedef enum { TV_FALSE, TV_UNKNOWN, TV_TRUE } tv_enumt;$/;"	t	class:tvt	typeref:enum:tvt::__anon61
 tvt	util/threeval.h	/^  inline explicit tvt(bool b):value(b?TV_TRUE:TV_FALSE)$/;"	f	class:tvt
 tvt	util/threeval.h	/^  inline explicit tvt(tv_enumt v):value(v)$/;"	f	class:tvt
 tvt	util/threeval.h	/^  inline tvt()$/;"	f	class:tvt
@@ -13681,7 +13733,7 @@ type	solvers/smt1/smt1_conv.h	/^    typet type;$/;"	m	struct:smt1_convt::identif
 type	solvers/smt2/smt2_conv.h	/^    typet type;$/;"	m	struct:smt2_convt::identifiert
 type	util/expr.h	/^  inline const typet &type() const { return static_cast<const typet &>(find(ID_type)); }$/;"	f	class:exprt
 type	util/expr.h	/^  inline typet &type() { return static_cast<typet &>(add(ID_type)); }$/;"	f	class:exprt
-type	util/lispexpr.h	/^  enum { String, Symbol, Number, List } type;$/;"	m	class:lispexprt	typeref:enum:lispexprt::__anon63
+type	util/lispexpr.h	/^  enum { String, Symbol, Number, List } type;$/;"	m	class:lispexprt	typeref:enum:lispexprt::__anon64
 type	util/symbol.h	/^  typet type;$/;"	m	class:symbolt
 type2c	ansi-c/expr2c.cpp	/^std::string type2c(const typet &type, const namespacet &ns)$/;"	f
 type2cpp	cpp/expr2cpp.cpp	/^std::string type2cpp(const typet &type, const namespacet &ns)$/;"	f
@@ -13887,7 +13939,7 @@ typeof_type_specifier	ansi-c/parser.y	/^typeof_type_specifier:$/;"	l
 typestructt	solvers/flattening/equality.h	/^  struct typestructt$/;"	s	class:equalityt
 typet	goto-programs/goto_trace.h	/^                 SPAWN, MEMORY_BARRIER, ATOMIC_BEGIN, ATOMIC_END } typet;$/;"	t	class:goto_trace_stept	typeref:enum:goto_trace_stept::__anon24
 typet	solvers/prop/prop_conv_store.h	/^    typedef enum { NONE, CONVERT, SET_TO } typet;$/;"	t	struct:prop_conv_storet::constraintt	typeref:enum:prop_conv_storet::constraintt::__anon53
-typet	solvers/qbf/qdimacs_cnf.h	/^    typedef enum { NONE, EXISTENTIAL, UNIVERSAL } typet;$/;"	t	class:qdimacs_cnft::quantifiert	typeref:enum:qdimacs_cnft::quantifiert::__anon56
+typet	solvers/qbf/qdimacs_cnf.h	/^    typedef enum { NONE, EXISTENTIAL, UNIVERSAL } typet;$/;"	t	class:qdimacs_cnft::quantifiert	typeref:enum:qdimacs_cnft::quantifiert::__anon57
 typet	util/type.h	/^  inline explicit typet(const irep_idt &_id):irept(_id) { }$/;"	f	class:typet
 typet	util/type.h	/^  inline typet() { }$/;"	f	class:typet
 typet	util/type.h	/^  inline typet(const irep_idt &_id, const typet &_subtype):irept(_id) { subtype()=_subtype; }$/;"	f	class:typet
@@ -13900,7 +13952,7 @@ ui_message_handlert	util/ui_message.cpp	/^ui_message_handlert::ui_message_handle
 ui_message_handlert	util/ui_message.h	/^class ui_message_handlert:public message_handlert$/;"	c
 ui_msg	util/ui_message.cpp	/^void ui_message_handlert::ui_msg($/;"	f	class:ui_message_handlert
 uit	langapi/language_ui.h	/^  typedef ui_message_handlert::uit uit;$/;"	t	class:language_uit
-uit	util/ui_message.h	/^  typedef enum { PLAIN, XML_UI } uit;$/;"	t	class:ui_message_handlert	typeref:enum:ui_message_handlert::__anon72
+uit	util/ui_message.h	/^  typedef enum { PLAIN, XML_UI } uit;$/;"	t	class:ui_message_handlert	typeref:enum:ui_message_handlert::__anon73
 ul_eq	goto-cc/xml_binaries/xml_irep_hashing.h	/^    struct ul_eq$/;"	s	class:xml_irep_convertt
 ul_hash	goto-cc/xml_binaries/xml_irep_hashing.h	/^    struct ul_hash$/;"	s	class:xml_irep_convertt
 ullong_t	big-int/bigint.cc	/^typedef BigInt::ullong_t ullong_t;$/;"	t	file:
@@ -13951,6 +14003,7 @@ unique	goto-instrument/wmm/shared_buffers.cpp	/^std::string shared_bufferst::uni
 unique	musketeer/fence_inserter.h	/^  unsigned unique;$/;"	m	struct:mip_vart
 unique	musketeer/fence_inserter.h	/^  unsigned& unique;$/;"	m	class:fence_insertert
 unique_id	goto-instrument/wmm/goto2graph.h	/^  unsigned unique_id;$/;"	m	class:instrumentert
+unique_identifier	directfix-prototype/component_e.h	/^  const int &unique_identifier;$/;"	m	class:component_exprt
 unknown	util/threeval.h	/^  static inline tvt unknown()$/;"	f	class:tvt
 unknown_object	analyses/local_may_alias.h	/^  unsigned unknown_object;$/;"	m	class:local_may_aliast
 unknown_read_nodes	goto-instrument/wmm/goto2graph.h	/^    std::set<unsigned> unknown_read_nodes;$/;"	m	class:instrumentert::cfg_visitort
@@ -14043,7 +14096,7 @@ utils	goto-instrument/accelerate/polynomial_accelerator.h	/^  acceleration_utils
 utils	goto-instrument/accelerate/sat_path_enumerator.h	/^  acceleration_utilst utils;$/;"	m	class:sat_path_enumeratort
 uuf	util/union_find.h	/^  unsigned_union_find uuf;$/;"	m	class:union_find
 v	util/fixedbv.h	/^  mp_integer v;$/;"	m	class:fixedbvt
-v_assign	directfix-prototype/component.h	/^  exprt v_assign;$/;"	m	class:component_exprt
+v_assign	directfix-prototype/component_e.h	/^  exprt v_assign;$/;"	m	class:component_exprt
 va_list_expr	goto-instrument/goto_program2code.h	/^  hash_set_cont<exprt, irep_hash> va_list_expr;$/;"	m	class:goto_program2codet
 valid	util/std_expr.h	/^  inline const exprt &valid() const$/;"	f	class:dynamic_object_exprt
 valid	util/std_expr.h	/^  inline exprt &valid()$/;"	f	class:dynamic_object_exprt
@@ -14195,6 +14248,8 @@ var_valt	path-symex/path_symex_state.h	/^  typedef std::vector<var_statet> var_v
 variable	goto-instrument/wmm/abstract_event.h	/^  irep_idt variable;$/;"	m	class:abstract_eventt
 variable	java_bytecode/java_bytecode_convert.cpp	/^  symbol_exprt variable(const exprt &arg, char type_char)$/;"	f	class:java_bytecode_convertt
 variable_map	solvers/qbf/qdimacs_core.h	/^  variable_mapt variable_map;  \/\/ variable -> symbol\/index map$/;"	m	class:qdimacs_coret
+variable_maps	directfix-prototype/cbe.h	/^  std::map<std::string, exprt> variable_maps;$/;"	m	class:test_caset
+variable_maps_loc	directfix-prototype/cbe.h	/^  std::map<std::string, exprt> variable_maps_loc;$/;"	m	class:test_caset
 variable_mapt	solvers/qbf/qdimacs_core.h	/^  typedef std::map<unsigned, symbol_mapt> variable_mapt;$/;"	t	class:qdimacs_coret
 vars	goto-instrument/accelerate/linearize.h	/^  std::vector<exprt> vars;$/;"	m	struct:linear_recurrence
 varst	goto-instrument/wmm/shared_buffers.h	/^  class varst$/;"	c	class:shared_bufferst
@@ -14259,6 +14314,7 @@ w_guardst	goto-instrument/race_check.cpp	/^  w_guardst(symbol_tablet &_symbol_ta
 w_guardst	goto-instrument/race_check.cpp	/^class w_guardst$/;"	c	file:
 w_index_symbol	goto-instrument/concurrency.cpp	/^    symbol_exprt array_symbol, w_index_symbol;$/;"	m	class:concurrency_instrumentationt::shared_vart	file:
 wait	util/pipe_stream.cpp	/^int pipe_stream::wait()$/;"	f	class:pipe_stream
+waiting_decls	directfix-prototype/cbe.h	/^  SSA_step_listt waiting_decls;$/;"	m	class:test_caset
 wallace_tree	solvers/flattening/bv_utils.cpp	/^bvt bv_utilst::wallace_tree(const std::vector<bvt> &pps)$/;"	f	class:bv_utilst
 wantt	cpp/cpp_typecheck_resolve.h	/^  typedef enum { VAR, TYPE, BOTH } wantt;$/;"	t	class:cpp_typecheck_resolvet	typeref:enum:cpp_typecheck_resolvet::__anon9
 warn	ansi-c/library/err.c	/^void warn(const char *fmt, ...)$/;"	f

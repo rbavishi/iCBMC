@@ -20,7 +20,6 @@ Author: Daniel Kroening, kroening@kroening.com
 #include <solvers/prop/literal.h>
 
 #include "symex_target.h"
-#include <directfix-prototype/cbe.h>
 
 class decision_proceduret;
 class namespacet;
@@ -165,6 +164,7 @@ public:
 
   exprt make_expression() const;
   bool icbmc_smt2;
+  std::map<int,int> loop_map;
 
   class SSA_stept
   {
@@ -187,6 +187,7 @@ public:
     bool is_memory_barrier() const  { return type==goto_trace_stept::MEMORY_BARRIER; }
     bool is_atomic_begin() const    { return type==goto_trace_stept::ATOMIC_BEGIN; }
     bool is_atomic_end() const      { return type==goto_trace_stept::ATOMIC_END; }
+    bool is_dead() const            { return type==goto_trace_stept::DEAD; }
 
     // we may choose to hide
     bool hidden;
@@ -200,6 +201,7 @@ public:
     exprt ssa_rhs;
     exprt original_rhs;
     assignment_typet assignment_type;
+    bool is_loop_stmt;
     
     // for ASSUME/ASSERT/CONSTRAINT
     exprt cond_expr; 

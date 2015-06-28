@@ -20,7 +20,7 @@ OBJ += ../ansi-c/ansi-c$(LIBEXT) \
       ../assembler/assembler$(LIBEXT) \
       ../solvers/solvers$(LIBEXT) \
       ../util/util$(LIBEXT) \
-      ../directfix-prototype/cbe$(LIBEXT) \
+      ../directfix-prototype/cbe$(LIBEXT) 
 
 INCLUDES= -I ..
 

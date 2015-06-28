@@ -99,9 +99,23 @@ void goto_symext::symex_decl(statet &state)
     state.top().hidden_function ||
     state.source.pc->source_location.get_hide();
   
+  assignment_typet ass_type;
+  if(hidden)
+  {
+    if(icbmc_smt2==true)
+    {
+      ass_type=symex_targett::RETURN;
+      //std::cout << "HIDDDDEEEEEENNNNNNN######################: " << from_expr(ns, "", ssa_lhs) << "\n";
+    }
+    else
+      ass_type=symex_targett::HIDDEN;
+  }
+  else
+    ass_type=symex_targett::STATE;
+
   target.decl(
     state.guard.as_expr(),
     ssa_lhs, original_lhs,
     state.source,
-    hidden?symex_targett::HIDDEN:symex_targett::STATE);
+    ass_type);
 }

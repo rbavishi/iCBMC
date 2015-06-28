@@ -20,7 +20,7 @@ Author: Daniel Kroening, kroening@kroening.com
 
 #include "goto_symex_state.h"
 #include "symex_target_equation.h"
-#include <directfix-prototype/component_e.h>
+#include <directfix-prototype/cbe.h>
 
 /*******************************************************************\
 
@@ -265,7 +265,9 @@ void symex_target_equationt::assignment(
   SSA_step.hidden=(assignment_type!=STATE &&
                    assignment_type!=VISIBLE_ACTUAL_PARAMETER);
   SSA_step.source=source;
-  std::cout << "Source: " << SSA_step.source.pc->location_number << " Code: " << from_expr(ns, "", SSA_step.cond_expr) << "\n";
+  //std::cout << "Source: " << SSA_step.source.pc->location_number << " Code: " << from_expr(ns, "", SSA_step.cond_expr) << " " << assignment_type << "\n";
+  //std::cout<< "Source: " << " ";
+  //SSA_step.output(ns, std::cout);
 
   merge_ireps(SSA_step);
 }
@@ -301,7 +303,9 @@ void symex_target_equationt::decl(
   SSA_step.original_full_lhs=original_lhs_object;
   SSA_step.type=goto_trace_stept::DECL;
   SSA_step.source=source;
-  SSA_step.hidden=(assignment_type!=STATE);
+  SSA_step.assignment_type=assignment_type;
+
+  SSA_step.hidden=(assignment_type!=STATE && assignment_type!=RETURN);
 
   // the condition is trivially true, and only
   // there so we see the symbols
@@ -329,6 +333,15 @@ void symex_target_equationt::dead(
   const sourcet &source)
 {
   // we currently don't record these
+  // Actually we do - iCBMC
+  SSA_steps.push_back(SSA_stept());
+  SSA_stept &SSA_step=SSA_steps.back();
+
+  SSA_step.type=goto_trace_stept::DEAD;
+  SSA_step.ssa_lhs=ssa_lhs;
+  SSA_step.original_lhs_object=original_lhs_object;
+  SSA_step.source=source;
+  SSA_step.guard=guard;
 }
 
 /*******************************************************************\
@@ -530,6 +543,7 @@ void symex_target_equationt::assumption(
   SSA_step.cond_expr=cond;
   SSA_step.type=goto_trace_stept::ASSUME;
   SSA_step.source=source;
+  SSA_step.ssa_lhs=to_symbol_expr(cond.op0());
 
   merge_ireps(SSA_step);
 }
@@ -633,13 +647,40 @@ Function: symex_target_equationt::convert_directfix
 void symex_target_equationt::convert_directfix(
    prop_convt &prop_conv)
 {
+  test_caset test_case(ns, prop_conv);
+  for(SSA_stepst::const_iterator it=SSA_steps.begin();
+      it!=SSA_steps.end(); it++)
+  {
+    if(it->is_assignment() && !it->ignore && it->assignment_type!=symex_targett::HIDDEN)
+    {
+      test_case.add_assignment(*it, loop_map[it->source.pc->location_number]);
+      std::cout << "ASSIGN: " << from_expr(ns, "", it->cond_expr) << std::endl;
+    }
+    if(it->is_dead()) 
+    {
+      std::cout << "DEAD: " << to_symbol_expr(it->ssa_lhs).get_identifier() << "\n";
+      test_case.add_dead(*it);
+    }
+    if(it->is_decl())
+    {
+      std::cout << "DECL: " << to_symbol_expr(it->ssa_lhs).get_identifier() << " " << (it->assignment_type==symex_targett::RETURN) << "\n";
+      //test_case.waiting_decls.push_back(*it);
+    }
+    if(it->is_assume() || it->is_assert())
+    {
+      test_case.add_assumption_assertion(*it);
+    }
+  }
+  test_case.output();
+
+
   //convert_guards(prop_conv);
-  convert_assignments(prop_conv);
+  //convert_assignments(prop_conv);
   //convert_decls(prop_conv);
   //convert_assumptions(prop_conv);
-  convert_assertions(prop_conv);
-  convert_io(prop_conv);
-  convert_constraints(prop_conv);
+  //convert_assertions(prop_conv);
+  //convert_io(prop_conv);
+  //convert_constraints(prop_conv);
 }
 /*******************************************************************\
 
@@ -662,16 +703,29 @@ void symex_target_equationt::convert_assignments(
     if(it->is_assignment() && !it->ignore) {
       if (icbmc_smt2==false) decision_procedure.set_to_true(it->cond_expr);
       else decision_procedure.set_to_true(equal_exprt(it->ssa_lhs, it->original_rhs));
-      std::cout << "We're here ############### ::: " << from_expr(ns, "", it->cond_expr) <<  std::endl;
+      std::set<typet> sett;
+      typet ok(ID_signedbv);
+      to_signedbv_type(ok).set_width(32);
+      typet ok1(ID_signedbv);
+      to_signedbv_type(ok1).set_width(64);
+      typet ok2(ID_signedbv);
+      to_signedbv_type(ok2).set_width(64);
+      sett.insert(ok);
+      sett.insert(ok1);
+      sett.insert(ok2);
+
+      std::cout << "We're here " << sett.size() << "############### ::: " << from_expr(ns, "", it->cond_expr) <<  std::endl;
+      if(it->assignment_type==GUARD) std::cout << "Fuck YEAH @@@###$$$@@@@####\n";
+      if(it->assignment_type==PHI) std::cout << "Hell YEAH @@@###$$$@@@@####\n";
       exprt_visit(it->cond_expr);
       typet type(ID_integer);
       exprt s_i(ID_symbol, type);
       exprt s_j(ID_symbol, type);
       to_symbol_expr(s_i).set_identifier("s_i"+i2string(it->source.pc->location_number));
       to_symbol_expr(s_j).set_identifier("s_j"+i2string(it->source.pc->location_number));
-      component_exprt trial(ns, it->cond_expr, s_i, s_j, "main", it->source.pc->location_number, false, decision_procedure); 
-      trial.parse_expr(trial.expr);
-      
+      //component_exprt trial(ns, it->cond_expr, it->source.pc->source_location, s_i, s_j, "main", it->source.pc->location_number, false, decision_procedure); 
+      //trial.parse_expr();
+#if 0
       expr_listt::iterator it=trial.phi_struct.begin();
       std::cout<<"Size" << trial.phi_struct.size() << std::endl;
       //decision_procedure.set_to_true(trial.phi_struct.back());
@@ -720,6 +774,7 @@ void symex_target_equationt::convert_assignments(
       	decision_procedure.set_to_true(*it);
 	it++;
       }
+#endif
     }
     //if(it->is_decl()) std::cout << "We have a declaration!!!" << from_expr(ns, "", it->cond_expr) << "\n";
   }
@@ -1071,7 +1126,7 @@ void symex_target_equationt::SSA_stept::output(
     default:;
     }
 
-    out << ")" << std::endl;
+    out << ")" << ignore << is_assignment() << std::endl;
     break;
     
   case goto_trace_stept::DEAD: out << "DEAD" << std::endl; break;

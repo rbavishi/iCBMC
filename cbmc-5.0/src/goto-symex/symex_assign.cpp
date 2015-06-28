@@ -76,16 +76,21 @@ void goto_symext::symex_assign(
     // Let's hide return value assignments.
     if(lhs.id()==ID_symbol &&
        id2string(to_symbol_expr(lhs).get_identifier()).find(
-                  "#return_value!")!=std::string::npos)
-      assignment_type=symex_targett::HIDDEN;
+                  "_return_value!")!=std::string::npos)
+    {
+      if(icbmc_smt2==true) assignment_type=symex_targett::STATE;
+      else assignment_type=symex_targett::HIDDEN;
+    }
 
     // We hide if we are in a hidden function.
     if(state.top().hidden_function)
       assignment_type=symex_targett::HIDDEN;
 
     // We hide if we are executing a hidden instruction.
-    if(state.source.pc->source_location.get_hide())
+    if(state.source.pc->source_location.get_hide()) {
       assignment_type=symex_targett::HIDDEN;
+    }
+
 
     guardt guard; // NOT the state guard!
     symex_assign_rec(state, lhs, nil_exprt(), rhs, guard, assignment_type);
@@ -253,7 +258,13 @@ void goto_symext::symex_assign_symbol(
   state.get_original_name(original_lhs);
 
   const symbolt &symbol=ns.lookup(original_lhs);
-  if(symbol.is_auxiliary) assignment_type=symex_targett::HIDDEN;
+  if(symbol.is_auxiliary) 
+  {
+    if(icbmc_smt2==true)
+      assignment_type=symex_targett::RETURN;
+    else
+      assignment_type=symex_targett::STATE;
+  }
   
   //if (icbmc_smt2==true) state.rename_with_preserve(ssa_rhs, ns);
   //else state.rename(ssa_rhs, ns);

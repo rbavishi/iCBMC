@@ -62,6 +62,9 @@ public:
   virtual std::string decision_procedure_text() const { return "SMT1"; }
   virtual void print_assignment(std::ostream &out) const;
 
+  void set_soft_constraint(const exprt &expr);
+  void set_hard_constraint(const exprt &expr);
+
 
 protected:
   std::string benchmark, source, logic;

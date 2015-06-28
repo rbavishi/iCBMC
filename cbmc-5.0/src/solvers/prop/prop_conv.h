@@ -44,6 +44,14 @@ public:
 
   // specialised variant of get
   virtual tvt l_get(literalt a) const=0;
+
+  typedef enum {
+    RANGE, CONSISTENCY, ACYCLIC, CONNECTION, SEMANTIC, FORMULA
+  } hard_constraint_typet;
+
+  hard_constraint_typet constraint_type;
+  source_locationt source_location;      //Very hacky
+
   
   // incremental solving
   virtual void set_frozen(literalt a);

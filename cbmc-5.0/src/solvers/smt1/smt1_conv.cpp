@@ -107,7 +107,7 @@ void smt1_convt::write_header()
   out << "(benchmark " << benchmark << "\n";
   out << ":source { " << source << " }" << "\n";
   out << ":status unknown" << "\n";
-  out << ":logic " << logic << " ; SMT1" << "\n";
+  out << ":logic " << "QFLIA" << " ; SMT1" << "\n";
 }
 
 /*******************************************************************\
@@ -125,7 +125,7 @@ Function: smt1_convt::write_footer()
 void smt1_convt::write_footer()
 {
   out << "\n";
-  out << ":formula true" << "\n";
+  //out << ":formula true" << "\n";
   out << ") ; benchmark" << "\n";
 }
 
@@ -869,6 +869,8 @@ void smt1_convt::convert_expr(const exprt &expr, bool bool_as_bv)
     const typet &type=expr.type();
 
     assert(expr.operands().size()==2);
+    
+    //std::cout << "FROM EXPR: " << from_expr(ns, "" ,expr) << "\n";  
     assert(base_type_eq(expr.op0().type(), expr.op1().type(), ns));
 
     // this may have to be converted
@@ -3158,6 +3160,14 @@ Function: smt1_convt::set_to
 
 void smt1_convt::set_to(const exprt &expr, bool value)
 {
+  if(icbmc_directfix==true)
+  {
+    if(value==true) //Hacky fix for calling soft_constraint
+      set_soft_constraint(expr);
+    else
+      set_hard_constraint(expr);
+    return;
+  }
   if(expr.id()==ID_and && value)
   {
     forall_operands(it, expr)
@@ -3173,22 +3183,7 @@ void smt1_convt::set_to(const exprt &expr, bool value)
 
   out << "\n";
 
-  find_symbols(expr);
-  /* 
-  typet ok(ID_integer);
-  exprt trial(ID_symbol, ok);
-  to_symbol_expr(trial).set_identifier("MyVar#1");
-
-  exprt trial1(ID_constant, ok);
-  to_constant_expr(trial1).set_value("1");
-  minus_exprt aagoo(trial,trial1);
-  binary_relation_exprt agoogoo(trial, ID_lt, trial1);
-  std::cout << "Type: " << aagoo.type().id() << "\n";
-  */
-  //convert_expr(aagoo, false);
-  //convert_expr(agoogoo, false);
-  
-
+  find_symbols(expr); 
 
   #if 0
   out << "; CONV: "
@@ -3210,6 +3205,108 @@ void smt1_convt::set_to(const exprt &expr, bool value)
   else {
     convert_expr(expr, false);
   }
+
+  out << "\n";
+}
+
+void smt1_convt::set_soft_constraint(const exprt &expr)
+{
+  /*
+  if(expr.id()==ID_and)
+  {
+    forall_operands(it, expr)
+      set_to(*it, true);
+    return;
+  }
+
+  if(expr.id()==ID_not)
+  {
+    assert(expr.operands().size()==1);
+    return set_to(expr.op0(), false);
+  }
+  */
+  out << "\n";
+
+  find_symbols(expr); 
+
+  #if 0
+  out << "; CONV: "
+                << from_expr(expr) << "\n";
+  #endif
+
+  out << "\n;SOFT Constraint " << source_location << "\n";
+  out << ":assumption ; set_to "
+      << "true" << "\n"
+      << " ";
+
+  assert(expr.type().id()==ID_bool);
+
+  convert_expr(expr, false);
+
+  out << "\n";
+}
+
+void smt1_convt::set_hard_constraint(const exprt &expr)
+{
+  /*
+  if(expr.id()==ID_and)
+  {
+    forall_operands(it, expr)
+      set_to(*it, true);
+    return;
+  }
+
+  if(expr.id()==ID_not)
+  {
+    assert(expr.operands().size()==1);
+    return set_to(expr.op0(), false);
+  }
+  */
+  out << "\n";
+
+  find_symbols(expr); 
+
+  #if 0
+  out << "; CONV: "
+                << from_expr(expr) << "\n";
+  #endif
+
+  out << "\n; ";
+  switch(constraint_type)
+  {
+    case RANGE:
+      out << "RANGE Constraint";
+      break;
+
+    case CONSISTENCY:
+      out << "CONSISTENCY Constraint";
+      break;
+
+    case ACYCLIC:
+      out << "ACYCLIC Constraint";
+      break;
+
+    case CONNECTION:
+      out << "CONNECTION Constraint";
+      break;
+
+    case SEMANTIC:
+      out << "SEMANTIC Constraint";
+      break;
+
+    default:
+      out << "FORMULA";
+  }
+  if(constraint_type!=FORMULA) out << " " << source_location << "\n";
+  else out << "\n";
+
+  out << ":formula ; set_to "
+      << "true" << "\n"
+      << " ";
+
+  assert(expr.type().id()==ID_bool);
+
+  convert_expr(expr, false);
 
   out << "\n";
 }

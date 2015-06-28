@@ -146,8 +146,9 @@ void bmct::do_conversion(prop_convt &prop_conv)
   // convert SSA
   if (options.get_bool_option("icbmc-directfix"))
   {
-    prop_conv.icbmc_directfix=true;
+    //prop_conv.icbmc_directfix=true;
     std::cout << "YEAHHAH#### " << symex.loop_statement_map.size() << std::endl;
+    equation.loop_map=symex.loop_statement_map;
     equation.convert_directfix(prop_conv);
   }
   else

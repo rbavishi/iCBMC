@@ -56,7 +56,16 @@ void goto_symext::symex_dead(statet &state)
   // L2 renaming
   unsigned new_count=state.level2.current_count(l1_identifier)+1;
   state.level2.rename_identifier(l1_identifier, new_count);
-    
+
+  if(icbmc_smt2==true)
+  {
+    guardt guard;
+    target.dead(
+      guard.as_expr(),
+      to_symbol_expr(code.op0()),
+      to_symbol_expr(code.op0()),
+      state.source);
+  }  
   // in case of pointers, put something into the value set
   if(ns.follow(code.op0().type()).id()==ID_pointer)
   {

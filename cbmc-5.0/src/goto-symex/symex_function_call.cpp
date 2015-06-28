@@ -114,6 +114,12 @@ void goto_symext::parameter_assignments(
       tmp_d.function=function_identifier;
       tmp_d.is_function_call_assignment=true;
 
+      target.decl(
+	state.guard.as_expr(),
+	lhs, lhs,
+	state.source,
+	symex_targett::STATE);
+
       goto_programt::instructiont tmp_a;
       code_assignt assignment(lhs,rhs_unrefined);
       tmp_a.make_assignment();
