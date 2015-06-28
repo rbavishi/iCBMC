@@ -15,17 +15,21 @@
 component_exprt::component_exprt(
   const namespacet &_ns,
   const exprt &_expr,
+  const source_locationt &_source_location,
   const exprt &_sep_i,
   const exprt &_sep_j,
   const std::string &_function,
+  const int &_unique_identifier,
   const int &_instruction_number,
   const bool &_is_loop_statement,
-  decision_proceduret &_solver):
+  prop_convt &_solver):
   ns(_ns),
   expr(_expr),
+  source_location(_source_location),
   sep_i(_sep_i),
   sep_j(_sep_j),
   function(_function),
+  unique_identifier(_unique_identifier),
   instruction_number(_instruction_number),
   is_loop_statement(_is_loop_statement),
   solver(_solver)
@@ -43,7 +47,10 @@ component_exprt::component_exprt(
   id_maps[ID_lt]="lt";
   id_maps[ID_unary_minus]="unary_minus";
   id_maps[ID_unary_plus]="unary_plus";
-  //parse_expr(expr);
+
+  /*
+   We really don't want to parse the expression in the constructor itself. The reason being that there is going to be a std::list<component_exprt>   in the main test case class. And pushing this component_expr to the list after parsing the expression will be costly, as the copy constructor w   ould have to copy all the lists - twice the amount of work. We don't want such optimal wastage of time.
+  */
 }
 
 /*********************************\
@@ -58,16 +65,16 @@ void component_exprt::gen_loc_var(
     const exprt &expr, 
     std::string suffix)
 {
-  irep_idt base;
+  std::string base;
   if (expr.id()==ID_symbol)
-    base=to_symbol_expr(expr).get_identifier();
+    base="."+id2string(to_symbol_expr(expr).get_identifier());
   else if (expr.id()==ID_constant)
-    base="const";
+    base=".const";
   else if(id_maps.find(expr.id())!=id_maps.end())
-    base=id_maps[expr.id()];
+    base=".OPERATOR."+id_maps[expr.id()];
   else
-    base=id2string(expr.id());
-  std::string final_name="L_"+i2string(instruction_number)+"_"+i2string(component_cnt)+"_"+id2string(base)+suffix;
+    base=".OPERATOR."+id2string(expr.id());
+  std::string final_name="L."+id2string(source_location.get_line())+"."+i2string(instruction_number)+"_"+i2string(component_cnt)+"_"+i2string(unique_identifier)+base+suffix;
   //typet type(ID_integer);
   //exprt loc_var(ID_symbol, type);
   to_symbol_expr(loc_var).set_identifier(final_name);
@@ -85,17 +92,16 @@ void component_exprt::gen_comp_var(
     const exprt &expr,  
     std::string suffix)
 {
-  irep_idt base;
+  std::string base;
   if (expr.id()==ID_symbol)
-    base=to_symbol_expr(expr).get_identifier();
+    base="."+id2string(to_symbol_expr(expr).get_identifier());
   else if (expr.id()==ID_constant)
-    base="const";
+    base=".const";
   else if(id_maps.find(expr.id())!=id_maps.end())
-    base=id_maps[expr.id()];
+    base=".OPERATOR."+id_maps[expr.id()];
   else
-    base=id2string(expr.id());
-
-  std::string final_name="C_"+i2string(instruction_number)+"_"+i2string(component_cnt)+"_"+id2string(base)+suffix;
+    base=".OPERATOR."+id2string(expr.id());
+  std::string final_name="C."+id2string(source_location.get_line())+"."+i2string(instruction_number)+"_"+i2string(component_cnt)+"_"+i2string(unique_identifier)+base+suffix;
   to_symbol_expr(comp_var).set_identifier(final_name);
 }
 
@@ -133,7 +139,7 @@ void component_exprt::get_df_loc_var(const exprt &expr)
   }
 }
 
-void component_exprt::parse_expr(const exprt &expr)
+void component_exprt::parse_expr()
 {
   assert(expr.id()==ID_equal);
   v_assign=expr.op0();
@@ -169,6 +175,11 @@ void component_exprt::parse_expr(const exprt &expr)
 	 implies_exprt implication(L_part, C_part);
 	 phi_conn.push_back(implication);
       }
+      else
+      {
+	notequal_exprt cannot_be_equal(*it_loc, *it_loc_in);
+	phi_conn.push_back(cannot_be_equal);
+      }
       it_loc_in++;
       it_c_in++;
     }
@@ -184,6 +195,7 @@ void component_exprt::add_range_constraint(const exprt &loc_var)
   binary_relation_exprt range_constraint_lt(loc_var, ID_lt, sep_j);
   phi_range.push_back(range_constraint_lt);
 }
+
 
 void component_exprt::parse_expr_rec(const exprt &expr)
 {
@@ -248,4 +260,165 @@ void component_exprt::parse_expr_rec(const exprt &expr)
     equal_exprt semantic_constraint(comp_var, rhs);
     phi_sem.push_back(semantic_constraint);
   }
+  else
+  {
+    equal_exprt semantic_constraint(comp_var, expr);
+    phi_sem.push_back(semantic_constraint);
+  }
 }
+
+void component_exprt::output_soft()
+{
+  solver.icbmc_directfix=true;
+  solver.source_location=source_location;
+  expr_listt::iterator it=phi_struct.begin();
+  while (it!=phi_struct.end())
+  {
+    solver.set_to(*it, true);
+    it++;
+  }
+  solver.icbmc_directfix=false;
+}
+
+void component_exprt::output_range()
+{
+  solver.icbmc_directfix=true;
+  solver.source_location=source_location;
+  solver.constraint_type=prop_convt::RANGE;
+  expr_listt::iterator it=phi_range.begin();
+  and_exprt::operandst ops;
+  ops.reserve(phi_range.size());
+  while (it!=phi_range.end())
+  {
+    ops.push_back(*it);
+    it++;
+  }
+  solver.set_to(conjunction(ops), false);
+  solver.icbmc_directfix=false;
+}
+
+void component_exprt::output_sem()
+{
+  solver.icbmc_directfix=true;
+  solver.source_location=source_location;
+  solver.constraint_type=prop_convt::SEMANTIC;
+  expr_listt::iterator it=phi_sem.begin();
+  and_exprt::operandst ops;
+ 
+  ops.reserve(phi_sem.size());
+  while (it!=phi_sem.end())
+  {
+    ops.push_back(*it);
+    it++;
+  }
+  solver.set_to(conjunction(ops), false);
+  solver.icbmc_directfix=false;
+}
+
+void component_exprt::output_conn()
+{
+  solver.icbmc_directfix=true;
+  solver.source_location=source_location;
+  solver.constraint_type=prop_convt::CONNECTION;
+  expr_listt::iterator it=phi_conn.begin();
+  and_exprt::operandst ops;
+  ops.reserve(phi_conn.size());
+  while (it!=phi_conn.end())
+  {
+    ops.push_back(*it);
+    //std::cout << "EXPR: " << from_expr(ns, "", *it) << "::::"  << it->op0().op0().id() << std::endl;
+    it++;
+  }
+  //std::cout << "DONE###############" << "\n";
+  solver.set_to(conjunction(ops), false);
+  solver.icbmc_directfix=false;
+  //std::cout << "YEP###############" << "\n";
+}
+
+void component_exprt::output_cons()
+{
+  solver.icbmc_directfix=true;
+  solver.source_location=source_location;
+  solver.constraint_type=prop_convt::CONSISTENCY;
+  expr_listt::iterator it=phi_cons.begin();
+  and_exprt::operandst ops;
+  ops.reserve(phi_cons.size());
+  while (it!=phi_cons.end())
+  {
+    ops.push_back(*it);
+    it++;
+  }
+  solver.set_to(conjunction(ops), false);
+  solver.icbmc_directfix=false;
+}
+
+void component_exprt::output_acyc()
+{
+  solver.icbmc_directfix=true;
+  solver.source_location=source_location;
+  solver.constraint_type=prop_convt::ACYCLIC;
+  expr_listt::iterator it=phi_acyc.begin();
+  and_exprt::operandst ops;
+  ops.reserve(phi_acyc.size());
+  while (it!=phi_acyc.end())
+  {
+    ops.push_back(*it);
+    it++;
+  }
+  solver.set_to(conjunction(ops), false);
+  solver.icbmc_directfix=false;
+}
+
+void component_exprt::output_hard()
+{
+  output_range();
+  output_sem();
+  output_conn();
+  output_cons();
+  output_acyc();
+}
+
+void component_exprt::add_variable_component(
+  const exprt &loc_var,
+  std::string var_name,
+  const exprt &original_expr)
+{
+  exprt c_var(ID_symbol, original_expr.type());
+  std::string c_var_name="C_Extra"+id2string(source_location.get_line())+"_"+i2string(instruction_number)+"_"+i2string(unique_identifier)+"."+var_name;
+  to_symbol_expr(c_var).set_identifier(c_var_name);
+
+  //Consistency Constraint
+  expr_listt::iterator it=out_location_variables.begin(); 
+  while(it!=out_location_variables.end())
+  {
+    notequal_exprt cons_constraint(*it, loc_var);
+    phi_cons.push_back(cons_constraint);
+    it++;
+  }
+
+  //Semantic Constraint
+  equal_exprt sem_cons(original_expr, c_var);
+  phi_sem.push_back(sem_cons);
+
+  //Connection Constraint
+  it=in_location_variables.begin();
+  expr_listt::iterator c_it=in_component_variables.begin();
+  while(it!=in_location_variables.end())
+  {
+    if (c_it->type()==c_var.type())
+    {
+       equal_exprt L_part(loc_var, *it);
+       equal_exprt C_part(c_var, *c_it);
+       implies_exprt implication(L_part, C_part);
+       phi_conn.push_back(implication);
+    }
+    else
+    {
+      notequal_exprt cannot_be_equal(loc_var, *it);
+      phi_conn.push_back(cannot_be_equal);
+    }
+    it++;
+    c_it++;
+  }
+}
+

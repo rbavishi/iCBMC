@@ -5,6 +5,7 @@
 #include <util/std_types.h>
 #include <util/std_expr.h>
 #include <util/dstring.h>
+#include <util/source_location.h>
 #include <solvers/prop/prop_conv.h>
 
 #include <string>
@@ -17,22 +18,26 @@ class component_exprt
   component_exprt(
     const namespacet &_ns,
     const exprt &_expr,
+    const source_locationt &source_location,
     const exprt &_sep_i,
     const exprt &_sep_j,
     const std::string &_function,
+    const int &_unique_identifier,
     const int &_instruction_number,
     const bool &_is_loop_statement,
-    decision_proceduret &_solver);
+    prop_convt &_solver);
 
 
   const namespacet &ns;
   const exprt &expr;
+  const source_locationt &source_location;
   const exprt &sep_i;
   const exprt &sep_j;
   const std::string function;
+  const int &unique_identifier;
   const int &instruction_number;
   const bool &is_loop_statement;
-  decision_proceduret &solver;
+  prop_convt &solver;
   int component_cnt; //Should be equal to (sep_j-sep_i)
 
   std::map<dstring, std::string> id_maps; //Couldn't think of a workaround
@@ -74,7 +79,7 @@ class component_exprt
 
 
 
-  void parse_expr(const exprt &expr);
+  void parse_expr();
   void parse_expr_rec(const exprt &expr);
 
 
@@ -91,6 +96,21 @@ class component_exprt
   expr_listt phi_conn;    //Connection Constraint - Hard
   expr_listt phi_cons;    //Consistency Constraint - Hard - Output of each component has a unique location
   expr_listt phi_acyc;    //Acyclic Constraint - Hard - Forbid Cyclic Connections
+
+  void output_soft();
+  void output_hard();
+  void output_range();
+  void output_sem();
+  void output_acyc();
+  void output_cons();
+  void output_conn();
+
+  //Component Addition
+  void add_variable_component(
+    const exprt &loc_var,
+    std::string var_name,
+    const exprt &original_expr);
+
 };
 
 #endif
