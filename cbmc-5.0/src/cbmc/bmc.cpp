@@ -144,22 +144,38 @@ void bmct::do_conversion(prop_convt &prop_conv)
   do_unwind_module(prop_conv);
 
   // convert SSA
-  if (options.get_bool_option("icbmc-directfix"))
-  {
-    //prop_conv.icbmc_directfix=true;
-    std::cout << "YEAHHAH#### " << symex.loop_statement_map.size() << std::endl;
-    equation.loop_map=symex.loop_statement_map;
-    equation.convert_directfix(prop_conv);
-  }
-  else
-  {
     prop_conv.icbmc_directfix=false;
     equation.convert(prop_conv);
-  }
 
   // the 'extra constraints'
   forall_expr_list(it, bmc_constraints)
     prop_conv.set_to_true(*it);
+}
+/*******************************************************************\
+
+Function: bmct::do_conversion_directfix
+
+  Inputs:
+
+ Outputs:
+
+ Purpose:
+
+\*******************************************************************/
+
+void bmct::do_conversion_directfix(smt1_convt &solver)
+{
+  // convert HDL
+  do_unwind_module(solver);
+
+  // convert SSA
+    //prop_conv.icbmc_directfix=true;
+    equation.loop_map=symex.loop_statement_map;
+    equation.convert_directfix(solver);
+
+  // the 'extra constraints'
+  forall_expr_list(it, bmc_constraints)
+    solver.set_to(*it, true);
 }
 
 /*******************************************************************\

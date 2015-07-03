@@ -3456,7 +3456,6 @@ add_array_constraints_with	solvers/flattening/arrays.cpp	/^void arrayst::add_arr
 add_array_symbols	goto-instrument/concurrency.cpp	/^void concurrency_instrumentationt::add_array_symbols()$/;"	f	class:concurrency_instrumentationt
 add_assertions	goto-instrument/uninitialized.cpp	/^void uninitializedt::add_assertions(goto_programt &goto_program)$/;"	f	class:uninitializedt
 add_assignment	directfix-prototype/cbe.cpp	/^void test_caset::add_assignment($/;"	f	class:test_caset
-add_assumption_assertion	directfix-prototype/cbe.cpp	/^void test_caset::add_assumption_assertion(const symex_target_equationt::SSA_stept &SSA_step)$/;"	f	class:test_caset
 add_back	big-int/bigint.cc	/^add_back (onedig_t *r, onedig_t const *y, unsigned l)$/;"	f	file:
 add_base_components	cpp/cpp_typecheck_bases.cpp	/^void cpp_typecheckt::add_base_components($/;"	f	class:cpp_typecheckt
 add_bias	solvers/floatbv/float_utils.cpp	/^bvt float_utilst::add_bias(const bvt &src)$/;"	f	class:float_utilst
@@ -3465,9 +3464,10 @@ add_catch	util/std_code.h	/^  void add_catch(const code_declt &to_catch, const c
 add_class	java_bytecode/java_bytecode_parse_tree.h	/^  inline classt &add_class()$/;"	f	class:java_bytecode_parse_treet
 add_com_edge	goto-instrument/wmm/event_graph.h	/^  void add_com_edge(unsigned a, unsigned b)$/;"	f	class:event_grapht
 add_compiler_specific_defines	goto-cc/compile.cpp	/^void compilet::add_compiler_specific_defines(configt &config) const$/;"	f	class:compilet
+add_component	directfix-prototype/component_e.cpp	/^void component_exprt::add_component($/;"	f	class:component_exprt
 add_constraint	goto-symex/partial_order_concurrency.cpp	/^void partial_order_concurrencyt::add_constraint($/;"	f	class:partial_order_concurrencyt
 add_constraint	solvers/prop/prop_conv_store.h	/^    constraintt &add_constraint()$/;"	f	class:prop_conv_storet::constraintst
-add_dead	directfix-prototype/cbe.cpp	/^void test_caset::add_dead(const symex_target_equationt::SSA_stept &SSA_step)$/;"	f	class:test_caset
+add_constraints_op	directfix-prototype/cbe.cpp	/^void test_caset::add_constraints_op(const exprt &loc_var)$/;"	f	class:test_caset
 add_decl	directfix-prototype/cbe.cpp	/^void test_caset::add_decl( $/;"	f	class:test_caset
 add_declarator	ansi-c/ansi_c_parser.cpp	/^void ansi_c_parsert::add_declarator($/;"	f	class:ansi_c_parsert
 add_dirty_checks	goto-instrument/accelerate/accelerate.cpp	/^void acceleratet::add_dirty_checks() {$/;"	f	class:acceleratet
@@ -3534,7 +3534,6 @@ add_quantifier	solvers/qbf/qdimacs_cnf.h	/^  virtual void add_quantifier(const q
 add_range_constraint	directfix-prototype/component_e.cpp	/^void component_exprt::add_range_constraint(const exprt &loc_var)$/;"	f	class:component_exprt
 add_return	goto-programs/goto_convert_functions.cpp	/^void goto_convert_functionst::add_return($/;"	f	class:goto_convert_functionst
 add_safety_assertion	goto-programs/remove_function_pointers.cpp	/^  bool add_safety_assertion;$/;"	m	class:remove_function_pointerst	file:
-add_scope	directfix-prototype/cbe.cpp	/^void test_caset::add_scope($/;"	f	class:test_caset
 add_secondary_scope	cpp/cpp_scope.h	/^  void add_secondary_scope(cpp_scopet &other)$/;"	f	class:cpp_scopet
 add_source_location	cpp/cpp_name.h	/^    inline source_locationt &add_source_location()$/;"	f	class:cpp_namet::namet
 add_source_location	util/expr.h	/^  inline source_locationt &add_source_location()$/;"	f	class:exprt
@@ -3568,7 +3567,6 @@ add_var	pointer-analysis/value_set_fivr.h	/^  void add_var(const entryt &e)$/;"	
 add_var	pointer-analysis/value_set_fivr.h	/^  void add_var(const idt &id, const std::string &suffix)$/;"	f	class:value_set_fivrt
 add_var	pointer-analysis/value_set_fivrns.h	/^  void add_var(const entryt &e)$/;"	f	class:value_set_fivrnst
 add_var	pointer-analysis/value_set_fivrns.h	/^  void add_var(const idt &id, const std::string &suffix)$/;"	f	class:value_set_fivrnst
-add_variable_component	directfix-prototype/component_e.cpp	/^void component_exprt::add_variable_component($/;"	f	class:component_exprt
 add_variable_components	directfix-prototype/cbe.cpp	/^void test_caset::add_variable_components()$/;"	f	class:test_caset
 add_variables	solvers/sat/satcheck_glucose.cpp	/^void satcheck_glucose_baset<T>::add_variables()$/;"	f	class:satcheck_glucose_baset
 add_variables	solvers/sat/satcheck_minisat.cpp	/^void satcheck_minisat1_baset::add_variables()$/;"	f	class:satcheck_minisat1_baset
@@ -4191,6 +4189,8 @@ bv	ansi-c/library/math.c	/^  int bv;$/;"	m	union:mixf	file:
 bv	ansi-c/library/math.c	/^  long long int bv;$/;"	m	union:mixd	file:
 bv	ansi-c/library/math.c	/^  long long int bv;$/;"	m	union:mixl	file:
 bv	solvers/flattening/bv_pointers.h	/^    bvt bv, op;$/;"	m	struct:bv_pointerst::postponedt
+bv32_ops	directfix-prototype/cbe.h	/^  std::map<dstring, int> bv32_ops;$/;"	m	class:test_caset
+bv64_ops	directfix-prototype/cbe.h	/^  std::map<dstring, int> bv64_ops;$/;"	m	class:test_caset
 bv_arithmetict	util/bv_arithmetic.h	/^  bv_arithmetict():value(0)$/;"	f	class:bv_arithmetict
 bv_arithmetict	util/bv_arithmetic.h	/^  bv_arithmetict(const bv_spect &_spec):$/;"	f	class:bv_arithmetict
 bv_arithmetict	util/bv_arithmetic.h	/^  bv_arithmetict(const exprt &expr)$/;"	f	class:bv_arithmetict
@@ -5467,6 +5467,7 @@ cpp_usingt	cpp/cpp_using.h	/^  cpp_usingt():irept(ID_cpp_using)$/;"	f	class:cpp_
 cpp_usingt	cpp/cpp_using.h	/^class cpp_usingt:public irept$/;"	c
 cprover_exception_statement	ansi-c/parser.y	/^cprover_exception_statement:$/;"	l
 cprover_library_entryt	ansi-c/cprover_library.cpp	/^struct cprover_library_entryt$/;"	s	file:
+create_op	directfix-prototype/cbe.cpp	/^void test_caset::create_op(const typet &type_id, const dstring &op_id, const typet &input_id)$/;"	f	class:test_caset
 critical_cyclet	goto-instrument/wmm/event_graph.h	/^    critical_cyclet(event_grapht& _egraph, unsigned _id)$/;"	f	class:event_grapht::critical_cyclet
 critical_cyclet	goto-instrument/wmm/event_graph.h	/^  class critical_cyclet:public std::list<unsigned>$/;"	c	class:event_grapht
 cur_fun	goto-instrument/wmm/goto2graph.h	/^    irep_idt cur_fun;$/;"	m	class:instrumentert::cfg_visitort
@@ -7226,6 +7227,7 @@ get_objects_rec	goto-instrument/object_id.cpp	/^void get_objects_rec($/;"	f
 get_objects_rec	goto-programs/goto_rw.cpp	/^void get_objects_rec($/;"	f
 get_objects_w	goto-instrument/object_id.cpp	/^void get_objects_w(const code_assignt &assign, object_id_sett &dest)$/;"	f
 get_objects_w	goto-instrument/object_id.cpp	/^void get_objects_w(const exprt &lhs, object_id_sett &dest)$/;"	f
+get_op_name	directfix-prototype/cbe.cpp	/^std::string test_caset::get_op_name(const dstring &id)$/;"	f	class:test_caset
 get_operation	goto-instrument/wmm/abstract_event.h	/^  std::string get_operation() const$/;"	f	class:abstract_eventt
 get_option	util/options.cpp	/^const std::string optionst::get_option(const std::string &option) const$/;"	f	class:optionst
 get_optnr	goto-cc/goto_cc_cmdline.cpp	/^std::size_t goto_cc_cmdlinet::get_optnr(const std::string &opt_string)$/;"	f	class:goto_cc_cmdlinet
@@ -7538,6 +7540,7 @@ guard_identifier	goto-symex/goto_symex.h	/^  irep_idt guard_identifier;$/;"	m	cl
 guard_list	util/guard.h	/^  guard_listt guard_list;  $/;"	m	class:guardt
 guard_listt	util/guard.h	/^  typedef expr_listt guard_listt;$/;"	t	class:guardt
 guard_literal	goto-symex/symex_target_equation.h	/^    literalt guard_literal;$/;"	m	class:symex_target_equationt::SSA_stept
+guard_loop_phantom	directfix-prototype/cbe.h	/^  std::map<int, bool> guard_loop_phantom;$/;"	m	class:test_caset
 guardt	util/guard.h	/^class guardt$/;"	c
 guess_function_template_args	cpp/cpp_typecheck_resolve.cpp	/^exprt cpp_typecheck_resolvet::guess_function_template_args($/;"	f	class:cpp_typecheck_resolvet
 guess_function_template_args	cpp/cpp_typecheck_resolve.cpp	/^void cpp_typecheck_resolvet::guess_function_template_args($/;"	f	class:cpp_typecheck_resolvet
@@ -7752,6 +7755,7 @@ id_map	aa-path-symex/var_map.h	/^  id_mapt id_map;$/;"	m	class:var_mapt
 id_map	cpp/cpp_scopes.h	/^  id_mapt id_map;$/;"	m	class:cpp_scopest
 id_map	cpp/parse.cpp	/^  id_mapt id_map;$/;"	m	class:new_scopet	file:
 id_map	path-symex/var_map.h	/^  id_mapt id_map;$/;"	m	class:var_mapt
+id_maps	directfix-prototype/cbe.h	/^  std::map<dstring, std::string> id_maps; \/\/Couldn't think of a workaround$/;"	m	class:test_caset
 id_maps	directfix-prototype/component_e.h	/^  std::map<dstring, std::string> id_maps; \/\/Couldn't think of a workaround$/;"	m	class:component_exprt
 id_mapt	aa-path-symex/var_map.h	/^  typedef std::map<irep_idt, var_infot> id_mapt;$/;"	t	class:var_mapt
 id_mapt	cpp/cpp_scopes.h	/^  typedef hash_map_cont<irep_idt, cpp_idt *, irep_id_hash> id_mapt;$/;"	t	class:cpp_scopest
@@ -7997,6 +8001,7 @@ initialize	pointer-analysis/value_set_domain_fivr.h	/^  virtual void initialize(
 initialize	pointer-analysis/value_set_domain_fivrns.h	/^  virtual void initialize($/;"	f	class:value_set_domain_fivrnst
 initialize	solvers/refinement/refine_arithmetic.cpp	/^void bv_refinementt::initialize(approximationt &a)$/;"	f	class:bv_refinementt
 initialize_auto_object	goto-symex/auto_objects.cpp	/^void goto_symext::initialize_auto_object($/;"	f	class:goto_symext
+initialize_operators	directfix-prototype/cbe.cpp	/^void test_caset::initialize_operators()$/;"	f	class:test_caset
 initialize_property_map	aa-symex/path_search.cpp	/^void path_searcht::initialize_property_map($/;"	f	class:path_searcht
 initialize_property_map	goto-programs/property_checker.cpp	/^void property_checkert::initialize_property_map($/;"	f	class:property_checkert
 initialize_property_map	symex/path_search.cpp	/^void path_searcht::initialize_property_map($/;"	f	class:path_searcht
@@ -8498,7 +8503,6 @@ is_ptr_argument	goto-programs/string_abstraction.cpp	/^static inline bool is_ptr
 is_ptr_string_struct	goto-programs/string_abstraction.cpp	/^bool string_abstractiont::is_ptr_string_struct(const typet &type) const$/;"	f	class:string_abstractiont
 is_qualified	cpp/cpp_name.h	/^  bool is_qualified() const$/;"	f	class:cpp_namet
 is_quantified	solvers/qbf/qdimacs_cnf.cpp	/^bool qdimacs_cnft::is_quantified(const literalt l) const$/;"	f	class:qdimacs_cnft
-is_ready	directfix-prototype/cbe.h	/^  std::map<std::string, bool> is_ready;$/;"	m	class:test_caset
 is_recursion	goto-symex/goto_symex_state.h	/^      bool is_recursion;$/;"	m	struct:goto_symex_statet::framet::loop_infot
 is_reference	util/std_types.cpp	/^bool is_reference(const typet &type)$/;"	f
 is_register	ansi-c/c_storage_spec.h	/^  bool is_typedef, is_extern, is_static, is_register,$/;"	m	class:c_storage_spect
@@ -8719,6 +8723,7 @@ key_type	util/sorted_vector.h	/^  typedef K key_type;$/;"	t	class:sorted_vector
 kill	analyses/reaching_definitions.cpp	/^void rd_range_domaint::kill($/;"	f	class:rd_range_domaint
 kill	ansi-c/library/signal.c	/^int kill(pid_t pid, int sig)$/;"	f
 kill_inf	analyses/reaching_definitions.cpp	/^void rd_range_domaint::kill_inf($/;"	f	class:rd_range_domaint
+kill_ops	directfix-prototype/cbe.cpp	/^void test_caset::kill_ops()$/;"	f	class:test_caset
 kind	aa-path-symex/var_map.h	/^    enum { SHARED, THREAD_LOCAL, PROCEDURE_LOCAL } kind;$/;"	m	struct:var_mapt::var_infot	typeref:enum:var_mapt::var_infot::__anon1
 kind	cpp/cpp_token.h	/^  int kind;$/;"	m	class:cpp_tokent
 kind	cpp/parse.cpp	/^  kindt kind;$/;"	m	class:new_scopet	file:
@@ -9017,6 +9022,7 @@ load	big-int/bigint.cc	/^BigInt::load (unsigned char const *p, unsigned n)$/;"	f
 loc	ansi-c/ansi_c_lex.yy.cpp	2878;"	d	file:
 loc	goto-instrument/accelerate/path.h	/^  goto_programt::targett loc;$/;"	m	class:path_nodet
 loc	goto-instrument/wmm/data_dp.h	/^  source_locationt loc;$/;"	m	struct:datat
+loc_code_extra	directfix-prototype/cbe.h	/^  std::map<std::string, std::vector<int> > loc_code_extra;$/;"	m	class:test_caset
 loc_infos	analyses/local_bitvector_analysis.h	/^  loc_infost loc_infos;$/;"	m	class:local_bitvector_analysist
 loc_infos	analyses/local_may_alias.h	/^  loc_infost loc_infos;$/;"	m	class:local_may_aliast
 loc_infost	analyses/local_bitvector_analysis.h	/^  typedef std::vector<loc_infot> loc_infost;$/;"	t	class:local_bitvector_analysist
@@ -9114,6 +9120,7 @@ logic	solvers/smt2/smt2_conv.h	/^  std::string benchmark, notes, logic;$/;"	m	cl
 logical_and_expression	ansi-c/parser.y	/^logical_and_expression:$/;"	l
 logical_equivalence_expression	ansi-c/parser.y	/^logical_equivalence_expression:$/;"	l
 logical_implication_expression	ansi-c/parser.y	/^logical_implication_expression:$/;"	l
+logical_ops	directfix-prototype/cbe.h	/^  std::map<dstring, int> logical_ops;$/;"	m	class:test_caset
 logical_or_expression	ansi-c/parser.y	/^logical_or_expression:$/;"	l
 long_cnt	ansi-c/ansi_c_convert_type.h	/^           int_cnt, short_cnt, long_cnt,$/;"	m	class:ansi_c_convert_typet
 long_cnt	cpp/cpp_convert_type.cpp	/^           long_cnt, const_cnt, constexpr_cnt, typedef_cnt, volatile_cnt,$/;"	m	class:cpp_convert_typet	file:
@@ -9995,6 +10002,7 @@ num_states	goto-instrument/accelerate/trace_automaton.h	/^  int num_states() {$/
 num_states	goto-instrument/accelerate/trace_automaton.h	/^  statet num_states;$/;"	m	class:automatont
 num_symbols	goto-instrument/accelerate/acceleration_utils.h	/^  static int num_symbols;$/;"	m	class:acceleration_utilst
 num_tdks	cpp/parse.cpp	/^                          tdk_specialization, num_tdks };$/;"	e	enum:Parser::TemplateDeclKind	file:
+num_var_additions	directfix-prototype/cbe.h	/^  int num_var_additions;$/;"	m	class:test_caset
 number	aa-path-symex/var_map.h	/^    unsigned number;$/;"	m	struct:var_mapt::var_infot
 number	path-symex/var_map.h	/^    unsigned number;$/;"	m	struct:var_mapt::var_infot
 number	util/irep_hash_container.cpp	/^unsigned irep_hash_container_baset::number(const irept &irep)$/;"	f	class:irep_hash_container_baset
@@ -10618,6 +10626,8 @@ operator_entryt	cpp/cpp_typecheck_expr.cpp	/^struct operator_entryt$/;"	s	file:
 operator_is_overloaded	cpp/cpp_typecheck_expr.cpp	/^bool cpp_typecheckt::operator_is_overloaded(exprt &expr)$/;"	f	class:cpp_typecheckt
 operator_overloading_rules	cpp/cpp_declarator_converter.cpp	/^void cpp_declarator_convertert::operator_overloading_rules($/;"	f	class:cpp_declarator_convertert
 operators	cpp/cpp_typecheck_expr.cpp	/^} const operators[] =$/;"	v
+operators	directfix-prototype/cbe.h	/^  std::map<std::string, exprt> operators;$/;"	m	class:test_caset
+operators_loc	directfix-prototype/cbe.h	/^  std::map<std::string, expr_listt> operators_loc;$/;"	m	class:test_caset
 optCvQualify	cpp/parse.cpp	/^bool Parser::optCvQualify(typet &cv)$/;"	f	class:Parser
 optIntegralTypeOrClassSpec	cpp/parse.cpp	/^bool Parser::optIntegralTypeOrClassSpec(typet &p)$/;"	f	class:Parser
 optMemberSpec	cpp/parse.cpp	/^bool Parser::optMemberSpec(cpp_member_spect &member_spec)$/;"	f	class:Parser
@@ -10717,7 +10727,6 @@ output	cbmc/icbmc_goto_trace.cpp	/^void icbmc_goto_tracet::output($/;"	f	class:i
 output	cpp/cpp_declaration.cpp	/^void cpp_declarationt::output(std::ostream &out) const$/;"	f	class:cpp_declarationt
 output	cpp/cpp_declarator.cpp	/^void cpp_declaratort::output(std::ostream &out) const$/;"	f	class:cpp_declaratort
 output	cpp/cpp_namespace_spec.cpp	/^void cpp_namespace_spect::output(std::ostream &out) const$/;"	f	class:cpp_namespace_spect
-output	directfix-prototype/cbe.cpp	/^void test_caset::output()$/;"	f	class:test_caset
 output	goto-instrument/accelerate/trace_automaton.cpp	/^void automatont::output(std::ostream &str) {$/;"	f	class:automatont
 output	goto-instrument/dot.cpp	/^void dott::output(std::ostream &out)$/;"	f	class:dott
 output	goto-instrument/points_to.cpp	/^void points_tot::output(std::ostream &out) const$/;"	f	class:points_tot
@@ -10771,7 +10780,6 @@ output_entry	pointer-analysis/value_set_fivrns.cpp	/^void value_set_fivrnst::out
 output_file_executable	goto-cc/compile.h	/^  std::string output_file_object, output_file_executable;$/;"	m	class:compilet
 output_file_object	goto-cc/compile.h	/^  std::string output_file_object, output_file_executable;$/;"	m	class:compilet
 output_fmt	goto-symex/symex_target_equation.cpp	/^void symex_target_equationt::output_fmt($/;"	f	class:symex_target_equationt
-output_hard	directfix-prototype/cbe.cpp	/^void test_caset::output_hard()$/;"	f	class:test_caset
 output_hard	directfix-prototype/component_e.cpp	/^void component_exprt::output_hard()$/;"	f	class:component_exprt
 output_icbmc	goto-programs/goto_functions_template.h	/^void goto_functions_templatet<bodyT>::output_icbmc($/;"	f	class:goto_functions_templatet
 output_icbmc	goto-programs/goto_program_template.h	/^std::ostream& goto_program_templatet<codeT, guardT>::output_icbmc($/;"	f	class:goto_program_templatet
@@ -11704,6 +11712,9 @@ register_languages	goto-instrument/goto_instrument_languages.cpp	/^void goto_ins
 register_languages	musketeer/languages.cpp	/^void goto_fence_inserter_parseoptionst::register_languages()$/;"	f	class:goto_fence_inserter_parseoptionst
 reinterpret_typecast	cpp/cpp_typecheck_conversions.cpp	/^bool cpp_typecheckt::reinterpret_typecast($/;"	f	class:cpp_typecheckt
 relation	solvers/floatbv/float_utils.cpp	/^literalt float_utilst::relation($/;"	f	class:float_utilst
+relation_32	directfix-prototype/cbe.h	/^  std::map<dstring, int> relation_32;$/;"	m	class:test_caset
+relation_64	directfix-prototype/cbe.h	/^  std::map<dstring, int> relation_64;$/;"	m	class:test_caset
+relation_8	directfix-prototype/cbe.h	/^  std::map<dstring, int> relation_8;$/;"	m	class:test_caset
 relational_expression	ansi-c/parser.y	/^relational_expression:$/;"	l
 relt	solvers/floatbv/float_utils.h	/^  typedef enum { LT, LE, EQ, GT, GE } relt;$/;"	t	class:float_utilst	typeref:enum:float_utilst::__anon52
 remainder	solvers/flattening/bv_utils.h	/^  bvt remainder(const bvt &op0, const bvt &op1,$/;"	f	class:bv_utilst
@@ -11898,6 +11909,7 @@ return_lhs	aa-path-symex/path_symex_state.h	/^    exprt return_lhs;$/;"	m	struct
 return_lhs	path-symex/path_symex_state.h	/^    exprt return_lhs;$/;"	m	struct:path_symex_statet::framet
 return_location	aa-path-symex/path_symex_state.h	/^    loc_reft return_location;$/;"	m	struct:path_symex_statet::framet
 return_location	path-symex/path_symex_state.h	/^    loc_reft return_location;$/;"	m	struct:path_symex_statet::framet
+return_num_ops	directfix-prototype/cbe.cpp	/^int return_num_ops(const dstring &id)$/;"	f
 return_set	goto-programs/goto_convert_class.h	/^    bool return_set, has_return_value, break_set, continue_set,$/;"	m	struct:goto_convertt::targetst
 return_type	ansi-c/c_typecheck_base.h	/^  typet return_type;$/;"	m	class:c_typecheck_baset
 return_type	util/std_types.h	/^  inline const typet &return_type() const$/;"	f	class:code_typet
@@ -12820,6 +12832,7 @@ state	goto-programs/flow_insensitive_analysis.h	/^  T state; \/\/ one global sta
 state	goto-symex/renaming_ns.h	/^  class goto_symex_statet &state;$/;"	m	class:renaming_nst	typeref:class:renaming_nst::goto_symex_statet
 state	goto-symex/symex_dereference_state.h	/^  goto_symext::statet &state;$/;"	m	class:symex_dereference_statet
 state_hash	goto-instrument/call_sequences.cpp	/^  class state_hash$/;"	c	class:check_call_sequencet	file:
+state_loop_phantom	directfix-prototype/cbe.h	/^  std::map<int, bool> state_loop_phantom;$/;"	m	class:test_caset
 state_map	analyses/ai.h	/^  state_mapt state_map;$/;"	m	class:ait
 state_map	analyses/static_analysis.h	/^  state_mapt state_map;$/;"	m	class:static_analysist
 state_mapt	analyses/ai.h	/^  typedef std::map<locationt, domainT> state_mapt;$/;"	t	class:ait
@@ -13277,7 +13290,7 @@ terminalst	solvers/prop/aig.h	/^  typedef std::map<unsigned, terminal_sett> term
 terms	goto-instrument/accelerate/polynomial.h	/^  std::vector<termt> terms;$/;"	m	class:monomialt
 termt	goto-instrument/accelerate/polynomial.h	/^  } termt;$/;"	t	class:monomialt	typeref:struct:monomialt::term
 test_c_preprocessor	ansi-c/c_preprocess.cpp	/^bool test_c_preprocessor(message_handlert &message_handler)$/;"	f
-test_caset	directfix-prototype/cbe.h	/^  test_caset($/;"	f	class:test_caset
+test_caset	directfix-prototype/cbe.cpp	/^test_caset::test_caset($/;"	f	class:test_caset
 test_caset	directfix-prototype/cbe.h	/^class test_caset$/;"	c
 test_lispexpr	util/lispexpr.cpp	/^int test_lispexpr()$/;"	f
 text	cpp/cpp_token.h	/^  std::string text;$/;"	m	class:cpp_tokent
@@ -13763,7 +13776,9 @@ type_names	goto-instrument/goto_program2code.h	/^  id_listt &type_names;$/;"	m	c
 type_names_set	goto-instrument/goto_program2code.h	/^  id_sett type_names_set;$/;"	m	class:goto_program2codet
 type_qualifier	ansi-c/parser.y	/^type_qualifier:$/;"	l
 type_qualifier_list	ansi-c/parser.y	/^type_qualifier_list:$/;"	l
+type_reduction	directfix-prototype/component_e.h	/^  std::set<typet> type_reduction;$/;"	m	class:component_exprt
 type_specifier	ansi-c/parser.y	/^type_specifier:$/;"	l
+type_stmt	directfix-prototype/component_e.h	/^  const int &type_stmt;$/;"	m	class:component_exprt
 type_to_string	goto-instrument/dump_c.cpp	/^std::string dump_ct::type_to_string(const typet &type)$/;"	f	class:dump_ct
 type_to_string	linking/linking.cpp	/^std::string linkingt::type_to_string($/;"	f	class:linkingt
 type_to_string_verbose	linking/linking.cpp	/^std::string linkingt::type_to_string_verbose($/;"	f	class:linkingt
@@ -13973,6 +13988,8 @@ unary_minus_exprt	util/std_expr.h	/^class unary_minus_exprt:public unary_exprt$/
 unbiased_floatt	solvers/floatbv/float_utils.h	/^  struct unbiased_floatt:public unpacked_floatt$/;"	s	class:float_utilst
 unbounded_array	solvers/flattening/boolbv.h	/^  unbounded_arrayt unbounded_array;$/;"	m	class:boolbvt
 unbounded_arrayt	solvers/flattening/boolbv.h	/^  typedef enum { U_NONE, U_ALL, U_AUTO } unbounded_arrayt;$/;"	t	class:boolbvt	typeref:enum:boolbvt::__anon44
+unbv32_ops	directfix-prototype/cbe.h	/^  std::map<dstring, int> unbv32_ops;$/;"	m	class:test_caset
+unbv64_ops	directfix-prototype/cbe.h	/^  std::map<dstring, int> unbv64_ops;$/;"	m	class:test_caset
 undefined_shift_check	analyses/goto_check.cpp	/^void goto_checkt::undefined_shift_check($/;"	f	class:goto_checkt
 undefines	util/config.h	/^    std::list<std::string> undefines;$/;"	m	struct:configt::ansi_ct
 under_assumptions	solvers/refinement/bv_refinement.h	/^    bvt under_assumptions;$/;"	m	struct:bv_refinementt::approximationt
@@ -14074,6 +14091,8 @@ upper_bound	util/sorted_vector.h	/^	iterator upper_bound(const K& k)$/;"	f	class
 upper_interval	util/interval.h	/^interval<T> upper_interval(const T &u)$/;"	f
 upper_set	analyses/intervals.h	/^  bool lower_set, upper_set;$/;"	m	class:interval_templatet
 upper_set	util/interval.h	/^  bool lower_set, upper_set;$/;"	m	class:interval
+urelation_32	directfix-prototype/cbe.h	/^  std::map<dstring, int> urelation_32;$/;"	m	class:test_caset
+urelation_64	directfix-prototype/cbe.h	/^  std::map<dstring, int> urelation_64;$/;"	m	class:test_caset
 usage	musketeer/experiments/goto-runner/goto-runner.sh	/^usage() {$/;"	f
 usage	musketeer/fence-insertion/fi.py	/^def usage():$/;"	f
 usage_count	solvers/prop/aig_prop.cpp	/^void aig_prop_solvert::usage_count(std::vector<unsigned> &p_usage_count, std::vector<unsigned> &n_usage_count) {$/;"	f	class:aig_prop_solvert
@@ -14249,7 +14268,7 @@ variable	goto-instrument/wmm/abstract_event.h	/^  irep_idt variable;$/;"	m	class
 variable	java_bytecode/java_bytecode_convert.cpp	/^  symbol_exprt variable(const exprt &arg, char type_char)$/;"	f	class:java_bytecode_convertt
 variable_map	solvers/qbf/qdimacs_core.h	/^  variable_mapt variable_map;  \/\/ variable -> symbol\/index map$/;"	m	class:qdimacs_coret
 variable_maps	directfix-prototype/cbe.h	/^  std::map<std::string, exprt> variable_maps;$/;"	m	class:test_caset
-variable_maps_loc	directfix-prototype/cbe.h	/^  std::map<std::string, exprt> variable_maps_loc;$/;"	m	class:test_caset
+variable_maps_loc	directfix-prototype/cbe.h	/^  std::map<std::string, expr_listt> variable_maps_loc;$/;"	m	class:test_caset
 variable_mapt	solvers/qbf/qdimacs_core.h	/^  typedef std::map<unsigned, symbol_mapt> variable_mapt;$/;"	t	class:qdimacs_coret
 vars	goto-instrument/accelerate/linearize.h	/^  std::vector<exprt> vars;$/;"	m	struct:linear_recurrence
 varst	goto-instrument/wmm/shared_buffers.h	/^  class varst$/;"	c	class:shared_bufferst

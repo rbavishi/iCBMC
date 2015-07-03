@@ -194,7 +194,7 @@ public:
 */
 extern inline const symbol_exprt &to_symbol_expr(const exprt &expr)
 {
-  assert(expr.id()==ID_symbol && !expr.has_operands());
+  assert(expr.id()==ID_symbol);// && !expr.has_operands());
   return static_cast<const symbol_exprt &>(expr);
 }
 
@@ -203,7 +203,7 @@ extern inline const symbol_exprt &to_symbol_expr(const exprt &expr)
 */
 extern inline symbol_exprt &to_symbol_expr(exprt &expr)
 {
-  assert(expr.id()==ID_symbol && !expr.has_operands());
+  assert(expr.id()==ID_symbol);// && !expr.has_operands());
   return static_cast<symbol_exprt &>(expr);
 }
 

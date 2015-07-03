@@ -403,6 +403,7 @@ void goto_convertt::convert(
   goto_programt &dest)
 {
   const irep_idt &statement=code.get_statement();
+  //std::cout << "CONVERTING GOTO: " << from_expr(ns, "", code) << "\n#####" << id2string(statement) << "\n";
   if(statement==ID_block)
     convert_block(to_code_block(code), dest);
   else if(statement==ID_decl)
@@ -1984,6 +1985,7 @@ void goto_convertt::convert_ifthenelse(
 
   exprt tmp_guard=code.cond();
   clean_expr(tmp_guard, dest);
+  //std::cout << " CONVERTING GUARD: " << from_expr(ns, "", tmp_guard) << "\n";
 
   generate_ifthenelse(tmp_guard, tmp_then, tmp_else, source_location, dest);
 }
@@ -2040,7 +2042,6 @@ void goto_convertt::generate_ifthenelse(
      false_case.instructions.empty())
     return;
 
-  true_case.output(std::cout);
   // do guarded gotos directly
   if(false_case.instructions.empty() &&
      true_case.instructions.size()==1 &&

@@ -7,10 +7,12 @@
 #include <util/dstring.h>
 #include <util/source_location.h>
 #include <solvers/prop/prop_conv.h>
+#include <solvers/smt1/smt1_conv.h>
 
 #include <string>
 #include <list>
 #include <algorithm>
+#include <set>
 
 class component_exprt
 {
@@ -25,7 +27,8 @@ class component_exprt
     const int &_unique_identifier,
     const int &_instruction_number,
     const bool &_is_loop_statement,
-    prop_convt &_solver);
+    const int &_type_stmt,
+    smt1_convt &_solver);
 
 
   const namespacet &ns;
@@ -37,10 +40,12 @@ class component_exprt
   const int &unique_identifier;
   const int &instruction_number;
   const bool &is_loop_statement;
-  prop_convt &solver;
+  const int &type_stmt;
+  smt1_convt &solver;
   int component_cnt; //Should be equal to (sep_j-sep_i)
 
   std::map<dstring, std::string> id_maps; //Couldn't think of a workaround
+  std::set<typet> type_reduction;
 
 
   //If need be - Can improve efficiency, but not needed right now
@@ -89,6 +94,10 @@ class component_exprt
   expr_listt out_component_variables;
   expr_listt in_location_variables;
   expr_listt in_component_variables;
+  expr_listt new_out_loc;
+  expr_listt new_out_comp;
+  expr_listt new_in_loc;
+  expr_listt new_in_comp;
 
   expr_listt phi_struct;  //Structure Constraint - Soft
   expr_listt phi_range;   //Range Constraint - Hard
@@ -106,10 +115,15 @@ class component_exprt
   void output_conn();
 
   //Component Addition
-  void add_variable_component(
-    const exprt &loc_var,
+
+  void add_component(
+    const exprt &loc_var_global,
     std::string var_name,
-    const exprt &original_expr);
+    const exprt &original_expr,
+    const int &identifier_addition);
+
+  void reject_component(
+    const exprt &loc_var_global);
 
 };
 

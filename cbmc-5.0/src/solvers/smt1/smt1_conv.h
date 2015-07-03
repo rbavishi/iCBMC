@@ -64,6 +64,7 @@ public:
 
   void set_soft_constraint(const exprt &expr);
   void set_hard_constraint(const exprt &expr);
+  void custom_output(const std::string &comment);
 
 
 protected:

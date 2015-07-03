@@ -146,7 +146,7 @@ void cbmc_parseoptionst::get_command_line_options(optionst &options)
   if(cmdline.isset("mm"))
     options.set_option("mm", cmdline.get_value("mm"));
 
-  if(cmdline.isset("no-simplify"))
+  if(cmdline.isset("no-simplify") || cmdline.isset("icbmc-directfix"))
     options.set_option("simplify", false);
   else
     options.set_option("simplify", true);

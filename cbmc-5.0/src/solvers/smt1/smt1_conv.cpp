@@ -3209,6 +3209,12 @@ void smt1_convt::set_to(const exprt &expr, bool value)
   out << "\n";
 }
 
+void smt1_convt::custom_output(const std::string &comment)
+{
+  out << "\n";
+  out << ";#@" << comment << "\n";
+}
+
 void smt1_convt::set_soft_constraint(const exprt &expr)
 {
   /*

@@ -18,6 +18,7 @@ Author: Daniel Kroening, kroening@kroening.com
 #include <goto-programs/goto_trace.h>
 
 #include <solvers/prop/literal.h>
+#include <solvers/smt1/smt1_conv.h>
 
 #include "symex_target.h"
 
@@ -153,7 +154,7 @@ public:
     const sourcet &source);
 
   void convert(prop_convt &prop_conv);
-  void convert_directfix(prop_convt &prop_conv);
+  void convert_directfix(smt1_convt &prop_conv);
   void convert_assignments(decision_proceduret &decision_procedure) const;
   void convert_decls(prop_convt &prop_conv) const;
   void convert_assumptions(prop_convt &prop_conv);

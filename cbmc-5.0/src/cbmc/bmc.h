@@ -94,6 +94,7 @@ protected:
   virtual void do_unwind_module(
     decision_proceduret &decision_procedure);
   void do_conversion(prop_convt &solver);
+  void do_conversion_directfix(smt1_convt &solver);
   
   prop_convt *solver_factory();
 
